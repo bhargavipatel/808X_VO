@@ -18,13 +18,18 @@ vo::vo() {
     printf("try this");
     flagval = true;
     string imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/";
+    String fun_imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/*.png";
     string mdlFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/model/";
-    printf("flodername",imgFolder);
+    printf("flodername: ");
+    // printf("%s\n",imgFolder.c_str());
+    //printf(imgFolder);
+    printf("before function");
     Mat cur, nxt;
     Mat R_f, t_f;
-    vector<string> imgList;
+    
+    vector<String> imgList;
 
-    createImageList(imgList, imgFolder);
+    createImageList(imgList, fun_imgFolder);
    
     //Starting from a particular image
     int i = 0;
@@ -154,25 +159,29 @@ vo::~vo() {}
  *
  * @param[in]  input  
  */
-void vo::createImageList(vector<string>& imgList, string imgFolder) {
-  printf("imglist print 1",imgList);
-  printf("img folder print 2",imgFolder);
-  DIR *dp;
-    struct dirent *dirp;
-    dp = opendir(imgFolder.c_str());
-    printf("printing dp 3",dp);
-    printf("printing add dp 4",&dp);
+void vo::createImageList(vector<String>& imgList, String fun_imgFolder) {
+  printf("creatimage function");
+  glob(fun_imgFolder,imgList);
 
-    while ( (dirp = readdir(dp)) != NULL )
-        printf("printing dirp 5",dirp);
-        printf("printing add dirp 6",&dirp);
-        imgList.push_back(dirp->d_name);
-        printf("before close 7");
-    closedir(dp);
-    printf("after close 8");
+
+  // printf("imglist print 1");
+  // printf("img folder print 2");
+  // DIR *dp;
+  //   struct dirent *dirp;
+  //   dp = opendir(imgFolder.c_str());
+  //   printf("printing dp 3");
+  //   printf("printing add dp 4");
+
+  //   while ( (dirp = readdir(dp)) != NULL )
+  //       printf("printing dirp 5",dirp);
+  //       printf("printing add dirp 6",&dirp);
+  //       imgList.push_back(dirp->d_name);
+  //       printf("before close 7");
+  //   closedir(dp);
+  //   printf("after close 8");
 
     sort(imgList.begin(), imgList.end());
-    printf("after sort 9");
+   // printf("after sort 9");
 }
 
 /**

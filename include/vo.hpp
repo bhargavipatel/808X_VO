@@ -17,6 +17,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <dirent.h>
+#include <vector>
+
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/core.hpp>
@@ -35,7 +37,7 @@ using namespace cv::xfeatures2d;
 class vo {
  private:
 
- 	bool flagval = false;
+  bool flagval = false;
   
  public:
   /**
@@ -53,7 +55,7 @@ class vo {
    *
    * @param[in]  input  
    */
-  void createImageList(vector<string>& imgList, string imgFolder);
+  void createImageList(vector<String>& imgList, String fun_imgFolder);
 
   /**
    * @brief      Gets 

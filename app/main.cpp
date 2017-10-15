@@ -21,11 +21,13 @@
  */
 int main()
 {
-  allmod inst1;  // 
-  if (inst1.checkRes()) {  //  is true
-    std::cout << "Result Checked." << std::endl;  	
-  } else {  // 
-    std::cout << "Result ERROR" << std::endl;
-  }
+  vo voobj;
   return 0;
+  // allmod inst1;  // 
+  // if (inst1.checkRes()) {  //  is true
+  //   std::cout << "Result Checked." << std::endl;    
+  // } else {  // 
+  //   std::cout << "Result ERROR" << std::endl;
+  // }
+  // return 0;
 }
