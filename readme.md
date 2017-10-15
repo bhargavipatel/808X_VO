@@ -1,5 +1,5 @@
 # C++ Boilerplate
-[![Build Status](https://travis-ci.org/dpiet/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/dpiet/cpp-boilerplate)
+[![Build Status](https://travis-ci.org/bhargavipatel/808X_Midsem.svg?branch=master)](https://travis-ci.org/bhargavipatel/808X_Midsem)
 [![Coverage Status](https://coveralls.io/repos/github/bhargavipatel/808X_Midsem/badge.svg?branch=master)](https://coveralls.io/github/bhargavipatel/808X_Midsem?branch=master)
 ---
 
