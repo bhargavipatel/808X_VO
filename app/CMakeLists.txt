@@ -1,4 +1,4 @@
-add_executable(shell-app main.cpp)
+add_executable(shell-app main.cpp vo.cpp allmod.cpp)
 # Link the OpenCV_LIBS with binary
 target_link_libraries( shell-app ${OpenCV_LIBS} )
 

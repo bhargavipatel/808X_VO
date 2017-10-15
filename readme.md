@@ -3,12 +3,40 @@
 [![Coverage Status](https://coveralls.io/repos/github/bhargavipatel/808X_Midsem/badge.svg?branch=master)](https://coveralls.io/github/bhargavipatel/808X_Midsem?branch=master)
 ---
 
+## Project Details
+
+Visual Odometry is a crucial concept in Robotics Perception for estimating the trajectory of
+the Robot (camera to be precise). The concepts involved in Visual Odometry are quite the
+same for SLAM which needless to say is an integral part of Perception.
+
+Steps:
+• Input image is in Bayer format from which color image is recovered
+• Extraction of camera parameters
+• Undistort the current frame and next frame 
+• Finding point correspondences
+• Estimate the Fundamental matrix using these point correspondences.
+• Recover Rotation and Translation matrices from Fundamental matrix.
+• Ploting the position of camera center (for each frame) based on the rotation and translation
+parameters between successive frames.
+
 ## Overview
 
 Simple starter C++ project with:
 
 - cmake
 - googletest
+
+## SIP Process
+Sip Process Deails 
+[SIP](https://docs.google.com/spreadsheets/d/1RSP75a3Ezs6S3T3I84Ec1m85p-fogS6JML_CMYmCvE4/edit?usp=sharing)
+
+##LICENSE
+
+##STATUS
+
+##TODO
+
+##FUTURE WORK
 
 ## Standard install via command-line
 ```
@@ -124,3 +152,17 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 - Git
 
     It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project. If you're interested in this, try it out yourself and contact me on Canvas.
+
+## Running Unit Tests
+In your build directory
+```
+./test/cpp-test
+```
+
+## Generating doxygen Documentation
+
+In your git home directory. Doxygen files will be generated to /docs folder
+```
+doxygen Doxygen
+```
+ 
