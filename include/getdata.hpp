@@ -8,16 +8,14 @@
  *  @section DESCRIPTION
  *   *
  */
-#ifndef GETDATA_HPP_
-#define GETDATA_HPP_
-
+#ifndef INCLUDE_GETDATA_HPP_
+#define INCLUDE_GETDATA_HPP_
+#include <dirent.h>
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include <fstream>
-#include <dirent.h>
 #include <vector>
-
 #include <opencv2/opencv.hpp>
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
@@ -34,13 +32,11 @@
  */
 class getdata {
  private:
-
  public:
-
- 	std::string imgFolder1;
-	cv::String fun_imgFolder1;
-	std::string mdlFolder1;
-	std::string dummyvar;
+  // std::string imgFolder1;
+  // cv::String fun_imgFolder1;
+  // std::string mdlFolder1;
+  // std::string dummyvar;
   /**
    * @brief      Constructor
    */
@@ -50,14 +46,10 @@ class getdata {
    * @brief      Destroys the object.
    */
   ~getdata();
-
-  
   /**
    * @brief      Gets 
    *
    * @return     The 
-   */
-  
+   */  
 };
-
-#endif  // GETDATA_HPP_
+#endif  // INCLUDE_GETDATA_HPP_

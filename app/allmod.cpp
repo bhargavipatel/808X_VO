@@ -21,6 +21,6 @@ allmod::allmod() {
  */
 allmod::~allmod() {}
 
-bool allmod::checkRes() {    
-  return (vo_.checkRes()); //  
+bool allmod::checkRes() {
+  return (vo_.checkRes());  //
 }

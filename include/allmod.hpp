@@ -9,9 +9,8 @@
  *  
  *
  */
-#ifndef ALLMOD_HPP_
-#define ALLMOD_HPP_
-
+#ifndef INCLUDE_ALLMOD_HPP_
+#define INCLUDE_ALLMOD_HPP_
 #include <iostream>
 #include <vector>
 #include "vo.hpp"
@@ -22,7 +21,6 @@
 class allmod {
  private:
   vo vo_;
-  
  public:
   /**
    * @brief      Constructor
@@ -34,7 +32,6 @@ class allmod {
    */
   ~allmod();
 
-  
   /**
    * @brief      Gets 
    *
@@ -43,4 +40,4 @@ class allmod {
   bool checkRes();
 };
 
-#endif  // ALLMOD_HPP_
+#endif  // INCLUDE_ALLMOD_HPP_

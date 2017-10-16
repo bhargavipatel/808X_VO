@@ -19,14 +19,13 @@
  *
  * @return     nothing
  */
-int main()
-{
+int main() {
   vo voobj;
   return 0;
-  // allmod inst1;  // 
+  // allmod inst1;  //
   // if (inst1.checkRes()) {  //  is true
-  //   std::cout << "Result Checked." << std::endl;    
-  // } else {  // 
+  //   std::cout << "Result Checked." << std::endl;
+  // } else {  //
   //   std::cout << "Result ERROR" << std::endl;
   // }
   // return 0;
