@@ -18,7 +18,8 @@
 #include <fstream>
 #include <dirent.h>
 #include <vector>
-#include <getdata.hpp>
+#include "getdata.hpp"
+#include <memory>
 
 
 #include <opencv2/opencv.hpp>
@@ -28,9 +29,11 @@
 #include <opencv2/xfeatures2d.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/calib3d.hpp>
-using namespace std;
-using namespace cv;
-using namespace cv::xfeatures2d;
+
+
+// using namespace std;
+// using namespace cv;
+// using namespace cv::xfeatures2d;
 
 /**
  * @brief      Class for vo module.
@@ -46,7 +49,9 @@ class vo {
 	/**
 	 * @brief      Constructor
 	 */
+ 	// getdata getdataobj_;
  	getdata getdataobj_;
+ 	// std
 	vo();
 
 	/**
@@ -70,13 +75,13 @@ class vo {
 	/**
 	 * @brief      readLutToMat
 	 */
-	int readLutToMat(Mat &I, string path, int matWidth, int matHeight);
+	int readLutToMat(cv::Mat &I, cv::String path, int matWidth, int matHeight);
 
 	/**
 	 * @brief      for good matches
 	 */
 
-	void computeGoodMatches(vector< DMatch >& good_matches, Mat& descriptors_1, Mat& descriptors_2);
+	void computeGoodMatches(std::vector< cv::DMatch >& good_matches, cv::Mat& descriptors_1, cv::Mat& descriptors_2);
  
 	/**
 	 * @brief      Get Results.
