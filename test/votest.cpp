@@ -18,7 +18,7 @@
 
 class VisualTest : public ::testing::Test {
  protected:
-    vo voObj;  // Create an object to be used in the tests
+	vo voObj;  // Create an object to be used in the tests
 };
 
 /**

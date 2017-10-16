@@ -37,50 +37,51 @@ using namespace cv::xfeatures2d;
 class vo {
  private:
 
-  bool flagval = false;
-  bool filecheck = false;
-  
+	bool flagval = false;
+	bool filecheck = false;
+
+	
  public:
-  /**
-   * @brief      Constructor
-   */
-  vo();
+	/**
+	 * @brief      Constructor
+	 */
+	vo();
 
-  /**
-   * @brief      Destroys the object.
-   */
-  ~vo();
+	/**
+	 * @brief      Destroys the object.
+	 */
+	~vo();
 
-  /**
-   * @brief      Sets
-   *
-   * @param[in]  input  
-   */
-  void createImageList(vector<String>& imgList, String fun_imgFolder);
+	/**
+	 * @brief      Sets
+	 *
+	 * @param[in]  input  
+	 */
+	// void createImageList(vector<String>& imgList, String fun_imgFolder);
 
-  /**
-   * @brief      Gets 
-   *
-   * @return     The 
-   */
+	/**
+	 * @brief      Gets 
+	 *
+	 * @return     The 
+	 */
 
-  /**
-   * @brief      readLutToMat
-   */
-  int readLutToMat(Mat &I, string path, int matWidth, int matHeight);
+	/**
+	 * @brief      readLutToMat
+	 */
+	int readLutToMat(Mat &I, string path, int matWidth, int matHeight);
 
-  /**
-   * @brief      for good matches
-   */
+	/**
+	 * @brief      for good matches
+	 */
 
-  void computeGoodMatches(vector< DMatch >& good_matches, Mat& descriptors_1, Mat& descriptors_2);
+	void computeGoodMatches(vector< DMatch >& good_matches, Mat& descriptors_1, Mat& descriptors_2);
  
-  /**
-   * @brief      Get Results.
-   *
-   * @return     The 
-   */
-  bool checkRes(); 
-  bool checkfile_fun(); 
+	/**
+	 * @brief      Get Results.
+	 *
+	 * @return     The 
+	 */
+	bool checkRes(); 
+	bool checkfile_fun(); 
 };
 #endif  // VO_HPP_
