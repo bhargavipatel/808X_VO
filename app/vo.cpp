@@ -14,12 +14,15 @@
  * @brief      Constructs the object.
  */
 vo::vo() {
-
     printf("try this");
     flagval = true;
-    string imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/";
-    String fun_imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/*.png";
-    string mdlFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/model/";
+    filecheck = true;
+    string imgFolder = "../data/Oxford_dataset/stereo/centre/";
+    String fun_imgFolder = "../data/Oxford_dataset/stereo/centre/*.png";
+    string mdlFolder = "../data/Oxford_dataset/model/";
+    // string imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/";
+    // String fun_imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/*.png";
+    // string mdlFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/ model/";
     printf("flodername: ");
     // printf("%s\n",imgFolder.c_str());
     //printf(imgFolder);
@@ -29,16 +32,25 @@ vo::vo() {
     
     vector<String> imgList;
 
-    createImageList(imgList, fun_imgFolder);
-   
+    // createImageList(imgList, fun_imgFolder);
+    printf("creatimage function");
+    glob(fun_imgFolder,imgList);
+    sort(imgList.begin(), imgList.end());
+
     //Starting from a particular image
     int i = 0;
-    string img1 = imgFolder + "1399381446204705.png";
-    while (imgList[i] != "1399381446204705.png")
-        i++;
-    cout << imgList[i] << " and " << imgList[i+1] << endl;
+    // string img1 = imgFolder + "1399381446204705.png";
+    // while (imgList[i] != "1399381446204705.png")
+    //     i++;
+    // cout << imgList[i] << " and " << imgList[i+1] << endl;
+
+    
+    if (imgList.empty() == 1)
+        filecheck = false;
+    
 
     //Reading start image and demosaicing it
+    string img1 = imgList[1];
     Mat tmp = imread(img1, IMREAD_GRAYSCALE);
     int r = tmp.rows;
     int c = tmp.cols;
@@ -89,7 +101,8 @@ vo::vo() {
     for (int j = i+1; j < i + 100; ++j) {
 
         //Read new image
-        string img2 = imgFolder+imgList[j];
+        // string img2 = imgFolder+imgList[j];
+        string img2 = imgList[j];
         Mat tmp1 = imread(img2, IMREAD_GRAYSCALE);
         Mat Mat2;
         cvtColor(tmp1, Mat2, COLOR_BayerGR2BGR);
@@ -248,4 +261,9 @@ void vo::computeGoodMatches(vector< DMatch >& good_matches, Mat& descriptors_1, 
 bool vo::checkRes() {
   printf("Before flag value",flagval);  
   return flagval;  // Return flag value
+}
+
+bool vo::checkfile_fun() {
+  printf("Filecontant value",filecheck);  
+  return filecheck;  // Return flag value
 }

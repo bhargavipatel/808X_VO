@@ -38,6 +38,7 @@ class vo {
  private:
 
   bool flagval = false;
+  bool filecheck = false;
   
  public:
   /**
@@ -79,6 +80,7 @@ class vo {
    *
    * @return     The 
    */
-  bool checkRes();  
+  bool checkRes(); 
+  bool checkfile_fun(); 
 };
 #endif  // VO_HPP_

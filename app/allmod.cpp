@@ -14,7 +14,7 @@
 /**
  * @brief      Constructs the object.
  */
-allmod::allmod(){
+allmod::allmod() {
 }
 /**
  * @brief      Destroys the object.

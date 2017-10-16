@@ -38,3 +38,14 @@ TEST_F(VisualTest, SanityCheck) {
 TEST_F(VisualTest, ResultCheck) {
   EXPECT_EQ(voObj.checkRes(), 1);
 }
+
+/**
+ * @brief      File Check test
+ *
+ * @param[in]  VisualTest vo object
+ * @param[in]  ResultCheck Name of the test
+ */
+TEST_F(VisualTest, FileCheck) {
+  EXPECT_EQ(voObj.checkfile_fun(), 1);
+}
+
