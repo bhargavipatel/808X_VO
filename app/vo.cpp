@@ -10,20 +10,35 @@
  */
 
 #include <vo.hpp>
+#include <getdata.hpp>
 /**
  * @brief      Constructs the object.
  */
 vo::vo() {
+
+	std::string dumval = getdataobj_.dummyvar;
+	printf("%s\n",dumval);
+
 	printf("try this");
 	flagval = true;
 	filecheck = true;
+	
+	// std::string imgFolder = getdataobj_.imgFolder1;
+	// cv::String fun_imgFolder = getdataobj_.fun_imgFolder1;
+	// std::string mdlFolder = getdataobj_.mdlFolder1;
+
+	// getdataobj_.fun_imgFolder = fun_imgFolder;
+	// getdataobj_.mdlFolder = mdlFolder;
+
+
+
+
 	string imgFolder = "../data/Oxford_dataset/stereo/centre/";
+	
 	String fun_imgFolder = "../data/Oxford_dataset/stereo/centre/*.png";
 	string mdlFolder = "../data/Oxford_dataset/model/";
-	// string imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/";
-	// String fun_imgFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/stereo/centre/*.png";
-	// string mdlFolder = "/home/bhargavi/Documents/SDR/Copy_Exam_808X/data/Oxford_dataset/ model/";
-	printf("flodername: ");
+	
+	printf("Object thingy worked: ");
 	// printf("%s\n",imgFolder.c_str());
 	//printf(imgFolder);
 	printf("before function");
@@ -34,6 +49,7 @@ vo::vo() {
 
 	// createImageList(imgList, fun_imgFolder);
 	printf("creatimage function");
+
 	glob(fun_imgFolder,imgList);
 	sort(imgList.begin(), imgList.end());
 
@@ -151,8 +167,8 @@ vo::vo() {
 		p2 = Point(x, y);
 
 		line(plotImg, p1, p2, Scalar(0, 0, 255));
-		imshow("Image Feed", Mat2);
-		imshow("Trajectory", plotImg);
+		// imshow("Image Feed", Mat2);
+		// imshow("Trajectory", plotImg);
 		waitKey(10);
 		Mat1 = Mat2;
 		p1 = p2;

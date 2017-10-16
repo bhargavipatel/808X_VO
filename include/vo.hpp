@@ -18,6 +18,7 @@
 #include <fstream>
 #include <dirent.h>
 #include <vector>
+#include <getdata.hpp>
 
 
 #include <opencv2/opencv.hpp>
@@ -45,6 +46,7 @@ class vo {
 	/**
 	 * @brief      Constructor
 	 */
+ 	getdata getdataobj_;
 	vo();
 
 	/**

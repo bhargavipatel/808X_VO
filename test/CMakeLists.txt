@@ -11,7 +11,7 @@ add_executable(
     votest.cpp
     ../app/vo.cpp
     ../app/allmod.cpp
-    
+    ../app/getdata.cpp
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 
