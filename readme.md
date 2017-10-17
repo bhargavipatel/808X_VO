@@ -1,6 +1,7 @@
 ## Visual Odometry
-[[![Build Status](https://travis-ci.org/bhargavipatel/808X_VO.svg?branch=master)](https://travis-ci.org/bhargavipatel/808X_VO)
+[![Build Status](https://travis-ci.org/bhargavipatel/808X_VO.svg?branch=master)](https://travis-ci.org/bhargavipatel/808X_VO)
 [![Coverage Status](https://coveralls.io/repos/github/bhargavipatel/808X_VO/badge.svg?branch=master)](https://coveralls.io/github/bhargavipatel/808X_VO?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/bhargavipatel/808X_VO/blob/master/LICENSE)
 ---
 
 ## Project Details
