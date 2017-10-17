@@ -1,0 +1,17 @@
+bhargavi@bharg:~/Documents/SDR/Copy_Exam_808X$ ../cpplint.py --extensions=h,hpp,cpp $( find . -name *.h -or -name *.hpp -or -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+Done processing ./app/allmod.cpp
+Done processing ./app/getdata.cpp
+Done processing ./app/vo.cpp
+Done processing ./app/main.cpp
+Done processing ./include/allmod.hpp
+Done processing ./include/lib.hpp
+Done processing ./include/getdata.hpp
+Done processing ./include/vo.hpp
+Done processing ./test/test.cpp
+Done processing ./test/main.cpp
+Done processing ./test/votest.cpp
+bhargavi@bharg:~/Documents/SDR/Copy_Exam_808X$ 
+
+
+
+
