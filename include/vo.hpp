@@ -45,6 +45,10 @@ class vo {
     getdata getdataobj_;
     // cv::Mat tmp;
     std::string mdlFolder = "../data/Oxford_dataset/model/";
+    cv::Mat cur, nxt;
+    cv::Mat R_f, t_f;
+    std::vector<cv::KeyPoint> keypoints_1, keypoints_2;
+    cv::Mat descriptors_1, descriptors_2;
 
     // std
     vo();
