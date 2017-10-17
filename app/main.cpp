@@ -7,8 +7,8 @@
  *
  *  @section DESCRIPTION
  *  
- *  This 
- *
+ *  This is the main cpp file
+ *  to run the whole module
  */
 
 #include <allmod.hpp>
@@ -20,7 +20,8 @@
  * @return     nothing
  */
 int main() {
-  vo voobj;
+  
+  vo voobj; // object used the check many test cases
   return 0;
   // allmod inst1;  //
   // if (inst1.checkRes()) {  //  is true

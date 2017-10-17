@@ -6,8 +6,16 @@
  *  @brief ENPM808X, MidSem Exam
  *
  *  @section DESCRIPTION
- *   *
+ *  This is the main implementation of 
+ *  visual odometry code.It is taking sequence of images
+ *  as input and calculating the rotational and trasnalational 
+ *  parameters according to camera centre considering and comparing
+ *  features.I am using SURF features as they are faster than 
+ *  SHIF features.The image is preproced in many ways and denoising 
+ *  is also done before comparing the features.
+ *
  */
+
 
 #include <vo.hpp>
 
@@ -22,7 +30,7 @@ vo::vo() {
 
     printf("try this");
     flagval = true;
-    filecheck = true;
+    filecheck = true;  // To check if files are loaded correctly
     // std::string imgFolder = getdataobj_.imgFolder1;
     // cv::String fun_imgFolder = getdataobj_.fun_imgFolder1;
     // std::string mdlFolder = getdataobj_.mdlFolder1;
@@ -35,12 +43,12 @@ vo::vo() {
     // printf("%s\n",imgFolder.c_str());
     // printf(imgFolder);
     printf("before function");
-    cv::Mat cur, nxt;
-    cv::Mat R_f, t_f;
+    cv::Mat cur, nxt;  // Matrix creation
+    cv::Mat R_f, t_f;  // Rotational and Traslational Parameters
     std::vector<cv::String> imgList;
     // createImageList(imgList, fun_imgFolder);
-    printf("creatimage function");
-    glob(fun_imgFolder, imgList);
+    printf("creatimage function");  // This is test case for seg fault checking
+    glob(fun_imgFolder, imgList);  // Making a list of all images from data
     sort(imgList.begin(), imgList.end());
     // Starting from a particular image
     int i = 0;
@@ -52,23 +60,25 @@ vo::vo() {
         filecheck = false;
     // Reading start image and demosaicing it
     cv::String img1 = imgList[1];
-    cv::Mat tmp = imread(img1, cv::IMREAD_GRAYSCALE);
+    cv::Mat tmp = imread(img1, cv::IMREAD_GRAYSCALE);   // Reading the
+    // grayscale image
 
     int r = tmp.rows;
     int c = tmp.cols;
 
     cv::Mat Mat1;
-    cvtColor(tmp, Mat1, cv::COLOR_BayerGR2BGR);
+    cvtColor(tmp, Mat1, cv::COLOR_BayerGR2BGR);   //  Demosaicing the image
     // Reading LUT file and creating camera matrix
     std::string lut_file = mdlFolder + "stereo_narrow_left_distortion_lut.bin";
     cv::Mat lutMat;
-    readLutToMat(lutMat, lut_file, c, r);
+    readLutToMat(lutMat, lut_file, c, r);   // reading the LUT format
     lutMat.convertTo(lutMat, CV_32FC2);
 
     cv::Mat lutxy[2];
     split(lutMat, lutxy);
     cv::Mat cameraMat = ((cv::Mat1d(3, 3) << 964.828979,
        0, 643.788025, 0, 964.828979, 484.407990, 0, 0, 1));
+       // Camera Matrix from calibration
 
     // R_p, t_p represent previous poses starting
     // with R_p = eye(3,3) and t_p = zeros(3,1)
@@ -103,7 +113,7 @@ vo::vo() {
     cv::Mat descriptors_1, descriptors_2;
 
     detector->detectAndCompute(Mat1, cv::Mat(), keypoints_1, descriptors_1);
-
+    // Doing the process for all the images in the dataset
     for (int j = i+1; j < i + 100; ++j) {
         // Read new image
         // string img2 = imgFolder+imgList[j];
@@ -139,6 +149,7 @@ vo::vo() {
         E = findEssentialMat(scene, obj, focal, pp,
            cv::RANSAC, 0.999, 1.0, mask);
         recoverPose(E, scene, obj, R, t, focal, pp, mask);
+        // Recovering the Pose
         // cout << "Size of t is " << t.rows << ", " << t.cols << endl;
         // cout << "Translational parameters are t[0] =
         // " << t.at<double>(0) << ", t[1] = " << t.at<double>(1)
@@ -148,6 +159,7 @@ vo::vo() {
         // imshow( "Good Matches", img_matches );
         t_p = t_p + (R_p*t);
         R_p = R*R_p;
+        // Printing the translation Parameters.
         std::cout << "Translational parameters are t[0] = " << t.at<double>(0)
           << ", t[1] = " << t.at<double>(1) << " and t[2] = " << t.at<double>(2)
              << std::endl;
@@ -206,7 +218,7 @@ vo::~vo() {}
 /**
  * @brief      convert image from LUT to Mat
  *
- * @param[in]  input  
+ * @param[in]  input cv::Mat&I, cv::String path, int matWidth, int matHeight
  */
 int vo::readLutToMat(cv::Mat&I, cv::String path, int matWidth, int matHeight) {
     // declare values to be written
@@ -235,7 +247,8 @@ int vo::readLutToMat(cv::Mat&I, cv::String path, int matWidth, int matHeight) {
 /**
  * @brief      Compare features and do thresholding
  *
- * @param[in]  input  
+ * @param[in]  input  std::vector< cv::DMatch >& good_matches,
+ *    cv::Mat& descriptors_1, cv::Mat& descriptors_2
  */
 
 
@@ -261,12 +274,20 @@ void vo::computeGoodMatches(std::vector< cv::DMatch >& good_matches,
             good_matches.push_back(matches[i]);
     }
 }
-
+/**
+ * @brief      Checking if the vo is working properly
+ *
+ * @param[in]  
+ */
 bool vo::checkRes() {
   printf("Before flag value");
   return flagval;  // Return flag value
 }
-
+/**
+ * @brief For checking if the files are loaded properly
+ *
+ * @param[in]  
+ */
 bool vo::checkfile_fun() {
   printf("Filecontant value");
   return filecheck;  // Return flag value

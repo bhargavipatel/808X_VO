@@ -4,9 +4,9 @@
  *  @copyright MIT License
  *  
  *  @brief ENPM808X, MidSem Exam
- *  @section DESCRIPTION
- *  
- *  
+ *  @section DESCRIPTION 
+ *  This program is used to check the result of the visual 
+ *  odomentry code and see if it is working properly
  */
 
 #include <allmod.hpp>

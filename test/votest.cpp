@@ -54,7 +54,7 @@ TEST_F(VisualTest, FileCheck) {
  * @brief       Check test
  *
  * @param[in]  VisualTest vo object
- * @param[in]  ResultCheck Name of the test
+ * @param[in]  Checking the 
  */
 TEST_F(VisualTest, checkFolder) {
   std::string val2 = voObj.mdlFolder;
