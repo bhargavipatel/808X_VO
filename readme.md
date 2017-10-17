@@ -29,11 +29,6 @@ For monocular vision, the task is trickier because there is only one camera. To 
 
 The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; SIFT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used; RANSAC is one such algorithm. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.I am using SURF Features which yield better performance than SIFT.
 
-## Simple starter C++ project with:
-
-- cmake
-- googletest
-
 ## SIP Process
 The SIP process metholodogy was used for the development .The product log, time log, and defect log are written in the following Document :
 [SIPProcess](https://docs.google.com/spreadsheets/d/1RSP75a3Ezs6S3T3I84Ec1m85p-fogS6JML_CMYmCvE4/edit?usp=sharing)
@@ -61,11 +56,14 @@ UML class/activity diagrams can be found [here](https://github.com/bhargavipatel
 - [x] Github README with TravisCI and Coverage of Coveralls
 - [x] Doxygen Documentation
 
-- ### FUTURE WORK
+## FUTURE WORK
+- [x] Can try Real-time visual odometry from stereo data. 
+- [x] Can Extend this project on ROS for SLAM. 
+- [x] Implement more classes. 
 
 ## Standard install via command-line
 ```
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/bhargavipatel/808X_VO.git
 cd <path to repository>
 mkdir build
 cd build
@@ -92,7 +90,7 @@ In your Eclipse workspace directory (or create a new one), checkout the repo (an
 ```
 mkdir -p ~/workspace
 cd ~/workspace
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/bhargavipatel/808X_VO.git
 ```
 
 In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of cpp-boilerplate
