@@ -8,7 +8,11 @@
 
 Visual Odometry is a crucial concept in Robotics Perception for estimating the trajectory of
 the Robot (camera to be precise). The concepts involved in Visual Odometry are quite the
-same for SLAM which needless to say is an integral part of Perception.
+same for SLAM which needless to say is an integral part of Perception.It is widely
+used in autonomous driving system and was even used in Mars Rover for trajectory estimation.
+As I am using input from just one camera , it’s called Monocular Visual Odometry. Unlike stereo odometry ,
+where we can estimate exact trajectory , in monocular odometry we can estimate the trajectory.
+Monocular system is beneficial while working with small scale robots and drones.
 
 Steps:
 - Input image is in Bayer format from which color image is recovered
@@ -21,13 +25,13 @@ Steps:
 parameters between successive frames.
 
 ## Visual Odometry in Detail
-Monocular or stereo, the objective of visual odometry is to estimate the pose of the robot based on some measurements from an image(s). It's hard to pin down a single core principle--Bayesian Probability Theory is likely to core principle, but epipolar geometry certainly important.
+Monocular or stereo, the objective of visual odometry is to estimate the pose of the robot based on some measurements from an image(s).
 
 For stereo, the general idea is that if you know your camera parameters, and you know that the relationship between your camera is fixed, then a point pp that is viewed from both cameras projects onto each image plane an epipolar line segment. Using the epipolar plane defined by these line segments and the camera geometry, the distance to the point can be estimated, which can be used to estimate the pose of the robot.
 
 For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time t; the robot is actuated, and another image is taken at time t+1 (e.g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don't know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.
 
-The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; SIFT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used; RANSAC is one such algorithm. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.I am using SURF Features which yield better performance than SIFT.
+The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; SIFT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.I am using SURF Features which yield better performance than SIFT.
 
 ## SIP Process
 The SIP process metholodogy was used for the development .The product log, time log, and defect log are written in the following Document :
@@ -46,6 +50,10 @@ Issues Raised and Solved log can be found [here](https://github.com/bhargavipate
 ## Plotting Trajectory and Output
 ![alt text](OutputFigures/vo1.png "Trajectory Plot")
 ![alt text](OutputFigures/translationpara.png "Translation Parameters")
+
+## Implementation Changes 
+- Instead of SHIF , Using SURF Features.
+- Instead of [Kitti](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) dataset using Oxford Robotcar Dataset.
 
 ## TODO
 - [x] Implement the Visual Odometry for Monocular Camera. 
@@ -67,7 +75,7 @@ Issues Raised and Solved log can be found [here](https://github.com/bhargavipate
 
 ## Dependencies
 -  OpenCV
-   OpenCV Documentation and Installation can be founnd [here](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)
+-   OpenCV Documentation and Installation can be founnd [here](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)
 
 ## Standard install via command-line
 ```
