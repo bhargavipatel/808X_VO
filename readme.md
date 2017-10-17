@@ -41,7 +41,7 @@ The SIP process metholodogy was used for the development .The product log, time 
    - During this stage, all the compiler warnings were addressed and all the program blocks were commented using Doxygen syntax. This ensures the overall quality of the software product.
 
 UML class/activity diagrams can be found [here](https://github.com/bhargavipatel/808X_VO/tree/master/UML).
-Issues Raised and Solved log can be found [here] (https://github.com/bhargavipatel/808X_VO/issues)
+Issues Raised and Solved log can be found [here](https://github.com/bhargavipatel/808X_VO/issues)
 
 ## Plotting Trajectory and Output
 ![alt text](OutputFigures/vo1.png "Trajectory Plot")
@@ -63,6 +63,11 @@ Issues Raised and Solved log can be found [here] (https://github.com/bhargavipat
 -  Can Extend this project on ROS for SLAM. 
 -  Implement more classes. 
 
+
+## Dependencies
+-  OpenCV
+   OpenCV Documentation and Installation can be founnd [here](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)
+
 ## Standard install via command-line
 ```
 git clone --recursive https://github.com/bhargavipatel/808X_VO.git
@@ -75,7 +80,7 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
-## Building for code coverage (for assignments beginning in Week 4)
+## Building for code coverage
 ```
 sudo apt-get install lcov
 cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
@@ -83,6 +88,11 @@ make
 make code_coverage
 ```
 This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
+
+## Running cppcheck
+```
+
+```
 
 ## Working with Eclipse IDE ##
 
