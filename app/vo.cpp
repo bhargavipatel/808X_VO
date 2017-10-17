@@ -53,7 +53,7 @@ vo::vo() {
     // Reading start image and demosaicing it
     cv::String img1 = imgList[1];
     cv::Mat tmp = imread(img1, cv::IMREAD_GRAYSCALE);
-    
+
     int r = tmp.rows;
     int c = tmp.cols;
 
@@ -157,6 +157,7 @@ vo::vo() {
         p2 = cv::Point(x, y);
 
         line(plotImg, p1, p2, cv::Scalar(0, 0, 255));
+        // this show the visual output
         // imshow("Image Feed", Mat2);
         // imshow("Trajectory", plotImg);
         cv::waitKey(10);
