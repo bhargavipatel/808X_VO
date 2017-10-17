@@ -1,0 +1,99 @@
+\hypertarget{classcpplint_1_1_cleansed_lines}{}\section{cpplint.\+Cleansed\+Lines Class Reference}
+\label{classcpplint_1_1_cleansed_lines}\index{cpplint.\+Cleansed\+Lines@{cpplint.\+Cleansed\+Lines}}
+
+
+Inheritance diagram for cpplint.\+Cleansed\+Lines\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classcpplint_1_1_cleansed_lines__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for cpplint.\+Cleansed\+Lines\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classcpplint_1_1_cleansed_lines__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classcpplint_1_1_cleansed_lines_ad2bc06d9697e2bbfbc7e6b50878c8c8f}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classcpplint_1_1_cleansed_lines_a9cd74bd010da1610a46322d6821bd06a}{lines})
+\item 
+def \hyperlink{classcpplint_1_1_cleansed_lines_a26a7eff70493d64d58d16f4a406c7ee9}{Num\+Lines} (self)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpplint_1_1_cleansed_lines_aa4d0a4d5081675c01656a5d86d99e8bd}{elided}
+\item 
+\hyperlink{classcpplint_1_1_cleansed_lines_a9cd74bd010da1610a46322d6821bd06a}{lines}
+\item 
+\hyperlink{classcpplint_1_1_cleansed_lines_a9e94ce9e4f682be33c04fe82429c4dfd}{raw\+\_\+lines}
+\item 
+\hyperlink{classcpplint_1_1_cleansed_lines_a4b42ab48659954fb6e0a4e4eb483a45a}{num\+\_\+lines}
+\item 
+\hyperlink{classcpplint_1_1_cleansed_lines_a0cc228ba3c00ba590b27a759cf8023ce}{lines\+\_\+without\+\_\+raw\+\_\+strings}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Holds 4 copies of all lines with different preprocessing applied to them.
+
+1) elided member contains lines without strings and comments.
+2) lines member contains lines without comments.
+3) raw_lines member contains all the lines without processing.
+4) lines_without_raw_strings member is same as raw_lines, but with C++11 raw
+   strings removed.
+All these members are of <type 'list'>, and of the same length.
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, lines)}{__init__(self, lines)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+Cleansed\+Lines.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{lines}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1_cleansed_lines_ad2bc06d9697e2bbfbc7e6b50878c8c8f}{}\label{classcpplint_1_1_cleansed_lines_ad2bc06d9697e2bbfbc7e6b50878c8c8f}
+
+
+\subsection{Member Function Documentation}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!Num\+Lines@{Num\+Lines}}
+\index{Num\+Lines@{Num\+Lines}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{Num\+Lines(self)}{NumLines(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+Cleansed\+Lines.\+Num\+Lines (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1_cleansed_lines_a26a7eff70493d64d58d16f4a406c7ee9}{}\label{classcpplint_1_1_cleansed_lines_a26a7eff70493d64d58d16f4a406c7ee9}
+\begin{DoxyVerb}Returns the number of lines represented.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!elided@{elided}}
+\index{elided@{elided}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{elided}{elided}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+Cleansed\+Lines.\+elided}\hypertarget{classcpplint_1_1_cleansed_lines_aa4d0a4d5081675c01656a5d86d99e8bd}{}\label{classcpplint_1_1_cleansed_lines_aa4d0a4d5081675c01656a5d86d99e8bd}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!lines@{lines}}
+\index{lines@{lines}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{lines}{lines}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+Cleansed\+Lines.\+lines}\hypertarget{classcpplint_1_1_cleansed_lines_a9cd74bd010da1610a46322d6821bd06a}{}\label{classcpplint_1_1_cleansed_lines_a9cd74bd010da1610a46322d6821bd06a}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!lines\+\_\+without\+\_\+raw\+\_\+strings@{lines\+\_\+without\+\_\+raw\+\_\+strings}}
+\index{lines\+\_\+without\+\_\+raw\+\_\+strings@{lines\+\_\+without\+\_\+raw\+\_\+strings}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{lines\+\_\+without\+\_\+raw\+\_\+strings}{lines_without_raw_strings}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+Cleansed\+Lines.\+lines\+\_\+without\+\_\+raw\+\_\+strings}\hypertarget{classcpplint_1_1_cleansed_lines_a0cc228ba3c00ba590b27a759cf8023ce}{}\label{classcpplint_1_1_cleansed_lines_a0cc228ba3c00ba590b27a759cf8023ce}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!num\+\_\+lines@{num\+\_\+lines}}
+\index{num\+\_\+lines@{num\+\_\+lines}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{num\+\_\+lines}{num_lines}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+Cleansed\+Lines.\+num\+\_\+lines}\hypertarget{classcpplint_1_1_cleansed_lines_a4b42ab48659954fb6e0a4e4eb483a45a}{}\label{classcpplint_1_1_cleansed_lines_a4b42ab48659954fb6e0a4e4eb483a45a}
+\index{cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}!raw\+\_\+lines@{raw\+\_\+lines}}
+\index{raw\+\_\+lines@{raw\+\_\+lines}!cpplint\+::\+Cleansed\+Lines@{cpplint\+::\+Cleansed\+Lines}}
+\subsubsection[{\texorpdfstring{raw\+\_\+lines}{raw_lines}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+Cleansed\+Lines.\+raw\+\_\+lines}\hypertarget{classcpplint_1_1_cleansed_lines_a9e94ce9e4f682be33c04fe82429c4dfd}{}\label{classcpplint_1_1_cleansed_lines_a9e94ce9e4f682be33c04fe82429c4dfd}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/test/\hyperlink{cpplint_8py}{cpplint.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,299 @@
+\hypertarget{classtesting_1_1internal_1_1_typed_expectation}{}\section{testing\+:\+:internal\+:\+:Typed\+Expectation$<$ F $>$ Class Template Reference}
+\label{classtesting_1_1internal_1_1_typed_expectation}\index{testing\+::internal\+::\+Typed\+Expectation$<$ F $>$@{testing\+::internal\+::\+Typed\+Expectation$<$ F $>$}}
+
+
+{\ttfamily \#include $<$gmock-\/spec-\/builders.\+h$>$}
+
+
+
+Inheritance diagram for testing\+:\+:internal\+:\+:Typed\+Expectation$<$ F $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classtesting_1_1internal_1_1_typed_expectation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+:\+:internal\+:\+:Typed\+Expectation$<$ F $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtesting_1_1internal_1_1_typed_expectation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{classtesting_1_1internal_1_1_typed_expectation_a9a91379262d101f435809ba4556d14fa}{Argument\+Tuple} \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a9a91379262d101f435809ba4556d14fa}{Argument\+Tuple}
+\item 
+typedef \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{classtesting_1_1internal_1_1_typed_expectation_a8f10e3906761cc5c10fa3561c6e8938e}{Argument\+Matcher\+Tuple} \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a8f10e3906761cc5c10fa3561c6e8938e}{Argument\+Matcher\+Tuple}
+\item 
+typedef \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{classtesting_1_1internal_1_1_typed_expectation_a6503597ee9d5ec940bfe8e51832b2422}{Result} \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a6503597ee9d5ec940bfe8e51832b2422}{Result}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation_a10bd0a8fa0db37215be42e1c61ccbc28}{Typed\+Expectation} (\hyperlink{classtesting_1_1internal_1_1_function_mocker_base}{Function\+Mocker\+Base}$<$ F $>$ $\ast$owner, const char $\ast$a\+\_\+file, int a\+\_\+line, const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \&a\+\_\+source\+\_\+text, const \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a8f10e3906761cc5c10fa3561c6e8938e}{Argument\+Matcher\+Tuple} \&m)
+\item 
+virtual \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a4d73d7edd81f1b1418a33931fe728158}{$\sim$\+Typed\+Expectation} ()
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a4b25ec3d051e8551f3e213214b31c714}{With} (const \hyperlink{classtesting_1_1_matcher}{Matcher}$<$ const \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a9a91379262d101f435809ba4556d14fa}{Argument\+Tuple} \& $>$ \&m)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a9a4c34ee5c6e6adc880a22f61f33da57}{Times} (const \hyperlink{classtesting_1_1_cardinality}{Cardinality} \&a\+\_\+cardinality)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a92d56ee785d38ec8193aed2a0fcbccf0}{Times} (int n)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ada9e9081a98435991310ac60483d1230}{In\+Sequence} (const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ac0f45c73e3f816796f6c5dea2dc70131}{In\+Sequence} (const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s1, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s2)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a17cfbb9db111e0ded254759664e78d73}{In\+Sequence} (const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s1, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s2, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s3)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_aa60bae1cf536651dc5efcd8110bea4fd}{In\+Sequence} (const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s1, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s2, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s3, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s4)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ad8775f8ba9965d1836f6e4c09baf1c3e}{In\+Sequence} (const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s1, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s2, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s3, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s4, const \hyperlink{classtesting_1_1_sequence}{Sequence} \&s5)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a30f320d18ebf1a40e94883d7a56c6c8c}{After} (const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a8e272fc396e508a2e63b13be30f81f15}{After} (const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s1, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s2)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a95a341dd221901b5e51dd7cfdbdb3570}{After} (const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s1, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s2, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s3)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a1749e368f659352ed8375512acafc178}{After} (const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s1, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s2, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s3, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s4)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a72c0105b147ee2995d183c8e4109f6ca}{After} (const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s1, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s2, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s3, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s4, const \hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \&s5)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a41b0d15e44e95d52f4d5c310fb9e9683}{Will\+Once} (const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \&action)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a73586c1adb458c5c431df9679e46f5f1}{Will\+Repeatedly} (const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \&action)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_typed_expectation}{Typed\+Expectation} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ae7c42958a5d2c336ba7a42a871bf7709}{Retires\+On\+Saturation} ()
+\item 
+const \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a8f10e3906761cc5c10fa3561c6e8938e}{Argument\+Matcher\+Tuple} \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ac5c36609fee376f13bd9cfb2a9b41c9e}{matchers} () const 
+\item 
+const \hyperlink{classtesting_1_1_matcher}{Matcher}$<$ const \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a9a91379262d101f435809ba4556d14fa}{Argument\+Tuple} \& $>$ \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a6a46d9c67fd38c367ce0a0d63e65e523}{extra\+\_\+matcher} () const 
+\item 
+const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \& \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a3af1ffccd9d897297fb19762b1551dec}{repeated\+\_\+action} () const 
+\item 
+virtual void \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ab019251041a408dc5a5d8ae216be53f4}{Maybe\+Describe\+Extra\+Matcher\+To} (\+::std\+::ostream $\ast$os)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Function $>$ }\\class \hyperlink{classtesting_1_1internal_1_1_typed_expectation_a1771ea4a3d92d8b2ff0f0aa6fc40ff55}{Function\+Mocker\+Base}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Typedef Documentation}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Argument\+Matcher\+Tuple@{Argument\+Matcher\+Tuple}}
+\index{Argument\+Matcher\+Tuple@{Argument\+Matcher\+Tuple}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Argument\+Matcher\+Tuple}{ArgumentMatcherTuple}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ typedef {\bf Function}$<$F$>$\+::{\bf Argument\+Matcher\+Tuple} {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf Argument\+Matcher\+Tuple}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a8f10e3906761cc5c10fa3561c6e8938e}{}\label{classtesting_1_1internal_1_1_typed_expectation_a8f10e3906761cc5c10fa3561c6e8938e}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Argument\+Tuple@{Argument\+Tuple}}
+\index{Argument\+Tuple@{Argument\+Tuple}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Argument\+Tuple}{ArgumentTuple}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ typedef {\bf Function}$<$F$>$\+::{\bf Argument\+Tuple} {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf Argument\+Tuple}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a9a91379262d101f435809ba4556d14fa}{}\label{classtesting_1_1internal_1_1_typed_expectation_a9a91379262d101f435809ba4556d14fa}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Result@{Result}}
+\index{Result@{Result}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Result}{Result}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ typedef {\bf Function}$<$F$>$\+::{\bf Result} {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf Result}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a6503597ee9d5ec940bfe8e51832b2422}{}\label{classtesting_1_1internal_1_1_typed_expectation_a6503597ee9d5ec940bfe8e51832b2422}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Typed\+Expectation@{Typed\+Expectation}}
+\index{Typed\+Expectation@{Typed\+Expectation}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Typed\+Expectation(\+Function\+Mocker\+Base$<$ F $>$ $\ast$owner, const char $\ast$a\+\_\+file, int a\+\_\+line, const string \&a\+\_\+source\+\_\+text, const Argument\+Matcher\+Tuple \&m)}{TypedExpectation(FunctionMockerBase< F > *owner, const char *a_file, int a_line, const string &a_source_text, const ArgumentMatcherTuple &m)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf Typed\+Expectation} (
+\begin{DoxyParamCaption}
+\item[{{\bf Function\+Mocker\+Base}$<$ F $>$ $\ast$}]{owner, }
+\item[{const char $\ast$}]{a\+\_\+file, }
+\item[{int}]{a\+\_\+line, }
+\item[{const {\bf string} \&}]{a\+\_\+source\+\_\+text, }
+\item[{const {\bf Argument\+Matcher\+Tuple} \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a10bd0a8fa0db37215be42e1c61ccbc28}{}\label{classtesting_1_1internal_1_1_typed_expectation_a10bd0a8fa0db37215be42e1c61ccbc28}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!````~Typed\+Expectation@{$\sim$\+Typed\+Expectation}}
+\index{````~Typed\+Expectation@{$\sim$\+Typed\+Expectation}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{$\sim$\+Typed\+Expectation()}{~TypedExpectation()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ virtual {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::$\sim${\bf Typed\+Expectation} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a4d73d7edd81f1b1418a33931fe728158}{}\label{classtesting_1_1internal_1_1_typed_expectation_a4d73d7edd81f1b1418a33931fe728158}
+
+
+\subsection{Member Function Documentation}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!After@{After}}
+\index{After@{After}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{After(const Expectation\+Set \&s)}{After(const ExpectationSet &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::After (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expectation\+Set} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a30f320d18ebf1a40e94883d7a56c6c8c}{}\label{classtesting_1_1internal_1_1_typed_expectation_a30f320d18ebf1a40e94883d7a56c6c8c}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!After@{After}}
+\index{After@{After}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{After(const Expectation\+Set \&s1, const Expectation\+Set \&s2)}{After(const ExpectationSet &s1, const ExpectationSet &s2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::After (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expectation\+Set} \&}]{s1, }
+\item[{const {\bf Expectation\+Set} \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a8e272fc396e508a2e63b13be30f81f15}{}\label{classtesting_1_1internal_1_1_typed_expectation_a8e272fc396e508a2e63b13be30f81f15}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!After@{After}}
+\index{After@{After}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{After(const Expectation\+Set \&s1, const Expectation\+Set \&s2, const Expectation\+Set \&s3)}{After(const ExpectationSet &s1, const ExpectationSet &s2, const ExpectationSet &s3)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::After (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expectation\+Set} \&}]{s1, }
+\item[{const {\bf Expectation\+Set} \&}]{s2, }
+\item[{const {\bf Expectation\+Set} \&}]{s3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a95a341dd221901b5e51dd7cfdbdb3570}{}\label{classtesting_1_1internal_1_1_typed_expectation_a95a341dd221901b5e51dd7cfdbdb3570}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!After@{After}}
+\index{After@{After}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{After(const Expectation\+Set \&s1, const Expectation\+Set \&s2, const Expectation\+Set \&s3, const Expectation\+Set \&s4)}{After(const ExpectationSet &s1, const ExpectationSet &s2, const ExpectationSet &s3, const ExpectationSet &s4)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::After (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expectation\+Set} \&}]{s1, }
+\item[{const {\bf Expectation\+Set} \&}]{s2, }
+\item[{const {\bf Expectation\+Set} \&}]{s3, }
+\item[{const {\bf Expectation\+Set} \&}]{s4}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a1749e368f659352ed8375512acafc178}{}\label{classtesting_1_1internal_1_1_typed_expectation_a1749e368f659352ed8375512acafc178}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!After@{After}}
+\index{After@{After}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{After(const Expectation\+Set \&s1, const Expectation\+Set \&s2, const Expectation\+Set \&s3, const Expectation\+Set \&s4, const Expectation\+Set \&s5)}{After(const ExpectationSet &s1, const ExpectationSet &s2, const ExpectationSet &s3, const ExpectationSet &s4, const ExpectationSet &s5)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::After (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expectation\+Set} \&}]{s1, }
+\item[{const {\bf Expectation\+Set} \&}]{s2, }
+\item[{const {\bf Expectation\+Set} \&}]{s3, }
+\item[{const {\bf Expectation\+Set} \&}]{s4, }
+\item[{const {\bf Expectation\+Set} \&}]{s5}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a72c0105b147ee2995d183c8e4109f6ca}{}\label{classtesting_1_1internal_1_1_typed_expectation_a72c0105b147ee2995d183c8e4109f6ca}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!extra\+\_\+matcher@{extra\+\_\+matcher}}
+\index{extra\+\_\+matcher@{extra\+\_\+matcher}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{extra\+\_\+matcher() const }{extra_matcher() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ const {\bf Matcher}$<$const {\bf Argument\+Tuple}\&$>$\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::extra\+\_\+matcher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a6a46d9c67fd38c367ce0a0d63e65e523}{}\label{classtesting_1_1internal_1_1_typed_expectation_a6a46d9c67fd38c367ce0a0d63e65e523}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!In\+Sequence@{In\+Sequence}}
+\index{In\+Sequence@{In\+Sequence}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{In\+Sequence(const Sequence \&s)}{InSequence(const Sequence &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf In\+Sequence} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sequence} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_ada9e9081a98435991310ac60483d1230}{}\label{classtesting_1_1internal_1_1_typed_expectation_ada9e9081a98435991310ac60483d1230}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!In\+Sequence@{In\+Sequence}}
+\index{In\+Sequence@{In\+Sequence}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{In\+Sequence(const Sequence \&s1, const Sequence \&s2)}{InSequence(const Sequence &s1, const Sequence &s2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf In\+Sequence} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sequence} \&}]{s1, }
+\item[{const {\bf Sequence} \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_ac0f45c73e3f816796f6c5dea2dc70131}{}\label{classtesting_1_1internal_1_1_typed_expectation_ac0f45c73e3f816796f6c5dea2dc70131}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!In\+Sequence@{In\+Sequence}}
+\index{In\+Sequence@{In\+Sequence}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{In\+Sequence(const Sequence \&s1, const Sequence \&s2, const Sequence \&s3)}{InSequence(const Sequence &s1, const Sequence &s2, const Sequence &s3)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf In\+Sequence} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sequence} \&}]{s1, }
+\item[{const {\bf Sequence} \&}]{s2, }
+\item[{const {\bf Sequence} \&}]{s3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a17cfbb9db111e0ded254759664e78d73}{}\label{classtesting_1_1internal_1_1_typed_expectation_a17cfbb9db111e0ded254759664e78d73}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!In\+Sequence@{In\+Sequence}}
+\index{In\+Sequence@{In\+Sequence}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{In\+Sequence(const Sequence \&s1, const Sequence \&s2, const Sequence \&s3, const Sequence \&s4)}{InSequence(const Sequence &s1, const Sequence &s2, const Sequence &s3, const Sequence &s4)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf In\+Sequence} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sequence} \&}]{s1, }
+\item[{const {\bf Sequence} \&}]{s2, }
+\item[{const {\bf Sequence} \&}]{s3, }
+\item[{const {\bf Sequence} \&}]{s4}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_aa60bae1cf536651dc5efcd8110bea4fd}{}\label{classtesting_1_1internal_1_1_typed_expectation_aa60bae1cf536651dc5efcd8110bea4fd}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!In\+Sequence@{In\+Sequence}}
+\index{In\+Sequence@{In\+Sequence}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{In\+Sequence(const Sequence \&s1, const Sequence \&s2, const Sequence \&s3, const Sequence \&s4, const Sequence \&s5)}{InSequence(const Sequence &s1, const Sequence &s2, const Sequence &s3, const Sequence &s4, const Sequence &s5)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::{\bf In\+Sequence} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sequence} \&}]{s1, }
+\item[{const {\bf Sequence} \&}]{s2, }
+\item[{const {\bf Sequence} \&}]{s3, }
+\item[{const {\bf Sequence} \&}]{s4, }
+\item[{const {\bf Sequence} \&}]{s5}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_ad8775f8ba9965d1836f6e4c09baf1c3e}{}\label{classtesting_1_1internal_1_1_typed_expectation_ad8775f8ba9965d1836f6e4c09baf1c3e}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!matchers@{matchers}}
+\index{matchers@{matchers}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{matchers() const }{matchers() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ const {\bf Argument\+Matcher\+Tuple}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::matchers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_ac5c36609fee376f13bd9cfb2a9b41c9e}{}\label{classtesting_1_1internal_1_1_typed_expectation_ac5c36609fee376f13bd9cfb2a9b41c9e}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Maybe\+Describe\+Extra\+Matcher\+To@{Maybe\+Describe\+Extra\+Matcher\+To}}
+\index{Maybe\+Describe\+Extra\+Matcher\+To@{Maybe\+Describe\+Extra\+Matcher\+To}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Maybe\+Describe\+Extra\+Matcher\+To(\+::std\+::ostream $\ast$os)}{MaybeDescribeExtraMatcherTo(::std::ostream *os)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ virtual void {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::Maybe\+Describe\+Extra\+Matcher\+To (
+\begin{DoxyParamCaption}
+\item[{\+::std\+::ostream $\ast$}]{os}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_ab019251041a408dc5a5d8ae216be53f4}{}\label{classtesting_1_1internal_1_1_typed_expectation_ab019251041a408dc5a5d8ae216be53f4}
+
+
+Implements \hyperlink{classtesting_1_1internal_1_1_expectation_base_a5ce4f648c7b112d27b798711d1e3ff5b}{testing\+::internal\+::\+Expectation\+Base}.
+
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!repeated\+\_\+action@{repeated\+\_\+action}}
+\index{repeated\+\_\+action@{repeated\+\_\+action}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{repeated\+\_\+action() const }{repeated_action() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ const {\bf Action}$<$F$>$\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::repeated\+\_\+action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a3af1ffccd9d897297fb19762b1551dec}{}\label{classtesting_1_1internal_1_1_typed_expectation_a3af1ffccd9d897297fb19762b1551dec}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Retires\+On\+Saturation@{Retires\+On\+Saturation}}
+\index{Retires\+On\+Saturation@{Retires\+On\+Saturation}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Retires\+On\+Saturation()}{RetiresOnSaturation()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::Retires\+On\+Saturation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_ae7c42958a5d2c336ba7a42a871bf7709}{}\label{classtesting_1_1internal_1_1_typed_expectation_ae7c42958a5d2c336ba7a42a871bf7709}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Times@{Times}}
+\index{Times@{Times}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Times(const Cardinality \&a\+\_\+cardinality)}{Times(const Cardinality &a_cardinality)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::Times (
+\begin{DoxyParamCaption}
+\item[{const {\bf Cardinality} \&}]{a\+\_\+cardinality}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a9a4c34ee5c6e6adc880a22f61f33da57}{}\label{classtesting_1_1internal_1_1_typed_expectation_a9a4c34ee5c6e6adc880a22f61f33da57}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Times@{Times}}
+\index{Times@{Times}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Times(int n)}{Times(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::Times (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a92d56ee785d38ec8193aed2a0fcbccf0}{}\label{classtesting_1_1internal_1_1_typed_expectation_a92d56ee785d38ec8193aed2a0fcbccf0}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Will\+Once@{Will\+Once}}
+\index{Will\+Once@{Will\+Once}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Will\+Once(const Action$<$ F $>$ \&action)}{WillOnce(const Action< F > &action)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::Will\+Once (
+\begin{DoxyParamCaption}
+\item[{const {\bf Action}$<$ F $>$ \&}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a41b0d15e44e95d52f4d5c310fb9e9683}{}\label{classtesting_1_1internal_1_1_typed_expectation_a41b0d15e44e95d52f4d5c310fb9e9683}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Will\+Repeatedly@{Will\+Repeatedly}}
+\index{Will\+Repeatedly@{Will\+Repeatedly}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Will\+Repeatedly(const Action$<$ F $>$ \&action)}{WillRepeatedly(const Action< F > &action)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::Will\+Repeatedly (
+\begin{DoxyParamCaption}
+\item[{const {\bf Action}$<$ F $>$ \&}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a73586c1adb458c5c431df9679e46f5f1}{}\label{classtesting_1_1internal_1_1_typed_expectation_a73586c1adb458c5c431df9679e46f5f1}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!With@{With}}
+\index{With@{With}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{With(const Matcher$<$ const Argument\+Tuple \& $>$ \&m)}{With(const Matcher< const ArgumentTuple & > &m)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf Typed\+Expectation}\& {\bf testing\+::internal\+::\+Typed\+Expectation}$<$ F $>$\+::With (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matcher}$<$ const {\bf Argument\+Tuple} \& $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a4b25ec3d051e8551f3e213214b31c714}{}\label{classtesting_1_1internal_1_1_typed_expectation_a4b25ec3d051e8551f3e213214b31c714}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}!Function\+Mocker\+Base@{Function\+Mocker\+Base}}
+\index{Function\+Mocker\+Base@{Function\+Mocker\+Base}!testing\+::internal\+::\+Typed\+Expectation@{testing\+::internal\+::\+Typed\+Expectation}}
+\subsubsection[{\texorpdfstring{Function\+Mocker\+Base}{FunctionMockerBase}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ template$<$typename Function $>$ friend class {\bf Function\+Mocker\+Base}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1_typed_expectation_a1771ea4a3d92d8b2ff0f0aa6fc40ff55}{}\label{classtesting_1_1internal_1_1_typed_expectation_a1771ea4a3d92d8b2ff0f0aa6fc40ff55}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/\hyperlink{gmock-spec-builders_8h}{gmock-\/spec-\/builders.\+h}\end{DoxyCompactItemize}

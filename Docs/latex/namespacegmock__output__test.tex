@@ -1,0 +1,176 @@
+\hypertarget{namespacegmock__output__test}{}\section{gmock\+\_\+output\+\_\+test Namespace Reference}
+\label{namespacegmock__output__test}\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classgmock__output__test_1_1_g_mock_output_test}{G\+Mock\+Output\+Test}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacegmock__output__test_a5c9ae3611cc4fac1e1340a3345865cf3}{To\+Unix\+Line\+Ending} (s)
+\item 
+def \hyperlink{namespacegmock__output__test_a2ebfc0abfb0ed307021ecaa9da465c55}{Remove\+Report\+Header\+And\+Footer} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_aa3c93f8085ff0886bf0d160d71af2452}{Remove\+Locations} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_af3c1f95f19b9f048843a2d562d459b24}{Normalize\+Error\+Marker} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_a58b4fdb82b40d01d32b09d4c14ba11a5}{Remove\+Memory\+Addresses} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_ac0628c5630d869dae45601df9d909638}{Remove\+Test\+Names\+Of\+Leaked\+Mocks} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_a60299c4f0cb666d08f101ddaa7aabed4}{Get\+Leaky\+Tests} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_a590ba3b918e5599eeabc2cbf597e2ce1}{Get\+Normalized\+Output\+And\+Leaky\+Tests} (\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output})
+\item 
+def \hyperlink{namespacegmock__output__test_a001498a3e9bf552ee429e434eb00cb08}{Get\+Shell\+Command\+Output} (cmd)
+\item 
+def \hyperlink{namespacegmock__output__test_a1796bc395fbfb8873992e3f84378e4bf}{Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests} (cmd)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacegmock__output__test_a0bd3131fe8262154217588fed6b28d45}{G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG} = \textquotesingle{}-\/-\/gengolden\textquotesingle{}
+\item 
+\hyperlink{namespacegmock__output__test_a03aac0fac952a0b3648340f529af7f59}{P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH} = \hyperlink{namespacegmock__test__utils_aadd2927024e24f0c53f7ba283402cdb1}{gmock\+\_\+test\+\_\+utils.\+Get\+Test\+Executable\+Path}(\textquotesingle{}gmock\+\_\+output\+\_\+test\+\_\+\textquotesingle{})
+\item 
+list \hyperlink{namespacegmock__output__test_a33f8ca97d99711e23517962ca4c729af}{C\+O\+M\+M\+A\+ND} = \mbox{[}\hyperlink{namespacegmock__output__test_a03aac0fac952a0b3648340f529af7f59}{P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH}, \textquotesingle{}-\/-\/gtest\+\_\+stack\+\_\+trace\+\_\+depth=0\textquotesingle{}, \textquotesingle{}-\/-\/gtest\+\_\+print\+\_\+time=0\textquotesingle{}\mbox{]}
+\item 
+string \hyperlink{namespacegmock__output__test_ac6e9298ea3967e6fa704c9c246d6cc18}{G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME} = \textquotesingle{}gmock\+\_\+output\+\_\+test\+\_\+golden.\+txt\textquotesingle{}
+\item 
+\hyperlink{namespacegmock__output__test_a632c0fbf08500e4ed3c0e33f5e2ac771}{G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH} = os.\+path.\+join(\hyperlink{namespacegmock__test__utils_ab7217591e655e80392c9db6b99d04765}{gmock\+\_\+test\+\_\+utils.\+Get\+Source\+Dir}(), \hyperlink{namespacegmock__output__test_ac6e9298ea3967e6fa704c9c246d6cc18}{G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME})
+\item 
+\hyperlink{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{output}
+\item 
+\hyperlink{namespacegmock__output__test_aa592d26826a4dabf494fc2dd3c5c8b1e}{golden\+\_\+file} = open(\hyperlink{namespacegmock__output__test_a632c0fbf08500e4ed3c0e33f5e2ac771}{G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH}, \textquotesingle{}wb\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Get\+Leaky\+Tests@{Get\+Leaky\+Tests}}
+\index{Get\+Leaky\+Tests@{Get\+Leaky\+Tests}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Get\+Leaky\+Tests(output)}{GetLeakyTests(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Get\+Leaky\+Tests (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a60299c4f0cb666d08f101ddaa7aabed4}{}\label{namespacegmock__output__test_a60299c4f0cb666d08f101ddaa7aabed4}
+\begin{DoxyVerb}Returns a list of test names that leak mock objects.\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests@{Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests}}
+\index{Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests@{Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests(cmd)}{GetNormalizedCommandOutputAndLeakyTests(cmd)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Get\+Normalized\+Command\+Output\+And\+Leaky\+Tests (
+\begin{DoxyParamCaption}
+\item[{}]{cmd}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a1796bc395fbfb8873992e3f84378e4bf}{}\label{namespacegmock__output__test_a1796bc395fbfb8873992e3f84378e4bf}
+\begin{DoxyVerb}Runs a command and returns its normalized output and a list of leaky tests.
+
+Args:
+  cmd:  the shell command.
+\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Get\+Normalized\+Output\+And\+Leaky\+Tests@{Get\+Normalized\+Output\+And\+Leaky\+Tests}}
+\index{Get\+Normalized\+Output\+And\+Leaky\+Tests@{Get\+Normalized\+Output\+And\+Leaky\+Tests}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Get\+Normalized\+Output\+And\+Leaky\+Tests(output)}{GetNormalizedOutputAndLeakyTests(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Get\+Normalized\+Output\+And\+Leaky\+Tests (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a590ba3b918e5599eeabc2cbf597e2ce1}{}\label{namespacegmock__output__test_a590ba3b918e5599eeabc2cbf597e2ce1}
+\begin{DoxyVerb}Normalizes the output of gmock_output_test_.
+
+Args:
+  output: The test output.
+
+Returns:
+  A tuple (the normalized test output, the list of test names that have
+  leaked mocks).
+\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Get\+Shell\+Command\+Output@{Get\+Shell\+Command\+Output}}
+\index{Get\+Shell\+Command\+Output@{Get\+Shell\+Command\+Output}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Get\+Shell\+Command\+Output(cmd)}{GetShellCommandOutput(cmd)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Get\+Shell\+Command\+Output (
+\begin{DoxyParamCaption}
+\item[{}]{cmd}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a001498a3e9bf552ee429e434eb00cb08}{}\label{namespacegmock__output__test_a001498a3e9bf552ee429e434eb00cb08}
+\begin{DoxyVerb}Runs a command in a sub-process, and returns its STDOUT in a string.\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Normalize\+Error\+Marker@{Normalize\+Error\+Marker}}
+\index{Normalize\+Error\+Marker@{Normalize\+Error\+Marker}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Normalize\+Error\+Marker(output)}{NormalizeErrorMarker(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Normalize\+Error\+Marker (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_af3c1f95f19b9f048843a2d562d459b24}{}\label{namespacegmock__output__test_af3c1f95f19b9f048843a2d562d459b24}
+\begin{DoxyVerb}Normalizes the error marker, which is different on Windows vs on Linux.\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Remove\+Locations@{Remove\+Locations}}
+\index{Remove\+Locations@{Remove\+Locations}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Remove\+Locations(output)}{RemoveLocations(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Remove\+Locations (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_aa3c93f8085ff0886bf0d160d71af2452}{}\label{namespacegmock__output__test_aa3c93f8085ff0886bf0d160d71af2452}
+\begin{DoxyVerb}Removes all file location info from a Google Test program's output.
+
+Args:
+     output:  the output of a Google Test program.
+
+Returns:
+     output with all file location info (in the form of
+     'DIRECTORY/FILE_NAME:LINE_NUMBER: 'or
+     'DIRECTORY\\FILE_NAME(LINE_NUMBER): ') replaced by
+     'FILE:#: '.
+\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Remove\+Memory\+Addresses@{Remove\+Memory\+Addresses}}
+\index{Remove\+Memory\+Addresses@{Remove\+Memory\+Addresses}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Remove\+Memory\+Addresses(output)}{RemoveMemoryAddresses(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Remove\+Memory\+Addresses (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a58b4fdb82b40d01d32b09d4c14ba11a5}{}\label{namespacegmock__output__test_a58b4fdb82b40d01d32b09d4c14ba11a5}
+\begin{DoxyVerb}Removes memory addresses from the test output.\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Remove\+Report\+Header\+And\+Footer@{Remove\+Report\+Header\+And\+Footer}}
+\index{Remove\+Report\+Header\+And\+Footer@{Remove\+Report\+Header\+And\+Footer}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Remove\+Report\+Header\+And\+Footer(output)}{RemoveReportHeaderAndFooter(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Remove\+Report\+Header\+And\+Footer (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a2ebfc0abfb0ed307021ecaa9da465c55}{}\label{namespacegmock__output__test_a2ebfc0abfb0ed307021ecaa9da465c55}
+\begin{DoxyVerb}Removes Google Test result report's header and footer from the output.\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!Remove\+Test\+Names\+Of\+Leaked\+Mocks@{Remove\+Test\+Names\+Of\+Leaked\+Mocks}}
+\index{Remove\+Test\+Names\+Of\+Leaked\+Mocks@{Remove\+Test\+Names\+Of\+Leaked\+Mocks}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{Remove\+Test\+Names\+Of\+Leaked\+Mocks(output)}{RemoveTestNamesOfLeakedMocks(output)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+Remove\+Test\+Names\+Of\+Leaked\+Mocks (
+\begin{DoxyParamCaption}
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_ac0628c5630d869dae45601df9d909638}{}\label{namespacegmock__output__test_ac0628c5630d869dae45601df9d909638}
+\begin{DoxyVerb}Removes the test names of leaked mock objects from the test output.\end{DoxyVerb}
+ \index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!To\+Unix\+Line\+Ending@{To\+Unix\+Line\+Ending}}
+\index{To\+Unix\+Line\+Ending@{To\+Unix\+Line\+Ending}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{To\+Unix\+Line\+Ending(s)}{ToUnixLineEnding(s)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+output\+\_\+test.\+To\+Unix\+Line\+Ending (
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__output__test_a5c9ae3611cc4fac1e1340a3345865cf3}{}\label{namespacegmock__output__test_a5c9ae3611cc4fac1e1340a3345865cf3}
+\begin{DoxyVerb}Changes all Windows/Mac line endings in s to UNIX line endings.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!C\+O\+M\+M\+A\+ND@{C\+O\+M\+M\+A\+ND}}
+\index{C\+O\+M\+M\+A\+ND@{C\+O\+M\+M\+A\+ND}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{C\+O\+M\+M\+A\+ND}{COMMAND}}]{\setlength{\rightskip}{0pt plus 5cm}list gmock\+\_\+output\+\_\+test.\+C\+O\+M\+M\+A\+ND = \mbox{[}{\bf P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH}, \textquotesingle{}-\/-\/gtest\+\_\+stack\+\_\+trace\+\_\+depth=0\textquotesingle{}, \textquotesingle{}-\/-\/gtest\+\_\+print\+\_\+time=0\textquotesingle{}\mbox{]}}\hypertarget{namespacegmock__output__test_a33f8ca97d99711e23517962ca4c729af}{}\label{namespacegmock__output__test_a33f8ca97d99711e23517962ca4c729af}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG@{G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG}}
+\index{G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG@{G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG}{GENGOLDEN_FLAG}}]{\setlength{\rightskip}{0pt plus 5cm}string gmock\+\_\+output\+\_\+test.\+G\+E\+N\+G\+O\+L\+D\+E\+N\+\_\+\+F\+L\+AG = \textquotesingle{}-\/-\/gengolden\textquotesingle{}}\hypertarget{namespacegmock__output__test_a0bd3131fe8262154217588fed6b28d45}{}\label{namespacegmock__output__test_a0bd3131fe8262154217588fed6b28d45}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!golden\+\_\+file@{golden\+\_\+file}}
+\index{golden\+\_\+file@{golden\+\_\+file}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{golden\+\_\+file}{golden_file}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+output\+\_\+test.\+golden\+\_\+file = open({\bf G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH}, \textquotesingle{}wb\textquotesingle{})}\hypertarget{namespacegmock__output__test_aa592d26826a4dabf494fc2dd3c5c8b1e}{}\label{namespacegmock__output__test_aa592d26826a4dabf494fc2dd3c5c8b1e}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME@{G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME}}
+\index{G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME@{G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME}{GOLDEN_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}string gmock\+\_\+output\+\_\+test.\+G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME = \textquotesingle{}gmock\+\_\+output\+\_\+test\+\_\+golden.\+txt\textquotesingle{}}\hypertarget{namespacegmock__output__test_ac6e9298ea3967e6fa704c9c246d6cc18}{}\label{namespacegmock__output__test_ac6e9298ea3967e6fa704c9c246d6cc18}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH@{G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH}}
+\index{G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH@{G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH}{GOLDEN_PATH}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+output\+\_\+test.\+G\+O\+L\+D\+E\+N\+\_\+\+P\+A\+TH = os.\+path.\+join({\bf gmock\+\_\+test\+\_\+utils.\+Get\+Source\+Dir}(), {\bf G\+O\+L\+D\+E\+N\+\_\+\+N\+A\+ME})}\hypertarget{namespacegmock__output__test_a632c0fbf08500e4ed3c0e33f5e2ac771}{}\label{namespacegmock__output__test_a632c0fbf08500e4ed3c0e33f5e2ac771}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!output@{output}}
+\index{output@{output}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{output}{output}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+output\+\_\+test.\+output}\hypertarget{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}{}\label{namespacegmock__output__test_a4277f8598ba3835393fe82e82d09375d}
+\index{gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}!P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH@{P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH}}
+\index{P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH@{P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH}!gmock\+\_\+output\+\_\+test@{gmock\+\_\+output\+\_\+test}}
+\subsubsection[{\texorpdfstring{P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH}{PROGRAM_PATH}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+output\+\_\+test.\+P\+R\+O\+G\+R\+A\+M\+\_\+\+P\+A\+TH = {\bf gmock\+\_\+test\+\_\+utils.\+Get\+Test\+Executable\+Path}(\textquotesingle{}gmock\+\_\+output\+\_\+test\+\_\+\textquotesingle{})}\hypertarget{namespacegmock__output__test_a03aac0fac952a0b3648340f529af7f59}{}\label{namespacegmock__output__test_a03aac0fac952a0b3648340f529af7f59}

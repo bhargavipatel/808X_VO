@@ -1,0 +1,104 @@
+\hypertarget{classtesting_1_1internal_1_1_on_call_spec}{}\section{testing\+:\+:internal\+:\+:On\+Call\+Spec$<$ F $>$ Class Template Reference}
+\label{classtesting_1_1internal_1_1_on_call_spec}\index{testing\+::internal\+::\+On\+Call\+Spec$<$ F $>$@{testing\+::internal\+::\+On\+Call\+Spec$<$ F $>$}}
+
+
+{\ttfamily \#include $<$gmock-\/spec-\/builders.\+h$>$}
+
+
+
+Inheritance diagram for testing\+:\+:internal\+:\+:On\+Call\+Spec$<$ F $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classtesting_1_1internal_1_1_on_call_spec__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+:\+:internal\+:\+:On\+Call\+Spec$<$ F $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classtesting_1_1internal_1_1_on_call_spec__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{classtesting_1_1internal_1_1_on_call_spec_a70ffab8b915b7b48a90f5ce256da806f}{Argument\+Tuple} \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a70ffab8b915b7b48a90f5ce256da806f}{Argument\+Tuple}
+\item 
+typedef \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{classtesting_1_1internal_1_1_on_call_spec_a3240f159f0a9d8cda208bc256da35074}{Argument\+Matcher\+Tuple} \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a3240f159f0a9d8cda208bc256da35074}{Argument\+Matcher\+Tuple}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_on_call_spec_ac7077e8162a10714e463b64a3cc7d054}{On\+Call\+Spec} (const char $\ast$a\+\_\+file, int a\+\_\+line, const \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a3240f159f0a9d8cda208bc256da35074}{Argument\+Matcher\+Tuple} \&matchers)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_on_call_spec}{On\+Call\+Spec} \& \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a2421cc9ac5c954a3a4c9275c35771bad}{With} (const \hyperlink{classtesting_1_1_matcher}{Matcher}$<$ const \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a70ffab8b915b7b48a90f5ce256da806f}{Argument\+Tuple} \& $>$ \&m)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_on_call_spec}{On\+Call\+Spec} \& \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a1c6303bf46983f20f4d2a61752fa8663}{Will\+By\+Default} (const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \&action)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a98603357e18be6450cd2154853bea3f7}{Matches} (const \hyperlink{classtesting_1_1internal_1_1_on_call_spec_a70ffab8b915b7b48a90f5ce256da806f}{Argument\+Tuple} \&args) const 
+\item 
+const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \& \hyperlink{classtesting_1_1internal_1_1_on_call_spec_ad560cd3f669be59d1159a962c76ba9b7}{Get\+Action} () const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Typedef Documentation}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!Argument\+Matcher\+Tuple@{Argument\+Matcher\+Tuple}}
+\index{Argument\+Matcher\+Tuple@{Argument\+Matcher\+Tuple}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{Argument\+Matcher\+Tuple}{ArgumentMatcherTuple}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ typedef {\bf Function}$<$F$>$\+::{\bf Argument\+Matcher\+Tuple} {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::{\bf Argument\+Matcher\+Tuple}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_a3240f159f0a9d8cda208bc256da35074}{}\label{classtesting_1_1internal_1_1_on_call_spec_a3240f159f0a9d8cda208bc256da35074}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!Argument\+Tuple@{Argument\+Tuple}}
+\index{Argument\+Tuple@{Argument\+Tuple}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{Argument\+Tuple}{ArgumentTuple}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ typedef {\bf Function}$<$F$>$\+::{\bf Argument\+Tuple} {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::{\bf Argument\+Tuple}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_a70ffab8b915b7b48a90f5ce256da806f}{}\label{classtesting_1_1internal_1_1_on_call_spec_a70ffab8b915b7b48a90f5ce256da806f}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!On\+Call\+Spec@{On\+Call\+Spec}}
+\index{On\+Call\+Spec@{On\+Call\+Spec}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{On\+Call\+Spec(const char $\ast$a\+\_\+file, int a\+\_\+line, const Argument\+Matcher\+Tuple \&matchers)}{OnCallSpec(const char *a_file, int a_line, const ArgumentMatcherTuple &matchers)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::{\bf On\+Call\+Spec} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+file, }
+\item[{int}]{a\+\_\+line, }
+\item[{const {\bf Argument\+Matcher\+Tuple} \&}]{matchers}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_ac7077e8162a10714e463b64a3cc7d054}{}\label{classtesting_1_1internal_1_1_on_call_spec_ac7077e8162a10714e463b64a3cc7d054}
+
+
+\subsection{Member Function Documentation}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!Get\+Action@{Get\+Action}}
+\index{Get\+Action@{Get\+Action}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{Get\+Action() const }{GetAction() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ const {\bf Action}$<$F$>$\& {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::Get\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_ad560cd3f669be59d1159a962c76ba9b7}{}\label{classtesting_1_1internal_1_1_on_call_spec_ad560cd3f669be59d1159a962c76ba9b7}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!Matches@{Matches}}
+\index{Matches@{Matches}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{Matches(const Argument\+Tuple \&args) const }{Matches(const ArgumentTuple &args) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ bool {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::Matches (
+\begin{DoxyParamCaption}
+\item[{const {\bf Argument\+Tuple} \&}]{args}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_a98603357e18be6450cd2154853bea3f7}{}\label{classtesting_1_1internal_1_1_on_call_spec_a98603357e18be6450cd2154853bea3f7}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!Will\+By\+Default@{Will\+By\+Default}}
+\index{Will\+By\+Default@{Will\+By\+Default}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{Will\+By\+Default(const Action$<$ F $>$ \&action)}{WillByDefault(const Action< F > &action)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf On\+Call\+Spec}\& {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::Will\+By\+Default (
+\begin{DoxyParamCaption}
+\item[{const {\bf Action}$<$ F $>$ \&}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_a1c6303bf46983f20f4d2a61752fa8663}{}\label{classtesting_1_1internal_1_1_on_call_spec_a1c6303bf46983f20f4d2a61752fa8663}
+\index{testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}!With@{With}}
+\index{With@{With}!testing\+::internal\+::\+On\+Call\+Spec@{testing\+::internal\+::\+On\+Call\+Spec}}
+\subsubsection[{\texorpdfstring{With(const Matcher$<$ const Argument\+Tuple \& $>$ \&m)}{With(const Matcher< const ArgumentTuple & > &m)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf On\+Call\+Spec}\& {\bf testing\+::internal\+::\+On\+Call\+Spec}$<$ F $>$\+::With (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matcher}$<$ const {\bf Argument\+Tuple} \& $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_on_call_spec_a2421cc9ac5c954a3a4c9275c35771bad}{}\label{classtesting_1_1internal_1_1_on_call_spec_a2421cc9ac5c954a3a4c9275c35771bad}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/\hyperlink{gmock-spec-builders_8h}{gmock-\/spec-\/builders.\+h}\end{DoxyCompactItemize}

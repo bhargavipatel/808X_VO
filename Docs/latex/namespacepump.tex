@@ -1,0 +1,469 @@
+\hypertarget{namespacepump}{}\section{pump Namespace Reference}
+\label{namespacepump}\index{pump@{pump}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classpump_1_1_code_node}{Code\+Node}
+\item 
+class \hyperlink{classpump_1_1_cursor}{Cursor}
+\item 
+class \hyperlink{classpump_1_1_else_node}{Else\+Node}
+\item 
+class \hyperlink{classpump_1_1_env}{Env}
+\item 
+class \hyperlink{classpump_1_1_exp_node}{Exp\+Node}
+\item 
+class \hyperlink{classpump_1_1_for_node}{For\+Node}
+\item 
+class \hyperlink{classpump_1_1_if_node}{If\+Node}
+\item 
+class \hyperlink{classpump_1_1_literal_dollar_node}{Literal\+Dollar\+Node}
+\item 
+class \hyperlink{classpump_1_1_output}{Output}
+\item 
+class \hyperlink{classpump_1_1_range_node}{Range\+Node}
+\item 
+class \hyperlink{classpump_1_1_raw_code_node}{Raw\+Code\+Node}
+\item 
+class \hyperlink{classpump_1_1_token}{Token}
+\item 
+class \hyperlink{classpump_1_1_var_node}{Var\+Node}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacepump_a38844b22bd5a51c098b07c2c36c5c5b3}{Eof} ()
+\item 
+def \hyperlink{namespacepump_a9353db466a97e632058887a77c3b26aa}{Starts\+With} (lines, pos, string)
+\item 
+def \hyperlink{namespacepump_af9f92ec64fe45399c7e051115a107ee7}{Find\+First\+In\+Line} (line, token\+\_\+table)
+\item 
+def \hyperlink{namespacepump_a08f2d05c192d11a134c008287bafef07}{Find\+First} (lines, token\+\_\+table, cursor)
+\item 
+def \hyperlink{namespacepump_a859edb180cfc24c24fabcfb4f2bedf9e}{Sub\+String} (lines, start, end)
+\item 
+def \hyperlink{namespacepump_a8c50cb40d65f26771c6f51eb265bb569}{Strip\+Meta\+Comments} (str)
+\item 
+def \hyperlink{namespacepump_af96d60dc97b160f3a18e63857aabeef7}{Make\+Token} (lines, start, end, token\+\_\+type)
+\item 
+def \hyperlink{namespacepump_a23761d99dd43d642e94d845218573035}{Parse\+Token} (lines, pos, regex, token\+\_\+type)
+\item 
+def \hyperlink{namespacepump_a869bd8932d9ee97f3a0e789abd05d590}{Skip} (lines, pos, regex)
+\item 
+def \hyperlink{namespacepump_a8935d04d89047866b07c59845e2d7d29}{Skip\+Until} (lines, pos, regex, token\+\_\+type)
+\item 
+def \hyperlink{namespacepump_ae094486db14ecec9347129c5f230042d}{Parse\+Exp\+Token\+In\+Parens} (lines, pos)
+\item 
+def \hyperlink{namespacepump_ae07150d94399cbe1661abe5929f921e0}{R\+Strip\+New\+Line\+From\+Token} (token)
+\item 
+def \hyperlink{namespacepump_aa383d59e8e2a9507a576fd4c6b68b6b7}{Tokenize\+Lines} (lines, pos)
+\item 
+def \hyperlink{namespacepump_aa42c23b1c914c0f86a94f2fa32999905}{Tokenize} (s)
+\item 
+def \hyperlink{namespacepump_a8e2ff118da88397e88ccf68ebcd2df79}{Pop\+Front} (a\+\_\+list)
+\item 
+def \hyperlink{namespacepump_a12c70577eb727526ac0ad17bf3b6c3a4}{Push\+Front} (a\+\_\+list, elem)
+\item 
+def \hyperlink{namespacepump_a45e1d5d5c1c188fc53eee8bd1e00e6b0}{Pop\+Token} (a\+\_\+list, token\+\_\+type=None)
+\item 
+def \hyperlink{namespacepump_ab12085e099ab4bd0cd968efdc435ec31}{Peek\+Token} (a\+\_\+list)
+\item 
+def \hyperlink{namespacepump_af62b08489d90e69d0577e82c98383ba7}{Parse\+Exp\+Node} (token)
+\item 
+def \hyperlink{namespacepump_ae40493525a993e81929c6905e329a406}{Parse\+Else\+Node} (tokens)
+\item 
+def \hyperlink{namespacepump_a5532710f334f026f80fc485decf5078e}{Parse\+Atomic\+Code\+Node} (tokens)
+\item 
+def \hyperlink{namespacepump_aabbc064b8664abbe05618b3a0f5a6c38}{Parse\+Code\+Node} (tokens)
+\item 
+def \hyperlink{namespacepump_a56ac10a83a3a875d305c9aae71fc0549}{Parse\+To\+A\+ST} (pump\+\_\+src\+\_\+text)
+\item 
+def \hyperlink{namespacepump_a901e6abd34691a0d779178a615cc09c1}{Run\+Atomic\+Code} (env, node, output)
+\item 
+def \hyperlink{namespacepump_ac6a714a44e28c2a19a1dfabeb9c9d4f1}{Run\+Code} (env, code\+\_\+node, output)
+\item 
+def \hyperlink{namespacepump_a417078b1d036b67756c47e5dc50324dc}{Is\+Single\+Line\+Comment} (cur\+\_\+line)
+\item 
+def \hyperlink{namespacepump_aa33101b01d5781710262f3b5dadd8bc8}{Is\+In\+Preprocessor\+Directive} (prev\+\_\+lines, cur\+\_\+line)
+\item 
+def \hyperlink{namespacepump_a73951c98652038351b1cd24291433e12}{Wrap\+Comment} (line, output)
+\item 
+def \hyperlink{namespacepump_a42502545a37fcd4513a0a7ac8ef3c0eb}{Wrap\+Code} (line, line\+\_\+concat, output)
+\item 
+def \hyperlink{namespacepump_a59e8ae06bae068d2d72df4f0340635d8}{Wrap\+Preprocessor\+Directive} (line, output)
+\item 
+def \hyperlink{namespacepump_a60723738cc38d8ced7e2cfecc72d8b11}{Wrap\+Plain\+Code} (line, output)
+\item 
+def \hyperlink{namespacepump_a707a3ff4514c89607e48a87589aed787}{Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma} (line)
+\item 
+def \hyperlink{namespacepump_ac8a553b60dc83d100361a0e98d98451b}{Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma} (line)
+\item 
+def \hyperlink{namespacepump_a02427e2ddc80f0f408e27dfc3e38e702}{Wrap\+Long\+Line} (line, output)
+\item 
+def \hyperlink{namespacepump_a3456db8d85605892d670669c4e238cd7}{Beautify\+Code} (string)
+\item 
+def \hyperlink{namespacepump_a568fe53d1443489ac15bac4a0f9faf91}{Convert\+From\+Pump\+Source} (src\+\_\+text)
+\item 
+def \hyperlink{namespacepump_abcf26971f7bdbad77c2c168c110312df}{main} (argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacepump_a132b35d1104c7f479aa21c345f413477}{T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE}
+\item 
+\hyperlink{namespacepump_a8e008923b6c378b8d3df611fb07d6dda}{I\+D\+\_\+\+R\+E\+G\+EX} = re.\+compile(r\textquotesingle{}\mbox{[}\+\_\+A-\/Za-\/z\mbox{]}\textbackslash{}w$\ast$\textquotesingle{})
+\item 
+\hyperlink{namespacepump_a6397ed9bab62b5c6f60a6626f6b287e0}{E\+Q\+\_\+\+R\+E\+G\+EX} = re.\+compile(r\textquotesingle{}=\textquotesingle{})
+\item 
+\hyperlink{namespacepump_a4c1f68b32fcb8366051b574cf2e6aef1}{R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX} = re.\+compile(r\textquotesingle{}.$\ast$?(?=\$$\vert$\textbackslash{}\$\textbackslash{}\$)\textquotesingle{})
+\item 
+\hyperlink{namespacepump_a81f03eaffd2c0f4c6a453a0b179e51ca}{O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX} = re.\+compile(r\textquotesingle{}\textbackslash{}s$\ast$\textquotesingle{})
+\item 
+\hyperlink{namespacepump_a4ab1be351870f785a72d324bf56c8316}{W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX} = re.\+compile(r\textquotesingle{}\textbackslash{}s\textquotesingle{})
+\item 
+\hyperlink{namespacepump_a45644ad738e584ec754f6d9f45fe693c}{D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX} = re.\+compile(r\textquotesingle{}\textbackslash{}.\textbackslash{}.\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{pump@{pump}!Beautify\+Code@{Beautify\+Code}}
+\index{Beautify\+Code@{Beautify\+Code}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Beautify\+Code(string)}{BeautifyCode(string)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Beautify\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{string}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a3456db8d85605892d670669c4e238cd7}{}\label{namespacepump_a3456db8d85605892d670669c4e238cd7}
+\index{pump@{pump}!Convert\+From\+Pump\+Source@{Convert\+From\+Pump\+Source}}
+\index{Convert\+From\+Pump\+Source@{Convert\+From\+Pump\+Source}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Convert\+From\+Pump\+Source(src\+\_\+text)}{ConvertFromPumpSource(src_text)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Convert\+From\+Pump\+Source (
+\begin{DoxyParamCaption}
+\item[{}]{src\+\_\+text}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a568fe53d1443489ac15bac4a0f9faf91}{}\label{namespacepump_a568fe53d1443489ac15bac4a0f9faf91}
+\begin{DoxyVerb}Return the text generated from the given Pump source text.\end{DoxyVerb}
+ \index{pump@{pump}!Eof@{Eof}}
+\index{Eof@{Eof}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Eof()}{Eof()}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Eof (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a38844b22bd5a51c098b07c2c36c5c5b3}{}\label{namespacepump_a38844b22bd5a51c098b07c2c36c5c5b3}
+\begin{DoxyVerb}Returns the special cursor to denote the end-of-file.\end{DoxyVerb}
+ \index{pump@{pump}!Find\+First@{Find\+First}}
+\index{Find\+First@{Find\+First}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Find\+First(lines, token\+\_\+table, cursor)}{FindFirst(lines, token_table, cursor)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Find\+First (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{token\+\_\+table, }
+\item[{}]{cursor}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a08f2d05c192d11a134c008287bafef07}{}\label{namespacepump_a08f2d05c192d11a134c008287bafef07}
+\begin{DoxyVerb}Finds the first occurrence of any string in strings in lines.\end{DoxyVerb}
+ \index{pump@{pump}!Find\+First\+In\+Line@{Find\+First\+In\+Line}}
+\index{Find\+First\+In\+Line@{Find\+First\+In\+Line}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Find\+First\+In\+Line(line, token\+\_\+table)}{FindFirstInLine(line, token_table)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Find\+First\+In\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{line, }
+\item[{}]{token\+\_\+table}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_af9f92ec64fe45399c7e051115a107ee7}{}\label{namespacepump_af9f92ec64fe45399c7e051115a107ee7}
+\index{pump@{pump}!Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma@{Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma}}
+\index{Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma@{Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma(line)}{IsHeaderGuardIncludeOrOneLineIWYUPragma(line)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Is\+Header\+Guard\+Include\+Or\+One\+Line\+I\+W\+Y\+U\+Pragma (
+\begin{DoxyParamCaption}
+\item[{}]{line}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_ac8a553b60dc83d100361a0e98d98451b}{}\label{namespacepump_ac8a553b60dc83d100361a0e98d98451b}
+\index{pump@{pump}!Is\+In\+Preprocessor\+Directive@{Is\+In\+Preprocessor\+Directive}}
+\index{Is\+In\+Preprocessor\+Directive@{Is\+In\+Preprocessor\+Directive}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Is\+In\+Preprocessor\+Directive(prev\+\_\+lines, cur\+\_\+line)}{IsInPreprocessorDirective(prev_lines, cur_line)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Is\+In\+Preprocessor\+Directive (
+\begin{DoxyParamCaption}
+\item[{}]{prev\+\_\+lines, }
+\item[{}]{cur\+\_\+line}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_aa33101b01d5781710262f3b5dadd8bc8}{}\label{namespacepump_aa33101b01d5781710262f3b5dadd8bc8}
+\index{pump@{pump}!Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma@{Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma}}
+\index{Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma@{Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma(line)}{IsMultiLineIWYUPragma(line)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Is\+Multi\+Line\+I\+W\+Y\+U\+Pragma (
+\begin{DoxyParamCaption}
+\item[{}]{line}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a707a3ff4514c89607e48a87589aed787}{}\label{namespacepump_a707a3ff4514c89607e48a87589aed787}
+\index{pump@{pump}!Is\+Single\+Line\+Comment@{Is\+Single\+Line\+Comment}}
+\index{Is\+Single\+Line\+Comment@{Is\+Single\+Line\+Comment}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Is\+Single\+Line\+Comment(cur\+\_\+line)}{IsSingleLineComment(cur_line)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Is\+Single\+Line\+Comment (
+\begin{DoxyParamCaption}
+\item[{}]{cur\+\_\+line}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a417078b1d036b67756c47e5dc50324dc}{}\label{namespacepump_a417078b1d036b67756c47e5dc50324dc}
+\index{pump@{pump}!main@{main}}
+\index{main@{main}!pump@{pump}}
+\subsubsection[{\texorpdfstring{main(argv)}{main(argv)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+main (
+\begin{DoxyParamCaption}
+\item[{}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_abcf26971f7bdbad77c2c168c110312df}{}\label{namespacepump_abcf26971f7bdbad77c2c168c110312df}
+\index{pump@{pump}!Make\+Token@{Make\+Token}}
+\index{Make\+Token@{Make\+Token}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Make\+Token(lines, start, end, token\+\_\+type)}{MakeToken(lines, start, end, token_type)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Make\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{start, }
+\item[{}]{end, }
+\item[{}]{token\+\_\+type}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_af96d60dc97b160f3a18e63857aabeef7}{}\label{namespacepump_af96d60dc97b160f3a18e63857aabeef7}
+\begin{DoxyVerb}Creates a new instance of Token.\end{DoxyVerb}
+ \index{pump@{pump}!Parse\+Atomic\+Code\+Node@{Parse\+Atomic\+Code\+Node}}
+\index{Parse\+Atomic\+Code\+Node@{Parse\+Atomic\+Code\+Node}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+Atomic\+Code\+Node(tokens)}{ParseAtomicCodeNode(tokens)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+Atomic\+Code\+Node (
+\begin{DoxyParamCaption}
+\item[{}]{tokens}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a5532710f334f026f80fc485decf5078e}{}\label{namespacepump_a5532710f334f026f80fc485decf5078e}
+\index{pump@{pump}!Parse\+Code\+Node@{Parse\+Code\+Node}}
+\index{Parse\+Code\+Node@{Parse\+Code\+Node}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+Code\+Node(tokens)}{ParseCodeNode(tokens)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+Code\+Node (
+\begin{DoxyParamCaption}
+\item[{}]{tokens}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_aabbc064b8664abbe05618b3a0f5a6c38}{}\label{namespacepump_aabbc064b8664abbe05618b3a0f5a6c38}
+\index{pump@{pump}!Parse\+Else\+Node@{Parse\+Else\+Node}}
+\index{Parse\+Else\+Node@{Parse\+Else\+Node}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+Else\+Node(tokens)}{ParseElseNode(tokens)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+Else\+Node (
+\begin{DoxyParamCaption}
+\item[{}]{tokens}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_ae40493525a993e81929c6905e329a406}{}\label{namespacepump_ae40493525a993e81929c6905e329a406}
+\index{pump@{pump}!Parse\+Exp\+Node@{Parse\+Exp\+Node}}
+\index{Parse\+Exp\+Node@{Parse\+Exp\+Node}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+Exp\+Node(token)}{ParseExpNode(token)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+Exp\+Node (
+\begin{DoxyParamCaption}
+\item[{}]{token}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_af62b08489d90e69d0577e82c98383ba7}{}\label{namespacepump_af62b08489d90e69d0577e82c98383ba7}
+\index{pump@{pump}!Parse\+Exp\+Token\+In\+Parens@{Parse\+Exp\+Token\+In\+Parens}}
+\index{Parse\+Exp\+Token\+In\+Parens@{Parse\+Exp\+Token\+In\+Parens}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+Exp\+Token\+In\+Parens(lines, pos)}{ParseExpTokenInParens(lines, pos)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+Exp\+Token\+In\+Parens (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_ae094486db14ecec9347129c5f230042d}{}\label{namespacepump_ae094486db14ecec9347129c5f230042d}
+\index{pump@{pump}!Parse\+To\+A\+ST@{Parse\+To\+A\+ST}}
+\index{Parse\+To\+A\+ST@{Parse\+To\+A\+ST}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+To\+A\+S\+T(pump\+\_\+src\+\_\+text)}{ParseToAST(pump_src_text)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+To\+A\+ST (
+\begin{DoxyParamCaption}
+\item[{}]{pump\+\_\+src\+\_\+text}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a56ac10a83a3a875d305c9aae71fc0549}{}\label{namespacepump_a56ac10a83a3a875d305c9aae71fc0549}
+\begin{DoxyVerb}Convert the given Pump source text into an AST.\end{DoxyVerb}
+ \index{pump@{pump}!Parse\+Token@{Parse\+Token}}
+\index{Parse\+Token@{Parse\+Token}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Parse\+Token(lines, pos, regex, token\+\_\+type)}{ParseToken(lines, pos, regex, token_type)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Parse\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{pos, }
+\item[{}]{regex, }
+\item[{}]{token\+\_\+type}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a23761d99dd43d642e94d845218573035}{}\label{namespacepump_a23761d99dd43d642e94d845218573035}
+\index{pump@{pump}!Peek\+Token@{Peek\+Token}}
+\index{Peek\+Token@{Peek\+Token}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Peek\+Token(a\+\_\+list)}{PeekToken(a_list)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Peek\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{a\+\_\+list}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_ab12085e099ab4bd0cd968efdc435ec31}{}\label{namespacepump_ab12085e099ab4bd0cd968efdc435ec31}
+\index{pump@{pump}!Pop\+Front@{Pop\+Front}}
+\index{Pop\+Front@{Pop\+Front}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Pop\+Front(a\+\_\+list)}{PopFront(a_list)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Pop\+Front (
+\begin{DoxyParamCaption}
+\item[{}]{a\+\_\+list}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a8e2ff118da88397e88ccf68ebcd2df79}{}\label{namespacepump_a8e2ff118da88397e88ccf68ebcd2df79}
+\index{pump@{pump}!Pop\+Token@{Pop\+Token}}
+\index{Pop\+Token@{Pop\+Token}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Pop\+Token(a\+\_\+list, token\+\_\+type=\+None)}{PopToken(a_list, token_type=None)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Pop\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{a\+\_\+list, }
+\item[{}]{token\+\_\+type = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a45e1d5d5c1c188fc53eee8bd1e00e6b0}{}\label{namespacepump_a45e1d5d5c1c188fc53eee8bd1e00e6b0}
+\index{pump@{pump}!Push\+Front@{Push\+Front}}
+\index{Push\+Front@{Push\+Front}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Push\+Front(a\+\_\+list, elem)}{PushFront(a_list, elem)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Push\+Front (
+\begin{DoxyParamCaption}
+\item[{}]{a\+\_\+list, }
+\item[{}]{elem}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a12c70577eb727526ac0ad17bf3b6c3a4}{}\label{namespacepump_a12c70577eb727526ac0ad17bf3b6c3a4}
+\index{pump@{pump}!R\+Strip\+New\+Line\+From\+Token@{R\+Strip\+New\+Line\+From\+Token}}
+\index{R\+Strip\+New\+Line\+From\+Token@{R\+Strip\+New\+Line\+From\+Token}!pump@{pump}}
+\subsubsection[{\texorpdfstring{R\+Strip\+New\+Line\+From\+Token(token)}{RStripNewLineFromToken(token)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+R\+Strip\+New\+Line\+From\+Token (
+\begin{DoxyParamCaption}
+\item[{}]{token}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_ae07150d94399cbe1661abe5929f921e0}{}\label{namespacepump_ae07150d94399cbe1661abe5929f921e0}
+\index{pump@{pump}!Run\+Atomic\+Code@{Run\+Atomic\+Code}}
+\index{Run\+Atomic\+Code@{Run\+Atomic\+Code}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Run\+Atomic\+Code(env, node, output)}{RunAtomicCode(env, node, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Run\+Atomic\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{env, }
+\item[{}]{node, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a901e6abd34691a0d779178a615cc09c1}{}\label{namespacepump_a901e6abd34691a0d779178a615cc09c1}
+\index{pump@{pump}!Run\+Code@{Run\+Code}}
+\index{Run\+Code@{Run\+Code}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Run\+Code(env, code\+\_\+node, output)}{RunCode(env, code_node, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Run\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{env, }
+\item[{}]{code\+\_\+node, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_ac6a714a44e28c2a19a1dfabeb9c9d4f1}{}\label{namespacepump_ac6a714a44e28c2a19a1dfabeb9c9d4f1}
+\index{pump@{pump}!Skip@{Skip}}
+\index{Skip@{Skip}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Skip(lines, pos, regex)}{Skip(lines, pos, regex)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Skip (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{pos, }
+\item[{}]{regex}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a869bd8932d9ee97f3a0e789abd05d590}{}\label{namespacepump_a869bd8932d9ee97f3a0e789abd05d590}
+\index{pump@{pump}!Skip\+Until@{Skip\+Until}}
+\index{Skip\+Until@{Skip\+Until}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Skip\+Until(lines, pos, regex, token\+\_\+type)}{SkipUntil(lines, pos, regex, token_type)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Skip\+Until (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{pos, }
+\item[{}]{regex, }
+\item[{}]{token\+\_\+type}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a8935d04d89047866b07c59845e2d7d29}{}\label{namespacepump_a8935d04d89047866b07c59845e2d7d29}
+\index{pump@{pump}!Starts\+With@{Starts\+With}}
+\index{Starts\+With@{Starts\+With}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Starts\+With(lines, pos, string)}{StartsWith(lines, pos, string)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Starts\+With (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{pos, }
+\item[{}]{string}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a9353db466a97e632058887a77c3b26aa}{}\label{namespacepump_a9353db466a97e632058887a77c3b26aa}
+\begin{DoxyVerb}Returns True iff the given position in lines starts with 'string'.\end{DoxyVerb}
+ \index{pump@{pump}!Strip\+Meta\+Comments@{Strip\+Meta\+Comments}}
+\index{Strip\+Meta\+Comments@{Strip\+Meta\+Comments}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Strip\+Meta\+Comments(str)}{StripMetaComments(str)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Strip\+Meta\+Comments (
+\begin{DoxyParamCaption}
+\item[{}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a8c50cb40d65f26771c6f51eb265bb569}{}\label{namespacepump_a8c50cb40d65f26771c6f51eb265bb569}
+\begin{DoxyVerb}Strip meta comments from each line in the given string.\end{DoxyVerb}
+ \index{pump@{pump}!Sub\+String@{Sub\+String}}
+\index{Sub\+String@{Sub\+String}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Sub\+String(lines, start, end)}{SubString(lines, start, end)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Sub\+String (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{start, }
+\item[{}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a859edb180cfc24c24fabcfb4f2bedf9e}{}\label{namespacepump_a859edb180cfc24c24fabcfb4f2bedf9e}
+\begin{DoxyVerb}Returns a substring in lines.\end{DoxyVerb}
+ \index{pump@{pump}!Tokenize@{Tokenize}}
+\index{Tokenize@{Tokenize}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Tokenize(s)}{Tokenize(s)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Tokenize (
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_aa42c23b1c914c0f86a94f2fa32999905}{}\label{namespacepump_aa42c23b1c914c0f86a94f2fa32999905}
+\begin{DoxyVerb}A generator that yields the tokens in the given string.\end{DoxyVerb}
+ \index{pump@{pump}!Tokenize\+Lines@{Tokenize\+Lines}}
+\index{Tokenize\+Lines@{Tokenize\+Lines}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Tokenize\+Lines(lines, pos)}{TokenizeLines(lines, pos)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Tokenize\+Lines (
+\begin{DoxyParamCaption}
+\item[{}]{lines, }
+\item[{}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_aa383d59e8e2a9507a576fd4c6b68b6b7}{}\label{namespacepump_aa383d59e8e2a9507a576fd4c6b68b6b7}
+\index{pump@{pump}!Wrap\+Code@{Wrap\+Code}}
+\index{Wrap\+Code@{Wrap\+Code}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Wrap\+Code(line, line\+\_\+concat, output)}{WrapCode(line, line_concat, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Wrap\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{line, }
+\item[{}]{line\+\_\+concat, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a42502545a37fcd4513a0a7ac8ef3c0eb}{}\label{namespacepump_a42502545a37fcd4513a0a7ac8ef3c0eb}
+\index{pump@{pump}!Wrap\+Comment@{Wrap\+Comment}}
+\index{Wrap\+Comment@{Wrap\+Comment}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Wrap\+Comment(line, output)}{WrapComment(line, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Wrap\+Comment (
+\begin{DoxyParamCaption}
+\item[{}]{line, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a73951c98652038351b1cd24291433e12}{}\label{namespacepump_a73951c98652038351b1cd24291433e12}
+\index{pump@{pump}!Wrap\+Long\+Line@{Wrap\+Long\+Line}}
+\index{Wrap\+Long\+Line@{Wrap\+Long\+Line}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Wrap\+Long\+Line(line, output)}{WrapLongLine(line, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Wrap\+Long\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{line, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a02427e2ddc80f0f408e27dfc3e38e702}{}\label{namespacepump_a02427e2ddc80f0f408e27dfc3e38e702}
+\index{pump@{pump}!Wrap\+Plain\+Code@{Wrap\+Plain\+Code}}
+\index{Wrap\+Plain\+Code@{Wrap\+Plain\+Code}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Wrap\+Plain\+Code(line, output)}{WrapPlainCode(line, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Wrap\+Plain\+Code (
+\begin{DoxyParamCaption}
+\item[{}]{line, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a60723738cc38d8ced7e2cfecc72d8b11}{}\label{namespacepump_a60723738cc38d8ced7e2cfecc72d8b11}
+\index{pump@{pump}!Wrap\+Preprocessor\+Directive@{Wrap\+Preprocessor\+Directive}}
+\index{Wrap\+Preprocessor\+Directive@{Wrap\+Preprocessor\+Directive}!pump@{pump}}
+\subsubsection[{\texorpdfstring{Wrap\+Preprocessor\+Directive(line, output)}{WrapPreprocessorDirective(line, output)}}]{\setlength{\rightskip}{0pt plus 5cm}def pump.\+Wrap\+Preprocessor\+Directive (
+\begin{DoxyParamCaption}
+\item[{}]{line, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepump_a59e8ae06bae068d2d72df4f0340635d8}{}\label{namespacepump_a59e8ae06bae068d2d72df4f0340635d8}
+
+
+\subsection{Variable Documentation}
+\index{pump@{pump}!D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX@{D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX}}
+\index{D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX@{D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX}!pump@{pump}}
+\subsubsection[{\texorpdfstring{D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX}{DOT_DOT_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}pump.\+D\+O\+T\+\_\+\+D\+O\+T\+\_\+\+R\+E\+G\+EX = re.\+compile(r\textquotesingle{}\textbackslash{}.\textbackslash{}.\textquotesingle{})}\hypertarget{namespacepump_a45644ad738e584ec754f6d9f45fe693c}{}\label{namespacepump_a45644ad738e584ec754f6d9f45fe693c}
+\index{pump@{pump}!E\+Q\+\_\+\+R\+E\+G\+EX@{E\+Q\+\_\+\+R\+E\+G\+EX}}
+\index{E\+Q\+\_\+\+R\+E\+G\+EX@{E\+Q\+\_\+\+R\+E\+G\+EX}!pump@{pump}}
+\subsubsection[{\texorpdfstring{E\+Q\+\_\+\+R\+E\+G\+EX}{EQ_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}pump.\+E\+Q\+\_\+\+R\+E\+G\+EX = re.\+compile(r\textquotesingle{}=\textquotesingle{})}\hypertarget{namespacepump_a6397ed9bab62b5c6f60a6626f6b287e0}{}\label{namespacepump_a6397ed9bab62b5c6f60a6626f6b287e0}
+\index{pump@{pump}!I\+D\+\_\+\+R\+E\+G\+EX@{I\+D\+\_\+\+R\+E\+G\+EX}}
+\index{I\+D\+\_\+\+R\+E\+G\+EX@{I\+D\+\_\+\+R\+E\+G\+EX}!pump@{pump}}
+\subsubsection[{\texorpdfstring{I\+D\+\_\+\+R\+E\+G\+EX}{ID_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}pump.\+I\+D\+\_\+\+R\+E\+G\+EX = re.\+compile(r\textquotesingle{}\mbox{[}\+\_\+A-\/Za-\/z\mbox{]}\textbackslash{}w$\ast$\textquotesingle{})}\hypertarget{namespacepump_a8e008923b6c378b8d3df611fb07d6dda}{}\label{namespacepump_a8e008923b6c378b8d3df611fb07d6dda}
+\index{pump@{pump}!O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX@{O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX}}
+\index{O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX@{O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX}!pump@{pump}}
+\subsubsection[{\texorpdfstring{O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX}{OPTIONAL_WHITE_SPACES_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}pump.\+O\+P\+T\+I\+O\+N\+A\+L\+\_\+\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+S\+\_\+\+R\+E\+G\+EX = re.\+compile(r\textquotesingle{}\textbackslash{}s$\ast$\textquotesingle{})}\hypertarget{namespacepump_a81f03eaffd2c0f4c6a453a0b179e51ca}{}\label{namespacepump_a81f03eaffd2c0f4c6a453a0b179e51ca}
+\index{pump@{pump}!R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX@{R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX}}
+\index{R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX@{R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX}!pump@{pump}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX}{REST_OF_LINE_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}pump.\+R\+E\+S\+T\+\_\+\+O\+F\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+G\+EX = re.\+compile(r\textquotesingle{}.$\ast$?(?=\$$\vert$\textbackslash{}\$\textbackslash{}\$)\textquotesingle{})}\hypertarget{namespacepump_a4c1f68b32fcb8366051b574cf2e6aef1}{}\label{namespacepump_a4c1f68b32fcb8366051b574cf2e6aef1}
+\index{pump@{pump}!T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE@{T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE}}
+\index{T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE@{T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE}!pump@{pump}}
+\subsubsection[{\texorpdfstring{T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE}{TOKEN_TABLE}}]{\setlength{\rightskip}{0pt plus 5cm}list pump.\+T\+O\+K\+E\+N\+\_\+\+T\+A\+B\+LE}\hypertarget{namespacepump_a132b35d1104c7f479aa21c345f413477}{}\label{namespacepump_a132b35d1104c7f479aa21c345f413477}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$var\(\backslash\)s+'}), \textcolor{stringliteral}{'$var'}),
+3     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$elif\(\backslash\)s+'}), \textcolor{stringliteral}{'$elif'}),
+4     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$else\(\backslash\)s+'}), \textcolor{stringliteral}{'$else'}),
+5     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$for\(\backslash\)s+'}), \textcolor{stringliteral}{'$for'}),
+6     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$if\(\backslash\)s+'}), \textcolor{stringliteral}{'$if'}),
+7     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$range\(\backslash\)s+'}), \textcolor{stringliteral}{'$range'}),
+8     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$[\_A-Za-z]\(\backslash\)w*'}), \textcolor{stringliteral}{'$id'}),
+9     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$\(\backslash\)(\(\backslash\)$\(\backslash\))'}), \textcolor{stringliteral}{'$($)'}),
+10     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)$'}), \textcolor{stringliteral}{'$'}),
+11     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)[\(\backslash\)[\(\backslash\)n?'}), \textcolor{stringliteral}{'[['}),
+12     (re.compile(\textcolor{stringliteral}{r'\(\backslash\)]\(\backslash\)]\(\backslash\)n?'}), \textcolor{stringliteral}{']]'}),
+13     ]
+\end{DoxyCode}
+\index{pump@{pump}!W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX@{W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX}}
+\index{W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX@{W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX}!pump@{pump}}
+\subsubsection[{\texorpdfstring{W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX}{WHITE_SPACE_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}pump.\+W\+H\+I\+T\+E\+\_\+\+S\+P\+A\+C\+E\+\_\+\+R\+E\+G\+EX = re.\+compile(r\textquotesingle{}\textbackslash{}s\textquotesingle{})}\hypertarget{namespacepump_a4ab1be351870f785a72d324bf56c8316}{}\label{namespacepump_a4ab1be351870f785a72d324bf56c8316}

@@ -1,0 +1,3330 @@
+You can find recipes for using Google \hyperlink{class_mock}{Mock} here. If you haven\textquotesingle{}t yet, please read the \hyperlink{v1__7_2_for_dummies_8md}{For\+Dummies} document first to make sure you understand the basics.
+
+{\bfseries Note\+:} Google \hyperlink{class_mock}{Mock} lives in the {\ttfamily testing} name space. For readability, it is recommended to write {\ttfamily using \+::testing\+::\+Foo;} once in your file before using the name {\ttfamily Foo} defined by Google \hyperlink{class_mock}{Mock}. We omit such {\ttfamily using} statements in this page for brevity, but you should do it in your own code.
+
+\section*{Creating \hyperlink{class_mock}{Mock} Classes}
+
+\subsection*{Mocking Private or Protected Methods}
+
+You must always put a mock method definition ({\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+O\+D$\ast$}) in a {\ttfamily public\+:} section of the mock class, regardless of the method being mocked being {\ttfamily public}, {\ttfamily protected}, or {\ttfamily private} in the base class. This allows {\ttfamily O\+N\+\_\+\+C\+A\+LL} and {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} to reference the mock function from outside of the mock class. (Yes, C++ allows a subclass to change the access level of a virtual function in the base class.) Example\+:
+
+
+\begin{DoxyCode}
+1 class Foo \{
+2  public:
+3   ...
+4   virtual bool Transform(Gadget* g) = 0;
+5 
+6  protected:
+7   virtual void Resume();
+8 
+9  private:
+10   virtual int GetTimeOut();
+11 \};
+12 
+13 class MockFoo : public Foo \{
+14  public:
+15   ...
+16   MOCK\_METHOD1(Transform, bool(Gadget* g));
+17 
+18   // The following must be in the public section, even though the
+19   // methods are protected or private in the base class.
+20   MOCK\_METHOD0(Resume, void());
+21   MOCK\_METHOD0(GetTimeOut, int());
+22 \};
+\end{DoxyCode}
+
+
+\subsection*{Mocking Overloaded Methods}
+
+You can mock overloaded functions as usual. No special attention is required\+:
+
+
+\begin{DoxyCode}
+1 class Foo \{
+2   ...
+3 
+4   // Must be virtual as we'll inherit from Foo.
+5   virtual ~Foo();
+6 
+7   // Overloaded on the types and/or numbers of arguments.
+8   virtual int Add(Element x);
+9   virtual int Add(int times, Element x);
+10 
+11   // Overloaded on the const-ness of this object.
+12   virtual Bar& GetBar();
+13   virtual const Bar& GetBar() const;
+14 \};
+15 
+16 class MockFoo : public Foo \{
+17   ...
+18   MOCK\_METHOD1(Add, int(Element x));
+19   MOCK\_METHOD2(Add, int(int times, Element x);
+20 
+21   MOCK\_METHOD0(GetBar, Bar&());
+22   MOCK\_CONST\_METHOD0(GetBar, const Bar&());
+23 \};
+\end{DoxyCode}
+
+
+{\bfseries Note\+:} if you don\textquotesingle{}t mock all versions of the overloaded method, the compiler will give you a warning about some methods in the base class being hidden. To fix that, use {\ttfamily using} to bring them in scope\+:
+
+
+\begin{DoxyCode}
+1 class MockFoo : public Foo \{
+2   ...
+3   using Foo::Add;
+4   MOCK\_METHOD1(Add, int(Element x));
+5   // We don't want to mock int Add(int times, Element x);
+6   ...
+7 \};
+\end{DoxyCode}
+
+
+\subsection*{Mocking Class Templates}
+
+To mock a class template, append {\ttfamily \+\_\+T} to the {\ttfamily M\+O\+C\+K\+\_\+$\ast$} macros\+:
+
+
+\begin{DoxyCode}
+1 template <typename Elem>
+2 class StackInterface \{
+3   ...
+4   // Must be virtual as we'll inherit from StackInterface.
+5   virtual ~StackInterface();
+6 
+7   virtual int GetSize() const = 0;
+8   virtual void Push(const Elem& x) = 0;
+9 \};
+10 
+11 template <typename Elem>
+12 class MockStack : public StackInterface<Elem> \{
+13   ...
+14   MOCK\_CONST\_METHOD0\_T(GetSize, int());
+15   MOCK\_METHOD1\_T(Push, void(const Elem& x));
+16 \};
+\end{DoxyCode}
+
+
+\subsection*{Mocking Nonvirtual Methods}
+
+Google \hyperlink{class_mock}{Mock} can mock non-\/virtual functions to be used in what we call {\itshape hi-\/perf dependency injection}.
+
+In this case, instead of sharing a common base class with the real class, your mock class will be {\itshape unrelated} to the real class, but contain methods with the same signatures. The syntax for mocking non-\/virtual methods is the {\itshape same} as mocking virtual methods\+:
+
+
+\begin{DoxyCode}
+1 // A simple packet stream class.  None of its members is virtual.
+2 class ConcretePacketStream \{
+3  public:
+4   void AppendPacket(Packet* new\_packet);
+5   const Packet* GetPacket(size\_t packet\_number) const;
+6   size\_t NumberOfPackets() const;
+7   ...
+8 \};
+9 
+10 // A mock packet stream class.  It inherits from no other, but defines
+11 // GetPacket() and NumberOfPackets().
+12 class MockPacketStream \{
+13  public:
+14   MOCK\_CONST\_METHOD1(GetPacket, const Packet*(size\_t packet\_number));
+15   MOCK\_CONST\_METHOD0(NumberOfPackets, size\_t());
+16   ...
+17 \};
+\end{DoxyCode}
+
+
+Note that the mock class doesn\textquotesingle{}t define {\ttfamily Append\+Packet()}, unlike the real class. That\textquotesingle{}s fine as long as the test doesn\textquotesingle{}t need to call it.
+
+Next, you need a way to say that you want to use {\ttfamily Concrete\+Packet\+Stream} in production code, and use {\ttfamily Mock\+Packet\+Stream} in tests. Since the functions are not virtual and the two classes are unrelated, you must specify your choice at {\itshape compile time} (as opposed to run time).
+
+One way to do it is to templatize your code that needs to use a packet stream. More specifically, you will give your code a template type argument for the type of the packet stream. In production, you will instantiate your template with {\ttfamily Concrete\+Packet\+Stream} as the type argument. In tests, you will instantiate the same template with {\ttfamily Mock\+Packet\+Stream}. For example, you may write\+:
+
+
+\begin{DoxyCode}
+1 template <class PacketStream>
+2 void CreateConnection(PacketStream* stream) \{ ... \}
+3 
+4 template <class PacketStream>
+5 class PacketReader \{
+6  public:
+7   void ReadPackets(PacketStream* stream, size\_t packet\_num);
+8 \};
+\end{DoxyCode}
+
+
+Then you can use {\ttfamily Create\+Connection$<$Concrete\+Packet\+Stream$>$()} and {\ttfamily Packet\+Reader$<$Concrete\+Packet\+Stream$>$} in production code, and use {\ttfamily Create\+Connection$<$Mock\+Packet\+Stream$>$()} and {\ttfamily Packet\+Reader$<$Mock\+Packet\+Stream$>$} in tests.
+
+
+\begin{DoxyCode}
+1 MockPacketStream mock\_stream;
+2 EXPECT\_CALL(mock\_stream, ...)...;
+3 .. set more expectations on mock\_stream ...
+4 PacketReader<MockPacketStream> reader(&mock\_stream);
+5 ... exercise reader ...
+\end{DoxyCode}
+
+
+\subsection*{Mocking Free Functions}
+
+It\textquotesingle{}s possible to use Google \hyperlink{class_mock}{Mock} to mock a free function (i.\+e. a C-\/style function or a static method). You just need to rewrite your code to use an interface (abstract class).
+
+Instead of calling a free function (say, {\ttfamily Open\+File}) directly, introduce an interface for it and have a concrete subclass that calls the free function\+:
+
+
+\begin{DoxyCode}
+1 class FileInterface \{
+2  public:
+3   ...
+4   virtual bool Open(const char* path, const char* mode) = 0;
+5 \};
+6 
+7 class File : public FileInterface \{
+8  public:
+9   ...
+10   virtual bool Open(const char* path, const char* mode) \{
+11     return OpenFile(path, mode);
+12   \}
+13 \};
+\end{DoxyCode}
+
+
+Your code should talk to {\ttfamily File\+Interface} to open a file. Now it\textquotesingle{}s easy to mock out the function.
+
+This may seem much hassle, but in practice you often have multiple related functions that you can put in the same interface, so the per-\/function syntactic overhead will be much lower.
+
+If you are concerned about the performance overhead incurred by virtual functions, and profiling confirms your concern, you can combine this with the recipe for \href{#mocking-nonvirtual-methods}{\tt mocking non-\/virtual methods}.
+
+\subsection*{The Nice, the Strict, and the Naggy}
+
+If a mock method has no {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} spec but is called, Google \hyperlink{class_mock}{Mock} will print a warning about the \char`\"{}uninteresting call\char`\"{}. The rationale is\+:
+
+
+\begin{DoxyItemize}
+\item New methods may be added to an interface after a test is written. We shouldn\textquotesingle{}t fail a test just because a method it doesn\textquotesingle{}t know about is called.
+\item However, this may also mean there\textquotesingle{}s a bug in the test, so Google \hyperlink{class_mock}{Mock} shouldn\textquotesingle{}t be silent either. If the user believes these calls are harmless, he can add an {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} to suppress the warning.
+\end{DoxyItemize}
+
+However, sometimes you may want to suppress all \char`\"{}uninteresting call\char`\"{} warnings, while sometimes you may want the opposite, i.\+e. to treat all of them as errors. Google \hyperlink{class_mock}{Mock} lets you make the decision on a per-\/mock-\/object basis.
+
+Suppose your test uses a mock class {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}\+:
+
+
+\begin{DoxyCode}
+1 TEST(...) \{
+2   MockFoo mock\_foo;
+3   EXPECT\_CALL(mock\_foo, DoThis());
+4   ... code that uses mock\_foo ...
+5 \}
+\end{DoxyCode}
+
+
+If a method of {\ttfamily mock\+\_\+foo} other than {\ttfamily Do\+This()} is called, it will be reported by Google \hyperlink{class_mock}{Mock} as a warning. However, if you rewrite your test to use {\ttfamily Nice\+Mock$<$\hyperlink{class_mock_foo}{Mock\+Foo}$>$} instead, the warning will be gone, resulting in a cleaner test output\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::NiceMock;
+2 
+3 TEST(...) \{
+4   NiceMock<MockFoo> mock\_foo;
+5   EXPECT\_CALL(mock\_foo, DoThis());
+6   ... code that uses mock\_foo ...
+7 \}
+\end{DoxyCode}
+
+
+{\ttfamily Nice\+Mock$<$\hyperlink{class_mock_foo}{Mock\+Foo}$>$} is a subclass of {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}, so it can be used wherever {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}} is accepted.
+
+It also works if {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}\textquotesingle{}s constructor takes some arguments, as {\ttfamily Nice\+Mock$<$\hyperlink{class_mock_foo}{Mock\+Foo}$>$} \char`\"{}inherits\char`\"{} {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}\textquotesingle{}s constructors\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::NiceMock;
+2 
+3 TEST(...) \{
+4   NiceMock<MockFoo> mock\_foo(5, "hi");  // Calls MockFoo(5, "hi").
+5   EXPECT\_CALL(mock\_foo, DoThis());
+6   ... code that uses mock\_foo ...
+7 \}
+\end{DoxyCode}
+
+
+The usage of {\ttfamily Strict\+Mock} is similar, except that it makes all uninteresting calls failures\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::StrictMock;
+2 
+3 TEST(...) \{
+4   StrictMock<MockFoo> mock\_foo;
+5   EXPECT\_CALL(mock\_foo, DoThis());
+6   ... code that uses mock\_foo ...
+7 
+8   // The test will fail if a method of mock\_foo other than DoThis()
+9   // is called.
+10 \}
+\end{DoxyCode}
+
+
+There are some caveats though (I don\textquotesingle{}t like them just as much as the next guy, but sadly they are side effects of C++\textquotesingle{}s limitations)\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily Nice\+Mock$<$\hyperlink{class_mock_foo}{Mock\+Foo}$>$} and {\ttfamily Strict\+Mock$<$\hyperlink{class_mock_foo}{Mock\+Foo}$>$} only work for mock methods defined using the {\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+O\+D$\ast$} family of macros {\bfseries directly} in the {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}} class. If a mock method is defined in a {\bfseries base class} of {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}, the \char`\"{}nice\char`\"{} or \char`\"{}strict\char`\"{} modifier may not affect it, depending on the compiler. In particular, nesting {\ttfamily Nice\+Mock} and {\ttfamily Strict\+Mock} (e.\+g. {\ttfamily Nice\+Mock$<$Strict\+Mock$<$\hyperlink{class_mock_foo}{Mock\+Foo}$>$ $>$}) is {\bfseries not} supported.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item The constructors of the base mock ({\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}) cannot have arguments passed by non-\/const reference, which happens to be banned by the \href{http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml}{\tt Google C++ style guide}.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item During the constructor or destructor of {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}}, the mock object is {\itshape not} nice or strict. This may cause surprises if the constructor or destructor calls a mock method on {\ttfamily this} object. (This behavior, however, is consistent with C++\textquotesingle{}s general rule\+: if a constructor or destructor calls a virtual method of {\ttfamily this} object, that method is treated as non-\/virtual. In other words, to the base class\textquotesingle{}s constructor or destructor, {\ttfamily this} object behaves like an instance of the base class, not the derived class. This rule is required for safety. Otherwise a base constructor may use members of a derived class before they are initialized, or a base destructor may use members of a derived class after they have been destroyed.)
+\end{DoxyEnumerate}
+
+Finally, you should be {\bfseries very cautious} about when to use naggy or strict mocks, as they tend to make tests more brittle and harder to maintain. When you refactor your code without changing its externally visible behavior, ideally you should\textquotesingle{}t need to update any tests. If your code interacts with a naggy mock, however, you may start to get spammed with warnings as the result of your change. Worse, if your code interacts with a strict mock, your tests may start to fail and you\textquotesingle{}ll be forced to fix them. Our general recommendation is to use nice mocks (not yet the default) most of the time, use naggy mocks (the current default) when developing or debugging tests, and use strict mocks only as the last resort.
+
+\subsection*{Simplifying the \hyperlink{class_interface}{Interface} without Breaking Existing Code}
+
+Sometimes a method has a long list of arguments that is mostly uninteresting. For example,
+
+
+\begin{DoxyCode}
+1 class LogSink \{
+2  public:
+3   ...
+4   virtual void send(LogSeverity severity, const char* full\_filename,
+5                     const char* base\_filename, int line,
+6                     const struct tm* tm\_time,
+7                     const char* message, size\_t message\_len) = 0;
+8 \};
+\end{DoxyCode}
+
+
+This method\textquotesingle{}s argument list is lengthy and hard to work with (let\textquotesingle{}s say that the {\ttfamily message} argument is not even 0-\/terminated). If we mock it as is, using the mock will be awkward. If, however, we try to simplify this interface, we\textquotesingle{}ll need to fix all clients depending on it, which is often infeasible.
+
+The trick is to re-\/dispatch the method in the mock class\+:
+
+
+\begin{DoxyCode}
+1 class ScopedMockLog : public LogSink \{
+2  public:
+3   ...
+4   virtual void send(LogSeverity severity, const char* full\_filename,
+5                     const char* base\_filename, int line, const tm* tm\_time,
+6                     const char* message, size\_t message\_len) \{
+7     // We are only interested in the log severity, full file name, and
+8     // log message.
+9     Log(severity, full\_filename, std::string(message, message\_len));
+10   \}
+11 
+12   // Implements the mock method:
+13   //
+14   //   void Log(LogSeverity severity,
+15   //            const string& file\_path,
+16   //            const string& message);
+17   MOCK\_METHOD3(Log, void(LogSeverity severity, const string& file\_path,
+18                          const string& message));
+19 \};
+\end{DoxyCode}
+
+
+By defining a new mock method with a trimmed argument list, we make the mock class much more user-\/friendly.
+
+\subsection*{Alternative to Mocking Concrete Classes}
+
+Often you may find yourself using classes that don\textquotesingle{}t implement interfaces. In order to test your code that uses such a class (let\textquotesingle{}s call it {\ttfamily Concrete}), you may be tempted to make the methods of {\ttfamily Concrete} virtual and then mock it.
+
+Try not to do that.
+
+Making a non-\/virtual function virtual is a big decision. It creates an extension point where subclasses can tweak your class\textquotesingle{} behavior. This weakens your control on the class because now it\textquotesingle{}s harder to maintain the class\textquotesingle{} invariants. You should make a function virtual only when there is a valid reason for a subclass to override it.
+
+Mocking concrete classes directly is problematic as it creates a tight coupling between the class and the tests -\/ any small change in the class may invalidate your tests and make test maintenance a pain.
+
+To avoid such problems, many programmers have been practicing \char`\"{}coding
+to interfaces\char`\"{}\+: instead of talking to the {\ttfamily Concrete} class, your code would define an interface and talk to it. Then you implement that interface as an adaptor on top of {\ttfamily Concrete}. In tests, you can easily mock that interface to observe how your code is doing.
+
+This technique incurs some overhead\+:
+
+
+\begin{DoxyItemize}
+\item You pay the cost of virtual function calls (usually not a problem).
+\item There is more abstraction for the programmers to learn.
+\end{DoxyItemize}
+
+However, it can also bring significant benefits in addition to better testability\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Concrete}\textquotesingle{}s A\+PI may not fit your problem domain very well, as you may not be the only client it tries to serve. By designing your own interface, you have a chance to tailor it to your need -\/ you may add higher-\/level functionalities, rename stuff, etc instead of just trimming the class. This allows you to write your code (user of the interface) in a more natural way, which means it will be more readable, more maintainable, and you\textquotesingle{}ll be more productive.
+\item If {\ttfamily Concrete}\textquotesingle{}s implementation ever has to change, you don\textquotesingle{}t have to rewrite everywhere it is used. Instead, you can absorb the change in your implementation of the interface, and your other code and tests will be insulated from this change.
+\end{DoxyItemize}
+
+Some people worry that if everyone is practicing this technique, they will end up writing lots of redundant code. This concern is totally understandable. However, there are two reasons why it may not be the case\+:
+
+
+\begin{DoxyItemize}
+\item Different projects may need to use {\ttfamily Concrete} in different ways, so the best interfaces for them will be different. Therefore, each of them will have its own domain-\/specific interface on top of {\ttfamily Concrete}, and they will not be the same code.
+\item If enough projects want to use the same interface, they can always share it, just like they have been sharing {\ttfamily Concrete}. You can check in the interface and the adaptor somewhere near {\ttfamily Concrete} (perhaps in a {\ttfamily contrib} sub-\/directory) and let many projects use it.
+\end{DoxyItemize}
+
+You need to weigh the pros and cons carefully for your particular problem, but I\textquotesingle{}d like to assure you that the Java community has been practicing this for a long time and it\textquotesingle{}s a proven effective technique applicable in a wide variety of situations. \+:-\/)
+
+\subsection*{Delegating Calls to a Fake}
+
+Some times you have a non-\/trivial fake implementation of an interface. For example\+:
+
+
+\begin{DoxyCode}
+1 class Foo \{
+2  public:
+3   virtual ~Foo() \{\}
+4   virtual char DoThis(int n) = 0;
+5   virtual void DoThat(const char* s, int* p) = 0;
+6 \};
+7 
+8 class FakeFoo : public Foo \{
+9  public:
+10   virtual char DoThis(int n) \{
+11     return (n > 0) ? '+' :
+12         (n < 0) ? '-' : '0';
+13   \}
+14 
+15   virtual void DoThat(const char* s, int* p) \{
+16     *p = strlen(s);
+17   \}
+18 \};
+\end{DoxyCode}
+
+
+Now you want to mock this interface such that you can set expectations on it. However, you also want to use {\ttfamily Fake\+Foo} for the default behavior, as duplicating it in the mock object is, well, a lot of work.
+
+When you define the mock class using Google \hyperlink{class_mock}{Mock}, you can have it delegate its default action to a fake class you already have, using this pattern\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 
+4 class MockFoo : public Foo \{
+5  public:
+6   // Normal mock method definitions using Google Mock.
+7   MOCK\_METHOD1(DoThis, char(int n));
+8   MOCK\_METHOD2(DoThat, void(const char* s, int* p));
+9 
+10   // Delegates the default actions of the methods to a FakeFoo object.
+11   // This must be called *before* the custom ON\_CALL() statements.
+12   void DelegateToFake() \{
+13     ON\_CALL(*this, DoThis(\_))
+14         .WillByDefault(Invoke(&fake\_, &FakeFoo::DoThis));
+15     ON\_CALL(*this, DoThat(\_, \_))
+16         .WillByDefault(Invoke(&fake\_, &FakeFoo::DoThat));
+17   \}
+18  private:
+19   FakeFoo fake\_;  // Keeps an instance of the fake in the mock.
+20 \};
+\end{DoxyCode}
+
+
+With that, you can use {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}} in your tests as usual. Just remember that if you don\textquotesingle{}t explicitly set an action in an {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} or {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}, the fake will be called upon to do it\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 
+3 TEST(AbcTest, Xyz) \{
+4   MockFoo foo;
+5   foo.DelegateToFake(); // Enables the fake for delegation.
+6 
+7   // Put your ON\_CALL(foo, ...)s here, if any.
+8 
+9   // No action specified, meaning to use the default action.
+10   EXPECT\_CALL(foo, DoThis(5));
+11   EXPECT\_CALL(foo, DoThat(\_, \_));
+12 
+13   int n = 0;
+14   EXPECT\_EQ('+', foo.DoThis(5));  // FakeFoo::DoThis() is invoked.
+15   foo.DoThat("Hi", &n);           // FakeFoo::DoThat() is invoked.
+16   EXPECT\_EQ(2, n);
+17 \}
+\end{DoxyCode}
+
+
+{\bfseries Some tips\+:}
+
+
+\begin{DoxyItemize}
+\item If you want, you can still override the default action by providing your own {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} or using {\ttfamily .Will\+Once()} / {\ttfamily .Will\+Repeatedly()} in {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}.
+\item In {\ttfamily Delegate\+To\+Fake()}, you only need to delegate the methods whose fake implementation you intend to use.
+\item The general technique discussed here works for overloaded methods, but you\textquotesingle{}ll need to tell the compiler which version you mean. To disambiguate a mock function (the one you specify inside the parentheses of {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}}), see the \char`\"{}\+Selecting Between Overloaded Functions\char`\"{} section on this page; to disambiguate a fake function (the one you place inside {\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}}), use a {\ttfamily static\+\_\+cast} to specify the function\textquotesingle{}s type. For instance, if class {\ttfamily Foo} has methods {\ttfamily char Do\+This(int n)} and {\ttfamily bool Do\+This(double x) const}, and you want to invoke the latter, you need to write {\ttfamily Invoke(\&fake\+\_\+, static\+\_\+cast$<$bool (Fake\+Foo\+:\+:$\ast$)(double) const$>$(\&Fake\+Foo\+::\+Do\+This))} instead of {\ttfamily Invoke(\&fake\+\_\+, \&\+Fake\+Foo\+::\+Do\+This)} (The strange-\/looking thing inside the angled brackets of {\ttfamily static\+\_\+cast} is the type of a function pointer to the second {\ttfamily Do\+This()} method.).
+\item Having to mix a mock and a fake is often a sign of something gone wrong. Perhaps you haven\textquotesingle{}t got used to the interaction-\/based way of testing yet. Or perhaps your interface is taking on too many roles and should be split up. Therefore, {\bfseries don\textquotesingle{}t abuse this}. We would only recommend to do it as an intermediate step when you are refactoring your code.
+\end{DoxyItemize}
+
+Regarding the tip on mixing a mock and a fake, here\textquotesingle{}s an example on why it may be a bad sign\+: Suppose you have a class {\ttfamily System} for low-\/level system operations. In particular, it does file and I/O operations. And suppose you want to test how your code uses {\ttfamily System} to do I/O, and you just want the file operations to work normally. If you mock out the entire {\ttfamily System} class, you\textquotesingle{}ll have to provide a fake implementation for the file operation part, which suggests that {\ttfamily System} is taking on too many roles.
+
+Instead, you can define a {\ttfamily File\+Ops} interface and an {\ttfamily I\+O\+Ops} interface and split {\ttfamily System}\textquotesingle{}s functionalities into the two. Then you can mock {\ttfamily I\+O\+Ops} without mocking {\ttfamily File\+Ops}.
+
+\subsection*{Delegating Calls to a Real Object}
+
+When using testing doubles (mocks, fakes, stubs, and etc), sometimes their behaviors will differ from those of the real objects. This difference could be either intentional (as in simulating an error such that you can test the error handling code) or unintentional. If your mocks have different behaviors than the real objects by mistake, you could end up with code that passes the tests but fails in production.
+
+You can use the {\itshape delegating-\/to-\/real} technique to ensure that your mock has the same behavior as the real object while retaining the ability to validate calls. This technique is very similar to the delegating-\/to-\/fake technique, the difference being that we use a real object instead of a fake. Here\textquotesingle{}s an example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::AtLeast;
+3 using ::testing::Invoke;
+4 
+5 class MockFoo : public Foo \{
+6  public:
+7   MockFoo() \{
+8     // By default, all calls are delegated to the real object.
+9     ON\_CALL(*this, DoThis())
+10         .WillByDefault(Invoke(&real\_, &Foo::DoThis));
+11     ON\_CALL(*this, DoThat(\_))
+12         .WillByDefault(Invoke(&real\_, &Foo::DoThat));
+13     ...
+14   \}
+15   MOCK\_METHOD0(DoThis, ...);
+16   MOCK\_METHOD1(DoThat, ...);
+17   ...
+18  private:
+19   Foo real\_;
+20 \};
+21 ...
+22 
+23   MockFoo mock;
+24 
+25   EXPECT\_CALL(mock, DoThis())
+26       .Times(3);
+27   EXPECT\_CALL(mock, DoThat("Hi"))
+28       .Times(AtLeast(1));
+29   ... use mock in test ...
+\end{DoxyCode}
+
+
+With this, Google \hyperlink{class_mock}{Mock} will verify that your code made the right calls (with the right arguments, in the right order, called the right number of times, etc), and a real object will answer the calls (so the behavior will be the same as in production). This gives you the best of both worlds.
+
+\subsection*{Delegating Calls to a Parent Class}
+
+Ideally, you should code to interfaces, whose methods are all pure virtual. In reality, sometimes you do need to mock a virtual method that is not pure (i.\+e, it already has an implementation). For example\+:
+
+
+\begin{DoxyCode}
+1 class Foo \{
+2  public:
+3   virtual ~Foo();
+4 
+5   virtual void Pure(int n) = 0;
+6   virtual int Concrete(const char* str) \{ ... \}
+7 \};
+8 
+9 class MockFoo : public Foo \{
+10  public:
+11   // Mocking a pure method.
+12   MOCK\_METHOD1(Pure, void(int n));
+13   // Mocking a concrete method.  Foo::Concrete() is shadowed.
+14   MOCK\_METHOD1(Concrete, int(const char* str));
+15 \};
+\end{DoxyCode}
+
+
+Sometimes you may want to call {\ttfamily Foo\+::\+Concrete()} instead of {\ttfamily Mock\+Foo\+::\+Concrete()}. Perhaps you want to do it as part of a stub action, or perhaps your test doesn\textquotesingle{}t need to mock {\ttfamily Concrete()} at all (but it would be oh-\/so painful to have to define a new mock class whenever you don\textquotesingle{}t need to mock one of its methods).
+
+The trick is to leave a back door in your mock class for accessing the real methods in the base class\+:
+
+
+\begin{DoxyCode}
+1 class MockFoo : public Foo \{
+2  public:
+3   // Mocking a pure method.
+4   MOCK\_METHOD1(Pure, void(int n));
+5   // Mocking a concrete method.  Foo::Concrete() is shadowed.
+6   MOCK\_METHOD1(Concrete, int(const char* str));
+7 
+8   // Use this to call Concrete() defined in Foo.
+9   int FooConcrete(const char* str) \{ return Foo::Concrete(str); \}
+10 \};
+\end{DoxyCode}
+
+
+Now, you can call {\ttfamily Foo\+::\+Concrete()} inside an action by\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 ...
+4   EXPECT\_CALL(foo, Concrete(\_))
+5       .WillOnce(Invoke(&foo, &MockFoo::FooConcrete));
+\end{DoxyCode}
+
+
+or tell the mock object that you don\textquotesingle{}t want to mock {\ttfamily Concrete()}\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::Invoke;
+2 ...
+3   ON\_CALL(foo, Concrete(\_))
+4       .WillByDefault(Invoke(&foo, &MockFoo::FooConcrete));
+\end{DoxyCode}
+
+
+(Why don\textquotesingle{}t we just write {\ttfamily Invoke(\&foo, \&\+Foo\+::\+Concrete)}? If you do that, {\ttfamily Mock\+Foo\+::\+Concrete()} will be called (and cause an infinite recursion) since {\ttfamily Foo\+::\+Concrete()} is virtual. That\textquotesingle{}s just how C++ works.)
+
+\section*{Using Matchers}
+
+\subsection*{Matching Argument Values Exactly}
+
+You can specify exactly which arguments a mock method is expecting\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::Return;
+2 ...
+3   EXPECT\_CALL(foo, DoThis(5))
+4       .WillOnce(Return('a'));
+5   EXPECT\_CALL(foo, DoThat("Hello", bar));
+\end{DoxyCode}
+
+
+\subsection*{Using Simple Matchers}
+
+You can use matchers to match arguments that have a certain property\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::Ge;
+2 using ::testing::NotNull;
+3 using ::testing::Return;
+4 ...
+5   EXPECT\_CALL(foo, DoThis(Ge(5)))  // The argument must be >= 5.
+6       .WillOnce(Return('a'));
+7   EXPECT\_CALL(foo, DoThat("Hello", NotNull()));
+8   // The second argument must not be NULL.
+\end{DoxyCode}
+
+
+A frequently used matcher is {\ttfamily \+\_\+}, which matches anything\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::NotNull;
+3 ...
+4   EXPECT\_CALL(foo, DoThat(\_, NotNull()));
+\end{DoxyCode}
+
+
+\subsection*{Combining Matchers}
+
+You can build complex matchers from existing ones using {\ttfamily \hyperlink{namespacetesting_af7618e8606c1cb45738163688944e2b7}{All\+Of()}}, {\ttfamily \hyperlink{namespacetesting_a81cfefd9f75cdce827d5bc873cf73aac}{Any\+Of()}}, and {\ttfamily \hyperlink{namespacetesting_a3d7d0dda7e51b13fe2f5aa28e23ed6b6}{Not()}}\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::AllOf;
+2 using ::testing::Gt;
+3 using ::testing::HasSubstr;
+4 using ::testing::Ne;
+5 using ::testing::Not;
+6 ...
+7   // The argument must be > 5 and != 10.
+8   EXPECT\_CALL(foo, DoThis(AllOf(Gt(5),
+9                                 Ne(10))));
+10 
+11   // The first argument must not contain sub-string "blah".
+12   EXPECT\_CALL(foo, DoThat(Not(HasSubstr("blah")),
+13                           NULL));
+\end{DoxyCode}
+
+
+\subsection*{Casting Matchers}
+
+Google \hyperlink{class_mock}{Mock} matchers are statically typed, meaning that the compiler can catch your mistake if you use a matcher of the wrong type (for example, if you use {\ttfamily Eq(5)} to match a {\ttfamily string} argument). Good for you!
+
+Sometimes, however, you know what you\textquotesingle{}re doing and want the compiler to give you some slack. One example is that you have a matcher for {\ttfamily long} and the argument you want to match is {\ttfamily int}. While the two types aren\textquotesingle{}t exactly the same, there is nothing really wrong with using a {\ttfamily Matcher$<$long$>$} to match an {\ttfamily int} -\/ after all, we can first convert the {\ttfamily int} argument to a {\ttfamily long} before giving it to the matcher.
+
+To support this need, Google \hyperlink{class_mock}{Mock} gives you the {\ttfamily Safe\+Matcher\+Cast$<$T$>$(m)} function. It casts a matcher {\ttfamily m} to type {\ttfamily Matcher$<$T$>$}. To ensure safety, Google \hyperlink{class_mock}{Mock} checks that (let {\ttfamily U} be the type {\ttfamily m} accepts)\+:
+
+
+\begin{DoxyEnumerate}
+\item Type {\ttfamily T} can be implicitly cast to type {\ttfamily U};
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item When both {\ttfamily T} and {\ttfamily U} are built-\/in arithmetic types ({\ttfamily bool}, integers, and floating-\/point numbers), the conversion from {\ttfamily T} to {\ttfamily U} is not lossy (in other words, any value representable by {\ttfamily T} can also be represented by {\ttfamily U}); and
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item When {\ttfamily U} is a reference, {\ttfamily T} must also be a reference (as the underlying matcher may be interested in the address of the {\ttfamily U} value).
+\end{DoxyEnumerate}
+
+The code won\textquotesingle{}t compile if any of these conditions isn\textquotesingle{}t met.
+
+Here\textquotesingle{}s one example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::SafeMatcherCast;
+2 
+3 // A base class and a child class.
+4 class Base \{ ... \};
+5 class Derived : public Base \{ ... \};
+6 
+7 class MockFoo : public Foo \{
+8  public:
+9   MOCK\_METHOD1(DoThis, void(Derived* derived));
+10 \};
+11 ...
+12 
+13   MockFoo foo;
+14   // m is a Matcher<Base*> we got from somewhere.
+15   EXPECT\_CALL(foo, DoThis(SafeMatcherCast<Derived*>(m)));
+\end{DoxyCode}
+
+
+If you find {\ttfamily Safe\+Matcher\+Cast$<$T$>$(m)} too limiting, you can use a similar function {\ttfamily Matcher\+Cast$<$T$>$(m)}. The difference is that {\ttfamily Matcher\+Cast} works as long as you can {\ttfamily static\+\_\+cast} type {\ttfamily T} to type {\ttfamily U}.
+
+{\ttfamily Matcher\+Cast} essentially lets you bypass C++\textquotesingle{}s type system ({\ttfamily static\+\_\+cast} isn\textquotesingle{}t always safe as it could throw away information, for example), so be careful not to misuse/abuse it.
+
+\subsection*{Selecting Between Overloaded Functions}
+
+If you expect an overloaded function to be called, the compiler may need some help on which overloaded version it is.
+
+To disambiguate functions overloaded on the const-\/ness of this object, use the {\ttfamily \hyperlink{namespacetesting_a945ac56c5508a3c9c032bbe8aae8dcfa}{Const()}} argument wrapper.
+
+
+\begin{DoxyCode}
+1 using ::testing::ReturnRef;
+2 
+3 class MockFoo : public Foo \{
+4   ...
+5   MOCK\_METHOD0(GetBar, Bar&());
+6   MOCK\_CONST\_METHOD0(GetBar, const Bar&());
+7 \};
+8 ...
+9 
+10   MockFoo foo;
+11   Bar bar1, bar2;
+12   EXPECT\_CALL(foo, GetBar())         // The non-const GetBar().
+13       .WillOnce(ReturnRef(bar1));
+14   EXPECT\_CALL(Const(foo), GetBar())  // The const GetBar().
+15       .WillOnce(ReturnRef(bar2));
+\end{DoxyCode}
+
+
+({\ttfamily \hyperlink{namespacetesting_a945ac56c5508a3c9c032bbe8aae8dcfa}{Const()}} is defined by Google \hyperlink{class_mock}{Mock} and returns a {\ttfamily const} reference to its argument.)
+
+To disambiguate overloaded functions with the same number of arguments but different argument types, you may need to specify the exact type of a matcher, either by wrapping your matcher in {\ttfamily Matcher$<$type$>$()}, or using a matcher whose type is fixed ({\ttfamily Typed\+Eq$<$type$>$}, {\ttfamily An$<$type$>$()}, etc)\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::An;
+2 using ::testing::Lt;
+3 using ::testing::Matcher;
+4 using ::testing::TypedEq;
+5 
+6 class MockPrinter : public Printer \{
+7  public:
+8   MOCK\_METHOD1(Print, void(int n));
+9   MOCK\_METHOD1(Print, void(char c));
+10 \};
+11 
+12 TEST(PrinterTest, Print) \{
+13   MockPrinter printer;
+14 
+15   EXPECT\_CALL(printer, Print(An<int>()));            // void Print(int);
+16   EXPECT\_CALL(printer, Print(Matcher<int>(Lt(5))));  // void Print(int);
+17   EXPECT\_CALL(printer, Print(TypedEq<char>('a')));   // void Print(char);
+18 
+19   printer.Print(3);
+20   printer.Print(6);
+21   printer.Print('a');
+22 \}
+\end{DoxyCode}
+
+
+\subsection*{Performing Different Actions Based on the Arguments}
+
+When a mock method is called, the {\itshape last} matching expectation that\textquotesingle{}s still active will be selected (think \char`\"{}newer overrides older\char`\"{}). So, you can make a method do different things depending on its argument values like this\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Lt;
+3 using ::testing::Return;
+4 ...
+5   // The default case.
+6   EXPECT\_CALL(foo, DoThis(\_))
+7       .WillRepeatedly(Return('b'));
+8 
+9   // The more specific case.
+10   EXPECT\_CALL(foo, DoThis(Lt(5)))
+11       .WillRepeatedly(Return('a'));
+\end{DoxyCode}
+
+
+Now, if {\ttfamily foo.\+Do\+This()} is called with a value less than 5, {\ttfamily \textquotesingle{}a\textquotesingle{}} will be returned; otherwise {\ttfamily \textquotesingle{}b\textquotesingle{}} will be returned.
+
+\subsection*{Matching Multiple Arguments as a Whole}
+
+Sometimes it\textquotesingle{}s not enough to match the arguments individually. For example, we may want to say that the first argument must be less than the second argument. The {\ttfamily With()} clause allows us to match all arguments of a mock function as a whole. For example,
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Lt;
+3 using ::testing::Ne;
+4 ...
+5   EXPECT\_CALL(foo, InRange(Ne(0), \_))
+6       .With(Lt());
+\end{DoxyCode}
+
+
+says that the first argument of {\ttfamily In\+Range()} must not be 0, and must be less than the second argument.
+
+The expression inside {\ttfamily With()} must be a matcher of type {\ttfamily Matcher$<$ \+::testing\+::tuple$<$A1, ..., An$>$ $>$}, where {\ttfamily A1}, ..., {\ttfamily An} are the types of the function arguments.
+
+You can also write {\ttfamily All\+Args(m)} instead of {\ttfamily m} inside {\ttfamily .With()}. The two forms are equivalent, but {\ttfamily .With(All\+Args(\+Lt()))} is more readable than {\ttfamily .With(\+Lt())}.
+
+You can use {\ttfamily Args$<$k1, ..., kn$>$(m)} to match the {\ttfamily n} selected arguments (as a tuple) against {\ttfamily m}. For example,
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::AllOf;
+3 using ::testing::Args;
+4 using ::testing::Lt;
+5 ...
+6   EXPECT\_CALL(foo, Blah(\_, \_, \_))
+7       .With(AllOf(Args<0, 1>(Lt()), Args<1, 2>(Lt())));
+\end{DoxyCode}
+
+
+says that {\ttfamily Blah()} will be called with arguments {\ttfamily x}, {\ttfamily y}, and {\ttfamily z} where {\ttfamily x $<$ y $<$ z}.
+
+As a convenience and example, Google \hyperlink{class_mock}{Mock} provides some matchers for 2-\/tuples, including the {\ttfamily \hyperlink{namespacetesting_ad621459957a8bcdd3c256b7940ecbf99}{Lt()}} matcher above. See the \hyperlink{v1__7_2_cheat_sheet_8md}{Cheat\+Sheet} for the complete list.
+
+Note that if you want to pass the arguments to a predicate of your own (e.\+g. {\ttfamily .With(Args$<$0, 1$>$(Truly(\&\+My\+Predicate)))}), that predicate M\+U\+ST be written to take a {\ttfamily \+::testing\+::tuple} as its argument; Google \hyperlink{class_mock}{Mock} will pass the {\ttfamily n} selected arguments as {\itshape one} single tuple to the predicate.
+
+\subsection*{Using Matchers as Predicates}
+
+Have you noticed that a matcher is just a fancy predicate that also knows how to describe itself? Many existing algorithms take predicates as arguments (e.\+g. those defined in S\+TL\textquotesingle{}s {\ttfamily $<$algorithm$>$} header), and it would be a shame if Google \hyperlink{class_mock}{Mock} matchers are not allowed to participate.
+
+Luckily, you can use a matcher where a unary predicate functor is expected by wrapping it inside the {\ttfamily \hyperlink{namespacetesting_ad53b509ae9cd51040d67f668f99702ae}{Matches()}} function. For example,
+
+
+\begin{DoxyCode}
+1 #include <algorithm>
+2 #include <vector>
+3 
+4 std::vector<int> v;
+5 ...
+6 // How many elements in v are >= 10?
+7 const int count = count\_if(v.begin(), v.end(), Matches(Ge(10)));
+\end{DoxyCode}
+
+
+Since you can build complex matchers from simpler ones easily using Google \hyperlink{class_mock}{Mock}, this gives you a way to conveniently construct composite predicates (doing the same using S\+TL\textquotesingle{}s {\ttfamily $<$functional$>$} header is just painful). For example, here\textquotesingle{}s a predicate that\textquotesingle{}s satisfied by any number that is $>$= 0, $<$= 100, and != 50\+:
+
+
+\begin{DoxyCode}
+1 Matches(AllOf(Ge(0), Le(100), Ne(50)))
+\end{DoxyCode}
+
+
+\subsection*{Using Matchers in Google Test Assertions}
+
+Since matchers are basically predicates that also know how to describe themselves, there is a way to take advantage of them in \href{../../googletest/}{\tt Google Test} assertions. It\textquotesingle{}s called {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+H\+AT} and {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT}\+:
+
+
+\begin{DoxyCode}
+1 ASSERT\_THAT(value, matcher);  // Asserts that value matches matcher.
+2 EXPECT\_THAT(value, matcher);  // The non-fatal version.
+\end{DoxyCode}
+
+
+For example, in a Google Test test you can write\+:
+
+
+\begin{DoxyCode}
+1 #include "gmock/gmock.h"
+2 
+3 using ::testing::AllOf;
+4 using ::testing::Ge;
+5 using ::testing::Le;
+6 using ::testing::MatchesRegex;
+7 using ::testing::StartsWith;
+8 ...
+9 
+10   EXPECT\_THAT(Foo(), StartsWith("Hello"));
+11   EXPECT\_THAT(Bar(), MatchesRegex("Line \(\backslash\)\(\backslash\)d+"));
+12   ASSERT\_THAT(Baz(), AllOf(Ge(5), Le(10)));
+\end{DoxyCode}
+
+
+which (as you can probably guess) executes {\ttfamily Foo()}, {\ttfamily Bar()}, and {\ttfamily Baz()}, and verifies that\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Foo()} returns a string that starts with {\ttfamily \char`\"{}\+Hello\char`\"{}}.
+\item {\ttfamily Bar()} returns a string that matches regular expression {\ttfamily \char`\"{}\+Line \textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}d+\char`\"{}}.
+\item {\ttfamily Baz()} returns a number in the range \mbox{[}5, 10\mbox{]}.
+\end{DoxyItemize}
+
+The nice thing about these macros is that {\itshape they read like English}. They generate informative messages too. For example, if the first {\ttfamily \hyperlink{gmock-matchers_8h_ac31e206123aa702e1152bb2735b31409}{E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+A\+T()}} above fails, the message will be something like\+:
+
+
+\begin{DoxyCode}
+1 Value of: Foo()
+2   Actual: "Hi, world!"
+3 Expected: starts with "Hello"
+\end{DoxyCode}
+
+
+{\bfseries Credit\+:} The idea of {\ttfamily (A\+S\+S\+E\+R\+T$\vert$\+E\+X\+P\+E\+CT)\+\_\+\+T\+H\+AT} was stolen from the \href{https://github.com/hamcrest/}{\tt Hamcrest} project, which adds {\ttfamily assert\+That()} to J\+Unit.
+
+\subsection*{Using Predicates as Matchers}
+
+Google \hyperlink{class_mock}{Mock} provides a built-\/in set of matchers. In case you find them lacking, you can use an arbitray unary predicate function or functor as a matcher -\/ as long as the predicate accepts a value of the type you want. You do this by wrapping the predicate inside the {\ttfamily \hyperlink{namespacetesting_a5faf05cfaae6074439960048e478b1c8}{Truly()}} function, for example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::Truly;
+2 
+3 int IsEven(int n) \{ return (n % 2) == 0 ? 1 : 0; \}
+4 ...
+5 
+6   // Bar() must be called with an even number.
+7   EXPECT\_CALL(foo, Bar(Truly(IsEven)));
+\end{DoxyCode}
+
+
+Note that the predicate function / functor doesn\textquotesingle{}t have to return {\ttfamily bool}. It works as long as the return value can be used as the condition in statement {\ttfamily if (condition) ...}.
+
+\subsection*{Matching Arguments that Are Not Copyable}
+
+When you do an {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L(mock\+\_\+obj, Foo(bar))}}, Google \hyperlink{class_mock}{Mock} saves away a copy of {\ttfamily bar}. When {\ttfamily Foo()} is called later, Google \hyperlink{class_mock}{Mock} compares the argument to {\ttfamily Foo()} with the saved copy of {\ttfamily bar}. This way, you don\textquotesingle{}t need to worry about {\ttfamily bar} being modified or destroyed after the {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} is executed. The same is true when you use matchers like {\ttfamily Eq(bar)}, {\ttfamily Le(bar)}, and so on.
+
+But what if {\ttfamily bar} cannot be copied (i.\+e. has no copy constructor)? You could define your own matcher function and use it with {\ttfamily \hyperlink{namespacetesting_a5faf05cfaae6074439960048e478b1c8}{Truly()}}, as the previous couple of recipes have shown. Or, you may be able to get away from it if you can guarantee that {\ttfamily bar} won\textquotesingle{}t be changed after the {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} is executed. Just tell Google \hyperlink{class_mock}{Mock} that it should save a reference to {\ttfamily bar}, instead of a copy of it. Here\textquotesingle{}s how\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::Eq;
+2 using ::testing::ByRef;
+3 using ::testing::Lt;
+4 ...
+5   // Expects that Foo()'s argument == bar.
+6   EXPECT\_CALL(mock\_obj, Foo(Eq(ByRef(bar))));
+7 
+8   // Expects that Foo()'s argument < bar.
+9   EXPECT\_CALL(mock\_obj, Foo(Lt(ByRef(bar))));
+\end{DoxyCode}
+
+
+Remember\+: if you do this, don\textquotesingle{}t change {\ttfamily bar} after the {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}, or the result is undefined.
+
+\subsection*{Validating a Member of an Object}
+
+Often a mock function takes a reference to object as an argument. When matching the argument, you may not want to compare the entire object against a fixed object, as that may be over-\/specification. Instead, you may need to validate a certain member variable or the result of a certain getter method of the object. You can do this with {\ttfamily \hyperlink{namespacetesting_a4df3849391696aa93ac3a7703a717c2a}{Field()}} and {\ttfamily \hyperlink{namespacetesting_a0fad10571e23f7bc0d5c83d4c31ba740}{Property()}}. More specifically,
+
+
+\begin{DoxyCode}
+1 Field(&Foo::bar, m)
+\end{DoxyCode}
+
+
+is a matcher that matches a {\ttfamily Foo} object whose {\ttfamily bar} member variable satisfies matcher {\ttfamily m}.
+
+
+\begin{DoxyCode}
+1 Property(&Foo::baz, m)
+\end{DoxyCode}
+
+
+is a matcher that matches a {\ttfamily Foo} object whose {\ttfamily baz()} method returns a value that satisfies matcher {\ttfamily m}.
+
+For example\+:
+
+\begin{quote}
+$\vert$ {\ttfamily Field(\&\+Foo\+::number, Ge(3))} $\vert$ Matches {\ttfamily x} where {\ttfamily x.\+number $>$= 3}. $\vert$ \end{quote}
+$\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$ \begin{quote}
+$\vert$ {\ttfamily Property(\&Foo\+::name, Starts\+With(\char`\"{}\+John \char`\"{}))} $\vert$ Matches {\ttfamily x} where {\ttfamily x.\+name()} starts with {\ttfamily \char`\"{}\+John \char`\"{}}. $\vert$ \end{quote}
+
+
+Note that in {\ttfamily Property(\&Foo\+::baz, ...)}, method {\ttfamily baz()} must take no argument and be declared as {\ttfamily const}.
+
+B\+TW, {\ttfamily \hyperlink{namespacetesting_a4df3849391696aa93ac3a7703a717c2a}{Field()}} and {\ttfamily \hyperlink{namespacetesting_a0fad10571e23f7bc0d5c83d4c31ba740}{Property()}} can also match plain pointers to objects. For instance,
+
+
+\begin{DoxyCode}
+1 Field(&Foo::number, Ge(3))
+\end{DoxyCode}
+
+
+matches a plain pointer {\ttfamily p} where {\ttfamily p-\/$>$number $>$= 3}. If {\ttfamily p} is {\ttfamily N\+U\+LL}, the match will always fail regardless of the inner matcher.
+
+What if you want to validate more than one members at the same time? Remember that there is {\ttfamily \hyperlink{namespacetesting_af7618e8606c1cb45738163688944e2b7}{All\+Of()}}.
+
+\subsection*{Validating the Value Pointed to by a Pointer Argument}
+
+C++ functions often take pointers as arguments. You can use matchers like {\ttfamily \hyperlink{namespacetesting_a56ffb1a169c14ce585fc5bed32add2db}{Is\+Null()}}, {\ttfamily \hyperlink{namespacetesting_a39d1f92b53b8b2a0b6db6a22ac146416}{Not\+Null()}}, and other comparison matchers to match a pointer, but what if you want to make sure the value {\itshape pointed to} by the pointer, instead of the pointer itself, has a certain property? Well, you can use the {\ttfamily Pointee(m)} matcher.
+
+{\ttfamily Pointee(m)} matches a pointer iff {\ttfamily m} matches the value the pointer points to. For example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::Ge;
+2 using ::testing::Pointee;
+3 ...
+4   EXPECT\_CALL(foo, Bar(Pointee(Ge(3))));
+\end{DoxyCode}
+
+
+expects {\ttfamily foo.\+Bar()} to be called with a pointer that points to a value greater than or equal to 3.
+
+One nice thing about {\ttfamily \hyperlink{namespacetesting_a5122ca3533f3a00f67e146dd81f3b68c}{Pointee()}} is that it treats a {\ttfamily N\+U\+LL} pointer as a match failure, so you can write {\ttfamily Pointee(m)} instead of
+
+
+\begin{DoxyCode}
+1 AllOf(NotNull(), Pointee(m))
+\end{DoxyCode}
+
+
+without worrying that a {\ttfamily N\+U\+LL} pointer will crash your test.
+
+Also, did we tell you that {\ttfamily \hyperlink{namespacetesting_a5122ca3533f3a00f67e146dd81f3b68c}{Pointee()}} works with both raw pointers {\bfseries and} smart pointers ({\ttfamily linked\+\_\+ptr}, {\ttfamily shared\+\_\+ptr}, {\ttfamily scoped\+\_\+ptr}, and etc)?
+
+What if you have a pointer to pointer? You guessed it -\/ you can use nested {\ttfamily \hyperlink{namespacetesting_a5122ca3533f3a00f67e146dd81f3b68c}{Pointee()}} to probe deeper inside the value. For example, {\ttfamily Pointee(Pointee(\+Lt(3)))} matches a pointer that points to a pointer that points to a number less than 3 (what a mouthful...).
+
+\subsection*{Testing a Certain Property of an Object}
+
+Sometimes you want to specify that an object argument has a certain property, but there is no existing matcher that does this. If you want good error messages, you should define a matcher. If you want to do it quick and dirty, you could get away with writing an ordinary function.
+
+Let\textquotesingle{}s say you have a mock function that takes an object of type {\ttfamily Foo}, which has an {\ttfamily int bar()} method and an {\ttfamily int baz()} method, and you want to constrain that the argument\textquotesingle{}s {\ttfamily bar()} value plus its {\ttfamily baz()} value is a given number. Here\textquotesingle{}s how you can define a matcher to do it\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::MatcherInterface;
+2 using ::testing::MatchResultListener;
+3 
+4 class BarPlusBazEqMatcher : public MatcherInterface<const Foo&> \{
+5  public:
+6   explicit BarPlusBazEqMatcher(int expected\_sum)
+7       : expected\_sum\_(expected\_sum) \{\}
+8 
+9   virtual bool MatchAndExplain(const Foo& foo,
+10                                MatchResultListener* listener) const \{
+11     return (foo.bar() + foo.baz()) == expected\_sum\_;
+12   \}
+13 
+14   virtual void DescribeTo(::std::ostream* os) const \{
+15     *os << "bar() + baz() equals " << expected\_sum\_;
+16   \}
+17 
+18   virtual void DescribeNegationTo(::std::ostream* os) const \{
+19     *os << "bar() + baz() does not equal " << expected\_sum\_;
+20   \}
+21  private:
+22   const int expected\_sum\_;
+23 \};
+24 
+25 inline Matcher<const Foo&> BarPlusBazEq(int expected\_sum) \{
+26   return MakeMatcher(new BarPlusBazEqMatcher(expected\_sum));
+27 \}
+28 
+29 ...
+30 
+31   EXPECT\_CALL(..., DoThis(BarPlusBazEq(5)))...;
+\end{DoxyCode}
+
+
+\subsection*{Matching Containers}
+
+Sometimes an S\+TL container (e.\+g. list, vector, map, ...) is passed to a mock function and you may want to validate it. Since most S\+TL containers support the {\ttfamily ==} operator, you can write {\ttfamily Eq(expected\+\_\+container)} or simply {\ttfamily expected\+\_\+container} to match a container exactly.
+
+Sometimes, though, you may want to be more flexible (for example, the first element must be an exact match, but the second element can be any positive number, and so on). Also, containers used in tests often have a small number of elements, and having to define the expected container out-\/of-\/line is a bit of a hassle.
+
+You can use the {\ttfamily \hyperlink{namespacetesting_a79cf4ae694bf8231dcf283b325405f27}{Elements\+Are()}} or {\ttfamily \hyperlink{namespacetesting_a8622c12aadfa0e60f7d68683eeb21115}{Unordered\+Elements\+Are()}} matcher in such cases\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::ElementsAre;
+3 using ::testing::Gt;
+4 ...
+5 
+6   MOCK\_METHOD1(Foo, void(const vector<int>& numbers));
+7 ...
+8 
+9   EXPECT\_CALL(mock, Foo(ElementsAre(1, Gt(0), \_, 5)));
+\end{DoxyCode}
+
+
+The above matcher says that the container must have 4 elements, which must be 1, greater than 0, anything, and 5 respectively.
+
+If you instead write\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Gt;
+3 using ::testing::UnorderedElementsAre;
+4 ...
+5 
+6   MOCK\_METHOD1(Foo, void(const vector<int>& numbers));
+7 ...
+8 
+9   EXPECT\_CALL(mock, Foo(UnorderedElementsAre(1, Gt(0), \_, 5)));
+\end{DoxyCode}
+
+
+It means that the container must have 4 elements, which under some permutation must be 1, greater than 0, anything, and 5 respectively.
+
+{\ttfamily \hyperlink{namespacetesting_a79cf4ae694bf8231dcf283b325405f27}{Elements\+Are()}} and {\ttfamily \hyperlink{namespacetesting_a8622c12aadfa0e60f7d68683eeb21115}{Unordered\+Elements\+Are()}} are overloaded to take 0 to 10 arguments. If more are needed, you can place them in a C-\/style array and use {\ttfamily \hyperlink{namespacetesting_ae2eee06e7ddbf5f5372fd24372e9703f}{Elements\+Are\+Array()}} or {\ttfamily \hyperlink{namespacetesting_ab4896081406209171a1596b7028e1cf7}{Unordered\+Elements\+Are\+Array()}} instead\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::ElementsAreArray;
+2 ...
+3 
+4   // ElementsAreArray accepts an array of element values.
+5   const int expected\_vector1[] = \{ 1, 5, 2, 4, ... \};
+6   EXPECT\_CALL(mock, Foo(ElementsAreArray(expected\_vector1)));
+7 
+8   // Or, an array of element matchers.
+9   Matcher<int> expected\_vector2 = \{ 1, Gt(2), \_, 3, ... \};
+10   EXPECT\_CALL(mock, Foo(ElementsAreArray(expected\_vector2)));
+\end{DoxyCode}
+
+
+In case the array needs to be dynamically created (and therefore the array size cannot be inferred by the compiler), you can give {\ttfamily \hyperlink{namespacetesting_ae2eee06e7ddbf5f5372fd24372e9703f}{Elements\+Are\+Array()}} an additional argument to specify the array size\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::ElementsAreArray;
+2 ...
+3   int* const expected\_vector3 = new int[count];
+4   ... fill expected\_vector3 with values ...
+5   EXPECT\_CALL(mock, Foo(ElementsAreArray(expected\_vector3, count)));
+\end{DoxyCode}
+
+
+{\bfseries Tips\+:}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Elements\+Are$\ast$()} can be used to match {\itshape any} container that implements the S\+TL iterator pattern (i.\+e. it has a {\ttfamily const\+\_\+iterator} type and supports {\ttfamily begin()/end()}), not just the ones defined in S\+TL. It will even work with container types yet to be written -\/ as long as they follows the above pattern.
+\item You can use nested {\ttfamily Elements\+Are$\ast$()} to match nested (multi-\/dimensional) containers.
+\item If the container is passed by pointer instead of by reference, just write {\ttfamily Pointee(Elements\+Are$\ast$(...))}.
+\item The order of elements {\itshape matters} for {\ttfamily Elements\+Are$\ast$()}. Therefore don\textquotesingle{}t use it with containers whose element order is undefined (e.\+g. {\ttfamily hash\+\_\+map}).
+\end{DoxyItemize}
+
+\subsection*{Sharing Matchers}
+
+Under the hood, a Google \hyperlink{class_mock}{Mock} matcher object consists of a pointer to a ref-\/counted implementation object. Copying matchers is allowed and very efficient, as only the pointer is copied. When the last matcher that references the implementation object dies, the implementation object will be deleted.
+
+Therefore, if you have some complex matcher that you want to use again and again, there is no need to build it everytime. Just assign it to a matcher variable and use that variable repeatedly! For example,
+
+
+\begin{DoxyCode}
+1 Matcher<int> in\_range = AllOf(Gt(5), Le(10));
+2 ... use in\_range as a matcher in multiple EXPECT\_CALLs ...
+\end{DoxyCode}
+
+
+\section*{Setting Expectations}
+
+\subsection*{Knowing When to Expect}
+
+{\ttfamily O\+N\+\_\+\+C\+A\+LL} is likely the single most under-\/utilized construct in Google \hyperlink{class_mock}{Mock}.
+
+There are basically two constructs for defining the behavior of a mock object\+: {\ttfamily O\+N\+\_\+\+C\+A\+LL} and {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}. The difference? {\ttfamily O\+N\+\_\+\+C\+A\+LL} defines what happens when a mock method is called, but {\itshape doesn\textquotesingle{}t imply any expectation on the method being called.} {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} not only defines the behavior, but also sets an expectation that {\itshape the method will be called with the given arguments, for the given number of times} (and {\itshape in the given order} when you specify the order too).
+
+Since {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} does more, isn\textquotesingle{}t it better than {\ttfamily O\+N\+\_\+\+C\+A\+LL}? Not really. Every {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} adds a constraint on the behavior of the code under test. Having more constraints than necessary is {\itshape baaad} -\/ even worse than not having enough constraints.
+
+This may be counter-\/intuitive. How could tests that verify more be worse than tests that verify less? Isn\textquotesingle{}t verification the whole point of tests?
+
+The answer, lies in {\itshape what} a test should verify. {\bfseries A good test verifies the contract of the code.} If a test over-\/specifies, it doesn\textquotesingle{}t leave enough freedom to the implementation. As a result, changing the implementation without breaking the contract (e.\+g. refactoring and optimization), which should be perfectly fine to do, can break such tests. Then you have to spend time fixing them, only to see them broken again the next time the implementation is changed.
+
+Keep in mind that one doesn\textquotesingle{}t have to verify more than one property in one test. In fact, {\bfseries it\textquotesingle{}s a good style to verify only one thing in one test.} If you do that, a bug will likely break only one or two tests instead of dozens (which case would you rather debug?). If you are also in the habit of giving tests descriptive names that tell what they verify, you can often easily guess what\textquotesingle{}s wrong just from the test log itself.
+
+So use {\ttfamily O\+N\+\_\+\+C\+A\+LL} by default, and only use {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} when you actually intend to verify that the call is made. For example, you may have a bunch of {\ttfamily O\+N\+\_\+\+C\+A\+LL}s in your test fixture to set the common mock behavior shared by all tests in the same group, and write (scarcely) different {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}s in different {\ttfamily T\+E\+S\+T\+\_\+F}s to verify different aspects of the code\textquotesingle{}s behavior. Compared with the style where each {\ttfamily T\+E\+ST} has many {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}s, this leads to tests that are more resilient to implementational changes (and thus less likely to require maintenance) and makes the intent of the tests more obvious (so they are easier to maintain when you do need to maintain them).
+
+If you are bothered by the \char`\"{}\+Uninteresting mock function call\char`\"{} message printed when a mock method without an {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} is called, you may use a {\ttfamily Nice\+Mock} instead to suppress all such messages for the mock object, or suppress the message for specific methods by adding {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL(...).Times(\+Any\+Number())}. DO N\+OT suppress it by blindly adding an {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL(...)}, or you\textquotesingle{}ll have a test that\textquotesingle{}s a pain to maintain.
+
+\subsection*{Ignoring Uninteresting Calls}
+
+If you are not interested in how a mock method is called, just don\textquotesingle{}t say anything about it. In this case, if the method is ever called, Google \hyperlink{class_mock}{Mock} will perform its default action to allow the test program to continue. If you are not happy with the default action taken by Google \hyperlink{class_mock}{Mock}, you can override it using {\ttfamily Default\+Value$<$T$>$\+::\+Set()} (described later in this document) or {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}}.
+
+Please note that once you expressed interest in a particular mock method (via {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}), all invocations to it must match some expectation. If this function is called but the arguments don\textquotesingle{}t match any {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} statement, it will be an error.
+
+\subsection*{Disallowing Unexpected Calls}
+
+If a mock method shouldn\textquotesingle{}t be called at all, explicitly say so\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 ...
+3   EXPECT\_CALL(foo, Bar(\_))
+4       .Times(0);
+\end{DoxyCode}
+
+
+If some calls to the method are allowed, but the rest are not, just list all the expected calls\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::AnyNumber;
+2 using ::testing::Gt;
+3 ...
+4   EXPECT\_CALL(foo, Bar(5));
+5   EXPECT\_CALL(foo, Bar(Gt(10)))
+6       .Times(AnyNumber());
+\end{DoxyCode}
+
+
+A call to {\ttfamily foo.\+Bar()} that doesn\textquotesingle{}t match any of the {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} statements will be an error.
+
+\subsection*{Understanding Uninteresting vs Unexpected Calls}
+
+{\itshape Uninteresting} calls and {\itshape unexpected} calls are different concepts in Google \hyperlink{class_mock}{Mock}. {\itshape Very} different.
+
+A call {\ttfamily x.\+Y(...)} is {\bfseries uninteresting} if there\textquotesingle{}s {\itshape not even a single} {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL(x, Y(...))} set. In other words, the test isn\textquotesingle{}t interested in the {\ttfamily x.\+Y()} method at all, as evident in that the test doesn\textquotesingle{}t care to say anything about it.
+
+A call {\ttfamily x.\+Y(...)} is {\bfseries unexpected} if there are some {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL(x, Y(...))s} set, but none of them matches the call. Put another way, the test is interested in the {\ttfamily x.\+Y()} method (therefore it {\itshape explicitly} sets some {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} to verify how it\textquotesingle{}s called); however, the verification fails as the test doesn\textquotesingle{}t expect this particular call to happen.
+
+{\bfseries An unexpected call is always an error,} as the code under test doesn\textquotesingle{}t behave the way the test expects it to behave.
+
+{\bfseries By default, an uninteresting call is not an error,} as it violates no constraint specified by the test. (Google \hyperlink{class_mock}{Mock}\textquotesingle{}s philosophy is that saying nothing means there is no constraint.) However, it leads to a warning, as it {\itshape might} indicate a problem (e.\+g. the test author might have forgotten to specify a constraint).
+
+In Google \hyperlink{class_mock}{Mock}, {\ttfamily Nice\+Mock} and {\ttfamily Strict\+Mock} can be used to make a mock class \char`\"{}nice\char`\"{} or \char`\"{}strict\char`\"{}. How does this affect uninteresting calls and unexpected calls?
+
+A {\bfseries nice mock} suppresses uninteresting call warnings. It is less chatty than the default mock, but otherwise is the same. If a test fails with a default mock, it will also fail using a nice mock instead. And vice versa. Don\textquotesingle{}t expect making a mock nice to change the test\textquotesingle{}s result.
+
+A {\bfseries strict mock} turns uninteresting call warnings into errors. So making a mock strict may change the test\textquotesingle{}s result.
+
+Let\textquotesingle{}s look at an example\+:
+
+
+\begin{DoxyCode}
+1 TEST(...) \{
+2   NiceMock<MockDomainRegistry> mock\_registry;
+3   EXPECT\_CALL(mock\_registry, GetDomainOwner("google.com"))
+4           .WillRepeatedly(Return("Larry Page"));
+5 
+6   // Use mock\_registry in code under test.
+7   ... &mock\_registry ...
+8 \}
+\end{DoxyCode}
+
+
+The sole {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} here says that all calls to {\ttfamily Get\+Domain\+Owner()} must have {\ttfamily \char`\"{}google.\+com\char`\"{}} as the argument. If {\ttfamily Get\+Domain\+Owner(\char`\"{}yahoo.\+com\char`\"{})} is called, it will be an unexpected call, and thus an error. Having a nice mock doesn\textquotesingle{}t change the severity of an unexpected call.
+
+So how do we tell Google \hyperlink{class_mock}{Mock} that {\ttfamily Get\+Domain\+Owner()} can be called with some other arguments as well? The standard technique is to add a \char`\"{}catch all\char`\"{} {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}\+:
+
+
+\begin{DoxyCode}
+1 EXPECT\_CALL(mock\_registry, GetDomainOwner(\_))
+2       .Times(AnyNumber());  // catches all other calls to this method.
+3 EXPECT\_CALL(mock\_registry, GetDomainOwner("google.com"))
+4       .WillRepeatedly(Return("Larry Page"));
+\end{DoxyCode}
+
+
+Remember that {\ttfamily \+\_\+} is the wildcard matcher that matches anything. With this, if {\ttfamily Get\+Domain\+Owner(\char`\"{}google.\+com\char`\"{})} is called, it will do what the second {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} says; if it is called with a different argument, it will do what the first {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} says.
+
+Note that the order of the two {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+Ls} is important, as a newer {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} takes precedence over an older one.
+
+For more on uninteresting calls, nice mocks, and strict mocks, read \href{#the-nice-the-strict-and-the-naggy}{\tt \char`\"{}\+The Nice, the Strict, and the Naggy\char`\"{}}.
+
+\subsection*{Expecting Ordered Calls}
+
+Although an {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} statement defined earlier takes precedence when Google \hyperlink{class_mock}{Mock} tries to match a function call with an expectation, by default calls don\textquotesingle{}t have to happen in the order {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} statements are written. For example, if the arguments match the matchers in the third {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}, but not those in the first two, then the third expectation will be used.
+
+If you would rather have all calls occur in the order of the expectations, put the {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} statements in a block where you define a variable of type {\ttfamily In\+Sequence}\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::InSequence;
+3 
+4 \{
+5   InSequence s;
+6 
+7   EXPECT\_CALL(foo, DoThis(5));
+8   EXPECT\_CALL(bar, DoThat(\_))
+9       .Times(2);
+10   EXPECT\_CALL(foo, DoThis(6));
+11 \}
+\end{DoxyCode}
+
+
+In this example, we expect a call to {\ttfamily foo.\+Do\+This(5)}, followed by two calls to {\ttfamily bar.\+Do\+That()} where the argument can be anything, which are in turn followed by a call to {\ttfamily foo.\+Do\+This(6)}. If a call occurred out-\/of-\/order, Google \hyperlink{class_mock}{Mock} will report an error.
+
+\subsection*{Expecting Partially Ordered Calls}
+
+Sometimes requiring everything to occur in a predetermined order can lead to brittle tests. For example, we may care about {\ttfamily A} occurring before both {\ttfamily B} and {\ttfamily C}, but aren\textquotesingle{}t interested in the relative order of {\ttfamily B} and {\ttfamily C}. In this case, the test should reflect our real intent, instead of being overly constraining.
+
+Google \hyperlink{class_mock}{Mock} allows you to impose an arbitrary D\+AG (directed acyclic graph) on the calls. One way to express the D\+AG is to use the \href{CheatSheet.md#the-after-clause}{\tt After} clause of {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}.
+
+Another way is via the {\ttfamily In\+Sequence()} clause (not the same as the {\ttfamily In\+Sequence} class), which we borrowed from j\+Mock 2. It\textquotesingle{}s less flexible than {\ttfamily After()}, but more convenient when you have long chains of sequential calls, as it doesn\textquotesingle{}t require you to come up with different names for the expectations in the chains. Here\textquotesingle{}s how it works\+:
+
+If we view {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} statements as nodes in a graph, and add an edge from node A to node B wherever A must occur before B, we can get a D\+AG. We use the term \char`\"{}sequence\char`\"{} to mean a directed path in this D\+AG. Now, if we decompose the D\+AG into sequences, we just need to know which sequences each {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} belongs to in order to be able to reconstruct the orginal D\+AG.
+
+So, to specify the partial order on the expectations we need to do two things\+: first to define some {\ttfamily Sequence} objects, and then for each {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}} say which {\ttfamily Sequence} objects it is part of. Expectations in the same sequence must occur in the order they are written. For example,
+
+
+\begin{DoxyCode}
+1 using ::testing::Sequence;
+2 
+3 Sequence s1, s2;
+4 
+5 EXPECT\_CALL(foo, A())
+6     .InSequence(s1, s2);
+7 EXPECT\_CALL(bar, B())
+8     .InSequence(s1);
+9 EXPECT\_CALL(bar, C())
+10     .InSequence(s2);
+11 EXPECT\_CALL(foo, D())
+12     .InSequence(s2);
+\end{DoxyCode}
+
+
+specifies the following D\+AG (where {\ttfamily s1} is {\ttfamily A -\/$>$ B}, and {\ttfamily s2} is {\ttfamily A -\/$>$ C -\/$>$ D})\+:
+
+
+\begin{DoxyCode}
+1      +---> B
+2      |
+3 A ---|
+4      |
+5      +---> C ---> D
+\end{DoxyCode}
+
+
+This means that A must occur before B and C, and C must occur before D. There\textquotesingle{}s no restriction about the order other than these.
+
+\subsection*{Controlling When an Expectation Retires}
+
+When a mock method is called, Google \hyperlink{class_mock}{Mock} only consider expectations that are still active. An expectation is active when created, and becomes inactive (aka {\itshape retires}) when a call that has to occur later has occurred. For example, in
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Sequence;
+3 
+4 Sequence s1, s2;
+5 
+6 EXPECT\_CALL(log, Log(WARNING, \_, "File too large."))     // #1
+7     .Times(AnyNumber())
+8     .InSequence(s1, s2);
+9 EXPECT\_CALL(log, Log(WARNING, \_, "Data set is empty."))  // #2
+10     .InSequence(s1);
+11 EXPECT\_CALL(log, Log(WARNING, \_, "User not found."))     // #3
+12     .InSequence(s2);
+\end{DoxyCode}
+
+
+as soon as either \#2 or \#3 is matched, \#1 will retire. If a warning {\ttfamily \char`\"{}\+File too large.\char`\"{}} is logged after this, it will be an error.
+
+Note that an expectation doesn\textquotesingle{}t retire automatically when it\textquotesingle{}s saturated. For example,
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 ...
+3   EXPECT\_CALL(log, Log(WARNING, \_, \_));                  // #1
+4   EXPECT\_CALL(log, Log(WARNING, \_, "File too large."));  // #2
+\end{DoxyCode}
+
+
+says that there will be exactly one warning with the message {\ttfamily \char`\"{}\+File
+too large.\char`\"{}}. If the second warning contains this message too, \#2 will match again and result in an upper-\/bound-\/violated error.
+
+If this is not what you want, you can ask an expectation to retire as soon as it becomes saturated\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 ...
+3   EXPECT\_CALL(log, Log(WARNING, \_, \_));                 // #1
+4   EXPECT\_CALL(log, Log(WARNING, \_, "File too large."))  // #2
+5       .RetiresOnSaturation();
+\end{DoxyCode}
+
+
+Here \#2 can be used only once, so if you have two warnings with the message {\ttfamily \char`\"{}\+File too large.\char`\"{}}, the first will match \#2 and the second will match \#1 -\/ there will be no error.
+
+\section*{Using Actions}
+
+\subsection*{Returning References from \hyperlink{class_mock}{Mock} Methods}
+
+If a mock function\textquotesingle{}s return type is a reference, you need to use {\ttfamily \hyperlink{namespacetesting_a18eda8fe9c89ee856c199a2e04ca1641}{Return\+Ref()}} instead of {\ttfamily \hyperlink{namespacetesting_af6d1c13e9376c77671e37545cd84359c}{Return()}} to return a result\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::ReturnRef;
+2 
+3 class MockFoo : public Foo \{
+4  public:
+5   MOCK\_METHOD0(GetBar, Bar&());
+6 \};
+7 ...
+8 
+9   MockFoo foo;
+10   Bar bar;
+11   EXPECT\_CALL(foo, GetBar())
+12       .WillOnce(ReturnRef(bar));
+\end{DoxyCode}
+
+
+\subsection*{Returning Live Values from \hyperlink{class_mock}{Mock} Methods}
+
+The {\ttfamily Return(x)} action saves a copy of {\ttfamily x} when the action is {\itshape created}, and always returns the same value whenever it\textquotesingle{}s executed. Sometimes you may want to instead return the {\itshape live} value of {\ttfamily x} (i.\+e. its value at the time when the action is {\itshape executed}.).
+
+If the mock function\textquotesingle{}s return type is a reference, you can do it using {\ttfamily Return\+Ref(x)}, as shown in the previous recipe (\char`\"{}\+Returning References
+from Mock Methods\char`\"{}). However, Google \hyperlink{class_mock}{Mock} doesn\textquotesingle{}t let you use {\ttfamily \hyperlink{namespacetesting_a18eda8fe9c89ee856c199a2e04ca1641}{Return\+Ref()}} in a mock function whose return type is not a reference, as doing that usually indicates a user error. So, what shall you do?
+
+You may be tempted to try {\ttfamily \hyperlink{namespacetesting_aaee6d42dcd69de6e7a1459c5c71222c3}{By\+Ref()}}\+:
+
+
+\begin{DoxyCode}
+1 using testing::ByRef;
+2 using testing::Return;
+3 
+4 class MockFoo : public Foo \{
+5  public:
+6   MOCK\_METHOD0(GetValue, int());
+7 \};
+8 ...
+9   int x = 0;
+10   MockFoo foo;
+11   EXPECT\_CALL(foo, GetValue())
+12       .WillRepeatedly(Return(ByRef(x)));
+13   x = 42;
+14   EXPECT\_EQ(42, foo.GetValue());
+\end{DoxyCode}
+
+
+Unfortunately, it doesn\textquotesingle{}t work here. The above code will fail with error\+:
+
+
+\begin{DoxyCode}
+1 Value of: foo.GetValue()
+2   Actual: 0
+3 Expected: 42
+\end{DoxyCode}
+
+
+The reason is that {\ttfamily Return(value)} converts {\ttfamily value} to the actual return type of the mock function at the time when the action is {\itshape created}, not when it is {\itshape executed}. (This behavior was chosen for the action to be safe when {\ttfamily value} is a proxy object that references some temporary objects.) As a result, {\ttfamily By\+Ref(x)} is converted to an {\ttfamily int} value (instead of a {\ttfamily const int\&}) when the expectation is set, and {\ttfamily Return(\+By\+Ref(x))} will always return 0.
+
+{\ttfamily Return\+Pointee(pointer)} was provided to solve this problem specifically. It returns the value pointed to by {\ttfamily pointer} at the time the action is {\itshape executed}\+:
+
+
+\begin{DoxyCode}
+1 using testing::ReturnPointee;
+2 ...
+3   int x = 0;
+4   MockFoo foo;
+5   EXPECT\_CALL(foo, GetValue())
+6       .WillRepeatedly(ReturnPointee(&x));  // Note the & here.
+7   x = 42;
+8   EXPECT\_EQ(42, foo.GetValue());  // This will succeed now.
+\end{DoxyCode}
+
+
+\subsection*{Combining Actions}
+
+Want to do more than one thing when a function is called? That\textquotesingle{}s fine. {\ttfamily \hyperlink{namespacetesting_a5f533932753d2af95000e96c4a3042e3}{Do\+All()}} allow you to do sequence of actions every time. Only the return value of the last action in the sequence will be used.
+
+
+\begin{DoxyCode}
+1 using ::testing::DoAll;
+2 
+3 class MockFoo : public Foo \{
+4  public:
+5   MOCK\_METHOD1(Bar, bool(int n));
+6 \};
+7 ...
+8 
+9   EXPECT\_CALL(foo, Bar(\_))
+10       .WillOnce(DoAll(action\_1,
+11                       action\_2,
+12                       ...
+13                       action\_n));
+\end{DoxyCode}
+
+
+\subsection*{Mocking Side Effects}
+
+Sometimes a method exhibits its effect not via returning a value but via side effects. For example, it may change some global state or modify an output argument. To mock side effects, in general you can define your own action by implementing {\ttfamily \hyperlink{classtesting_1_1_action_interface}{testing\+::\+Action\+Interface}}.
+
+If all you need to do is to change an output argument, the built-\/in {\ttfamily \hyperlink{namespacetesting_a5740a5033b88c37666fcd09a269d123f}{Set\+Arg\+Pointee()}} action is convenient\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::SetArgPointee;
+2 
+3 class MockMutator : public Mutator \{
+4  public:
+5   MOCK\_METHOD2(Mutate, void(bool mutate, int* value));
+6   ...
+7 \};
+8 ...
+9 
+10   MockMutator mutator;
+11   EXPECT\_CALL(mutator, Mutate(true, \_))
+12       .WillOnce(SetArgPointee<1>(5));
+\end{DoxyCode}
+
+
+In this example, when {\ttfamily mutator.\+Mutate()} is called, we will assign 5 to the {\ttfamily int} variable pointed to by argument \#1 (0-\/based).
+
+{\ttfamily \hyperlink{namespacetesting_a5740a5033b88c37666fcd09a269d123f}{Set\+Arg\+Pointee()}} conveniently makes an internal copy of the value you pass to it, removing the need to keep the value in scope and alive. The implication however is that the value must have a copy constructor and assignment operator.
+
+If the mock method also needs to return a value as well, you can chain {\ttfamily \hyperlink{namespacetesting_a5740a5033b88c37666fcd09a269d123f}{Set\+Arg\+Pointee()}} with {\ttfamily \hyperlink{namespacetesting_af6d1c13e9376c77671e37545cd84359c}{Return()}} using {\ttfamily \hyperlink{namespacetesting_a5f533932753d2af95000e96c4a3042e3}{Do\+All()}}\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Return;
+3 using ::testing::SetArgPointee;
+4 
+5 class MockMutator : public Mutator \{
+6  public:
+7   ...
+8   MOCK\_METHOD1(MutateInt, bool(int* value));
+9 \};
+10 ...
+11 
+12   MockMutator mutator;
+13   EXPECT\_CALL(mutator, MutateInt(\_))
+14       .WillOnce(DoAll(SetArgPointee<0>(5),
+15                       Return(true)));
+\end{DoxyCode}
+
+
+If the output argument is an array, use the {\ttfamily Set\+Array\+Argument$<$N$>$(first, last)} action instead. It copies the elements in source range {\ttfamily \mbox{[}first, last)} to the array pointed to by the {\ttfamily N}-\/th (0-\/based) argument\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::NotNull;
+2 using ::testing::SetArrayArgument;
+3 
+4 class MockArrayMutator : public ArrayMutator \{
+5  public:
+6   MOCK\_METHOD2(Mutate, void(int* values, int num\_values));
+7   ...
+8 \};
+9 ...
+10 
+11   MockArrayMutator mutator;
+12   int values[5] = \{ 1, 2, 3, 4, 5 \};
+13   EXPECT\_CALL(mutator, Mutate(NotNull(), 5))
+14       .WillOnce(SetArrayArgument<0>(values, values + 5));
+\end{DoxyCode}
+
+
+This also works when the argument is an output iterator\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::SeArrayArgument;
+3 
+4 class MockRolodex : public Rolodex \{
+5  public:
+6   MOCK\_METHOD1(GetNames, void(std::back\_insert\_iterator<vector<string> >));
+7   ...
+8 \};
+9 ...
+10 
+11   MockRolodex rolodex;
+12   vector<string> names;
+13   names.push\_back("George");
+14   names.push\_back("John");
+15   names.push\_back("Thomas");
+16   EXPECT\_CALL(rolodex, GetNames(\_))
+17       .WillOnce(SetArrayArgument<0>(names.begin(), names.end()));
+\end{DoxyCode}
+
+
+\subsection*{Changing a \hyperlink{class_mock}{Mock} Object\textquotesingle{}s Behavior Based on the State}
+
+If you expect a call to change the behavior of a mock object, you can use {\ttfamily \hyperlink{classtesting_1_1_in_sequence}{testing\+::\+In\+Sequence}} to specify different behaviors before and after the call\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::InSequence;
+2 using ::testing::Return;
+3 
+4 ...
+5   \{
+6     InSequence seq;
+7     EXPECT\_CALL(my\_mock, IsDirty())
+8         .WillRepeatedly(Return(true));
+9     EXPECT\_CALL(my\_mock, Flush());
+10     EXPECT\_CALL(my\_mock, IsDirty())
+11         .WillRepeatedly(Return(false));
+12   \}
+13   my\_mock.FlushIfDirty();
+\end{DoxyCode}
+
+
+This makes {\ttfamily my\+\_\+mock.\+Is\+Dirty()} return {\ttfamily true} before {\ttfamily my\+\_\+mock.\+Flush()} is called and return {\ttfamily false} afterwards.
+
+If the behavior change is more complex, you can store the effects in a variable and make a mock method get its return value from that variable\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::SaveArg;
+3 using ::testing::Return;
+4 
+5 ACTION\_P(ReturnPointee, p) \{ return *p; \}
+6 ...
+7   int previous\_value = 0;
+8   EXPECT\_CALL(my\_mock, GetPrevValue())
+9       .WillRepeatedly(ReturnPointee(&previous\_value));
+10   EXPECT\_CALL(my\_mock, UpdateValue(\_))
+11       .WillRepeatedly(SaveArg<0>(&previous\_value));
+12   my\_mock.DoSomethingToUpdateValue();
+\end{DoxyCode}
+
+
+Here {\ttfamily my\+\_\+mock.\+Get\+Prev\+Value()} will always return the argument of the last {\ttfamily Update\+Value()} call.
+
+\subsection*{Setting the Default Value for a Return Type}
+
+If a mock method\textquotesingle{}s return type is a built-\/in C++ type or pointer, by default it will return 0 when invoked. Also, in C++ 11 and above, a mock method whose return type has a default constructor will return a default-\/constructed value by default. You only need to specify an action if this default value doesn\textquotesingle{}t work for you.
+
+Sometimes, you may want to change this default value, or you may want to specify a default value for types Google \hyperlink{class_mock}{Mock} doesn\textquotesingle{}t know about. You can do this using the {\ttfamily \hyperlink{classtesting_1_1_default_value}{testing\+::\+Default\+Value}} class template\+:
+
+
+\begin{DoxyCode}
+1 class MockFoo : public Foo \{
+2  public:
+3   MOCK\_METHOD0(CalculateBar, Bar());
+4 \};
+5 ...
+6 
+7   Bar default\_bar;
+8   // Sets the default return value for type Bar.
+9   DefaultValue<Bar>::Set(default\_bar);
+10 
+11   MockFoo foo;
+12 
+13   // We don't need to specify an action here, as the default
+14   // return value works for us.
+15   EXPECT\_CALL(foo, CalculateBar());
+16 
+17   foo.CalculateBar();  // This should return default\_bar.
+18 
+19   // Unsets the default return value.
+20   DefaultValue<Bar>::Clear();
+\end{DoxyCode}
+
+
+Please note that changing the default value for a type can make you tests hard to understand. We recommend you to use this feature judiciously. For example, you may want to make sure the {\ttfamily Set()} and {\ttfamily Clear()} calls are right next to the code that uses your mock.
+
+\subsection*{Setting the Default Actions for a \hyperlink{class_mock}{Mock} Method}
+
+You\textquotesingle{}ve learned how to change the default value of a given type. However, this may be too coarse for your purpose\+: perhaps you have two mock methods with the same return type and you want them to have different behaviors. The {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} macro allows you to customize your mock\textquotesingle{}s behavior at the method level\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::AnyNumber;
+3 using ::testing::Gt;
+4 using ::testing::Return;
+5 ...
+6   ON\_CALL(foo, Sign(\_))
+7       .WillByDefault(Return(-1));
+8   ON\_CALL(foo, Sign(0))
+9       .WillByDefault(Return(0));
+10   ON\_CALL(foo, Sign(Gt(0)))
+11       .WillByDefault(Return(1));
+12 
+13   EXPECT\_CALL(foo, Sign(\_))
+14       .Times(AnyNumber());
+15 
+16   foo.Sign(5);   // This should return 1.
+17   foo.Sign(-9);  // This should return -1.
+18   foo.Sign(0);   // This should return 0.
+\end{DoxyCode}
+
+
+As you may have guessed, when there are more than one {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} statements, the news order take precedence over the older ones. In other words, the {\bfseries last} one that matches the function arguments will be used. This matching order allows you to set up the common behavior in a mock object\textquotesingle{}s constructor or the test fixture\textquotesingle{}s set-\/up phase and specialize the mock\textquotesingle{}s behavior later.
+
+\subsection*{Using Functions/\+Methods/\+Functors as Actions}
+
+If the built-\/in actions don\textquotesingle{}t suit you, you can easily use an existing function, method, or functor as an action\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 
+4 class MockFoo : public Foo \{
+5  public:
+6   MOCK\_METHOD2(Sum, int(int x, int y));
+7   MOCK\_METHOD1(ComplexJob, bool(int x));
+8 \};
+9 
+10 int CalculateSum(int x, int y) \{ return x + y; \}
+11 
+12 class Helper \{
+13  public:
+14   bool ComplexJob(int x);
+15 \};
+16 ...
+17 
+18   MockFoo foo;
+19   Helper helper;
+20   EXPECT\_CALL(foo, Sum(\_, \_))
+21       .WillOnce(Invoke(CalculateSum));
+22   EXPECT\_CALL(foo, ComplexJob(\_))
+23       .WillOnce(Invoke(&helper, &Helper::ComplexJob));
+24 
+25   foo.Sum(5, 6);       // Invokes CalculateSum(5, 6).
+26   foo.ComplexJob(10);  // Invokes helper.ComplexJob(10);
+\end{DoxyCode}
+
+
+The only requirement is that the type of the function, etc must be {\itshape compatible} with the signature of the mock function, meaning that the latter\textquotesingle{}s arguments can be implicitly converted to the corresponding arguments of the former, and the former\textquotesingle{}s return type can be implicitly converted to that of the latter. So, you can invoke something whose type is {\itshape not} exactly the same as the mock function, as long as it\textquotesingle{}s safe to do so -\/ nice, huh?
+
+\subsection*{Invoking a Function/\+Method/\+Functor Without Arguments}
+
+{\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}} is very useful for doing actions that are more complex. It passes the mock function\textquotesingle{}s arguments to the function or functor being invoked such that the callee has the full context of the call to work with. If the invoked function is not interested in some or all of the arguments, it can simply ignore them.
+
+Yet, a common pattern is that a test author wants to invoke a function without the arguments of the mock function. {\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}} allows her to do that using a wrapper function that throws away the arguments before invoking an underlining nullary function. Needless to say, this can be tedious and obscures the intent of the test.
+
+{\ttfamily \hyperlink{namespacetesting_a88cc1999296bc630f6a49cdf66bb21f9}{Invoke\+Without\+Args()}} solves this problem. It\textquotesingle{}s like {\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}} except that it doesn\textquotesingle{}t pass the mock function\textquotesingle{}s arguments to the callee. Here\textquotesingle{}s an example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::InvokeWithoutArgs;
+3 
+4 class MockFoo : public Foo \{
+5  public:
+6   MOCK\_METHOD1(ComplexJob, bool(int n));
+7 \};
+8 
+9 bool Job1() \{ ... \}
+10 ...
+11 
+12   MockFoo foo;
+13   EXPECT\_CALL(foo, ComplexJob(\_))
+14       .WillOnce(InvokeWithoutArgs(Job1));
+15 
+16   foo.ComplexJob(10);  // Invokes Job1().
+\end{DoxyCode}
+
+
+\subsection*{Invoking an Argument of the \hyperlink{class_mock}{Mock} Function}
+
+Sometimes a mock function will receive a function pointer or a functor (in other words, a \char`\"{}callable\char`\"{}) as an argument, e.\+g.
+
+
+\begin{DoxyCode}
+1 class MockFoo : public Foo \{
+2  public:
+3   MOCK\_METHOD2(DoThis, bool(int n, bool (*fp)(int)));
+4 \};
+\end{DoxyCode}
+
+
+and you may want to invoke this callable argument\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 ...
+3   MockFoo foo;
+4   EXPECT\_CALL(foo, DoThis(\_, \_))
+5       .WillOnce(...);
+6   // Will execute (*fp)(5), where fp is the
+7   // second argument DoThis() receives.
+\end{DoxyCode}
+
+
+Arghh, you need to refer to a mock function argument but C++ has no lambda (yet), so you have to define your own action. \+:-\/( Or do you really?
+
+Well, Google \hyperlink{class_mock}{Mock} has an action to solve {\itshape exactly} this problem\+:
+
+
+\begin{DoxyCode}
+1 InvokeArgument<N>(arg\_1, arg\_2, ..., arg\_m)
+\end{DoxyCode}
+
+
+will invoke the {\ttfamily N}-\/th (0-\/based) argument the mock function receives, with {\ttfamily arg\+\_\+1}, {\ttfamily arg\+\_\+2}, ..., and {\ttfamily arg\+\_\+m}. No matter if the argument is a function pointer or a functor, Google \hyperlink{class_mock}{Mock} handles them both.
+
+With that, you could write\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::InvokeArgument;
+3 ...
+4   EXPECT\_CALL(foo, DoThis(\_, \_))
+5       .WillOnce(InvokeArgument<1>(5));
+6   // Will execute (*fp)(5), where fp is the
+7   // second argument DoThis() receives.
+\end{DoxyCode}
+
+
+What if the callable takes an argument by reference? No problem -\/ just wrap it inside {\ttfamily \hyperlink{namespacetesting_aaee6d42dcd69de6e7a1459c5c71222c3}{By\+Ref()}}\+:
+
+
+\begin{DoxyCode}
+1 ...
+2   MOCK\_METHOD1(Bar, bool(bool (*fp)(int, const Helper&)));
+3 ...
+4 using ::testing::\_;
+5 using ::testing::ByRef;
+6 using ::testing::InvokeArgument;
+7 ...
+8 
+9   MockFoo foo;
+10   Helper helper;
+11   ...
+12   EXPECT\_CALL(foo, Bar(\_))
+13       .WillOnce(InvokeArgument<0>(5, ByRef(helper)));
+14   // ByRef(helper) guarantees that a reference to helper, not a copy of it,
+15   // will be passed to the callable.
+\end{DoxyCode}
+
+
+What if the callable takes an argument by reference and we do {\bfseries not} wrap the argument in {\ttfamily \hyperlink{namespacetesting_aaee6d42dcd69de6e7a1459c5c71222c3}{By\+Ref()}}? Then {\ttfamily Invoke\+Argument()} will {\itshape make a copy} of the argument, and pass a {\itshape reference to the copy}, instead of a reference to the original value, to the callable. This is especially handy when the argument is a temporary value\+:
+
+
+\begin{DoxyCode}
+1 ...
+2   MOCK\_METHOD1(DoThat, bool(bool (*f)(const double& x, const string& s)));
+3 ...
+4 using ::testing::\_;
+5 using ::testing::InvokeArgument;
+6 ...
+7 
+8   MockFoo foo;
+9   ...
+10   EXPECT\_CALL(foo, DoThat(\_))
+11       .WillOnce(InvokeArgument<0>(5.0, string("Hi")));
+12   // Will execute (*f)(5.0, string("Hi")), where f is the function pointer
+13   // DoThat() receives.  Note that the values 5.0 and string("Hi") are
+14   // temporary and dead once the EXPECT\_CALL() statement finishes.  Yet
+15   // it's fine to perform this action later, since a copy of the values
+16   // are kept inside the InvokeArgument action.
+\end{DoxyCode}
+
+
+\subsection*{Ignoring an Action\textquotesingle{}s Result}
+
+Sometimes you have an action that returns {\itshape something}, but you need an action that returns {\ttfamily void} (perhaps you want to use it in a mock function that returns {\ttfamily void}, or perhaps it needs to be used in {\ttfamily \hyperlink{namespacetesting_a5f533932753d2af95000e96c4a3042e3}{Do\+All()}} and it\textquotesingle{}s not the last in the list). {\ttfamily \hyperlink{namespacetesting_a50ae42540a31047c7fddd32df8d835f5}{Ignore\+Result()}} lets you do that. For example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 using ::testing::Return;
+4 
+5 int Process(const MyData& data);
+6 string DoSomething();
+7 
+8 class MockFoo : public Foo \{
+9  public:
+10   MOCK\_METHOD1(Abc, void(const MyData& data));
+11   MOCK\_METHOD0(Xyz, bool());
+12 \};
+13 ...
+14 
+15   MockFoo foo;
+16   EXPECT\_CALL(foo, Abc(\_))
+17   // .WillOnce(Invoke(Process));
+18   // The above line won't compile as Process() returns int but Abc() needs
+19   // to return void.
+20       .WillOnce(IgnoreResult(Invoke(Process)));
+21 
+22   EXPECT\_CALL(foo, Xyz())
+23       .WillOnce(DoAll(IgnoreResult(Invoke(DoSomething)),
+24       // Ignores the string DoSomething() returns.
+25                       Return(true)));
+\end{DoxyCode}
+
+
+Note that you {\bfseries cannot} use {\ttfamily \hyperlink{namespacetesting_a50ae42540a31047c7fddd32df8d835f5}{Ignore\+Result()}} on an action that already returns {\ttfamily void}. Doing so will lead to ugly compiler errors.
+
+\subsection*{Selecting an Action\textquotesingle{}s Arguments}
+
+Say you have a mock function {\ttfamily Foo()} that takes seven arguments, and you have a custom action that you want to invoke when {\ttfamily Foo()} is called. Trouble is, the custom action only wants three arguments\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 ...
+4   MOCK\_METHOD7(Foo, bool(bool visible, const string& name, int x, int y,
+5                          const map<pair<int, int>, double>& weight,
+6                          double min\_weight, double max\_wight));
+7 ...
+8 
+9 bool IsVisibleInQuadrant1(bool visible, int x, int y) \{
+10   return visible && x >= 0 && y >= 0;
+11 \}
+12 ...
+13 
+14   EXPECT\_CALL(mock, Foo(\_, \_, \_, \_, \_, \_, \_))
+15       .WillOnce(Invoke(IsVisibleInQuadrant1));  // Uh, won't compile. :-(
+\end{DoxyCode}
+
+
+To please the compiler God, you can to define an \char`\"{}adaptor\char`\"{} that has the same signature as {\ttfamily Foo()} and calls the custom action with the right arguments\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 
+4 bool MyIsVisibleInQuadrant1(bool visible, const string& name, int x, int y,
+5                             const map<pair<int, int>, double>& weight,
+6                             double min\_weight, double max\_wight) \{
+7   return IsVisibleInQuadrant1(visible, x, y);
+8 \}
+9 ...
+10 
+11   EXPECT\_CALL(mock, Foo(\_, \_, \_, \_, \_, \_, \_))
+12       .WillOnce(Invoke(MyIsVisibleInQuadrant1));  // Now it works.
+\end{DoxyCode}
+
+
+But isn\textquotesingle{}t this awkward?
+
+Google \hyperlink{class_mock}{Mock} provides a generic {\itshape action adaptor}, so you can spend your time minding more important business than writing your own adaptors. Here\textquotesingle{}s the syntax\+:
+
+
+\begin{DoxyCode}
+1 WithArgs<N1, N2, ..., Nk>(action)
+\end{DoxyCode}
+
+
+creates an action that passes the arguments of the mock function at the given indices (0-\/based) to the inner {\ttfamily action} and performs it. Using {\ttfamily With\+Args}, our original example can be written as\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 using ::testing::WithArgs;
+4 ...
+5   EXPECT\_CALL(mock, Foo(\_, \_, \_, \_, \_, \_, \_))
+6       .WillOnce(WithArgs<0, 2, 3>(Invoke(IsVisibleInQuadrant1)));
+7       // No need to define your own adaptor.
+\end{DoxyCode}
+
+
+For better readability, Google \hyperlink{class_mock}{Mock} also gives you\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Without\+Args(action)} when the inner {\ttfamily action} takes {\itshape no} argument, and
+\item {\ttfamily With\+Arg$<$N$>$(action)} (no {\ttfamily s} after {\ttfamily Arg}) when the inner {\ttfamily action} takes {\itshape one} argument.
+\end{DoxyItemize}
+
+As you may have realized, {\ttfamily Invoke\+Without\+Args(...)} is just syntactic sugar for {\ttfamily Without\+Args(Invoke(...))}.
+
+Here are more tips\+:
+
+
+\begin{DoxyItemize}
+\item The inner action used in {\ttfamily With\+Args} and friends does not have to be {\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}} -- it can be anything.
+\item You can repeat an argument in the argument list if necessary, e.\+g. {\ttfamily With\+Args$<$2, 3, 3, 5$>$(...)}.
+\item You can change the order of the arguments, e.\+g. {\ttfamily With\+Args$<$3, 2, 1$>$(...)}.
+\item The types of the selected arguments do {\itshape not} have to match the signature of the inner action exactly. It works as long as they can be implicitly converted to the corresponding arguments of the inner action. For example, if the 4-\/th argument of the mock function is an {\ttfamily int} and {\ttfamily my\+\_\+action} takes a {\ttfamily double}, {\ttfamily With\+Arg$<$4$>$(my\+\_\+action)} will work.
+\end{DoxyItemize}
+
+\subsection*{Ignoring Arguments in Action Functions}
+
+The selecting-\/an-\/action\textquotesingle{}s-\/arguments recipe showed us one way to make a mock function and an action with incompatible argument lists fit together. The downside is that wrapping the action in {\ttfamily With\+Args$<$...$>$()} can get tedious for people writing the tests.
+
+If you are defining a function, method, or functor to be used with {\ttfamily Invoke$\ast$()}, and you are not interested in some of its arguments, an alternative to {\ttfamily With\+Args} is to declare the uninteresting arguments as {\ttfamily Unused}. This makes the definition less cluttered and less fragile in case the types of the uninteresting arguments change. It could also increase the chance the action function can be reused. For example, given
+
+
+\begin{DoxyCode}
+1 MOCK\_METHOD3(Foo, double(const string& label, double x, double y));
+2 MOCK\_METHOD3(Bar, double(int index, double x, double y));
+\end{DoxyCode}
+
+
+instead of
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 
+4 double DistanceToOriginWithLabel(const string& label, double x, double y) \{
+5   return sqrt(x*x + y*y);
+6 \}
+7 
+8 double DistanceToOriginWithIndex(int index, double x, double y) \{
+9   return sqrt(x*x + y*y);
+10 \}
+11 ...
+12 
+13   EXEPCT\_CALL(mock, Foo("abc", \_, \_))
+14       .WillOnce(Invoke(DistanceToOriginWithLabel));
+15   EXEPCT\_CALL(mock, Bar(5, \_, \_))
+16       .WillOnce(Invoke(DistanceToOriginWithIndex));
+\end{DoxyCode}
+
+
+you could write
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 using ::testing::Invoke;
+3 using ::testing::Unused;
+4 
+5 double DistanceToOrigin(Unused, double x, double y) \{
+6   return sqrt(x*x + y*y);
+7 \}
+8 ...
+9 
+10   EXEPCT\_CALL(mock, Foo("abc", \_, \_))
+11       .WillOnce(Invoke(DistanceToOrigin));
+12   EXEPCT\_CALL(mock, Bar(5, \_, \_))
+13       .WillOnce(Invoke(DistanceToOrigin));
+\end{DoxyCode}
+
+
+\subsection*{Sharing Actions}
+
+Just like matchers, a Google \hyperlink{class_mock}{Mock} action object consists of a pointer to a ref-\/counted implementation object. Therefore copying actions is also allowed and very efficient. When the last action that references the implementation object dies, the implementation object will be deleted.
+
+If you have some complex action that you want to use again and again, you may not have to build it from scratch everytime. If the action doesn\textquotesingle{}t have an internal state (i.\+e. if it always does the same thing no matter how many times it has been called), you can assign it to an action variable and use that variable repeatedly. For example\+:
+
+
+\begin{DoxyCode}
+1 Action<bool(int*)> set\_flag = DoAll(SetArgPointee<0>(5),
+2                                     Return(true));
+3 ... use set\_flag in .WillOnce() and .WillRepeatedly() ...
+\end{DoxyCode}
+
+
+However, if the action has its own state, you may be surprised if you share the action object. Suppose you have an action factory {\ttfamily Increment\+Counter(init)} which creates an action that increments and returns a counter whose initial value is {\ttfamily init}, using two actions created from the same expression and using a shared action will exihibit different behaviors. Example\+:
+
+
+\begin{DoxyCode}
+1 EXPECT\_CALL(foo, DoThis())
+2     .WillRepeatedly(IncrementCounter(0));
+3 EXPECT\_CALL(foo, DoThat())
+4     .WillRepeatedly(IncrementCounter(0));
+5 foo.DoThis();  // Returns 1.
+6 foo.DoThis();  // Returns 2.
+7 foo.DoThat();  // Returns 1 - Blah() uses a different
+8                // counter than Bar()'s.
+\end{DoxyCode}
+
+
+versus
+
+
+\begin{DoxyCode}
+1 Action<int()> increment = IncrementCounter(0);
+2 
+3 EXPECT\_CALL(foo, DoThis())
+4     .WillRepeatedly(increment);
+5 EXPECT\_CALL(foo, DoThat())
+6     .WillRepeatedly(increment);
+7 foo.DoThis();  // Returns 1.
+8 foo.DoThis();  // Returns 2.
+9 foo.DoThat();  // Returns 3 - the counter is shared.
+\end{DoxyCode}
+
+
+\section*{Misc Recipes on Using Google \hyperlink{class_mock}{Mock}}
+
+\subsection*{Mocking Methods That Use Move-\/\+Only Types}
+
+C++11 introduced {\itshape move-\/only types}. A move-\/only-\/typed value can be moved from one object to another, but cannot be copied. {\ttfamily std\+::unique\+\_\+ptr$<$T$>$} is probably the most commonly used move-\/only type.
+
+Mocking a method that takes and/or returns move-\/only types presents some challenges, but nothing insurmountable. This recipe shows you how you can do it.
+
+Let’s say we are working on a fictional project that lets one post and share snippets called “buzzes”. Your code uses these types\+:
+
+
+\begin{DoxyCode}
+1 enum class AccessLevel \{ kInternal, kPublic \};
+2 
+3 class Buzz \{
+4  public:
+5   explicit Buzz(AccessLevel access) \{ … \}
+6   ...
+7 \};
+8 
+9 class Buzzer \{
+10  public:
+11   virtual ~Buzzer() \{\}
+12   virtual std::unique\_ptr<Buzz> MakeBuzz(const std::string& text) = 0;
+13   virtual bool ShareBuzz(std::unique\_ptr<Buzz> buzz, Time timestamp) = 0;
+14   ...
+15 \};
+\end{DoxyCode}
+
+
+A {\ttfamily Buzz} object represents a snippet being posted. A class that implements the {\ttfamily Buzzer} interface is capable of creating and sharing {\ttfamily Buzz}. Methods in {\ttfamily Buzzer} may return a {\ttfamily unique\+\_\+ptr$<$Buzz$>$} or take a {\ttfamily unique\+\_\+ptr$<$Buzz$>$}. Now we need to mock {\ttfamily Buzzer} in our tests.
+
+To mock a method that returns a move-\/only type, you just use the familiar {\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+OD} syntax as usual\+:
+
+
+\begin{DoxyCode}
+1 class MockBuzzer : public Buzzer \{
+2  public:
+3   MOCK\_METHOD1(MakeBuzz, std::unique\_ptr<Buzz>(const std::string& text));
+4   …
+5 \};
+\end{DoxyCode}
+
+
+However, if you attempt to use the same {\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+OD} pattern to mock a method that takes a move-\/only parameter, you’ll get a compiler error currently\+:
+
+
+\begin{DoxyCode}
+1 // Does NOT compile!
+2 MOCK\_METHOD2(ShareBuzz, bool(std::unique\_ptr<Buzz> buzz, Time timestamp));
+\end{DoxyCode}
+
+
+While it’s highly desirable to make this syntax just work, it’s not trivial and the work hasn’t been done yet. Fortunately, there is a trick you can apply today to get something that works nearly as well as this.
+
+The trick, is to delegate the {\ttfamily Share\+Buzz()} method to a mock method (let’s call it {\ttfamily Do\+Share\+Buzz()}) that does not take move-\/only parameters\+:
+
+
+\begin{DoxyCode}
+1 class MockBuzzer : public Buzzer \{
+2  public:
+3   MOCK\_METHOD1(MakeBuzz, std::unique\_ptr<Buzz>(const std::string& text));
+4   MOCK\_METHOD2(DoShareBuzz, bool(Buzz* buzz, Time timestamp));
+5   bool ShareBuzz(std::unique\_ptr<Buzz> buzz, Time timestamp) \{
+6     return DoShareBuzz(buzz.get(), timestamp);
+7   \}
+8 \};
+\end{DoxyCode}
+
+
+Note that there\textquotesingle{}s no need to define or declare {\ttfamily Do\+Share\+Buzz()} in a base class. You only need to define it as a {\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+OD} in the mock class.
+
+Now that we have the mock class defined, we can use it in tests. In the following code examples, we assume that we have defined a {\ttfamily Mock\+Buzzer} object named {\ttfamily mock\+\_\+buzzer\+\_\+}\+:
+
+
+\begin{DoxyCode}
+1 MockBuzzer mock\_buzzer\_;
+\end{DoxyCode}
+
+
+First let’s see how we can set expectations on the {\ttfamily Make\+Buzz()} method, which returns a {\ttfamily unique\+\_\+ptr$<$Buzz$>$}.
+
+As usual, if you set an expectation without an action (i.\+e. the {\ttfamily .Will\+Once()} or {\ttfamily .Will\+Repeated()} clause), when that expectation fires, the default action for that method will be taken. Since {\ttfamily unique\+\_\+ptr$<$$>$} has a default constructor that returns a null {\ttfamily unique\+\_\+ptr}, that’s what you’ll get if you don’t specify an action\+:
+
+
+\begin{DoxyCode}
+1 // Use the default action.
+2 EXPECT\_CALL(mock\_buzzer\_, MakeBuzz("hello"));
+3 
+4 // Triggers the previous EXPECT\_CALL.
+5 EXPECT\_EQ(nullptr, mock\_buzzer\_.MakeBuzz("hello"));
+\end{DoxyCode}
+
+
+If you are not happy with the default action, you can tweak it. Depending on what you need, you may either tweak the default action for a specific (mock object, mock method) combination using {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}}, or you may tweak the default action for all mock methods that return a specific type. The usage of {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} is similar to {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}, so we’ll skip it and just explain how to do the latter (tweaking the default action for a specific return type). You do this via the {\ttfamily Default\+Value$<$$>$\+::\+Set\+Factory()} and {\ttfamily Default\+Value$<$$>$\+::\+Clear()} A\+PI\+:
+
+
+\begin{DoxyCode}
+1 // Sets the default action for return type std::unique\_ptr<Buzz> to
+2 // creating a new Buzz every time.
+3 DefaultValue<std::unique\_ptr<Buzz>>::SetFactory(
+4     [] \{ return MakeUnique<Buzz>(AccessLevel::kInternal); \});
+5 
+6 // When this fires, the default action of MakeBuzz() will run, which
+7 // will return a new Buzz object.
+8 EXPECT\_CALL(mock\_buzzer\_, MakeBuzz("hello")).Times(AnyNumber());
+9 
+10 auto buzz1 = mock\_buzzer\_.MakeBuzz("hello");
+11 auto buzz2 = mock\_buzzer\_.MakeBuzz("hello");
+12 EXPECT\_NE(nullptr, buzz1);
+13 EXPECT\_NE(nullptr, buzz2);
+14 EXPECT\_NE(buzz1, buzz2);
+15 
+16 // Resets the default action for return type std::unique\_ptr<Buzz>,
+17 // to avoid interfere with other tests.
+18 DefaultValue<std::unique\_ptr<Buzz>>::Clear();
+\end{DoxyCode}
+
+
+What if you want the method to do something other than the default action? If you just need to return a pre-\/defined move-\/only value, you can use the {\ttfamily Return(By\+Move(...))} action\+:
+
+
+\begin{DoxyCode}
+1 // When this fires, the unique\_ptr<> specified by ByMove(...) will
+2 // be returned.
+3 EXPECT\_CALL(mock\_buzzer\_, MakeBuzz("world"))
+4     .WillOnce(Return(ByMove(MakeUnique<Buzz>(AccessLevel::kInternal))));
+5 
+6 EXPECT\_NE(nullptr, mock\_buzzer\_.MakeBuzz("world"));
+\end{DoxyCode}
+
+
+Note that {\ttfamily \hyperlink{namespacetesting_acaa432211a3aec62e3d0f24b47bd2dae}{By\+Move()}} is essential here -\/ if you drop it, the code won’t compile.
+
+Quiz time! What do you think will happen if a {\ttfamily Return(By\+Move(...))} action is performed more than once (e.\+g. you write {\ttfamily ….\+Will\+Repeatedly(Return(By\+Move(...)));})? Come think of it, after the first time the action runs, the source value will be consumed (since it’s a move-\/only value), so the next time around, there’s no value to move from -- you’ll get a run-\/time error that {\ttfamily Return(By\+Move(...))} can only be run once.
+
+If you need your mock method to do more than just moving a pre-\/defined value, remember that you can always use {\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}} to call a lambda or a callable object, which can do pretty much anything you want\+:
+
+
+\begin{DoxyCode}
+1 EXPECT\_CALL(mock\_buzzer\_, MakeBuzz("x"))
+2     .WillRepeatedly(Invoke([](const std::string& text) \{
+3       return std::make\_unique<Buzz>(AccessLevel::kInternal);
+4     \}));
+5 
+6 EXPECT\_NE(nullptr, mock\_buzzer\_.MakeBuzz("x"));
+7 EXPECT\_NE(nullptr, mock\_buzzer\_.MakeBuzz("x"));
+\end{DoxyCode}
+
+
+Every time this {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} fires, a new {\ttfamily unique\+\_\+ptr$<$Buzz$>$} will be created and returned. You cannot do this with {\ttfamily Return(By\+Move(...))}.
+
+Now there’s one topic we haven’t covered\+: how do you set expectations on {\ttfamily Share\+Buzz()}, which takes a move-\/only-\/typed parameter? The answer is you don’t. Instead, you set expectations on the {\ttfamily Do\+Share\+Buzz()} mock method (remember that we defined a {\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+OD} for {\ttfamily Do\+Share\+Buzz()}, not {\ttfamily Share\+Buzz()})\+:
+
+
+\begin{DoxyCode}
+1 EXPECT\_CALL(mock\_buzzer\_, DoShareBuzz(NotNull(), \_));
+2 
+3 // When one calls ShareBuzz() on the MockBuzzer like this, the call is
+4 // forwarded to DoShareBuzz(), which is mocked.  Therefore this statement
+5 // will trigger the above EXPECT\_CALL.
+6 mock\_buzzer\_.ShareBuzz(MakeUnique&lt;Buzz&gt;(AccessLevel::kInternal),
+7                        ::base::Now());
+\end{DoxyCode}
+
+
+Some of you may have spotted one problem with this approach\+: the {\ttfamily Do\+Share\+Buzz()} mock method differs from the real {\ttfamily Share\+Buzz()} method in that it cannot take ownership of the buzz parameter -\/ {\ttfamily Share\+Buzz()} will always delete buzz after {\ttfamily Do\+Share\+Buzz()} returns. What if you need to save the buzz object somewhere for later use when {\ttfamily Share\+Buzz()} is called? Indeed, you\textquotesingle{}d be stuck.
+
+Another problem with the {\ttfamily Do\+Share\+Buzz()} we had is that it can surprise people reading or maintaining the test, as one would expect that {\ttfamily Do\+Share\+Buzz()} has (logically) the same contract as {\ttfamily Share\+Buzz()}.
+
+Fortunately, these problems can be fixed with a bit more code. Let\textquotesingle{}s try to get it right this time\+:
+
+
+\begin{DoxyCode}
+1 class MockBuzzer : public Buzzer \{
+2  public:
+3   MockBuzzer() \{
+4     // Since DoShareBuzz(buzz, time) is supposed to take ownership of
+5     // buzz, define a default behavior for DoShareBuzz(buzz, time) to
+6     // delete buzz.
+7     ON\_CALL(*this, DoShareBuzz(\_, \_))
+8         .WillByDefault(Invoke([](Buzz* buzz, Time timestamp) \{
+9           delete buzz;
+10           return true;
+11         \}));
+12   \}
+13 
+14   MOCK\_METHOD1(MakeBuzz, std::unique\_ptr<Buzz>(const std::string& text));
+15 
+16   // Takes ownership of buzz.
+17   MOCK\_METHOD2(DoShareBuzz, bool(Buzz* buzz, Time timestamp));
+18   bool ShareBuzz(std::unique\_ptr<Buzz> buzz, Time timestamp) \{
+19     return DoShareBuzz(buzz.release(), timestamp);
+20   \}
+21 \};
+\end{DoxyCode}
+
+
+Now, the mock {\ttfamily Do\+Share\+Buzz()} method is free to save the buzz argument for later use if this is what you want\+:
+
+
+\begin{DoxyCode}
+1 std::unique\_ptr<Buzz> intercepted\_buzz;
+2 EXPECT\_CALL(mock\_buzzer\_, DoShareBuzz(NotNull(), \_))
+3     .WillOnce(Invoke([&amp;intercepted\_buzz](Buzz* buzz, Time timestamp) \{
+4       // Save buzz in intercepted\_buzz for analysis later.
+5       intercepted\_buzz.reset(buzz);
+6       return false;
+7     \}));
+8 
+9 mock\_buzzer\_.ShareBuzz(std::make\_unique<Buzz>(AccessLevel::kInternal),
+10                        Now());
+11 EXPECT\_NE(nullptr, intercepted\_buzz);
+\end{DoxyCode}
+
+
+Using the tricks covered in this recipe, you are now able to mock methods that take and/or return move-\/only types. Put your newly-\/acquired power to good use -\/ when you design a new A\+PI, you can now feel comfortable using {\ttfamily unique\+\_\+ptrs} as appropriate, without fearing that doing so will compromise your tests.
+
+\subsection*{Making the Compilation Faster}
+
+Believe it or not, the {\itshape vast majority} of the time spent on compiling a mock class is in generating its constructor and destructor, as they perform non-\/trivial tasks (e.\+g. verification of the expectations). What\textquotesingle{}s more, mock methods with different signatures have different types and thus their constructors/destructors need to be generated by the compiler separately. As a result, if you mock many different types of methods, compiling your mock class can get really slow.
+
+If you are experiencing slow compilation, you can move the definition of your mock class\textquotesingle{} constructor and destructor out of the class body and into a {\ttfamily .cpp} file. This way, even if you {\ttfamily \#include} your mock class in N files, the compiler only needs to generate its constructor and destructor once, resulting in a much faster compilation.
+
+Let\textquotesingle{}s illustrate the idea using an example. Here\textquotesingle{}s the definition of a mock class before applying this recipe\+:
+
+
+\begin{DoxyCode}
+1 // File mock\_foo.h.
+2 ...
+3 class MockFoo : public Foo \{
+4  public:
+5   // Since we don't declare the constructor or the destructor,
+6   // the compiler will generate them in every translation unit
+7   // where this mock class is used.
+8 
+9   MOCK\_METHOD0(DoThis, int());
+10   MOCK\_METHOD1(DoThat, bool(const char* str));
+11   ... more mock methods ...
+12 \};
+\end{DoxyCode}
+
+
+After the change, it would look like\+:
+
+
+\begin{DoxyCode}
+1 // File mock\_foo.h.
+2 ...
+3 class MockFoo : public Foo \{
+4  public:
+5   // The constructor and destructor are declared, but not defined, here.
+6   MockFoo();
+7   virtual ~MockFoo();
+8 
+9   MOCK\_METHOD0(DoThis, int());
+10   MOCK\_METHOD1(DoThat, bool(const char* str));
+11   ... more mock methods ...
+12 \};
+\end{DoxyCode}
+ and 
+\begin{DoxyCode}
+1 // File mock\_foo.cpp.
+2 #include "path/to/mock\_foo.h"
+3 
+4 // The definitions may appear trivial, but the functions actually do a
+5 // lot of things through the constructors/destructors of the member
+6 // variables used to implement the mock methods.
+7 MockFoo::MockFoo() \{\}
+8 MockFoo::~MockFoo() \{\}
+\end{DoxyCode}
+
+
+\subsection*{Forcing a Verification}
+
+When it\textquotesingle{}s being destoyed, your friendly mock object will automatically verify that all expectations on it have been satisfied, and will generate \href{../../googletest/}{\tt Google Test} failures if not. This is convenient as it leaves you with one less thing to worry about. That is, unless you are not sure if your mock object will be destoyed.
+
+How could it be that your mock object won\textquotesingle{}t eventually be destroyed? Well, it might be created on the heap and owned by the code you are testing. Suppose there\textquotesingle{}s a bug in that code and it doesn\textquotesingle{}t delete the mock object properly -\/ you could end up with a passing test when there\textquotesingle{}s actually a bug.
+
+Using a heap checker is a good idea and can alleviate the concern, but its implementation may not be 100\% reliable. So, sometimes you do want to {\itshape force} Google \hyperlink{class_mock}{Mock} to verify a mock object before it is (hopefully) destructed. You can do this with {\ttfamily Mock\+::\+Verify\+And\+Clear\+Expectations(\&mock\+\_\+object)}\+:
+
+
+\begin{DoxyCode}
+1 TEST(MyServerTest, ProcessesRequest) \{
+2   using ::testing::Mock;
+3 
+4   MockFoo* const foo = new MockFoo;
+5   EXPECT\_CALL(*foo, ...)...;
+6   // ... other expectations ...
+7 
+8   // server now owns foo.
+9   MyServer server(foo);
+10   server.ProcessRequest(...);
+11 
+12   // In case that server's destructor will forget to delete foo,
+13   // this will verify the expectations anyway.
+14   Mock::VerifyAndClearExpectations(foo);
+15 \}  // server is destroyed when it goes out of scope here.
+\end{DoxyCode}
+
+
+{\bfseries Tip\+:} The {\ttfamily Mock\+::\+Verify\+And\+Clear\+Expectations()} function returns a {\ttfamily bool} to indicate whether the verification was successful ({\ttfamily true} for yes), so you can wrap that function call inside a {\ttfamily \hyperlink{gtest_8h_ae9244bfbda562e8b798789b001993fa5}{A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+U\+E()}} if there is no point going further when the verification has failed.
+
+\subsection*{Using Check Points}
+
+Sometimes you may want to \char`\"{}reset\char`\"{} a mock object at various check points in your test\+: at each check point, you verify that all existing expectations on the mock object have been satisfied, and then you set some new expectations on it as if it\textquotesingle{}s newly created. This allows you to work with a mock object in \char`\"{}phases\char`\"{} whose sizes are each manageable.
+
+One such scenario is that in your test\textquotesingle{}s {\ttfamily Set\+Up()} function, you may want to put the object you are testing into a certain state, with the help from a mock object. Once in the desired state, you want to clear all expectations on the mock, such that in the {\ttfamily T\+E\+S\+T\+\_\+F} body you can set fresh expectations on it.
+
+As you may have figured out, the {\ttfamily Mock\+::\+Verify\+And\+Clear\+Expectations()} function we saw in the previous recipe can help you here. Or, if you are using {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} to set default actions on the mock object and want to clear the default actions as well, use {\ttfamily Mock\+::\+Verify\+And\+Clear(\&mock\+\_\+object)} instead. This function does what {\ttfamily Mock\+::\+Verify\+And\+Clear\+Expectations(\&mock\+\_\+object)} does and returns the same {\ttfamily bool}, {\bfseries plus} it clears the {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} statements on {\ttfamily mock\+\_\+object} too.
+
+Another trick you can use to achieve the same effect is to put the expectations in sequences and insert calls to a dummy \char`\"{}check-\/point\char`\"{} function at specific places. Then you can verify that the mock function calls do happen at the right time. For example, if you are exercising code\+:
+
+
+\begin{DoxyCode}
+1 Foo(1);
+2 Foo(2);
+3 Foo(3);
+\end{DoxyCode}
+
+
+and want to verify that {\ttfamily Foo(1)} and {\ttfamily Foo(3)} both invoke {\ttfamily mock.\+Bar(\char`\"{}a\char`\"{})}, but {\ttfamily Foo(2)} doesn\textquotesingle{}t invoke anything. You can write\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::MockFunction;
+2 
+3 TEST(FooTest, InvokesBarCorrectly) \{
+4   MyMock mock;
+5   // Class MockFunction<F> has exactly one mock method.  It is named
+6   // Call() and has type F.
+7   MockFunction<void(string check\_point\_name)> check;
+8   \{
+9     InSequence s;
+10 
+11     EXPECT\_CALL(mock, Bar("a"));
+12     EXPECT\_CALL(check, Call("1"));
+13     EXPECT\_CALL(check, Call("2"));
+14     EXPECT\_CALL(mock, Bar("a"));
+15   \}
+16   Foo(1);
+17   check.Call("1");
+18   Foo(2);
+19   check.Call("2");
+20   Foo(3);
+21 \}
+\end{DoxyCode}
+
+
+The expectation spec says that the first {\ttfamily Bar(\char`\"{}a\char`\"{})} must happen before check point \char`\"{}1\char`\"{}, the second {\ttfamily Bar(\char`\"{}a\char`\"{})} must happen after check point \char`\"{}2\char`\"{}, and nothing should happen between the two check points. The explicit check points make it easy to tell which {\ttfamily Bar(\char`\"{}a\char`\"{})} is called by which call to {\ttfamily Foo()}.
+
+\subsection*{Mocking Destructors}
+
+Sometimes you want to make sure a mock object is destructed at the right time, e.\+g. after {\ttfamily bar-\/$>$\hyperlink{namespacetesting_a5e9134d655d2fc9323902348083282e7}{A()}} is called but before {\ttfamily bar-\/$>$B()} is called. We already know that you can specify constraints on the order of mock function calls, so all we need to do is to mock the destructor of the mock function.
+
+This sounds simple, except for one problem\+: a destructor is a special function with special syntax and special semantics, and the {\ttfamily M\+O\+C\+K\+\_\+\+M\+E\+T\+H\+O\+D0} macro doesn\textquotesingle{}t work for it\+:
+
+
+\begin{DoxyCode}
+1 MOCK\_METHOD0(~MockFoo, void());  // Won't compile!
+\end{DoxyCode}
+
+
+The good news is that you can use a simple pattern to achieve the same effect. First, add a mock function {\ttfamily Die()} to your mock class and call it in the destructor, like this\+:
+
+
+\begin{DoxyCode}
+1 class MockFoo : public Foo \{
+2   ...
+3   // Add the following two lines to the mock class.
+4   MOCK\_METHOD0(Die, void());
+5   virtual ~MockFoo() \{ Die(); \}
+6 \};
+\end{DoxyCode}
+
+
+(If the name {\ttfamily Die()} clashes with an existing symbol, choose another name.) Now, we have translated the problem of testing when a {\ttfamily \hyperlink{class_mock_foo}{Mock\+Foo}} object dies to testing when its {\ttfamily Die()} method is called\+:
+
+
+\begin{DoxyCode}
+1 MockFoo* foo = new MockFoo;
+2 MockBar* bar = new MockBar;
+3 ...
+4 \{
+5   InSequence s;
+6 
+7   // Expects *foo to die after bar->A() and before bar->B().
+8   EXPECT\_CALL(*bar, A());
+9   EXPECT\_CALL(*foo, Die());
+10   EXPECT\_CALL(*bar, B());
+11 \}
+\end{DoxyCode}
+
+
+And that\textquotesingle{}s that.
+
+\subsection*{Using Google \hyperlink{class_mock}{Mock} and Threads}
+
+{\bfseries I\+M\+P\+O\+R\+T\+A\+NT N\+O\+TE\+:} What we describe in this recipe is {\bfseries O\+N\+LY} true on platforms where Google \hyperlink{class_mock}{Mock} is thread-\/safe. Currently these are only platforms that support the pthreads library (this includes Linux and Mac). To make it thread-\/safe on other platforms we only need to implement some synchronization operations in {\ttfamily \char`\"{}gtest/internal/gtest-\/port.\+h\char`\"{}}.
+
+In a {\bfseries unit} test, it\textquotesingle{}s best if you could isolate and test a piece of code in a single-\/threaded context. That avoids race conditions and dead locks, and makes debugging your test much easier.
+
+Yet many programs are multi-\/threaded, and sometimes to test something we need to pound on it from more than one thread. Google \hyperlink{class_mock}{Mock} works for this purpose too.
+
+Remember the steps for using a mock\+:
+
+
+\begin{DoxyEnumerate}
+\item Create a mock object {\ttfamily foo}.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Set its default actions and expectations using {\ttfamily \hyperlink{gmock-spec-builders_8h_a5b12ae6cf84f0a544ca811b380c37334}{O\+N\+\_\+\+C\+A\+L\+L()}} and {\ttfamily \hyperlink{gmock-spec-builders_8h_a535a6156de72c1a2e25a127e38ee5232}{E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}}.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item The code under test calls methods of {\ttfamily foo}.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Optionally, verify and reset the mock.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Destroy the mock yourself, or let the code under test destroy it. The destructor will automatically verify it.
+\end{DoxyEnumerate}
+
+If you follow the following simple rules, your mocks and threads can live happily together\+:
+
+
+\begin{DoxyItemize}
+\item Execute your {\itshape test code} (as opposed to the code being tested) in {\itshape one} thread. This makes your test easy to follow.
+\item Obviously, you can do step \#1 without locking.
+\item When doing step \#2 and \#5, make sure no other thread is accessing {\ttfamily foo}. Obvious too, huh?
+\item \#3 and \#4 can be done either in one thread or in multiple threads -\/ anyway you want. Google \hyperlink{class_mock}{Mock} takes care of the locking, so you don\textquotesingle{}t have to do any -\/ unless required by your test logic.
+\end{DoxyItemize}
+
+If you violate the rules (for example, if you set expectations on a mock while another thread is calling its methods), you get undefined behavior. That\textquotesingle{}s not fun, so don\textquotesingle{}t do it.
+
+Google \hyperlink{class_mock}{Mock} guarantees that the action for a mock function is done in the same thread that called the mock function. For example, in
+
+
+\begin{DoxyCode}
+1 EXPECT\_CALL(mock, Foo(1))
+2     .WillOnce(action1);
+3 EXPECT\_CALL(mock, Foo(2))
+4     .WillOnce(action2);
+\end{DoxyCode}
+
+
+if {\ttfamily Foo(1)} is called in thread 1 and {\ttfamily Foo(2)} is called in thread 2, Google \hyperlink{class_mock}{Mock} will execute {\ttfamily action1} in thread 1 and {\ttfamily action2} in thread 2.
+
+Google \hyperlink{class_mock}{Mock} does {\itshape not} impose a sequence on actions performed in different threads (doing so may create deadlocks as the actions may need to cooperate). This means that the execution of {\ttfamily action1} and {\ttfamily action2} in the above example {\itshape may} interleave. If this is a problem, you should add proper synchronization logic to {\ttfamily action1} and {\ttfamily action2} to make the test thread-\/safe.
+
+Also, remember that {\ttfamily Default\+Value$<$T$>$} is a global resource that potentially affects {\itshape all} living mock objects in your program. Naturally, you won\textquotesingle{}t want to mess with it from multiple threads or when there still are mocks in action.
+
+\subsection*{Controlling How Much Information Google \hyperlink{class_mock}{Mock} Prints}
+
+When Google \hyperlink{class_mock}{Mock} sees something that has the potential of being an error (e.\+g. a mock function with no expectation is called, a.\+k.\+a. an uninteresting call, which is allowed but perhaps you forgot to explicitly ban the call), it prints some warning messages, including the arguments of the function and the return value. Hopefully this will remind you to take a look and see if there is indeed a problem.
+
+Sometimes you are confident that your tests are correct and may not appreciate such friendly messages. Some other times, you are debugging your tests or learning about the behavior of the code you are testing, and wish you could observe every mock call that happens (including argument values and the return value). Clearly, one size doesn\textquotesingle{}t fit all.
+
+You can control how much Google \hyperlink{class_mock}{Mock} tells you using the {\ttfamily -\/-\/gmock\+\_\+verbose=L\+E\+V\+EL} command-\/line flag, where {\ttfamily L\+E\+V\+EL} is a string with three possible values\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily info}\+: Google \hyperlink{class_mock}{Mock} will print all informational messages, warnings, and errors (most verbose). At this setting, Google \hyperlink{class_mock}{Mock} will also log any calls to the {\ttfamily O\+N\+\_\+\+C\+A\+L\+L/\+E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} macros.
+\item {\ttfamily warning}\+: Google \hyperlink{class_mock}{Mock} will print both warnings and errors (less verbose). This is the default.
+\item {\ttfamily error}\+: Google \hyperlink{class_mock}{Mock} will print errors only (least verbose).
+\end{DoxyItemize}
+
+Alternatively, you can adjust the value of that flag from within your tests like so\+:
+
+
+\begin{DoxyCode}
+1 ::testing::FLAGS\_gmock\_verbose = "error";
+\end{DoxyCode}
+
+
+Now, judiciously use the right flag to enable Google \hyperlink{class_mock}{Mock} serve you better!
+
+\subsection*{Gaining Super Vision into \hyperlink{class_mock}{Mock} Calls}
+
+You have a test using Google \hyperlink{class_mock}{Mock}. It fails\+: Google \hyperlink{class_mock}{Mock} tells you that some expectations aren\textquotesingle{}t satisfied. However, you aren\textquotesingle{}t sure why\+: Is there a typo somewhere in the matchers? Did you mess up the order of the {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}s? Or is the code under test doing something wrong? How can you find out the cause?
+
+Won\textquotesingle{}t it be nice if you have X-\/ray vision and can actually see the trace of all {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}s and mock method calls as they are made? For each call, would you like to see its actual argument values and which {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} Google \hyperlink{class_mock}{Mock} thinks it matches?
+
+You can unlock this power by running your test with the {\ttfamily -\/-\/gmock\+\_\+verbose=info} flag. For example, given the test program\+:
+
+
+\begin{DoxyCode}
+1 using testing::\_;
+2 using testing::HasSubstr;
+3 using testing::Return;
+4 
+5 class MockFoo \{
+6  public:
+7   MOCK\_METHOD2(F, void(const string& x, const string& y));
+8 \};
+9 
+10 TEST(Foo, Bar) \{
+11   MockFoo mock;
+12   EXPECT\_CALL(mock, F(\_, \_)).WillRepeatedly(Return());
+13   EXPECT\_CALL(mock, F("a", "b"));
+14   EXPECT\_CALL(mock, F("c", HasSubstr("d")));
+15 
+16   mock.F("a", "good");
+17   mock.F("a", "b");
+18 \}
+\end{DoxyCode}
+
+
+if you run it with {\ttfamily -\/-\/gmock\+\_\+verbose=info}, you will see this output\+:
+
+
+\begin{DoxyCode}
+1 [ RUN      ] Foo.Bar
+2 
+3 foo\_test.cc:14: EXPECT\_CALL(mock, F(\_, \_)) invoked
+4 foo\_test.cc:15: EXPECT\_CALL(mock, F("a", "b")) invoked
+5 foo\_test.cc:16: EXPECT\_CALL(mock, F("c", HasSubstr("d"))) invoked
+6 foo\_test.cc:14: Mock function call matches EXPECT\_CALL(mock, F(\_, \_))...
+7     Function call: F(@0x7fff7c8dad40"a", @0x7fff7c8dad10"good")
+8 foo\_test.cc:15: Mock function call matches EXPECT\_CALL(mock, F("a", "b"))...
+9     Function call: F(@0x7fff7c8dada0"a", @0x7fff7c8dad70"b")
+10 foo\_test.cc:16: Failure
+11 Actual function call count doesn't match EXPECT\_CALL(mock, F("c", HasSubstr("d")))...
+12          Expected: to be called once
+13            Actual: never called - unsatisfied and active
+14 [  FAILED  ] Foo.Bar
+\end{DoxyCode}
+
+
+Suppose the bug is that the {\ttfamily \char`\"{}c\char`\"{}} in the third {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} is a typo and should actually be {\ttfamily \char`\"{}a\char`\"{}}. With the above message, you should see that the actual {\ttfamily F(\char`\"{}a\char`\"{}, \char`\"{}good\char`\"{})} call is matched by the first {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL}, not the third as you thought. From that it should be obvious that the third {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+LL} is written wrong. Case solved.
+
+\subsection*{Running Tests in Emacs}
+
+If you build and run your tests in Emacs, the source file locations of Google \hyperlink{class_mock}{Mock} and \href{../../googletest/}{\tt Google Test} errors will be highlighted. Just press {\ttfamily $<$Enter$>$} on one of them and you\textquotesingle{}ll be taken to the offending line. Or, you can just type {\ttfamily C-\/x}` to jump to the next error.
+
+To make it even easier, you can add the following lines to your {\ttfamily $\sim$/.emacs} file\+:
+
+
+\begin{DoxyCode}
+1 (global-set-key "\(\backslash\)M-m"   'compile)  ; m is for make
+2 (global-set-key [M-down] 'next-error)
+3 (global-set-key [M-up]   '(lambda () (interactive) (next-error -1)))
+\end{DoxyCode}
+
+
+Then you can type {\ttfamily M-\/m} to start a build, or {\ttfamily M-\/up}/{\ttfamily M-\/down} to move back and forth between errors.
+
+\subsection*{Fusing Google \hyperlink{class_mock}{Mock} Source Files}
+
+Google \hyperlink{class_mock}{Mock}\textquotesingle{}s implementation consists of dozens of files (excluding its own tests). Sometimes you may want them to be packaged up in fewer files instead, such that you can easily copy them to a new machine and start hacking there. For this we provide an experimental Python script {\ttfamily \hyperlink{fuse__gmock__files_8py}{fuse\+\_\+gmock\+\_\+files.\+py}} in the {\ttfamily scripts/} directory (starting with release 1.\+2.\+0). Assuming you have Python 2.\+4 or above installed on your machine, just go to that directory and run 
+\begin{DoxyCode}
+1 python fuse\_gmock\_files.py OUTPUT\_DIR
+\end{DoxyCode}
+
+
+and you should see an {\ttfamily O\+U\+T\+P\+U\+T\+\_\+\+D\+IR} directory being created with files {\ttfamily \hyperlink{gtest_8h}{gtest/gtest.\+h}}, {\ttfamily \hyperlink{gmock_8h}{gmock/gmock.\+h}}, and {\ttfamily gmock-\/gtest-\/all.\+cc} in it. These three files contain everything you need to use Google \hyperlink{class_mock}{Mock} (and Google Test). Just copy them to anywhere you want and you are ready to write tests and use mocks. You can use the \href{../scripts/test/Makefile}{\tt scrpts/test/\+Makefile} file as an example on how to compile your tests against them.
+
+\section*{Extending Google \hyperlink{class_mock}{Mock}}
+
+\subsection*{Writing New Matchers Quickly}
+
+The {\ttfamily M\+A\+T\+C\+H\+E\+R$\ast$} family of macros can be used to define custom matchers easily. The syntax\+:
+
+
+\begin{DoxyCode}
+1 MATCHER(name, description\_string\_expression) \{ statements; \}
+\end{DoxyCode}
+
+
+will define a matcher with the given name that executes the statements, which must return a {\ttfamily bool} to indicate if the match succeeds. Inside the statements, you can refer to the value being matched by {\ttfamily arg}, and refer to its type by {\ttfamily arg\+\_\+type}.
+
+The description string is a {\ttfamily string}-\/typed expression that documents what the matcher does, and is used to generate the failure message when the match fails. It can (and should) reference the special {\ttfamily bool} variable {\ttfamily negation}, and should evaluate to the description of the matcher when {\ttfamily negation} is {\ttfamily false}, or that of the matcher\textquotesingle{}s negation when {\ttfamily negation} is {\ttfamily true}.
+
+For convenience, we allow the description string to be empty ({\ttfamily \char`\"{}\char`\"{}}), in which case Google \hyperlink{class_mock}{Mock} will use the sequence of words in the matcher name as the description.
+
+For example\+: 
+\begin{DoxyCode}
+1 MATCHER(IsDivisibleBy7, "") \{ return (arg % 7) == 0; \}
+\end{DoxyCode}
+ allows you to write 
+\begin{DoxyCode}
+1 // Expects mock\_foo.Bar(n) to be called where n is divisible by 7.
+2 EXPECT\_CALL(mock\_foo, Bar(IsDivisibleBy7()));
+\end{DoxyCode}
+ or, 
+\begin{DoxyCode}
+1 using ::testing::Not;
+2 ...
+3   EXPECT\_THAT(some\_expression, IsDivisibleBy7());
+4   EXPECT\_THAT(some\_other\_expression, Not(IsDivisibleBy7()));
+\end{DoxyCode}
+ If the above assertions fail, they will print something like\+: 
+\begin{DoxyCode}
+1   Value of: some\_expression
+2   Expected: is divisible by 7
+3     Actual: 27
+4 ...
+5   Value of: some\_other\_expression
+6   Expected: not (is divisible by 7)
+7     Actual: 21
+\end{DoxyCode}
+ where the descriptions {\ttfamily \char`\"{}is divisible by 7\char`\"{}} and {\ttfamily \char`\"{}not (is divisible
+by 7)\char`\"{}} are automatically calculated from the matcher name {\ttfamily Is\+Divisible\+By7}.
+
+As you may have noticed, the auto-\/generated descriptions (especially those for the negation) may not be so great. You can always override them with a string expression of your own\+: 
+\begin{DoxyCode}
+1 MATCHER(IsDivisibleBy7, std::string(negation ? "isn't" : "is") +
+2                         " divisible by 7") \{
+3   return (arg % 7) == 0;
+4 \}
+\end{DoxyCode}
+
+
+Optionally, you can stream additional information to a hidden argument named {\ttfamily result\+\_\+listener} to explain the match result. For example, a better definition of {\ttfamily Is\+Divisible\+By7} is\+: 
+\begin{DoxyCode}
+1 MATCHER(IsDivisibleBy7, "") \{
+2   if ((arg % 7) == 0)
+3     return true;
+4 
+5   *result\_listener << "the remainder is " << (arg % 7);
+6   return false;
+7 \}
+\end{DoxyCode}
+
+
+With this definition, the above assertion will give a better message\+: 
+\begin{DoxyCode}
+1 Value of: some\_expression
+2 Expected: is divisible by 7
+3   Actual: 27 (the remainder is 6)
+\end{DoxyCode}
+
+
+You should let {\ttfamily Match\+And\+Explain()} print {\itshape any additional information} that can help a user understand the match result. Note that it should explain why the match succeeds in case of a success (unless it\textquotesingle{}s obvious) -\/ this is useful when the matcher is used inside {\ttfamily \hyperlink{namespacetesting_a3d7d0dda7e51b13fe2f5aa28e23ed6b6}{Not()}}. There is no need to print the argument value itself, as Google \hyperlink{class_mock}{Mock} already prints it for you.
+
+{\bfseries Notes\+:}
+
+
+\begin{DoxyEnumerate}
+\item The type of the value being matched ({\ttfamily arg\+\_\+type}) is determined by the context in which you use the matcher and is supplied to you by the compiler, so you don\textquotesingle{}t need to worry about declaring it (nor can you). This allows the matcher to be polymorphic. For example, {\ttfamily Is\+Divisible\+By7()} can be used to match any type where the value of {\ttfamily (arg \% 7) == 0} can be implicitly converted to a {\ttfamily bool}. In the {\ttfamily Bar(\+Is\+Divisible\+By7())} example above, if method {\ttfamily Bar()} takes an {\ttfamily int}, {\ttfamily arg\+\_\+type} will be {\ttfamily int}; if it takes an {\ttfamily unsigned long}, {\ttfamily arg\+\_\+type} will be {\ttfamily unsigned long}; and so on.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Google \hyperlink{class_mock}{Mock} doesn\textquotesingle{}t guarantee when or how many times a matcher will be invoked. Therefore the matcher logic must be {\itshape purely functional} (i.\+e. it cannot have any side effect, and the result must not depend on anything other than the value being matched and the matcher parameters). This requirement must be satisfied no matter how you define the matcher (e.\+g. using one of the methods described in the following recipes). In particular, a matcher can never call a mock function, as that will affect the state of the mock object and Google \hyperlink{class_mock}{Mock}.
+\end{DoxyEnumerate}
+
+\subsection*{Writing New Parameterized Matchers Quickly}
+
+Sometimes you\textquotesingle{}ll want to define a matcher that has parameters. For that you can use the macro\+: 
+\begin{DoxyCode}
+1 MATCHER\_P(name, param\_name, description\_string) \{ statements; \}
+\end{DoxyCode}
+ where the description string can be either {\ttfamily \char`\"{}\char`\"{}} or a string expression that references {\ttfamily negation} and {\ttfamily param\+\_\+name}.
+
+For example\+: 
+\begin{DoxyCode}
+1 MATCHER\_P(HasAbsoluteValue, value, "") \{ return abs(arg) == value; \}
+\end{DoxyCode}
+ will allow you to write\+: 
+\begin{DoxyCode}
+1 EXPECT\_THAT(Blah("a"), HasAbsoluteValue(n));
+\end{DoxyCode}
+ which may lead to this message (assuming {\ttfamily n} is 10)\+: 
+\begin{DoxyCode}
+1 Value of: Blah("a")
+2 Expected: has absolute value 10
+3   Actual: -9
+\end{DoxyCode}
+
+
+Note that both the matcher description and its parameter are printed, making the message human-\/friendly.
+
+In the matcher definition body, you can write {\ttfamily foo\+\_\+type} to reference the type of a parameter named {\ttfamily foo}. For example, in the body of {\ttfamily \hyperlink{gmock-generated-matchers_8h_acb7ae915efa2fd8d3f6ea7313198afb6}{M\+A\+T\+C\+H\+E\+R\+\_\+\+P(\+Has\+Absolute\+Value, value)}} above, you can write {\ttfamily value\+\_\+type} to refer to the type of {\ttfamily value}.
+
+Google \hyperlink{class_mock}{Mock} also provides {\ttfamily M\+A\+T\+C\+H\+E\+R\+\_\+\+P2}, {\ttfamily M\+A\+T\+C\+H\+E\+R\+\_\+\+P3}, ..., up to {\ttfamily M\+A\+T\+C\+H\+E\+R\+\_\+\+P10} to support multi-\/parameter matchers\+: 
+\begin{DoxyCode}
+1 MATCHER\_Pk(name, param\_1, ..., param\_k, description\_string) \{ statements; \}
+\end{DoxyCode}
+
+
+Please note that the custom description string is for a particular {\bfseries instance} of the matcher, where the parameters have been bound to actual values. Therefore usually you\textquotesingle{}ll want the parameter values to be part of the description. Google \hyperlink{class_mock}{Mock} lets you do that by referencing the matcher parameters in the description string expression.
+
+For example, 
+\begin{DoxyCode}
+1 using ::testing::PrintToString;
+2 MATCHER\_P2(InClosedRange, low, hi,
+3            std::string(negation ? "isn't" : "is") + " in range [" +
+4            PrintToString(low) + ", " + PrintToString(hi) + "]") \{
+5   return low <= arg && arg <= hi;
+6 \}
+7 ...
+8 EXPECT\_THAT(3, InClosedRange(4, 6));
+\end{DoxyCode}
+ would generate a failure that contains the message\+: 
+\begin{DoxyCode}
+1 Expected: is in range [4, 6]
+\end{DoxyCode}
+
+
+If you specify {\ttfamily \char`\"{}\char`\"{}} as the description, the failure message will contain the sequence of words in the matcher name followed by the parameter values printed as a tuple. For example, 
+\begin{DoxyCode}
+1 MATCHER\_P2(InClosedRange, low, hi, "") \{ ... \}
+2 ...
+3 EXPECT\_THAT(3, InClosedRange(4, 6));
+\end{DoxyCode}
+ would generate a failure that contains the text\+: 
+\begin{DoxyCode}
+1 Expected: in closed range (4, 6)
+\end{DoxyCode}
+
+
+For the purpose of typing, you can view 
+\begin{DoxyCode}
+1 MATCHER\_Pk(Foo, p1, ..., pk, description\_string) \{ ... \}
+\end{DoxyCode}
+ as shorthand for 
+\begin{DoxyCode}
+1 template <typename p1\_type, ..., typename pk\_type>
+2 FooMatcherPk<p1\_type, ..., pk\_type>
+3 Foo(p1\_type p1, ..., pk\_type pk) \{ ... \}
+\end{DoxyCode}
+
+
+When you write {\ttfamily Foo(v1, ..., vk)}, the compiler infers the types of the parameters {\ttfamily v1}, ..., and {\ttfamily vk} for you. If you are not happy with the result of the type inference, you can specify the types by explicitly instantiating the template, as in {\ttfamily Foo$<$long, bool$>$(5, false)}. As said earlier, you don\textquotesingle{}t get to (or need to) specify {\ttfamily arg\+\_\+type} as that\textquotesingle{}s determined by the context in which the matcher is used.
+
+You can assign the result of expression {\ttfamily Foo(p1, ..., pk)} to a variable of type {\ttfamily Foo\+Matcher\+Pk$<$p1\+\_\+type, ..., pk\+\_\+type$>$}. This can be useful when composing matchers. Matchers that don\textquotesingle{}t have a parameter or have only one parameter have special types\+: you can assign {\ttfamily Foo()} to a {\ttfamily Foo\+Matcher}-\/typed variable, and assign {\ttfamily Foo(p)} to a {\ttfamily Foo\+MatcherP$<$p\+\_\+type$>$}-\/typed variable.
+
+While you can instantiate a matcher template with reference types, passing the parameters by pointer usually makes your code more readable. If, however, you still want to pass a parameter by reference, be aware that in the failure message generated by the matcher you will see the value of the referenced object but not its address.
+
+You can overload matchers with different numbers of parameters\+: 
+\begin{DoxyCode}
+1 MATCHER\_P(Blah, a, description\_string\_1) \{ ... \}
+2 MATCHER\_P2(Blah, a, b, description\_string\_2) \{ ... \}
+\end{DoxyCode}
+
+
+While it\textquotesingle{}s tempting to always use the {\ttfamily M\+A\+T\+C\+H\+E\+R$\ast$} macros when defining a new matcher, you should also consider implementing {\ttfamily Matcher\+Interface} or using {\ttfamily \hyperlink{namespacetesting_a667ca94f190ec2e17ee2fbfdb7d3da04}{Make\+Polymorphic\+Matcher()}} instead (see the recipes that follow), especially if you need to use the matcher a lot. While these approaches require more work, they give you more control on the types of the value being matched and the matcher parameters, which in general leads to better compiler error messages that pay off in the long run. They also allow overloading matchers based on parameter types (as opposed to just based on the number of parameters).
+
+\subsection*{Writing New Monomorphic Matchers}
+
+A matcher of argument type {\ttfamily T} implements {\ttfamily \hyperlink{classtesting_1_1_matcher_interface}{testing\+::\+Matcher\+Interface}$<$T$>$} and does two things\+: it tests whether a value of type {\ttfamily T} matches the matcher, and can describe what kind of values it matches. The latter ability is used for generating readable error messages when expectations are violated.
+
+The interface looks like this\+:
+
+
+\begin{DoxyCode}
+1 class MatchResultListener \{
+2  public:
+3   ...
+4   // Streams x to the underlying ostream; does nothing if the ostream
+5   // is NULL.
+6   template <typename T>
+7   MatchResultListener& operator<<(const T& x);
+8 
+9   // Returns the underlying ostream.
+10   ::std::ostream* stream();
+11 \};
+12 
+13 template <typename T>
+14 class MatcherInterface \{
+15  public:
+16   virtual ~MatcherInterface();
+17 
+18   // Returns true iff the matcher matches x; also explains the match
+19   // result to 'listener'.
+20   virtual bool MatchAndExplain(T x, MatchResultListener* listener) const = 0;
+21 
+22   // Describes this matcher to an ostream.
+23   virtual void DescribeTo(::std::ostream* os) const = 0;
+24 
+25   // Describes the negation of this matcher to an ostream.
+26   virtual void DescribeNegationTo(::std::ostream* os) const;
+27 \};
+\end{DoxyCode}
+
+
+If you need a custom matcher but {\ttfamily \hyperlink{namespacetesting_a5faf05cfaae6074439960048e478b1c8}{Truly()}} is not a good option (for example, you may not be happy with the way {\ttfamily Truly(predicate)} describes itself, or you may want your matcher to be polymorphic as {\ttfamily Eq(value)} is), you can define a matcher to do whatever you want in two steps\+: first implement the matcher interface, and then define a factory function to create a matcher instance. The second step is not strictly needed but it makes the syntax of using the matcher nicer.
+
+For example, you can define a matcher to test whether an {\ttfamily int} is divisible by 7 and then use it like this\+: 
+\begin{DoxyCode}
+1 using ::testing::MakeMatcher;
+2 using ::testing::Matcher;
+3 using ::testing::MatcherInterface;
+4 using ::testing::MatchResultListener;
+5 
+6 class DivisibleBy7Matcher : public MatcherInterface<int> \{
+7  public:
+8   virtual bool MatchAndExplain(int n, MatchResultListener* listener) const \{
+9     return (n % 7) == 0;
+10   \}
+11 
+12   virtual void DescribeTo(::std::ostream* os) const \{
+13     *os << "is divisible by 7";
+14   \}
+15 
+16   virtual void DescribeNegationTo(::std::ostream* os) const \{
+17     *os << "is not divisible by 7";
+18   \}
+19 \};
+20 
+21 inline Matcher<int> DivisibleBy7() \{
+22   return MakeMatcher(new DivisibleBy7Matcher);
+23 \}
+24 ...
+25 
+26   EXPECT\_CALL(foo, Bar(DivisibleBy7()));
+\end{DoxyCode}
+
+
+You may improve the matcher message by streaming additional information to the {\ttfamily listener} argument in {\ttfamily Match\+And\+Explain()}\+:
+
+
+\begin{DoxyCode}
+1 class DivisibleBy7Matcher : public MatcherInterface<int> \{
+2  public:
+3   virtual bool MatchAndExplain(int n,
+4                                MatchResultListener* listener) const \{
+5     const int remainder = n % 7;
+6     if (remainder != 0) \{
+7       *listener << "the remainder is " << remainder;
+8     \}
+9     return remainder == 0;
+10   \}
+11   ...
+12 \};
+\end{DoxyCode}
+
+
+Then, {\ttfamily \hyperlink{gmock-matchers_8h_ac31e206123aa702e1152bb2735b31409}{E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+A\+T(x, Divisible\+By7())};} may general a message like this\+: 
+\begin{DoxyCode}
+1 Value of: x
+2 Expected: is divisible by 7
+3   Actual: 23 (the remainder is 2)
+\end{DoxyCode}
+
+
+\subsection*{Writing New Polymorphic Matchers}
+
+You\textquotesingle{}ve learned how to write your own matchers in the previous recipe. Just one problem\+: a matcher created using {\ttfamily \hyperlink{namespacetesting_a37fd8029ac00e60952440a3d9cca8166}{Make\+Matcher()}} only works for one particular type of arguments. If you want a {\itshape polymorphic} matcher that works with arguments of several types (for instance, {\ttfamily Eq(x)} can be used to match a {\ttfamily value} as long as {\ttfamily value} == {\ttfamily x} compiles -- {\ttfamily value} and {\ttfamily x} don\textquotesingle{}t have to share the same type), you can learn the trick from {\ttfamily \char`\"{}gmock/gmock-\/matchers.\+h\char`\"{}} but it\textquotesingle{}s a bit involved.
+
+Fortunately, most of the time you can define a polymorphic matcher easily with the help of {\ttfamily \hyperlink{namespacetesting_a667ca94f190ec2e17ee2fbfdb7d3da04}{Make\+Polymorphic\+Matcher()}}. Here\textquotesingle{}s how you can define {\ttfamily \hyperlink{namespacetesting_a39d1f92b53b8b2a0b6db6a22ac146416}{Not\+Null()}} as an example\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::MakePolymorphicMatcher;
+2 using ::testing::MatchResultListener;
+3 using ::testing::NotNull;
+4 using ::testing::PolymorphicMatcher;
+5 
+6 class NotNullMatcher \{
+7  public:
+8   // To implement a polymorphic matcher, first define a COPYABLE class
+9   // that has three members MatchAndExplain(), DescribeTo(), and
+10   // DescribeNegationTo(), like the following.
+11 
+12   // In this example, we want to use NotNull() with any pointer, so
+13   // MatchAndExplain() accepts a pointer of any type as its first argument.
+14   // In general, you can define MatchAndExplain() as an ordinary method or
+15   // a method template, or even overload it.
+16   template <typename T>
+17   bool MatchAndExplain(T* p,
+18                        MatchResultListener* /* listener */) const \{
+19     return p != NULL;
+20   \}
+21 
+22   // Describes the property of a value matching this matcher.
+23   void DescribeTo(::std::ostream* os) const \{ *os << "is not NULL"; \}
+24 
+25   // Describes the property of a value NOT matching this matcher.
+26   void DescribeNegationTo(::std::ostream* os) const \{ *os << "is NULL"; \}
+27 \};
+28 
+29 // To construct a polymorphic matcher, pass an instance of the class
+30 // to MakePolymorphicMatcher().  Note the return type.
+31 inline PolymorphicMatcher<NotNullMatcher> NotNull() \{
+32   return MakePolymorphicMatcher(NotNullMatcher());
+33 \}
+34 ...
+35 
+36   EXPECT\_CALL(foo, Bar(NotNull()));  // The argument must be a non-NULL pointer.
+\end{DoxyCode}
+
+
+{\bfseries Note\+:} Your polymorphic matcher class does {\bfseries not} need to inherit from {\ttfamily Matcher\+Interface} or any other class, and its methods do {\bfseries not} need to be virtual.
+
+Like in a monomorphic matcher, you may explain the match result by streaming additional information to the {\ttfamily listener} argument in {\ttfamily Match\+And\+Explain()}.
+
+\subsection*{Writing New Cardinalities}
+
+A cardinality is used in {\ttfamily Times()} to tell Google \hyperlink{class_mock}{Mock} how many times you expect a call to occur. It doesn\textquotesingle{}t have to be exact. For example, you can say {\ttfamily At\+Least(5)} or {\ttfamily Between(2, 4)}.
+
+If the built-\/in set of cardinalities doesn\textquotesingle{}t suit you, you are free to define your own by implementing the following interface (in namespace {\ttfamily testing})\+:
+
+
+\begin{DoxyCode}
+1 class CardinalityInterface \{
+2  public:
+3   virtual ~CardinalityInterface();
+4 
+5   // Returns true iff call\_count calls will satisfy this cardinality.
+6   virtual bool IsSatisfiedByCallCount(int call\_count) const = 0;
+7 
+8   // Returns true iff call\_count calls will saturate this cardinality.
+9   virtual bool IsSaturatedByCallCount(int call\_count) const = 0;
+10 
+11   // Describes self to an ostream.
+12   virtual void DescribeTo(::std::ostream* os) const = 0;
+13 \};
+\end{DoxyCode}
+
+
+For example, to specify that a call must occur even number of times, you can write
+
+
+\begin{DoxyCode}
+1 using ::testing::Cardinality;
+2 using ::testing::CardinalityInterface;
+3 using ::testing::MakeCardinality;
+4 
+5 class EvenNumberCardinality : public CardinalityInterface \{
+6  public:
+7   virtual bool IsSatisfiedByCallCount(int call\_count) const \{
+8     return (call\_count % 2) == 0;
+9   \}
+10 
+11   virtual bool IsSaturatedByCallCount(int call\_count) const \{
+12     return false;
+13   \}
+14 
+15   virtual void DescribeTo(::std::ostream* os) const \{
+16     *os << "called even number of times";
+17   \}
+18 \};
+19 
+20 Cardinality EvenNumber() \{
+21   return MakeCardinality(new EvenNumberCardinality);
+22 \}
+23 ...
+24 
+25   EXPECT\_CALL(foo, Bar(3))
+26       .Times(EvenNumber());
+\end{DoxyCode}
+
+
+\subsection*{Writing New Actions Quickly}
+
+If the built-\/in actions don\textquotesingle{}t work for you, and you find it inconvenient to use {\ttfamily \hyperlink{namespacetesting_a12aebaf8363d49a383047529f798b694}{Invoke()}}, you can use a macro from the {\ttfamily A\+C\+T\+I\+O\+N$\ast$} family to quickly define a new action that can be used in your code as if it\textquotesingle{}s a built-\/in action.
+
+By writing 
+\begin{DoxyCode}
+1 ACTION(name) \{ statements; \}
+\end{DoxyCode}
+ in a namespace scope (i.\+e. not inside a class or function), you will define an action with the given name that executes the statements. The value returned by {\ttfamily statements} will be used as the return value of the action. Inside the statements, you can refer to the K-\/th (0-\/based) argument of the mock function as {\ttfamily argK}. For example\+: 
+\begin{DoxyCode}
+1 ACTION(IncrementArg1) \{ return ++(*arg1); \}
+\end{DoxyCode}
+ allows you to write 
+\begin{DoxyCode}
+1 ... WillOnce(IncrementArg1());
+\end{DoxyCode}
+
+
+Note that you don\textquotesingle{}t need to specify the types of the mock function arguments. Rest assured that your code is type-\/safe though\+: you\textquotesingle{}ll get a compiler error if {\ttfamily $\ast$arg1} doesn\textquotesingle{}t support the {\ttfamily ++} operator, or if the type of {\ttfamily ++($\ast$arg1)} isn\textquotesingle{}t compatible with the mock function\textquotesingle{}s return type.
+
+Another example\+: 
+\begin{DoxyCode}
+1 ACTION(Foo) \{
+2   (*arg2)(5);
+3   Blah();
+4   *arg1 = 0;
+5   return arg0;
+6 \}
+\end{DoxyCode}
+ defines an action {\ttfamily Foo()} that invokes argument \#2 (a function pointer) with 5, calls function {\ttfamily Blah()}, sets the value pointed to by argument \#1 to 0, and returns argument \#0.
+
+For more convenience and flexibility, you can also use the following pre-\/defined symbols in the body of {\ttfamily A\+C\+T\+I\+ON}\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf {\ttfamily arg\+K\+\_\+type} }&{\bf The type of the K-\/th (0-\/based) argument of the mock function  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf {\ttfamily arg\+K\+\_\+type} }&{\bf The type of the K-\/th (0-\/based) argument of the mock function  }\\\cline{1-2}
+\endhead
+{\ttfamily args} &All arguments of the mock function as a tuple \\\cline{1-2}
+{\ttfamily args\+\_\+type} &The type of all arguments of the mock function as a tuple \\\cline{1-2}
+{\ttfamily return\+\_\+type} &The return type of the mock function \\\cline{1-2}
+{\ttfamily function\+\_\+type} &The type of the mock function \\\cline{1-2}
+\end{longtabu}
+For example, when using an {\ttfamily A\+C\+T\+I\+ON} as a stub action for mock function\+: 
+\begin{DoxyCode}
+1 int DoSomething(bool flag, int* ptr);
+\end{DoxyCode}
+ we have\+: \tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf {\bfseries Pre-\/defined Symbol} }&{\bf {\bfseries Is Bound To}  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf {\bfseries Pre-\/defined Symbol} }&{\bf {\bfseries Is Bound To}  }\\\cline{1-2}
+\endhead
+{\ttfamily arg0} &the value of {\ttfamily flag} \\\cline{1-2}
+{\ttfamily arg0\+\_\+type} &the type {\ttfamily bool} \\\cline{1-2}
+{\ttfamily arg1} &the value of {\ttfamily ptr} \\\cline{1-2}
+{\ttfamily arg1\+\_\+type} &the type {\ttfamily int$\ast$} \\\cline{1-2}
+{\ttfamily args} &the tuple {\ttfamily (flag, ptr)} \\\cline{1-2}
+{\ttfamily args\+\_\+type} &the type {\ttfamily \+::testing\+::tuple$<$bool, int$\ast$$>$} \\\cline{1-2}
+{\ttfamily return\+\_\+type} &the type {\ttfamily int} \\\cline{1-2}
+{\ttfamily function\+\_\+type} &the type {\ttfamily int(bool, int$\ast$)} \\\cline{1-2}
+\end{longtabu}
+\subsection*{Writing New Parameterized Actions Quickly}
+
+Sometimes you\textquotesingle{}ll want to parameterize an action you define. For that we have another macro 
+\begin{DoxyCode}
+1 ACTION\_P(name, param) \{ statements; \}
+\end{DoxyCode}
+
+
+For example, 
+\begin{DoxyCode}
+1 ACTION\_P(Add, n) \{ return arg0 + n; \}
+\end{DoxyCode}
+ will allow you to write 
+\begin{DoxyCode}
+1 // Returns argument #0 + 5.
+2 ... WillOnce(Add(5));
+\end{DoxyCode}
+
+
+For convenience, we use the term {\itshape arguments} for the values used to invoke the mock function, and the term {\itshape parameters} for the values used to instantiate an action.
+
+Note that you don\textquotesingle{}t need to provide the type of the parameter either. Suppose the parameter is named {\ttfamily param}, you can also use the Google-\/\+Mock-\/defined symbol {\ttfamily param\+\_\+type} to refer to the type of the parameter as inferred by the compiler. For example, in the body of {\ttfamily \hyperlink{gmock-generated-actions_8h_a8ee9766f611f068271ca37a90c0e5960}{A\+C\+T\+I\+O\+N\+\_\+\+P(\+Add, n)}} above, you can write {\ttfamily n\+\_\+type} for the type of {\ttfamily n}.
+
+Google \hyperlink{class_mock}{Mock} also provides {\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+P2}, {\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+P3}, and etc to support multi-\/parameter actions. For example, 
+\begin{DoxyCode}
+1 ACTION\_P2(ReturnDistanceTo, x, y) \{
+2   double dx = arg0 - x;
+3   double dy = arg1 - y;
+4   return sqrt(dx*dx + dy*dy);
+5 \}
+\end{DoxyCode}
+ lets you write 
+\begin{DoxyCode}
+1 ... WillOnce(ReturnDistanceTo(5.0, 26.5));
+\end{DoxyCode}
+
+
+You can view {\ttfamily A\+C\+T\+I\+ON} as a degenerated parameterized action where the number of parameters is 0.
+
+You can also easily define actions overloaded on the number of parameters\+: 
+\begin{DoxyCode}
+1 ACTION\_P(Plus, a) \{ ... \}
+2 ACTION\_P2(Plus, a, b) \{ ... \}
+\end{DoxyCode}
+
+
+\subsection*{Restricting the Type of an Argument or Parameter in an A\+C\+T\+I\+ON}
+
+For maximum brevity and reusability, the {\ttfamily A\+C\+T\+I\+O\+N$\ast$} macros don\textquotesingle{}t ask you to provide the types of the mock function arguments and the action parameters. Instead, we let the compiler infer the types for us.
+
+Sometimes, however, we may want to be more explicit about the types. There are several tricks to do that. For example\+: 
+\begin{DoxyCode}
+1 ACTION(Foo) \{
+2   // Makes sure arg0 can be converted to int.
+3   int n = arg0;
+4   ... use n instead of arg0 here ...
+5 \}
+6 
+7 ACTION\_P(Bar, param) \{
+8   // Makes sure the type of arg1 is const char*.
+9   ::testing::StaticAssertTypeEq<const char*, arg1\_type>();
+10 
+11   // Makes sure param can be converted to bool.
+12   bool flag = param;
+13 \}
+\end{DoxyCode}
+ where {\ttfamily Static\+Assert\+Type\+Eq} is a compile-\/time assertion in Google Test that verifies two types are the same.
+
+\subsection*{Writing New Action Templates Quickly}
+
+Sometimes you want to give an action explicit template parameters that cannot be inferred from its value parameters. {\ttfamily \hyperlink{gmock-generated-actions_8h_ad04fa741f313f0c23924d61fcfb1536d}{A\+C\+T\+I\+O\+N\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E()}} supports that and can be viewed as an extension to {\ttfamily \hyperlink{gmock-generated-actions_8h_a7af7137aa4871df4235881af377205fe}{A\+C\+T\+I\+O\+N()}} and {\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+P$\ast$()}.
+
+The syntax\+: 
+\begin{DoxyCode}
+1 ACTION\_TEMPLATE(ActionName,
+2                 HAS\_m\_TEMPLATE\_PARAMS(kind1, name1, ..., kind\_m, name\_m),
+3                 AND\_n\_VALUE\_PARAMS(p1, ..., p\_n)) \{ statements; \}
+\end{DoxyCode}
+
+
+defines an action template that takes {\itshape m} explicit template parameters and {\itshape n} value parameters, where {\itshape m} is between 1 and 10, and {\itshape n} is between 0 and 10. {\ttfamily name\+\_\+i} is the name of the i-\/th template parameter, and {\ttfamily kind\+\_\+i} specifies whether it\textquotesingle{}s a {\ttfamily typename}, an integral constant, or a template. {\ttfamily p\+\_\+i} is the name of the i-\/th value parameter.
+
+Example\+: 
+\begin{DoxyCode}
+1 // DuplicateArg<k, T>(output) converts the k-th argument of the mock
+2 // function to type T and copies it to *output.
+3 ACTION\_TEMPLATE(DuplicateArg,
+4                 // Note the comma between int and k:
+5                 HAS\_2\_TEMPLATE\_PARAMS(int, k, typename, T),
+6                 AND\_1\_VALUE\_PARAMS(output)) \{
+7   *output = T(::testing::get<k>(args));
+8 \}
+\end{DoxyCode}
+
+
+To create an instance of an action template, write\+: 
+\begin{DoxyCode}
+1 ActionName<t1, ..., t\_m>(v1, ..., v\_n)
+\end{DoxyCode}
+ where the {\ttfamily t}s are the template arguments and the {\ttfamily v}s are the value arguments. The value argument types are inferred by the compiler. For example\+: 
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 ...
+3   int n;
+4   EXPECT\_CALL(mock, Foo(\_, \_))
+5       .WillOnce(DuplicateArg<1, unsigned char>(&n));
+\end{DoxyCode}
+
+
+If you want to explicitly specify the value argument types, you can provide additional template arguments\+: 
+\begin{DoxyCode}
+1 ActionName<t1, ..., t\_m, u1, ..., u\_k>(v1, ..., v\_n)
+\end{DoxyCode}
+ where {\ttfamily u\+\_\+i} is the desired type of {\ttfamily v\+\_\+i}.
+
+{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+T\+E\+M\+P\+L\+A\+TE} and {\ttfamily A\+C\+T\+I\+ON}/{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+P$\ast$} can be overloaded on the number of value parameters, but not on the number of template parameters. Without the restriction, the meaning of the following is unclear\+:
+
+
+\begin{DoxyCode}
+1 OverloadedAction<int, bool>(x);
+\end{DoxyCode}
+
+
+Are we using a single-\/template-\/parameter action where {\ttfamily bool} refers to the type of {\ttfamily x}, or a two-\/template-\/parameter action where the compiler is asked to infer the type of {\ttfamily x}?
+
+\subsection*{Using the A\+C\+T\+I\+ON Object\textquotesingle{}s Type}
+
+If you are writing a function that returns an {\ttfamily A\+C\+T\+I\+ON} object, you\textquotesingle{}ll need to know its type. The type depends on the macro used to define the action and the parameter types. The rule is relatively simple\+: \tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*3{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf {\bfseries Given Definition} }&{\bf {\bfseries Expression} }&{\bf {\bfseries Has Type}  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf {\bfseries Given Definition} }&{\bf {\bfseries Expression} }&{\bf {\bfseries Has Type}  }\\\cline{1-3}
+\endhead
+{\ttfamily \hyperlink{gmock-generated-actions_8h_a7af7137aa4871df4235881af377205fe}{A\+C\+T\+I\+O\+N(\+Foo)}} &{\ttfamily Foo()} &{\ttfamily Foo\+Action} \\\cline{1-3}
+{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+T\+E\+M\+P\+L\+A\+TE(Foo, H\+A\+S\+\_\+m\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E\+\_\+\+P\+A\+R\+A\+MS(...), A\+N\+D\+\_\+0\+\_\+\+V\+A\+L\+U\+E\+\_\+\+P\+A\+R\+A\+M\+S())} &{\ttfamily Foo$<$t1, ..., t\+\_\+m$>$()} &{\ttfamily Foo\+Action$<$t1, ..., t\+\_\+m$>$} \\\cline{1-3}
+{\ttfamily \hyperlink{gmock-generated-actions_8h_a8ee9766f611f068271ca37a90c0e5960}{A\+C\+T\+I\+O\+N\+\_\+\+P(\+Bar, param)}} &{\ttfamily Bar(int\+\_\+value)} &{\ttfamily Bar\+ActionP$<$int$>$} \\\cline{1-3}
+{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+T\+E\+M\+P\+L\+A\+TE(Bar, H\+A\+S\+\_\+m\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E\+\_\+\+P\+A\+R\+A\+MS(...), A\+N\+D\+\_\+1\+\_\+\+V\+A\+L\+U\+E\+\_\+\+P\+A\+R\+A\+M\+S(p1))} &{\ttfamily Bar$<$t1, ..., t\+\_\+m$>$(int\+\_\+value)} &{\ttfamily Foo\+ActionP$<$t1, ..., t\+\_\+m, int$>$} \\\cline{1-3}
+{\ttfamily \hyperlink{gmock-generated-actions_8h_a69fbf9ae696cc4cf779e22cb0960a067}{A\+C\+T\+I\+O\+N\+\_\+\+P2(\+Baz, p1, p2)}} &{\ttfamily Baz(bool\+\_\+value, int\+\_\+value)} &{\ttfamily Baz\+Action\+P2$<$bool, int$>$} \\\cline{1-3}
+{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+T\+E\+M\+P\+L\+A\+TE(Baz, H\+A\+S\+\_\+m\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E\+\_\+\+P\+A\+R\+A\+MS(...), A\+N\+D\+\_\+2\+\_\+\+V\+A\+L\+U\+E\+\_\+\+P\+A\+R\+A\+M\+S(p1, p2))} &{\ttfamily Baz$<$t1, ..., t\+\_\+m$>$(bool\+\_\+value, int\+\_\+value)} &{\ttfamily Foo\+Action\+P2$<$t1, ..., t\+\_\+m, bool, int$>$} \\\cline{1-3}
+... &... &... \\\cline{1-3}
+\end{longtabu}
+Note that we have to pick different suffixes ({\ttfamily Action}, {\ttfamily ActionP}, {\ttfamily Action\+P2}, and etc) for actions with different numbers of value parameters, or the action definitions cannot be overloaded on the number of them.
+
+\subsection*{Writing New Monomorphic Actions}
+
+While the {\ttfamily A\+C\+T\+I\+O\+N$\ast$} macros are very convenient, sometimes they are inappropriate. For example, despite the tricks shown in the previous recipes, they don\textquotesingle{}t let you directly specify the types of the mock function arguments and the action parameters, which in general leads to unoptimized compiler error messages that can baffle unfamiliar users. They also don\textquotesingle{}t allow overloading actions based on parameter types without jumping through some hoops.
+
+An alternative to the {\ttfamily A\+C\+T\+I\+O\+N$\ast$} macros is to implement {\ttfamily \hyperlink{classtesting_1_1_action_interface}{testing\+::\+Action\+Interface}$<$F$>$}, where {\ttfamily F} is the type of the mock function in which the action will be used. For example\+:
+
+
+\begin{DoxyCode}
+1 template <typename F>class ActionInterface \{
+2  public:
+3   virtual ~ActionInterface();
+4 
+5   // Performs the action.  Result is the return type of function type
+6   // F, and ArgumentTuple is the tuple of arguments of F.
+7   //
+8   // For example, if F is int(bool, const string&), then Result would
+9   // be int, and ArgumentTuple would be ::testing::tuple<bool, const string&>.
+10   virtual Result Perform(const ArgumentTuple& args) = 0;
+11 \};
+12 
+13 using ::testing::\_;
+14 using ::testing::Action;
+15 using ::testing::ActionInterface;
+16 using ::testing::MakeAction;
+17 
+18 typedef int IncrementMethod(int*);
+19 
+20 class IncrementArgumentAction : public ActionInterface<IncrementMethod> \{
+21  public:
+22   virtual int Perform(const ::testing::tuple<int*>& args) \{
+23     int* p = ::testing::get<0>(args);  // Grabs the first argument.
+24     return *p++;
+25   \}
+26 \};
+27 
+28 Action<IncrementMethod> IncrementArgument() \{
+29   return MakeAction(new IncrementArgumentAction);
+30 \}
+31 ...
+32 
+33   EXPECT\_CALL(foo, Baz(\_))
+34       .WillOnce(IncrementArgument());
+35 
+36   int n = 5;
+37   foo.Baz(&n);  // Should return 5 and change n to 6.
+\end{DoxyCode}
+
+
+\subsection*{Writing New Polymorphic Actions}
+
+The previous recipe showed you how to define your own action. This is all good, except that you need to know the type of the function in which the action will be used. Sometimes that can be a problem. For example, if you want to use the action in functions with {\itshape different} types (e.\+g. like {\ttfamily \hyperlink{namespacetesting_af6d1c13e9376c77671e37545cd84359c}{Return()}} and {\ttfamily \hyperlink{namespacetesting_a5740a5033b88c37666fcd09a269d123f}{Set\+Arg\+Pointee()}}).
+
+If an action can be used in several types of mock functions, we say it\textquotesingle{}s {\itshape polymorphic}. The {\ttfamily \hyperlink{namespacetesting_a36bd06c5ea972c6df0bd9f40a7a94c65}{Make\+Polymorphic\+Action()}} function template makes it easy to define such an action\+:
+
+
+\begin{DoxyCode}
+1 namespace testing \{
+2 
+3 template <typename Impl>
+4 PolymorphicAction<Impl> MakePolymorphicAction(const Impl& impl);
+5 
+6 \}  // namespace testing
+\end{DoxyCode}
+
+
+As an example, let\textquotesingle{}s define an action that returns the second argument in the mock function\textquotesingle{}s argument list. The first step is to define an implementation class\+:
+
+
+\begin{DoxyCode}
+1 class ReturnSecondArgumentAction \{
+2  public:
+3   template <typename Result, typename ArgumentTuple>
+4   Result Perform(const ArgumentTuple& args) const \{
+5     // To get the i-th (0-based) argument, use ::testing::get<i>(args).
+6     return ::testing::get<1>(args);
+7   \}
+8 \};
+\end{DoxyCode}
+
+
+This implementation class does {\itshape not} need to inherit from any particular class. What matters is that it must have a {\ttfamily Perform()} method template. This method template takes the mock function\textquotesingle{}s arguments as a tuple in a {\bfseries single} argument, and returns the result of the action. It can be either {\ttfamily const} or not, but must be invokable with exactly one template argument, which is the result type. In other words, you must be able to call {\ttfamily Perform$<$R$>$(args)} where {\ttfamily R} is the mock function\textquotesingle{}s return type and {\ttfamily args} is its arguments in a tuple.
+
+Next, we use {\ttfamily \hyperlink{namespacetesting_a36bd06c5ea972c6df0bd9f40a7a94c65}{Make\+Polymorphic\+Action()}} to turn an instance of the implementation class into the polymorphic action we need. It will be convenient to have a wrapper for this\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::MakePolymorphicAction;
+2 using ::testing::PolymorphicAction;
+3 
+4 PolymorphicAction<ReturnSecondArgumentAction> ReturnSecondArgument() \{
+5   return MakePolymorphicAction(ReturnSecondArgumentAction());
+6 \}
+\end{DoxyCode}
+
+
+Now, you can use this polymorphic action the same way you use the built-\/in ones\+:
+
+
+\begin{DoxyCode}
+1 using ::testing::\_;
+2 
+3 class MockFoo : public Foo \{
+4  public:
+5   MOCK\_METHOD2(DoThis, int(bool flag, int n));
+6   MOCK\_METHOD3(DoThat, string(int x, const char* str1, const char* str2));
+7 \};
+8 ...
+9 
+10   MockFoo foo;
+11   EXPECT\_CALL(foo, DoThis(\_, \_))
+12       .WillOnce(ReturnSecondArgument());
+13   EXPECT\_CALL(foo, DoThat(\_, \_, \_))
+14       .WillOnce(ReturnSecondArgument());
+15   ...
+16   foo.DoThis(true, 5);         // Will return 5.
+17   foo.DoThat(1, "Hi", "Bye");  // Will return "Hi".
+\end{DoxyCode}
+
+
+\subsection*{Teaching Google \hyperlink{class_mock}{Mock} How to Print Your Values}
+
+When an uninteresting or unexpected call occurs, Google \hyperlink{class_mock}{Mock} prints the argument values and the stack trace to help you debug. Assertion macros like {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT} and {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+EQ} also print the values in question when the assertion fails. Google \hyperlink{class_mock}{Mock} and Google Test do this using Google Test\textquotesingle{}s user-\/extensible value printer.
+
+This printer knows how to print built-\/in C++ types, native arrays, S\+TL containers, and any type that supports the {\ttfamily $<$$<$} operator. For other types, it prints the raw bytes in the value and hopes that you the user can figure it out. \href{../../googletest/docs/AdvancedGuide.md#teaching-google-test-how-to-print-your-values}{\tt Google Test\textquotesingle{}s advanced guide} explains how to extend the printer to do a better job at printing your particular type than to dump the bytes. 

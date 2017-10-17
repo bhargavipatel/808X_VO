@@ -1,0 +1,99 @@
+\hypertarget{gmock-port_8h}{}\section{/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/internal/gmock-\/port.h File Reference}
+\label{gmock-port_8h}\index{/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/internal/gmock-\/port.\+h@{/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/internal/gmock-\/port.\+h}}
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}gtest/internal/gtest-\/linked\+\_\+ptr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}gtest/internal/gtest-\/port.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}gmock/internal/custom/gmock-\/port.\+h\char`\"{}}\\*
+Include dependency graph for gmock-\/port.h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gmock-port_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gmock-port_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)~F\+L\+A\+G\+S\+\_\+gmock\+\_\+\#\#name
+\item 
+\#define \hyperlink{gmock-port_8h_a7a0a953221ea8ef5aaa6c644a48af599}{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}(name)~extern \hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} bool \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)
+\item 
+\#define \hyperlink{gmock-port_8h_adeb7f0a8d842d1d541615763835af3f9}{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}(name)~extern \hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::\hyperlink{namespacetesting_1_1internal_a8ee38faaf875f133358abaf9bc056cec}{testing\+::internal\+::\+Int32} \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)
+\item 
+\#define \hyperlink{gmock-port_8h_a35af08c45131cf68d78446cb8cfe40fe}{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}(name)~extern \hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::std\+::string \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)
+\item 
+\#define \hyperlink{gmock-port_8h_a470be328fabbeef3987127adc18a1433}{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}(name,  default\+\_\+val,  doc)~\hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} bool \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)
+\item 
+\#define \hyperlink{gmock-port_8h_a19d91081ff0aaab2f60ef1dc2d6e6b34}{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}(name,  default\+\_\+val,  doc)~\hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::\hyperlink{namespacetesting_1_1internal_a8ee38faaf875f133358abaf9bc056cec}{testing\+::internal\+::\+Int32} \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)
+\item 
+\#define \hyperlink{gmock-port_8h_ad6badbf90e5a813e2bd5668fc6b6a8f7}{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}(name,  default\+\_\+val,  doc)~\hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::std\+::string \hyperlink{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}}
+\index{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}{GMOCK_DECLARE_bool_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~extern {\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} bool {\bf G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)}\hypertarget{gmock-port_8h_a7a0a953221ea8ef5aaa6c644a48af599}{}\label{gmock-port_8h_a7a0a953221ea8ef5aaa6c644a48af599}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}}
+\index{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}{GMOCK_DECLARE_int32_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~extern {\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::{\bf testing\+::internal\+::\+Int32} {\bf G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)}\hypertarget{gmock-port_8h_adeb7f0a8d842d1d541615763835af3f9}{}\label{gmock-port_8h_adeb7f0a8d842d1d541615763835af3f9}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}}
+\index{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}{GMOCK_DECLARE_string_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~extern {\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::std\+::string {\bf G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name)}\hypertarget{gmock-port_8h_a35af08c45131cf68d78446cb8cfe40fe}{}\label{gmock-port_8h_a35af08c45131cf68d78446cb8cfe40fe}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}}
+\index{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}{GMOCK_DEFINE_bool_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{default\+\_\+val, }
+\item[{}]{doc}
+\end{DoxyParamCaption}
+)~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} bool {\bf G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)}\hypertarget{gmock-port_8h_a470be328fabbeef3987127adc18a1433}{}\label{gmock-port_8h_a470be328fabbeef3987127adc18a1433}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}}
+\index{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}{GMOCK_DEFINE_int32_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{default\+\_\+val, }
+\item[{}]{doc}
+\end{DoxyParamCaption}
+)~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::{\bf testing\+::internal\+::\+Int32} {\bf G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)}\hypertarget{gmock-port_8h_a19d91081ff0aaab2f60ef1dc2d6e6b34}{}\label{gmock-port_8h_a19d91081ff0aaab2f60ef1dc2d6e6b34}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}}
+\index{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+@{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}{GMOCK_DEFINE_string_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{default\+\_\+val, }
+\item[{}]{doc}
+\end{DoxyParamCaption}
+)~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::std\+::string {\bf G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)}\hypertarget{gmock-port_8h_ad6badbf90e5a813e2bd5668fc6b6a8f7}{}\label{gmock-port_8h_ad6badbf90e5a813e2bd5668fc6b6a8f7}
+\index{gmock-\/port.\+h@{gmock-\/port.\+h}!G\+M\+O\+C\+K\+\_\+\+F\+L\+AG@{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}}
+\index{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG@{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}!gmock-\/port.\+h@{gmock-\/port.\+h}}
+\subsubsection[{\texorpdfstring{G\+M\+O\+C\+K\+\_\+\+F\+L\+AG}{GMOCK_FLAG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+M\+O\+C\+K\+\_\+\+F\+L\+AG(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~F\+L\+A\+G\+S\+\_\+gmock\+\_\+\#\#name}\hypertarget{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}{}\label{gmock-port_8h_ad7119adfef06be5e7b1551633f5a1436}

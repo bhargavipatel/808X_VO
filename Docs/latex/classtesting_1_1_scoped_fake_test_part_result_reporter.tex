@@ -1,0 +1,104 @@
+\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter}{}\section{testing\+:\+:Scoped\+Fake\+Test\+Part\+Result\+Reporter Class Reference}
+\label{classtesting_1_1_scoped_fake_test_part_result_reporter}\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+
+
+{\ttfamily \#include $<$gtest-\/spi.\+h$>$}
+
+
+
+Inheritance diagram for testing\+:\+:Scoped\+Fake\+Test\+Part\+Result\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classtesting_1_1_scoped_fake_test_part_result_reporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+:\+:Scoped\+Fake\+Test\+Part\+Result\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classtesting_1_1_scoped_fake_test_part_result_reporter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5}{Intercept\+Mode} \{ \hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5aed6c5f87d33207768db503526e6a1e8a}{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+T\+H\+R\+E\+AD}, 
+\hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5a187f4164aad7fbb9414b263c68a693cd}{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+A\+L\+L\+\_\+\+T\+H\+R\+E\+A\+DS}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_aa0100ecf4799fb51d45167be6a5de1d5}{Scoped\+Fake\+Test\+Part\+Result\+Reporter} (\hyperlink{classtesting_1_1_test_part_result_array}{Test\+Part\+Result\+Array} $\ast$result)
+\item 
+\hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a57cbc09ed48627c8a73e622618dc4b4f}{Scoped\+Fake\+Test\+Part\+Result\+Reporter} (\hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5}{Intercept\+Mode} intercept\+\_\+mode, \hyperlink{classtesting_1_1_test_part_result_array}{Test\+Part\+Result\+Array} $\ast$result)
+\item 
+virtual \hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a4817d59ca70228ebd5d5c3c4e8dd729d}{$\sim$\+Scoped\+Fake\+Test\+Part\+Result\+Reporter} ()
+\item 
+virtual void \hyperlink{classtesting_1_1_scoped_fake_test_part_result_reporter_a82531434f51632d98ed7cdcdb10b8b92}{Report\+Test\+Part\+Result} (const \hyperlink{classtesting_1_1_test_part_result}{Test\+Part\+Result} \&result)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!Intercept\+Mode@{Intercept\+Mode}}
+\index{Intercept\+Mode@{Intercept\+Mode}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\subsubsection[{\texorpdfstring{Intercept\+Mode}{InterceptMode}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::\+Intercept\+Mode}}\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+T\+H\+R\+E\+AD@{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+T\+H\+R\+E\+AD}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+T\+H\+R\+E\+AD@{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+T\+H\+R\+E\+AD}}\item[{\em 
+I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+T\+H\+R\+E\+AD\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5aed6c5f87d33207768db503526e6a1e8a}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5aed6c5f87d33207768db503526e6a1e8a}
+}]\index{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+A\+L\+L\+\_\+\+T\+H\+R\+E\+A\+DS@{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+A\+L\+L\+\_\+\+T\+H\+R\+E\+A\+DS}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+A\+L\+L\+\_\+\+T\+H\+R\+E\+A\+DS@{I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+A\+L\+L\+\_\+\+T\+H\+R\+E\+A\+DS}}\item[{\em 
+I\+N\+T\+E\+R\+C\+E\+P\+T\+\_\+\+A\+L\+L\+\_\+\+T\+H\+R\+E\+A\+DS\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5a187f4164aad7fbb9414b263c68a693cd}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5a187f4164aad7fbb9414b263c68a693cd}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!Scoped\+Fake\+Test\+Part\+Result\+Reporter@{Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\index{Scoped\+Fake\+Test\+Part\+Result\+Reporter@{Scoped\+Fake\+Test\+Part\+Result\+Reporter}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\subsubsection[{\texorpdfstring{Scoped\+Fake\+Test\+Part\+Result\+Reporter(\+Test\+Part\+Result\+Array $\ast$result)}{ScopedFakeTestPartResultReporter(TestPartResultArray *result)}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\+Part\+Result\+Array} $\ast$}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_aa0100ecf4799fb51d45167be6a5de1d5}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_aa0100ecf4799fb51d45167be6a5de1d5}
+\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!Scoped\+Fake\+Test\+Part\+Result\+Reporter@{Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\index{Scoped\+Fake\+Test\+Part\+Result\+Reporter@{Scoped\+Fake\+Test\+Part\+Result\+Reporter}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\subsubsection[{\texorpdfstring{Scoped\+Fake\+Test\+Part\+Result\+Reporter(\+Intercept\+Mode intercept\+\_\+mode, Test\+Part\+Result\+Array $\ast$result)}{ScopedFakeTestPartResultReporter(InterceptMode intercept_mode, TestPartResultArray *result)}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter (
+\begin{DoxyParamCaption}
+\item[{{\bf Intercept\+Mode}}]{intercept\+\_\+mode, }
+\item[{{\bf Test\+Part\+Result\+Array} $\ast$}]{result}
+\end{DoxyParamCaption}
+)}\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_a57cbc09ed48627c8a73e622618dc4b4f}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_a57cbc09ed48627c8a73e622618dc4b4f}
+\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!````~Scoped\+Fake\+Test\+Part\+Result\+Reporter@{$\sim$\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\index{````~Scoped\+Fake\+Test\+Part\+Result\+Reporter@{$\sim$\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\subsubsection[{\texorpdfstring{$\sim$\+Scoped\+Fake\+Test\+Part\+Result\+Reporter()}{~ScopedFakeTestPartResultReporter()}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::$\sim$\+Scoped\+Fake\+Test\+Part\+Result\+Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_a4817d59ca70228ebd5d5c3c4e8dd729d}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_a4817d59ca70228ebd5d5c3c4e8dd729d}
+
+
+\subsection{Member Function Documentation}
+\index{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}!Report\+Test\+Part\+Result@{Report\+Test\+Part\+Result}}
+\index{Report\+Test\+Part\+Result@{Report\+Test\+Part\+Result}!testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter@{testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter}}
+\subsubsection[{\texorpdfstring{Report\+Test\+Part\+Result(const Test\+Part\+Result \&result)}{ReportTestPartResult(const TestPartResult &result)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::\+Report\+Test\+Part\+Result (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\+Part\+Result} \&}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classtesting_1_1_scoped_fake_test_part_result_reporter_a82531434f51632d98ed7cdcdb10b8b92}{}\label{classtesting_1_1_scoped_fake_test_part_result_reporter_a82531434f51632d98ed7cdcdb10b8b92}
+
+
+Implements \hyperlink{classtesting_1_1_test_part_result_reporter_interface_aa2f920e7a5a0a6d0faf19e3727928c22}{testing\+::\+Test\+Part\+Result\+Reporter\+Interface}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googletest/include/gtest/\hyperlink{gtest-spi_8h}{gtest-\/spi.\+h}\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googletest/src/\hyperlink{gtest_8cc}{gtest.\+cc}\end{DoxyCompactItemize}

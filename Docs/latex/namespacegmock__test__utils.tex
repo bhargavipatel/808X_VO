@@ -1,0 +1,108 @@
+\hypertarget{namespacegmock__test__utils}{}\section{gmock\+\_\+test\+\_\+utils Namespace Reference}
+\label{namespacegmock__test__utils}\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacegmock__test__utils_ab7217591e655e80392c9db6b99d04765}{Get\+Source\+Dir} ()
+\item 
+def \hyperlink{namespacegmock__test__utils_aadd2927024e24f0c53f7ba283402cdb1}{Get\+Test\+Executable\+Path} (executable\+\_\+name)
+\item 
+def \hyperlink{namespacegmock__test__utils_a9146f81ff42389086b3eaee25dbf0263}{Get\+Exit\+Status} (exit\+\_\+code)
+\item 
+def \hyperlink{namespacegmock__test__utils_ad79dc6aea3727ee23b5f5c454ef0d78a}{Main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacegmock__test__utils_a4ef94affd9d889f78d67be80017eeddd}{S\+C\+R\+I\+P\+T\+\_\+\+D\+IR} = os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+)or\textquotesingle{}.\textquotesingle{}
+\item 
+\hyperlink{namespacegmock__test__utils_af6d94170502149e7f99cfa73ddc13c00}{gtest\+\_\+tests\+\_\+util\+\_\+dir} = os.\+path.\+join(\hyperlink{namespacegmock__test__utils_a4ef94affd9d889f78d67be80017eeddd}{S\+C\+R\+I\+P\+T\+\_\+\+D\+IR}, \textquotesingle{}../gtest/test\textquotesingle{})
+\item 
+\hyperlink{namespacegmock__test__utils_ae7ee9324ba489b3cbd99c5e26006eba9}{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR} = \hyperlink{namespacegmock__test__utils_af6d94170502149e7f99cfa73ddc13c00}{gtest\+\_\+tests\+\_\+util\+\_\+dir}
+\item 
+\hyperlink{namespacegmock__test__utils_a31a0e33565ec805d314cb0a4eb8317e6}{Subprocess} = \hyperlink{classgtest__test__utils_1_1_subprocess}{gtest\+\_\+test\+\_\+utils.\+Subprocess}
+\item 
+\hyperlink{namespacegmock__test__utils_a959c5af591e4d49b6d35745205b64509}{Test\+Case} = gtest\+\_\+test\+\_\+utils.\+Test\+Case
+\item 
+\hyperlink{namespacegmock__test__utils_a6f0938b5e8839ebc847b52a38f4d35e3}{environ} = gtest\+\_\+test\+\_\+utils.\+environ
+\item 
+\hyperlink{namespacegmock__test__utils_ab0c69f8ce649fdd5a17f99deedf3eb29}{Set\+Env\+Var} = gtest\+\_\+test\+\_\+utils.\+Set\+Env\+Var
+\item 
+\hyperlink{namespacegmock__test__utils_a9392c288e6da3024d65ec0bddc0d86c3}{P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR} = gtest\+\_\+test\+\_\+utils.\+P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Get\+Exit\+Status@{Get\+Exit\+Status}}
+\index{Get\+Exit\+Status@{Get\+Exit\+Status}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Get\+Exit\+Status(exit\+\_\+code)}{GetExitStatus(exit_code)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+test\+\_\+utils.\+Get\+Exit\+Status (
+\begin{DoxyParamCaption}
+\item[{}]{exit\+\_\+code}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__test__utils_a9146f81ff42389086b3eaee25dbf0263}{}\label{namespacegmock__test__utils_a9146f81ff42389086b3eaee25dbf0263}
+\begin{DoxyVerb}Returns the argument to exit(), or -1 if exit() wasn't called.
+
+Args:
+  exit_code: the result value of os.system(command).
+\end{DoxyVerb}
+ \index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Get\+Source\+Dir@{Get\+Source\+Dir}}
+\index{Get\+Source\+Dir@{Get\+Source\+Dir}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Get\+Source\+Dir()}{GetSourceDir()}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+test\+\_\+utils.\+Get\+Source\+Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__test__utils_ab7217591e655e80392c9db6b99d04765}{}\label{namespacegmock__test__utils_ab7217591e655e80392c9db6b99d04765}
+\begin{DoxyVerb}Returns the absolute path of the directory where the .py files are.\end{DoxyVerb}
+ \index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Get\+Test\+Executable\+Path@{Get\+Test\+Executable\+Path}}
+\index{Get\+Test\+Executable\+Path@{Get\+Test\+Executable\+Path}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Get\+Test\+Executable\+Path(executable\+\_\+name)}{GetTestExecutablePath(executable_name)}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+test\+\_\+utils.\+Get\+Test\+Executable\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{executable\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__test__utils_aadd2927024e24f0c53f7ba283402cdb1}{}\label{namespacegmock__test__utils_aadd2927024e24f0c53f7ba283402cdb1}
+\begin{DoxyVerb}Returns the absolute path of the test binary given its name.
+
+The function will print a message and abort the program if the resulting file
+doesn't exist.
+
+Args:
+  executable_name: name of the test binary that the test script runs.
+
+Returns:
+  The absolute path of the test binary.
+\end{DoxyVerb}
+ \index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Main@{Main}}
+\index{Main@{Main}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Main()}{Main()}}]{\setlength{\rightskip}{0pt plus 5cm}def gmock\+\_\+test\+\_\+utils.\+Main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegmock__test__utils_ad79dc6aea3727ee23b5f5c454ef0d78a}{}\label{namespacegmock__test__utils_ad79dc6aea3727ee23b5f5c454ef0d78a}
+\begin{DoxyVerb}Runs the unit test.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!environ@{environ}}
+\index{environ@{environ}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{environ}{environ}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+environ = gtest\+\_\+test\+\_\+utils.\+environ}\hypertarget{namespacegmock__test__utils_a6f0938b5e8839ebc847b52a38f4d35e3}{}\label{namespacegmock__test__utils_a6f0938b5e8839ebc847b52a38f4d35e3}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!gtest\+\_\+tests\+\_\+util\+\_\+dir@{gtest\+\_\+tests\+\_\+util\+\_\+dir}}
+\index{gtest\+\_\+tests\+\_\+util\+\_\+dir@{gtest\+\_\+tests\+\_\+util\+\_\+dir}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{gtest\+\_\+tests\+\_\+util\+\_\+dir}{gtest_tests_util_dir}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+gtest\+\_\+tests\+\_\+util\+\_\+dir = os.\+path.\+join({\bf S\+C\+R\+I\+P\+T\+\_\+\+D\+IR}, \textquotesingle{}../gtest/test\textquotesingle{})}\hypertarget{namespacegmock__test__utils_af6d94170502149e7f99cfa73ddc13c00}{}\label{namespacegmock__test__utils_af6d94170502149e7f99cfa73ddc13c00}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR@{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR}}
+\index{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR@{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR}{GTEST_TESTS_UTIL_DIR}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+S\+\_\+\+U\+T\+I\+L\+\_\+\+D\+IR = {\bf gtest\+\_\+tests\+\_\+util\+\_\+dir}}\hypertarget{namespacegmock__test__utils_ae7ee9324ba489b3cbd99c5e26006eba9}{}\label{namespacegmock__test__utils_ae7ee9324ba489b3cbd99c5e26006eba9}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR@{P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR}}
+\index{P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR@{P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR}{PREMATURE_EXIT_FILE_ENV_VAR}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR = gtest\+\_\+test\+\_\+utils.\+P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+F\+I\+L\+E\+\_\+\+E\+N\+V\+\_\+\+V\+AR}\hypertarget{namespacegmock__test__utils_a9392c288e6da3024d65ec0bddc0d86c3}{}\label{namespacegmock__test__utils_a9392c288e6da3024d65ec0bddc0d86c3}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!S\+C\+R\+I\+P\+T\+\_\+\+D\+IR@{S\+C\+R\+I\+P\+T\+\_\+\+D\+IR}}
+\index{S\+C\+R\+I\+P\+T\+\_\+\+D\+IR@{S\+C\+R\+I\+P\+T\+\_\+\+D\+IR}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{S\+C\+R\+I\+P\+T\+\_\+\+D\+IR}{SCRIPT_DIR}}]{\setlength{\rightskip}{0pt plus 5cm}string gmock\+\_\+test\+\_\+utils.\+S\+C\+R\+I\+P\+T\+\_\+\+D\+IR = os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+)or\textquotesingle{}.\textquotesingle{}}\hypertarget{namespacegmock__test__utils_a4ef94affd9d889f78d67be80017eeddd}{}\label{namespacegmock__test__utils_a4ef94affd9d889f78d67be80017eeddd}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Set\+Env\+Var@{Set\+Env\+Var}}
+\index{Set\+Env\+Var@{Set\+Env\+Var}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Set\+Env\+Var}{SetEnvVar}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+Set\+Env\+Var = gtest\+\_\+test\+\_\+utils.\+Set\+Env\+Var}\hypertarget{namespacegmock__test__utils_ab0c69f8ce649fdd5a17f99deedf3eb29}{}\label{namespacegmock__test__utils_ab0c69f8ce649fdd5a17f99deedf3eb29}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Subprocess@{Subprocess}}
+\index{Subprocess@{Subprocess}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Subprocess}{Subprocess}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+Subprocess = {\bf gtest\+\_\+test\+\_\+utils.\+Subprocess}}\hypertarget{namespacegmock__test__utils_a31a0e33565ec805d314cb0a4eb8317e6}{}\label{namespacegmock__test__utils_a31a0e33565ec805d314cb0a4eb8317e6}
+\index{gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}!Test\+Case@{Test\+Case}}
+\index{Test\+Case@{Test\+Case}!gmock\+\_\+test\+\_\+utils@{gmock\+\_\+test\+\_\+utils}}
+\subsubsection[{\texorpdfstring{Test\+Case}{TestCase}}]{\setlength{\rightskip}{0pt plus 5cm}gmock\+\_\+test\+\_\+utils.\+Test\+Case = gtest\+\_\+test\+\_\+utils.\+Test\+Case}\hypertarget{namespacegmock__test__utils_a959c5af591e4d49b6d35745205b64509}{}\label{namespacegmock__test__utils_a959c5af591e4d49b6d35745205b64509}

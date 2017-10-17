@@ -1,0 +1,124 @@
+\hypertarget{classcpplint_1_1___function_state}{}\section{cpplint.\+\_\+\+Function\+State Class Reference}
+\label{classcpplint_1_1___function_state}\index{cpplint.\+\_\+\+Function\+State@{cpplint.\+\_\+\+Function\+State}}
+
+
+Inheritance diagram for cpplint.\+\_\+\+Function\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classcpplint_1_1___function_state__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for cpplint.\+\_\+\+Function\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classcpplint_1_1___function_state__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classcpplint_1_1___function_state_a3f6a865710852cc74c6a7085180458ae}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classcpplint_1_1___function_state_a41215c4d73baccbb340f6d0df1c1f4b3}{Begin} (self, function\+\_\+name)
+\item 
+def \hyperlink{classcpplint_1_1___function_state_ac25c9711911ae181b091b52619cf2701}{Count} (self)
+\item 
+def \hyperlink{classcpplint_1_1___function_state_a5e4ad7d7b104038b45204ab4abf527b2}{Check} (self, \hyperlink{_07copy_08_2_read_camera_model_8m_ac546fdc9911f4a876dbfaffbc7426f8b}{error}, filename, linenum)
+\item 
+def \hyperlink{classcpplint_1_1___function_state_a1ab6b0a575c25c135f9004b7fb12dc4a}{End} (self)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpplint_1_1___function_state_a8362d472591f60462184bf68b49c0efb}{in\+\_\+a\+\_\+function}
+\item 
+\hyperlink{classcpplint_1_1___function_state_a886f5d476adc81f499a711750a399aa2}{lines\+\_\+in\+\_\+function}
+\item 
+\hyperlink{classcpplint_1_1___function_state_a320674f54bd75087febc8f0d83620569}{current\+\_\+function}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Tracks current function name and the number of lines in its body.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self)}{__init__(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Function\+State.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1___function_state_a3f6a865710852cc74c6a7085180458ae}{}\label{classcpplint_1_1___function_state_a3f6a865710852cc74c6a7085180458ae}
+
+
+\subsection{Member Function Documentation}
+\index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!Begin@{Begin}}
+\index{Begin@{Begin}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{Begin(self, function\+\_\+name)}{Begin(self, function_name)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Function\+State.\+Begin (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{function\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1___function_state_a41215c4d73baccbb340f6d0df1c1f4b3}{}\label{classcpplint_1_1___function_state_a41215c4d73baccbb340f6d0df1c1f4b3}
+\begin{DoxyVerb}Start analyzing function body.
+
+Args:
+  function_name: The name of the function being tracked.
+\end{DoxyVerb}
+ \index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!Check@{Check}}
+\index{Check@{Check}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{Check(self, error, filename, linenum)}{Check(self, error, filename, linenum)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Function\+State.\+Check (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{error, }
+\item[{}]{filename, }
+\item[{}]{linenum}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1___function_state_a5e4ad7d7b104038b45204ab4abf527b2}{}\label{classcpplint_1_1___function_state_a5e4ad7d7b104038b45204ab4abf527b2}
+\begin{DoxyVerb}Report if too many lines in function body.
+
+Args:
+  error: The function to call with any errors found.
+  filename: The name of the current file.
+  linenum: The number of the line to check.
+\end{DoxyVerb}
+ \index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!Count@{Count}}
+\index{Count@{Count}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{Count(self)}{Count(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Function\+State.\+Count (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1___function_state_ac25c9711911ae181b091b52619cf2701}{}\label{classcpplint_1_1___function_state_ac25c9711911ae181b091b52619cf2701}
+\begin{DoxyVerb}Count line in current function body.\end{DoxyVerb}
+ \index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!End@{End}}
+\index{End@{End}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{End(self)}{End(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Function\+State.\+End (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpplint_1_1___function_state_a1ab6b0a575c25c135f9004b7fb12dc4a}{}\label{classcpplint_1_1___function_state_a1ab6b0a575c25c135f9004b7fb12dc4a}
+\begin{DoxyVerb}Stop analyzing function body.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!current\+\_\+function@{current\+\_\+function}}
+\index{current\+\_\+function@{current\+\_\+function}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{current\+\_\+function}{current_function}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+\_\+\+Function\+State.\+current\+\_\+function}\hypertarget{classcpplint_1_1___function_state_a320674f54bd75087febc8f0d83620569}{}\label{classcpplint_1_1___function_state_a320674f54bd75087febc8f0d83620569}
+\index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!in\+\_\+a\+\_\+function@{in\+\_\+a\+\_\+function}}
+\index{in\+\_\+a\+\_\+function@{in\+\_\+a\+\_\+function}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{in\+\_\+a\+\_\+function}{in_a_function}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+\_\+\+Function\+State.\+in\+\_\+a\+\_\+function}\hypertarget{classcpplint_1_1___function_state_a8362d472591f60462184bf68b49c0efb}{}\label{classcpplint_1_1___function_state_a8362d472591f60462184bf68b49c0efb}
+\index{cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}!lines\+\_\+in\+\_\+function@{lines\+\_\+in\+\_\+function}}
+\index{lines\+\_\+in\+\_\+function@{lines\+\_\+in\+\_\+function}!cpplint\+::\+\_\+\+Function\+State@{cpplint\+::\+\_\+\+Function\+State}}
+\subsubsection[{\texorpdfstring{lines\+\_\+in\+\_\+function}{lines_in_function}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+\_\+\+Function\+State.\+lines\+\_\+in\+\_\+function}\hypertarget{classcpplint_1_1___function_state_a886f5d476adc81f499a711750a399aa2}{}\label{classcpplint_1_1___function_state_a886f5d476adc81f499a711750a399aa2}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/test/\hyperlink{cpplint_8py}{cpplint.\+py}\end{DoxyCompactItemize}

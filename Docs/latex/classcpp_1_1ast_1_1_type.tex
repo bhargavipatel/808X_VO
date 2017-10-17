@@ -1,0 +1,135 @@
+\hypertarget{classcpp_1_1ast_1_1_type}{}\section{cpp.\+ast.\+Type Class Reference}
+\label{classcpp_1_1ast_1_1_type}\index{cpp.\+ast.\+Type@{cpp.\+ast.\+Type}}
+
+
+Inheritance diagram for cpp.\+ast.\+Type\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classcpp_1_1ast_1_1_type__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for cpp.\+ast.\+Type\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classcpp_1_1ast_1_1_type__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classcpp_1_1ast_1_1_type_adc20d88db721b5d7b513c08a4d6753c9}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classcpp_1_1ast_1_1_node_a7b2aa97e6a049bb1a93aea48c48f1f44}{start}, \hyperlink{classcpp_1_1ast_1_1_node_a3c5e5246ccf619df28eca02e29d69647}{end}, \hyperlink{classcpp_1_1ast_1_1_type_a5905424e2b65f0215b6ecd73b4bfe24c}{name}, \hyperlink{classcpp_1_1ast_1_1_type_a7c38fcafa00dae6ee22bab783086a1a7}{templated\+\_\+types}, \hyperlink{classcpp_1_1ast_1_1_type_a0effa0a077eda79943e881955b4c51a5}{modifiers}, \hyperlink{classcpp_1_1ast_1_1_type_a8d2cddd631397c3bf86198cc420d584d}{reference}, \hyperlink{classcpp_1_1ast_1_1_type_a37234bb68915c93894cbc8e366c1eaad}{pointer}, \hyperlink{classcpp_1_1ast_1_1_type_a1fd0493e82da315bcb4c02b0cf2133a3}{array})
+\item 
+def \hyperlink{classcpp_1_1ast_1_1_type_a1a10eff21f6150b7e14bde3788fa069b}{\+\_\+\+\_\+str\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classcpp_1_1ast_1_1_type_a590071a2bce7ea5140d7eb86c90f63bf}{Is\+Declaration} (self)
+\item 
+def \hyperlink{classcpp_1_1ast_1_1_type_aedff25dc3736e83388742e55fe29159b}{Is\+Definition} (self)
+\item 
+def \hyperlink{classcpp_1_1ast_1_1_type_a80dce781581c03e550ce51a9a33ca158}{Is\+Exportable} (self)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpp_1_1ast_1_1_type_a7c38fcafa00dae6ee22bab783086a1a7}{templated\+\_\+types}
+\item 
+\hyperlink{classcpp_1_1ast_1_1_type_a5905424e2b65f0215b6ecd73b4bfe24c}{name}
+\item 
+\hyperlink{classcpp_1_1ast_1_1_type_a0effa0a077eda79943e881955b4c51a5}{modifiers}
+\item 
+\hyperlink{classcpp_1_1ast_1_1_type_a8d2cddd631397c3bf86198cc420d584d}{reference}
+\item 
+\hyperlink{classcpp_1_1ast_1_1_type_a37234bb68915c93894cbc8e366c1eaad}{pointer}
+\item 
+\hyperlink{classcpp_1_1ast_1_1_type_a1fd0493e82da315bcb4c02b0cf2133a3}{array}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Type used for any variable (eg class, primitive, struct, etc).\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, start, end, name, templated\+\_\+types, modifiers, reference, pointer, array)}{__init__(self, start, end, name, templated_types, modifiers, reference, pointer, array)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpp.\+ast.\+Type.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{start, }
+\item[{}]{end, }
+\item[{}]{name, }
+\item[{}]{templated\+\_\+types, }
+\item[{}]{modifiers, }
+\item[{}]{reference, }
+\item[{}]{pointer, }
+\item[{}]{array}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpp_1_1ast_1_1_type_adc20d88db721b5d7b513c08a4d6753c9}{}\label{classcpp_1_1ast_1_1_type_adc20d88db721b5d7b513c08a4d6753c9}
+\begin{DoxyVerb}Args:
+  name: str name of main type
+  templated_types: [Class (Type?)] template type info between <>
+  modifiers: [str] type modifiers (keywords) eg, const, mutable, etc.
+  reference, pointer, array: bools
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+str\+\_\+\+\_\+(self)}{__str__(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpp.\+ast.\+Type.\+\_\+\+\_\+str\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpp_1_1ast_1_1_type_a1a10eff21f6150b7e14bde3788fa069b}{}\label{classcpp_1_1ast_1_1_type_a1a10eff21f6150b7e14bde3788fa069b}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!Is\+Declaration@{Is\+Declaration}}
+\index{Is\+Declaration@{Is\+Declaration}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{Is\+Declaration(self)}{IsDeclaration(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpp.\+ast.\+Type.\+Is\+Declaration (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpp_1_1ast_1_1_type_a590071a2bce7ea5140d7eb86c90f63bf}{}\label{classcpp_1_1ast_1_1_type_a590071a2bce7ea5140d7eb86c90f63bf}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!Is\+Definition@{Is\+Definition}}
+\index{Is\+Definition@{Is\+Definition}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{Is\+Definition(self)}{IsDefinition(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpp.\+ast.\+Type.\+Is\+Definition (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpp_1_1ast_1_1_type_aedff25dc3736e83388742e55fe29159b}{}\label{classcpp_1_1ast_1_1_type_aedff25dc3736e83388742e55fe29159b}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!Is\+Exportable@{Is\+Exportable}}
+\index{Is\+Exportable@{Is\+Exportable}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{Is\+Exportable(self)}{IsExportable(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpp.\+ast.\+Type.\+Is\+Exportable (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classcpp_1_1ast_1_1_type_a80dce781581c03e550ce51a9a33ca158}{}\label{classcpp_1_1ast_1_1_type_a80dce781581c03e550ce51a9a33ca158}
+
+
+\subsection{Member Data Documentation}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!array@{array}}
+\index{array@{array}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{array}{array}}]{\setlength{\rightskip}{0pt plus 5cm}cpp.\+ast.\+Type.\+array}\hypertarget{classcpp_1_1ast_1_1_type_a1fd0493e82da315bcb4c02b0cf2133a3}{}\label{classcpp_1_1ast_1_1_type_a1fd0493e82da315bcb4c02b0cf2133a3}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!modifiers@{modifiers}}
+\index{modifiers@{modifiers}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{modifiers}{modifiers}}]{\setlength{\rightskip}{0pt plus 5cm}cpp.\+ast.\+Type.\+modifiers}\hypertarget{classcpp_1_1ast_1_1_type_a0effa0a077eda79943e881955b4c51a5}{}\label{classcpp_1_1ast_1_1_type_a0effa0a077eda79943e881955b4c51a5}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!name@{name}}
+\index{name@{name}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}cpp.\+ast.\+Type.\+name}\hypertarget{classcpp_1_1ast_1_1_type_a5905424e2b65f0215b6ecd73b4bfe24c}{}\label{classcpp_1_1ast_1_1_type_a5905424e2b65f0215b6ecd73b4bfe24c}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!pointer@{pointer}}
+\index{pointer@{pointer}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}cpp.\+ast.\+Type.\+pointer}\hypertarget{classcpp_1_1ast_1_1_type_a37234bb68915c93894cbc8e366c1eaad}{}\label{classcpp_1_1ast_1_1_type_a37234bb68915c93894cbc8e366c1eaad}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!reference@{reference}}
+\index{reference@{reference}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}cpp.\+ast.\+Type.\+reference}\hypertarget{classcpp_1_1ast_1_1_type_a8d2cddd631397c3bf86198cc420d584d}{}\label{classcpp_1_1ast_1_1_type_a8d2cddd631397c3bf86198cc420d584d}
+\index{cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}!templated\+\_\+types@{templated\+\_\+types}}
+\index{templated\+\_\+types@{templated\+\_\+types}!cpp\+::ast\+::\+Type@{cpp\+::ast\+::\+Type}}
+\subsubsection[{\texorpdfstring{templated\+\_\+types}{templated_types}}]{\setlength{\rightskip}{0pt plus 5cm}cpp.\+ast.\+Type.\+templated\+\_\+types}\hypertarget{classcpp_1_1ast_1_1_type_a7c38fcafa00dae6ee22bab783086a1a7}{}\label{classcpp_1_1ast_1_1_type_a7c38fcafa00dae6ee22bab783086a1a7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/scripts/generator/cpp/\hyperlink{ast_8py}{ast.\+py}\end{DoxyCompactItemize}

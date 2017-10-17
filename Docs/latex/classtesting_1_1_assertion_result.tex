@@ -1,0 +1,103 @@
+\hypertarget{classtesting_1_1_assertion_result}{}\section{testing\+:\+:Assertion\+Result Class Reference}
+\label{classtesting_1_1_assertion_result}\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+
+
+{\ttfamily \#include $<$gtest.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtesting_1_1_assertion_result_a27788116f03f90aec4daf592fd809ead}{Assertion\+Result} (const \hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \&other)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classtesting_1_1_assertion_result_a9b8d1d6d0a979d0769ed4ff97d06c4e3}{Assertion\+Result} (const T \&success, typename \hyperlink{structtesting_1_1internal_1_1_enable_if}{internal\+::\+Enable\+If}$<$ !\hyperlink{classtesting_1_1internal_1_1_implicitly_convertible}{internal\+::\+Implicitly\+Convertible}$<$ T, \hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} $>$\+::value $>$\+::type $\ast$=N\+U\+LL)
+\item 
+\hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \& \hyperlink{classtesting_1_1_assertion_result_aad9274c7b69eda67eb9306963a790839}{operator=} (\hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} other)
+\item 
+\hyperlink{classtesting_1_1_assertion_result_af85b7852e6399467cd74df539810abcd}{operator bool} () const 
+\item 
+\hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \hyperlink{classtesting_1_1_assertion_result_a85301ba52aa1efe89b79d1e3b59160cd}{operator!} () const 
+\item 
+const char $\ast$ \hyperlink{classtesting_1_1_assertion_result_ab20c91eba13e20f1b4ad89e3d15f69a8}{message} () const 
+\item 
+const char $\ast$ \hyperlink{classtesting_1_1_assertion_result_ae54fa82506c507a9dbc0f85d2cec652a}{failure\+\_\+message} () const 
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \& \hyperlink{classtesting_1_1_assertion_result_a3230efa81aafe7c61f5fb878cfa39e91}{operator$<$$<$} (const T \&value)
+\item 
+\hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \& \hyperlink{classtesting_1_1_assertion_result_a43ae8a260843ce2ff3dc9af262672b8b}{operator$<$$<$} (\+::std\+::ostream \&($\ast$basic\+\_\+manipulator)(\+::std\+::ostream \&stream))
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!Assertion\+Result@{Assertion\+Result}}
+\index{Assertion\+Result@{Assertion\+Result}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{Assertion\+Result(const Assertion\+Result \&other)}{AssertionResult(const AssertionResult &other)}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::\+Assertion\+Result\+::\+Assertion\+Result (
+\begin{DoxyParamCaption}
+\item[{const {\bf Assertion\+Result} \&}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{classtesting_1_1_assertion_result_a27788116f03f90aec4daf592fd809ead}{}\label{classtesting_1_1_assertion_result_a27788116f03f90aec4daf592fd809ead}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!Assertion\+Result@{Assertion\+Result}}
+\index{Assertion\+Result@{Assertion\+Result}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{Assertion\+Result(const T \&success, typename internal\+::\+Enable\+If$<$ "!internal\+::\+Implicitly\+Convertible$<$ T, Assertion\+Result $>$\+::value $>$\+::type $\ast$=\+N\+U\+L\+L)}{AssertionResult(const T &success, typename internal::EnableIf< !internal::ImplicitlyConvertible< T, AssertionResult >::value >::type *=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ testing\+::\+Assertion\+Result\+::\+Assertion\+Result (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{success, }
+\item[{typename {\bf internal\+::\+Enable\+If}$<$ !{\bf internal\+::\+Implicitly\+Convertible}$<$ T, {\bf Assertion\+Result} $>$\+::value $>$\+::type $\ast$}]{ = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classtesting_1_1_assertion_result_a9b8d1d6d0a979d0769ed4ff97d06c4e3}{}\label{classtesting_1_1_assertion_result_a9b8d1d6d0a979d0769ed4ff97d06c4e3}
+
+
+\subsection{Member Function Documentation}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!failure\+\_\+message@{failure\+\_\+message}}
+\index{failure\+\_\+message@{failure\+\_\+message}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{failure\+\_\+message() const }{failure_message() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ testing\+::\+Assertion\+Result\+::failure\+\_\+message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1_assertion_result_ae54fa82506c507a9dbc0f85d2cec652a}{}\label{classtesting_1_1_assertion_result_ae54fa82506c507a9dbc0f85d2cec652a}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!message@{message}}
+\index{message@{message}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{message() const }{message() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ testing\+::\+Assertion\+Result\+::message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1_assertion_result_ab20c91eba13e20f1b4ad89e3d15f69a8}{}\label{classtesting_1_1_assertion_result_ab20c91eba13e20f1b4ad89e3d15f69a8}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{operator bool() const }{operator bool() const }}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::\+Assertion\+Result\+::operator bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1_assertion_result_af85b7852e6399467cd74df539810abcd}{}\label{classtesting_1_1_assertion_result_af85b7852e6399467cd74df539810abcd}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{operator"!() const }{operator!() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Assertion\+Result} testing\+::\+Assertion\+Result\+::operator! (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classtesting_1_1_assertion_result_a85301ba52aa1efe89b79d1e3b59160cd}{}\label{classtesting_1_1_assertion_result_a85301ba52aa1efe89b79d1e3b59160cd}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(const T \&value)}{operator<<(const T &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Assertion\+Result}\& testing\+::\+Assertion\+Result\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1_assertion_result_a3230efa81aafe7c61f5fb878cfa39e91}{}\label{classtesting_1_1_assertion_result_a3230efa81aafe7c61f5fb878cfa39e91}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(\+::std\+::ostream \&($\ast$basic\+\_\+manipulator)(\+::std\+::ostream \&stream))}{operator<<(::std::ostream &(*basic_manipulator)(::std::ostream &stream))}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Assertion\+Result}\& testing\+::\+Assertion\+Result\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{\+::std\+::ostream \&($\ast$)(\+::std\+::ostream \&stream)}]{basic\+\_\+manipulator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1_assertion_result_a43ae8a260843ce2ff3dc9af262672b8b}{}\label{classtesting_1_1_assertion_result_a43ae8a260843ce2ff3dc9af262672b8b}
+\index{testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}!operator=@{operator=}}
+\index{operator=@{operator=}!testing\+::\+Assertion\+Result@{testing\+::\+Assertion\+Result}}
+\subsubsection[{\texorpdfstring{operator=(\+Assertion\+Result other)}{operator=(AssertionResult other)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Assertion\+Result}\& testing\+::\+Assertion\+Result\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Assertion\+Result}}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1_assertion_result_aad9274c7b69eda67eb9306963a790839}{}\label{classtesting_1_1_assertion_result_aad9274c7b69eda67eb9306963a790839}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googletest/include/gtest/\hyperlink{gtest_8h}{gtest.\+h}\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googletest/src/\hyperlink{gtest_8cc}{gtest.\+cc}\end{DoxyCompactItemize}

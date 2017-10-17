@@ -1,0 +1,466 @@
+\hypertarget{classtesting_1_1internal_1_1_expectation_base}{}\section{testing\+:\+:internal\+:\+:Expectation\+Base Class Reference}
+\label{classtesting_1_1internal_1_1_expectation_base}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+
+
+{\ttfamily \#include $<$gmock-\/spec-\/builders.\+h$>$}
+
+
+
+Inheritance diagram for testing\+:\+:internal\+:\+:Expectation\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classtesting_1_1internal_1_1_expectation_base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+:\+:internal\+:\+:Expectation\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtesting_1_1internal_1_1_expectation_base__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a8c82a7ecad5831a3ce5ce8cc56ae172d}{Expectation\+Base} (const char $\ast$\hyperlink{classtesting_1_1internal_1_1_expectation_base_a52497eb28bbeba3b7872ebb0a14d1332}{file}, int \hyperlink{classtesting_1_1internal_1_1_expectation_base_a3aa9a71fded4470da4729fd80d3336cd}{line}, const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \&\hyperlink{classtesting_1_1internal_1_1_expectation_base_a11549dfb30eb7fd13e5be1e4e99d7f20}{source\+\_\+text})
+\item 
+virtual \hyperlink{classtesting_1_1internal_1_1_expectation_base_aff36dabbd1bd194d93a3b2d3c9d3ebbf}{$\sim$\+Expectation\+Base} ()
+\item 
+const char $\ast$ \hyperlink{classtesting_1_1internal_1_1_expectation_base_a52497eb28bbeba3b7872ebb0a14d1332}{file} () const 
+\item 
+int \hyperlink{classtesting_1_1internal_1_1_expectation_base_a3aa9a71fded4470da4729fd80d3336cd}{line} () const 
+\item 
+const char $\ast$ \hyperlink{classtesting_1_1internal_1_1_expectation_base_a11549dfb30eb7fd13e5be1e4e99d7f20}{source\+\_\+text} () const 
+\item 
+const \hyperlink{classtesting_1_1_cardinality}{Cardinality} \& \hyperlink{classtesting_1_1internal_1_1_expectation_base_a0396ade19a85bc2c43c77d9ef3d5ef1d}{cardinality} () const 
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a398914a79c53f90f5fd9fcfac577ddf6}{Describe\+Location\+To} (\+::std\+::ostream $\ast$os) const 
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a2beebed3ade29077bcf294b449bb8b9d}{Describe\+Call\+Count\+To} (\+::std\+::ostream $\ast$os) const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+virtual void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a5ce4f648c7b112d27b798711d1e3ff5b}{Maybe\+Describe\+Extra\+Matcher\+To} (\+::std\+::ostream $\ast$os)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2}{Clause} \{ \\*
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2ae25b940c0878d057628e3509830d84e9}{k\+None}, 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a2a83fca10989c55ad16aafd2851ca139}{k\+With}, 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a8080d1291dd355e3ad9478f8c8b79689}{k\+Times}, 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2ac9e8abdc7de4697d2174c560e7a0a595}{k\+In\+Sequence}, 
+\\*
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a7988a8564321947266de0e74148ae4ec}{k\+After}, 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a571cc6a896cd99aa3532f6ab51a51b7a}{k\+Will\+Once}, 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a4b568d2f88f5141c4c61bc53757791d1}{k\+Will\+Repeatedly}, 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a816336e701d7be1ca9e07998d41ba5af}{k\+Retires\+On\+Saturation}
+ \}
+\item 
+typedef std\+::vector$<$ const void $\ast$ $>$ \hyperlink{classtesting_1_1internal_1_1_expectation_base_a9b21e82059961b9f1198d3f5d518254f}{Untyped\+Actions}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classtesting_1_1_expectation}{Expectation} \hyperlink{classtesting_1_1internal_1_1_expectation_base_a678f6fc24742ab0236ebc9a8128e7bfe}{Get\+Handle} ()=0
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a40fa0b426fa4689376546708ea046bba}{Assert\+Spec\+Property} (bool property, const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \&failure\+\_\+message) const 
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a9cce9d71e73c4faaa930a9d4cc7f0985}{Expect\+Spec\+Property} (bool property, const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \&failure\+\_\+message) const 
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a3d1d08542b32239d9b5738e3e32e2217}{Specify\+Cardinality} (const \hyperlink{classtesting_1_1_cardinality}{Cardinality} \&\hyperlink{classtesting_1_1internal_1_1_expectation_base_a0396ade19a85bc2c43c77d9ef3d5ef1d}{cardinality})
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_af8e4212721859a88a5403ef2437bcb07}{cardinality\+\_\+specified} () const 
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a6d416ffd4546ae84de79afb67ad05ada}{set\+\_\+cardinality} (const \hyperlink{classtesting_1_1_cardinality}{Cardinality} \&a\+\_\+cardinality)
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_afb623801e8de31fcd7b352e200649f7d}{Retire\+All\+Pre\+Requisites} () \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_afe539dbc5b29d9635403767a4708c476}{is\+\_\+retired} () const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a0aeeb4c1e66c2f2aa0853c267ad3e781}{Retire} () \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_ae629adc2dd9aee0ac62e50314f1a6449}{Is\+Satisfied} () const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_ad3e4340cedefdc24fce1478a8d6cab93}{Is\+Saturated} () const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_a080dab35ecc6c57096f50758a0e8123d}{Is\+Over\+Saturated} () const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_a82ba68cdd71a8b5aff5a5be24c23a637}{All\+Prerequisites\+Are\+Satisfied} () const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a9eb518c079f950a59c67e8012d3371c0}{Find\+Unsatisfied\+Prerequisites} (\hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} $\ast$result) const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+int \hyperlink{classtesting_1_1internal_1_1_expectation_base_aacc0399271907194ac1627439f65047a}{call\+\_\+count} () const \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_aef1766c39ad6478f9041e0f5c5000532}{Increment\+Call\+Count} () \hyperlink{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}(g\+\_\+gmock\+\_\+mutex)
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_aaeb143b6f8676e9a6fb9b17678344f03}{Check\+Action\+Count\+If\+Not\+Done} () const \hyperlink{gtest-port_8h_a69abff5a4efdd07bd5faebe3dd318d06}{G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+}(\hyperlink{classtesting_1_1internal_1_1_expectation_base_a364f5473591d08d0ac03595c9050c13e}{mutex\+\_\+})
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_expectation_base_a05bbd7fea6ea3c740ea095ea7462bc07}{Untyped\+Times} (const \hyperlink{classtesting_1_1_cardinality}{Cardinality} \&a\+\_\+cardinality)
+\item 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a9a28e2f508571a0d68d9f964f3634022}{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+} (\hyperlink{classtesting_1_1internal_1_1_expectation_base}{Expectation\+Base})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{classtesting_1_1internal_1_1_expectation_base_afabf690537298bbb84e9b443f62d7e97}{file\+\_\+}
+\item 
+int \hyperlink{classtesting_1_1internal_1_1_expectation_base_ab8143119e4b686ff1bb6c985924da57a}{line\+\_\+}
+\item 
+const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \hyperlink{classtesting_1_1internal_1_1_expectation_base_a8803b5fa8354205a6b57e21a704acbef}{source\+\_\+text\+\_\+}
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_ad2ca7220ed1a395bd850ff06c500a402}{cardinality\+\_\+specified\+\_\+}
+\item 
+\hyperlink{classtesting_1_1_cardinality}{Cardinality} \hyperlink{classtesting_1_1internal_1_1_expectation_base_ad0aedcc01c0c9a998952a2b2f486595c}{cardinality\+\_\+}
+\item 
+\hyperlink{classtesting_1_1_expectation_set}{Expectation\+Set} \hyperlink{classtesting_1_1internal_1_1_expectation_base_a186eff0fdcacc8c1e1a2becdec11d3cd}{immediate\+\_\+prerequisites\+\_\+}
+\item 
+int \hyperlink{classtesting_1_1internal_1_1_expectation_base_aea95d46f7583566e3f7a081b0668ad4c}{call\+\_\+count\+\_\+}
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_a0afd852f5d7863effc3d304dac6a44cf}{retired\+\_\+}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a9b21e82059961b9f1198d3f5d518254f}{Untyped\+Actions} \hyperlink{classtesting_1_1internal_1_1_expectation_base_a9558ff6b8b1b7e3a99fac1f93d1826da}{untyped\+\_\+actions\+\_\+}
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_a34f599ac7ae4f1fb7567e0d4c9fadcba}{extra\+\_\+matcher\+\_\+specified\+\_\+}
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_abecd382b79252ffc0779d51e058b681c}{repeated\+\_\+action\+\_\+specified\+\_\+}
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_a74802f3bedf4ab023b30ee6bb275a4d8}{retires\+\_\+on\+\_\+saturation\+\_\+}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2}{Clause} \hyperlink{classtesting_1_1internal_1_1_expectation_base_a584f296e53b4cc002ddf5e65e44d72d9}{last\+\_\+clause\+\_\+}
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_expectation_base_a19933e346f6493005437bdd6812c7a29}{action\+\_\+count\+\_\+checked\+\_\+}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_mutex}{Mutex} \hyperlink{classtesting_1_1internal_1_1_expectation_base_a364f5473591d08d0ac03595c9050c13e}{mutex\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classtesting_1_1internal_1_1_expectation_base_a86fa3dccdc465d897ee321b74e4ce915}{\+::testing\+::\+Expectation}
+\item 
+class \hyperlink{classtesting_1_1internal_1_1_expectation_base_a3e5598b244ec7673d0a494477d71e559}{Untyped\+Function\+Mocker\+Base}
+\item 
+class \hyperlink{classtesting_1_1internal_1_1_expectation_base_aeaf43a487a21c0ac1135b094a1561056}{\+::testing\+::\+Sequence}
+\item 
+class \hyperlink{classtesting_1_1internal_1_1_expectation_base_a83859ffda7f75bb8b447063eb53cb8b8}{\+::testing\+::internal\+::\+Expectation\+Tester}
+\item 
+{\footnotesize template$<$typename Function $>$ }\\class \hyperlink{classtesting_1_1internal_1_1_expectation_base_a4f17de55396a8ef740d5ad2b1380a851}{Typed\+Expectation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Untyped\+Actions@{Untyped\+Actions}}
+\index{Untyped\+Actions@{Untyped\+Actions}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Untyped\+Actions}{UntypedActions}}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::vector$<$const void$\ast$$>$ {\bf testing\+::internal\+::\+Expectation\+Base\+::\+Untyped\+Actions}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a9b21e82059961b9f1198d3f5d518254f}{}\label{classtesting_1_1internal_1_1_expectation_base_a9b21e82059961b9f1198d3f5d518254f}
+
+
+\subsection{Member Enumeration Documentation}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Clause@{Clause}}
+\index{Clause@{Clause}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Clause}{Clause}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf testing\+::internal\+::\+Expectation\+Base\+::\+Clause}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{k\+None@{k\+None}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+None@{k\+None}}\item[{\em 
+k\+None\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2ae25b940c0878d057628e3509830d84e9}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2ae25b940c0878d057628e3509830d84e9}
+}]\index{k\+With@{k\+With}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+With@{k\+With}}\item[{\em 
+k\+With\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a2a83fca10989c55ad16aafd2851ca139}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a2a83fca10989c55ad16aafd2851ca139}
+}]\index{k\+Times@{k\+Times}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+Times@{k\+Times}}\item[{\em 
+k\+Times\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a8080d1291dd355e3ad9478f8c8b79689}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a8080d1291dd355e3ad9478f8c8b79689}
+}]\index{k\+In\+Sequence@{k\+In\+Sequence}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+In\+Sequence@{k\+In\+Sequence}}\item[{\em 
+k\+In\+Sequence\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2ac9e8abdc7de4697d2174c560e7a0a595}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2ac9e8abdc7de4697d2174c560e7a0a595}
+}]\index{k\+After@{k\+After}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+After@{k\+After}}\item[{\em 
+k\+After\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a7988a8564321947266de0e74148ae4ec}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a7988a8564321947266de0e74148ae4ec}
+}]\index{k\+Will\+Once@{k\+Will\+Once}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+Will\+Once@{k\+Will\+Once}}\item[{\em 
+k\+Will\+Once\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a571cc6a896cd99aa3532f6ab51a51b7a}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a571cc6a896cd99aa3532f6ab51a51b7a}
+}]\index{k\+Will\+Repeatedly@{k\+Will\+Repeatedly}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+Will\+Repeatedly@{k\+Will\+Repeatedly}}\item[{\em 
+k\+Will\+Repeatedly\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a4b568d2f88f5141c4c61bc53757791d1}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a4b568d2f88f5141c4c61bc53757791d1}
+}]\index{k\+Retires\+On\+Saturation@{k\+Retires\+On\+Saturation}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!k\+Retires\+On\+Saturation@{k\+Retires\+On\+Saturation}}\item[{\em 
+k\+Retires\+On\+Saturation\hypertarget{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a816336e701d7be1ca9e07998d41ba5af}{}\label{classtesting_1_1internal_1_1_expectation_base_a450f34b979ec5814c91d4eab6b78cfc2a816336e701d7be1ca9e07998d41ba5af}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Expectation\+Base@{Expectation\+Base}}
+\index{Expectation\+Base@{Expectation\+Base}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Expectation\+Base(const char $\ast$file, int line, const string \&source\+\_\+text)}{ExpectationBase(const char *file, int line, const string &source_text)}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::internal\+::\+Expectation\+Base\+::\+Expectation\+Base (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{const {\bf string} \&}]{source\+\_\+text}
+\end{DoxyParamCaption}
+)}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a8c82a7ecad5831a3ce5ce8cc56ae172d}{}\label{classtesting_1_1internal_1_1_expectation_base_a8c82a7ecad5831a3ce5ce8cc56ae172d}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!````~Expectation\+Base@{$\sim$\+Expectation\+Base}}
+\index{````~Expectation\+Base@{$\sim$\+Expectation\+Base}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{$\sim$\+Expectation\+Base()}{~ExpectationBase()}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::internal\+::\+Expectation\+Base\+::$\sim$\+Expectation\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_aff36dabbd1bd194d93a3b2d3c9d3ebbf}{}\label{classtesting_1_1internal_1_1_expectation_base_aff36dabbd1bd194d93a3b2d3c9d3ebbf}
+
+
+\subsection{Member Function Documentation}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!All\+Prerequisites\+Are\+Satisfied@{All\+Prerequisites\+Are\+Satisfied}}
+\index{All\+Prerequisites\+Are\+Satisfied@{All\+Prerequisites\+Are\+Satisfied}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{All\+Prerequisites\+Are\+Satisfied() const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{AllPrerequisitesAreSatisfied() const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::\+All\+Prerequisites\+Are\+Satisfied (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a82ba68cdd71a8b5aff5a5be24c23a637}{}\label{classtesting_1_1internal_1_1_expectation_base_a82ba68cdd71a8b5aff5a5be24c23a637}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Assert\+Spec\+Property@{Assert\+Spec\+Property}}
+\index{Assert\+Spec\+Property@{Assert\+Spec\+Property}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Assert\+Spec\+Property(bool property, const string \&failure\+\_\+message) const }{AssertSpecProperty(bool property, const string &failure_message) const }}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Assert\+Spec\+Property (
+\begin{DoxyParamCaption}
+\item[{bool}]{property, }
+\item[{const {\bf string} \&}]{failure\+\_\+message}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a40fa0b426fa4689376546708ea046bba}{}\label{classtesting_1_1internal_1_1_expectation_base_a40fa0b426fa4689376546708ea046bba}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!call\+\_\+count@{call\+\_\+count}}
+\index{call\+\_\+count@{call\+\_\+count}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{call\+\_\+count() const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{call_count() const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}int testing\+::internal\+::\+Expectation\+Base\+::call\+\_\+count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_aacc0399271907194ac1627439f65047a}{}\label{classtesting_1_1internal_1_1_expectation_base_aacc0399271907194ac1627439f65047a}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!cardinality@{cardinality}}
+\index{cardinality@{cardinality}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{cardinality() const }{cardinality() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Cardinality}\& testing\+::internal\+::\+Expectation\+Base\+::cardinality (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a0396ade19a85bc2c43c77d9ef3d5ef1d}{}\label{classtesting_1_1internal_1_1_expectation_base_a0396ade19a85bc2c43c77d9ef3d5ef1d}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!cardinality\+\_\+specified@{cardinality\+\_\+specified}}
+\index{cardinality\+\_\+specified@{cardinality\+\_\+specified}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{cardinality\+\_\+specified() const }{cardinality_specified() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::cardinality\+\_\+specified (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_af8e4212721859a88a5403ef2437bcb07}{}\label{classtesting_1_1internal_1_1_expectation_base_af8e4212721859a88a5403ef2437bcb07}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Check\+Action\+Count\+If\+Not\+Done@{Check\+Action\+Count\+If\+Not\+Done}}
+\index{Check\+Action\+Count\+If\+Not\+Done@{Check\+Action\+Count\+If\+Not\+Done}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Check\+Action\+Count\+If\+Not\+Done() const G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+(mutex\+\_\+)}{CheckActionCountIfNotDone() const GTEST_LOCK_EXCLUDED_(mutex_)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Check\+Action\+Count\+If\+Not\+Done (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_aaeb143b6f8676e9a6fb9b17678344f03}{}\label{classtesting_1_1internal_1_1_expectation_base_aaeb143b6f8676e9a6fb9b17678344f03}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Describe\+Call\+Count\+To@{Describe\+Call\+Count\+To}}
+\index{Describe\+Call\+Count\+To@{Describe\+Call\+Count\+To}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Describe\+Call\+Count\+To(\+::std\+::ostream $\ast$os) const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{DescribeCallCountTo(::std::ostream *os) const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Describe\+Call\+Count\+To (
+\begin{DoxyParamCaption}
+\item[{\+::std\+::ostream $\ast$}]{os}
+\end{DoxyParamCaption}
+) const}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a2beebed3ade29077bcf294b449bb8b9d}{}\label{classtesting_1_1internal_1_1_expectation_base_a2beebed3ade29077bcf294b449bb8b9d}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Describe\+Location\+To@{Describe\+Location\+To}}
+\index{Describe\+Location\+To@{Describe\+Location\+To}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Describe\+Location\+To(\+::std\+::ostream $\ast$os) const }{DescribeLocationTo(::std::ostream *os) const }}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Describe\+Location\+To (
+\begin{DoxyParamCaption}
+\item[{\+::std\+::ostream $\ast$}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a398914a79c53f90f5fd9fcfac577ddf6}{}\label{classtesting_1_1internal_1_1_expectation_base_a398914a79c53f90f5fd9fcfac577ddf6}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Expect\+Spec\+Property@{Expect\+Spec\+Property}}
+\index{Expect\+Spec\+Property@{Expect\+Spec\+Property}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Expect\+Spec\+Property(bool property, const string \&failure\+\_\+message) const }{ExpectSpecProperty(bool property, const string &failure_message) const }}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Expect\+Spec\+Property (
+\begin{DoxyParamCaption}
+\item[{bool}]{property, }
+\item[{const {\bf string} \&}]{failure\+\_\+message}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a9cce9d71e73c4faaa930a9d4cc7f0985}{}\label{classtesting_1_1internal_1_1_expectation_base_a9cce9d71e73c4faaa930a9d4cc7f0985}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!file@{file}}
+\index{file@{file}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{file() const }{file() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ testing\+::internal\+::\+Expectation\+Base\+::file (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a52497eb28bbeba3b7872ebb0a14d1332}{}\label{classtesting_1_1internal_1_1_expectation_base_a52497eb28bbeba3b7872ebb0a14d1332}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Find\+Unsatisfied\+Prerequisites@{Find\+Unsatisfied\+Prerequisites}}
+\index{Find\+Unsatisfied\+Prerequisites@{Find\+Unsatisfied\+Prerequisites}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Find\+Unsatisfied\+Prerequisites(\+Expectation\+Set $\ast$result) const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{FindUnsatisfiedPrerequisites(ExpectationSet *result) const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Find\+Unsatisfied\+Prerequisites (
+\begin{DoxyParamCaption}
+\item[{{\bf Expectation\+Set} $\ast$}]{result}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a9eb518c079f950a59c67e8012d3371c0}{}\label{classtesting_1_1internal_1_1_expectation_base_a9eb518c079f950a59c67e8012d3371c0}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Get\+Handle@{Get\+Handle}}
+\index{Get\+Handle@{Get\+Handle}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Get\+Handle()=0}{GetHandle()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Expectation} testing\+::internal\+::\+Expectation\+Base\+::\+Get\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a678f6fc24742ab0236ebc9a8128e7bfe}{}\label{classtesting_1_1internal_1_1_expectation_base_a678f6fc24742ab0236ebc9a8128e7bfe}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}}
+\index{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+(\+Expectation\+Base)}{GTEST_DISALLOW_ASSIGN_(ExpectationBase)}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::internal\+::\+Expectation\+Base\+::\+G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Expectation\+Base}}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a9a28e2f508571a0d68d9f964f3634022}{}\label{classtesting_1_1internal_1_1_expectation_base_a9a28e2f508571a0d68d9f964f3634022}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Increment\+Call\+Count@{Increment\+Call\+Count}}
+\index{Increment\+Call\+Count@{Increment\+Call\+Count}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Increment\+Call\+Count() G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{IncrementCallCount() GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Increment\+Call\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_aef1766c39ad6478f9041e0f5c5000532}{}\label{classtesting_1_1internal_1_1_expectation_base_aef1766c39ad6478f9041e0f5c5000532}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!is\+\_\+retired@{is\+\_\+retired}}
+\index{is\+\_\+retired@{is\+\_\+retired}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{is\+\_\+retired() const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{is_retired() const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::is\+\_\+retired (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_afe539dbc5b29d9635403767a4708c476}{}\label{classtesting_1_1internal_1_1_expectation_base_afe539dbc5b29d9635403767a4708c476}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Is\+Over\+Saturated@{Is\+Over\+Saturated}}
+\index{Is\+Over\+Saturated@{Is\+Over\+Saturated}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Is\+Over\+Saturated() const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{IsOverSaturated() const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::\+Is\+Over\+Saturated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a080dab35ecc6c57096f50758a0e8123d}{}\label{classtesting_1_1internal_1_1_expectation_base_a080dab35ecc6c57096f50758a0e8123d}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Is\+Satisfied@{Is\+Satisfied}}
+\index{Is\+Satisfied@{Is\+Satisfied}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Is\+Satisfied() const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{IsSatisfied() const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::\+Is\+Satisfied (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_ae629adc2dd9aee0ac62e50314f1a6449}{}\label{classtesting_1_1internal_1_1_expectation_base_ae629adc2dd9aee0ac62e50314f1a6449}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Is\+Saturated@{Is\+Saturated}}
+\index{Is\+Saturated@{Is\+Saturated}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Is\+Saturated() const G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{IsSaturated() const GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::\+Is\+Saturated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_ad3e4340cedefdc24fce1478a8d6cab93}{}\label{classtesting_1_1internal_1_1_expectation_base_ad3e4340cedefdc24fce1478a8d6cab93}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!line@{line}}
+\index{line@{line}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{line() const }{line() const }}]{\setlength{\rightskip}{0pt plus 5cm}int testing\+::internal\+::\+Expectation\+Base\+::line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a3aa9a71fded4470da4729fd80d3336cd}{}\label{classtesting_1_1internal_1_1_expectation_base_a3aa9a71fded4470da4729fd80d3336cd}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Maybe\+Describe\+Extra\+Matcher\+To@{Maybe\+Describe\+Extra\+Matcher\+To}}
+\index{Maybe\+Describe\+Extra\+Matcher\+To@{Maybe\+Describe\+Extra\+Matcher\+To}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Maybe\+Describe\+Extra\+Matcher\+To(\+::std\+::ostream $\ast$os)=0}{MaybeDescribeExtraMatcherTo(::std::ostream *os)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void testing\+::internal\+::\+Expectation\+Base\+::\+Maybe\+Describe\+Extra\+Matcher\+To (
+\begin{DoxyParamCaption}
+\item[{\+::std\+::ostream $\ast$}]{os}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a5ce4f648c7b112d27b798711d1e3ff5b}{}\label{classtesting_1_1internal_1_1_expectation_base_a5ce4f648c7b112d27b798711d1e3ff5b}
+
+
+Implemented in \hyperlink{classtesting_1_1internal_1_1_typed_expectation_ab019251041a408dc5a5d8ae216be53f4}{testing\+::internal\+::\+Typed\+Expectation$<$ F $>$}.
+
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Retire@{Retire}}
+\index{Retire@{Retire}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Retire() G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{Retire() GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Retire (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a0aeeb4c1e66c2f2aa0853c267ad3e781}{}\label{classtesting_1_1internal_1_1_expectation_base_a0aeeb4c1e66c2f2aa0853c267ad3e781}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Retire\+All\+Pre\+Requisites@{Retire\+All\+Pre\+Requisites}}
+\index{Retire\+All\+Pre\+Requisites@{Retire\+All\+Pre\+Requisites}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Retire\+All\+Pre\+Requisites() G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(g\+\_\+gmock\+\_\+mutex)}{RetireAllPreRequisites() GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Retire\+All\+Pre\+Requisites (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_afb623801e8de31fcd7b352e200649f7d}{}\label{classtesting_1_1internal_1_1_expectation_base_afb623801e8de31fcd7b352e200649f7d}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!set\+\_\+cardinality@{set\+\_\+cardinality}}
+\index{set\+\_\+cardinality@{set\+\_\+cardinality}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{set\+\_\+cardinality(const Cardinality \&a\+\_\+cardinality)}{set_cardinality(const Cardinality &a_cardinality)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::set\+\_\+cardinality (
+\begin{DoxyParamCaption}
+\item[{const {\bf Cardinality} \&}]{a\+\_\+cardinality}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a6d416ffd4546ae84de79afb67ad05ada}{}\label{classtesting_1_1internal_1_1_expectation_base_a6d416ffd4546ae84de79afb67ad05ada}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!source\+\_\+text@{source\+\_\+text}}
+\index{source\+\_\+text@{source\+\_\+text}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{source\+\_\+text() const }{source_text() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ testing\+::internal\+::\+Expectation\+Base\+::source\+\_\+text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a11549dfb30eb7fd13e5be1e4e99d7f20}{}\label{classtesting_1_1internal_1_1_expectation_base_a11549dfb30eb7fd13e5be1e4e99d7f20}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Specify\+Cardinality@{Specify\+Cardinality}}
+\index{Specify\+Cardinality@{Specify\+Cardinality}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Specify\+Cardinality(const Cardinality \&cardinality)}{SpecifyCardinality(const Cardinality &cardinality)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Specify\+Cardinality (
+\begin{DoxyParamCaption}
+\item[{const {\bf Cardinality} \&}]{cardinality}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a3d1d08542b32239d9b5738e3e32e2217}{}\label{classtesting_1_1internal_1_1_expectation_base_a3d1d08542b32239d9b5738e3e32e2217}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Untyped\+Times@{Untyped\+Times}}
+\index{Untyped\+Times@{Untyped\+Times}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Untyped\+Times(const Cardinality \&a\+\_\+cardinality)}{UntypedTimes(const Cardinality &a_cardinality)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Expectation\+Base\+::\+Untyped\+Times (
+\begin{DoxyParamCaption}
+\item[{const {\bf Cardinality} \&}]{a\+\_\+cardinality}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a05bbd7fea6ea3c740ea095ea7462bc07}{}\label{classtesting_1_1internal_1_1_expectation_base_a05bbd7fea6ea3c740ea095ea7462bc07}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!\+::testing\+::\+Expectation@{\+::testing\+::\+Expectation}}
+\index{\+::testing\+::\+Expectation@{\+::testing\+::\+Expectation}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{\+::testing\+::\+Expectation}{::testing::Expectation}}]{\setlength{\rightskip}{0pt plus 5cm}friend class \+::{\bf testing\+::\+Expectation}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a86fa3dccdc465d897ee321b74e4ce915}{}\label{classtesting_1_1internal_1_1_expectation_base_a86fa3dccdc465d897ee321b74e4ce915}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!\+::testing\+::internal\+::\+Expectation\+Tester@{\+::testing\+::internal\+::\+Expectation\+Tester}}
+\index{\+::testing\+::internal\+::\+Expectation\+Tester@{\+::testing\+::internal\+::\+Expectation\+Tester}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{\+::testing\+::internal\+::\+Expectation\+Tester}{::testing::internal::ExpectationTester}}]{\setlength{\rightskip}{0pt plus 5cm}friend class \+::{\bf testing\+::internal\+::\+Expectation\+Tester}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a83859ffda7f75bb8b447063eb53cb8b8}{}\label{classtesting_1_1internal_1_1_expectation_base_a83859ffda7f75bb8b447063eb53cb8b8}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!\+::testing\+::\+Sequence@{\+::testing\+::\+Sequence}}
+\index{\+::testing\+::\+Sequence@{\+::testing\+::\+Sequence}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{\+::testing\+::\+Sequence}{::testing::Sequence}}]{\setlength{\rightskip}{0pt plus 5cm}friend class \+::{\bf testing\+::\+Sequence}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_aeaf43a487a21c0ac1135b094a1561056}{}\label{classtesting_1_1internal_1_1_expectation_base_aeaf43a487a21c0ac1135b094a1561056}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Typed\+Expectation@{Typed\+Expectation}}
+\index{Typed\+Expectation@{Typed\+Expectation}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Typed\+Expectation}{TypedExpectation}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Function $>$ friend class {\bf Typed\+Expectation}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a4f17de55396a8ef740d5ad2b1380a851}{}\label{classtesting_1_1internal_1_1_expectation_base_a4f17de55396a8ef740d5ad2b1380a851}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!Untyped\+Function\+Mocker\+Base@{Untyped\+Function\+Mocker\+Base}}
+\index{Untyped\+Function\+Mocker\+Base@{Untyped\+Function\+Mocker\+Base}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{Untyped\+Function\+Mocker\+Base}{UntypedFunctionMockerBase}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Untyped\+Function\+Mocker\+Base}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a3e5598b244ec7673d0a494477d71e559}{}\label{classtesting_1_1internal_1_1_expectation_base_a3e5598b244ec7673d0a494477d71e559}
+
+
+\subsection{Member Data Documentation}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!action\+\_\+count\+\_\+checked\+\_\+@{action\+\_\+count\+\_\+checked\+\_\+}}
+\index{action\+\_\+count\+\_\+checked\+\_\+@{action\+\_\+count\+\_\+checked\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{action\+\_\+count\+\_\+checked\+\_\+}{action_count_checked_}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::action\+\_\+count\+\_\+checked\+\_\+\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a19933e346f6493005437bdd6812c7a29}{}\label{classtesting_1_1internal_1_1_expectation_base_a19933e346f6493005437bdd6812c7a29}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!call\+\_\+count\+\_\+@{call\+\_\+count\+\_\+}}
+\index{call\+\_\+count\+\_\+@{call\+\_\+count\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{call\+\_\+count\+\_\+}{call_count_}}]{\setlength{\rightskip}{0pt plus 5cm}int testing\+::internal\+::\+Expectation\+Base\+::call\+\_\+count\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_aea95d46f7583566e3f7a081b0668ad4c}{}\label{classtesting_1_1internal_1_1_expectation_base_aea95d46f7583566e3f7a081b0668ad4c}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!cardinality\+\_\+@{cardinality\+\_\+}}
+\index{cardinality\+\_\+@{cardinality\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{cardinality\+\_\+}{cardinality_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cardinality} testing\+::internal\+::\+Expectation\+Base\+::cardinality\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_ad0aedcc01c0c9a998952a2b2f486595c}{}\label{classtesting_1_1internal_1_1_expectation_base_ad0aedcc01c0c9a998952a2b2f486595c}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!cardinality\+\_\+specified\+\_\+@{cardinality\+\_\+specified\+\_\+}}
+\index{cardinality\+\_\+specified\+\_\+@{cardinality\+\_\+specified\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{cardinality\+\_\+specified\+\_\+}{cardinality_specified_}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::cardinality\+\_\+specified\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_ad2ca7220ed1a395bd850ff06c500a402}{}\label{classtesting_1_1internal_1_1_expectation_base_ad2ca7220ed1a395bd850ff06c500a402}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!extra\+\_\+matcher\+\_\+specified\+\_\+@{extra\+\_\+matcher\+\_\+specified\+\_\+}}
+\index{extra\+\_\+matcher\+\_\+specified\+\_\+@{extra\+\_\+matcher\+\_\+specified\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{extra\+\_\+matcher\+\_\+specified\+\_\+}{extra_matcher_specified_}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::extra\+\_\+matcher\+\_\+specified\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a34f599ac7ae4f1fb7567e0d4c9fadcba}{}\label{classtesting_1_1internal_1_1_expectation_base_a34f599ac7ae4f1fb7567e0d4c9fadcba}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!file\+\_\+@{file\+\_\+}}
+\index{file\+\_\+@{file\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{file\+\_\+}{file_}}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ testing\+::internal\+::\+Expectation\+Base\+::file\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_afabf690537298bbb84e9b443f62d7e97}{}\label{classtesting_1_1internal_1_1_expectation_base_afabf690537298bbb84e9b443f62d7e97}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!immediate\+\_\+prerequisites\+\_\+@{immediate\+\_\+prerequisites\+\_\+}}
+\index{immediate\+\_\+prerequisites\+\_\+@{immediate\+\_\+prerequisites\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{immediate\+\_\+prerequisites\+\_\+}{immediate_prerequisites_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expectation\+Set} testing\+::internal\+::\+Expectation\+Base\+::immediate\+\_\+prerequisites\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a186eff0fdcacc8c1e1a2becdec11d3cd}{}\label{classtesting_1_1internal_1_1_expectation_base_a186eff0fdcacc8c1e1a2becdec11d3cd}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!last\+\_\+clause\+\_\+@{last\+\_\+clause\+\_\+}}
+\index{last\+\_\+clause\+\_\+@{last\+\_\+clause\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{last\+\_\+clause\+\_\+}{last_clause_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Clause} testing\+::internal\+::\+Expectation\+Base\+::last\+\_\+clause\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a584f296e53b4cc002ddf5e65e44d72d9}{}\label{classtesting_1_1internal_1_1_expectation_base_a584f296e53b4cc002ddf5e65e44d72d9}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!line\+\_\+@{line\+\_\+}}
+\index{line\+\_\+@{line\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{line\+\_\+}{line_}}]{\setlength{\rightskip}{0pt plus 5cm}int testing\+::internal\+::\+Expectation\+Base\+::line\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_ab8143119e4b686ff1bb6c985924da57a}{}\label{classtesting_1_1internal_1_1_expectation_base_ab8143119e4b686ff1bb6c985924da57a}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!mutex\+\_\+@{mutex\+\_\+}}
+\index{mutex\+\_\+@{mutex\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{mutex\+\_\+}{mutex_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mutex} testing\+::internal\+::\+Expectation\+Base\+::mutex\+\_\+\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a364f5473591d08d0ac03595c9050c13e}{}\label{classtesting_1_1internal_1_1_expectation_base_a364f5473591d08d0ac03595c9050c13e}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!repeated\+\_\+action\+\_\+specified\+\_\+@{repeated\+\_\+action\+\_\+specified\+\_\+}}
+\index{repeated\+\_\+action\+\_\+specified\+\_\+@{repeated\+\_\+action\+\_\+specified\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{repeated\+\_\+action\+\_\+specified\+\_\+}{repeated_action_specified_}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::repeated\+\_\+action\+\_\+specified\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_abecd382b79252ffc0779d51e058b681c}{}\label{classtesting_1_1internal_1_1_expectation_base_abecd382b79252ffc0779d51e058b681c}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!retired\+\_\+@{retired\+\_\+}}
+\index{retired\+\_\+@{retired\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{retired\+\_\+}{retired_}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::retired\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a0afd852f5d7863effc3d304dac6a44cf}{}\label{classtesting_1_1internal_1_1_expectation_base_a0afd852f5d7863effc3d304dac6a44cf}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!retires\+\_\+on\+\_\+saturation\+\_\+@{retires\+\_\+on\+\_\+saturation\+\_\+}}
+\index{retires\+\_\+on\+\_\+saturation\+\_\+@{retires\+\_\+on\+\_\+saturation\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{retires\+\_\+on\+\_\+saturation\+\_\+}{retires_on_saturation_}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Expectation\+Base\+::retires\+\_\+on\+\_\+saturation\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a74802f3bedf4ab023b30ee6bb275a4d8}{}\label{classtesting_1_1internal_1_1_expectation_base_a74802f3bedf4ab023b30ee6bb275a4d8}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!source\+\_\+text\+\_\+@{source\+\_\+text\+\_\+}}
+\index{source\+\_\+text\+\_\+@{source\+\_\+text\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{source\+\_\+text\+\_\+}{source_text_}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf string} testing\+::internal\+::\+Expectation\+Base\+::source\+\_\+text\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a8803b5fa8354205a6b57e21a704acbef}{}\label{classtesting_1_1internal_1_1_expectation_base_a8803b5fa8354205a6b57e21a704acbef}
+\index{testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}!untyped\+\_\+actions\+\_\+@{untyped\+\_\+actions\+\_\+}}
+\index{untyped\+\_\+actions\+\_\+@{untyped\+\_\+actions\+\_\+}!testing\+::internal\+::\+Expectation\+Base@{testing\+::internal\+::\+Expectation\+Base}}
+\subsubsection[{\texorpdfstring{untyped\+\_\+actions\+\_\+}{untyped_actions_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Untyped\+Actions} testing\+::internal\+::\+Expectation\+Base\+::untyped\+\_\+actions\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classtesting_1_1internal_1_1_expectation_base_a9558ff6b8b1b7e3a99fac1f93d1826da}{}\label{classtesting_1_1internal_1_1_expectation_base_a9558ff6b8b1b7e3a99fac1f93d1826da}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/\hyperlink{gmock-spec-builders_8h}{gmock-\/spec-\/builders.\+h}\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/src/\hyperlink{gmock-spec-builders_8cc}{gmock-\/spec-\/builders.\+cc}\end{DoxyCompactItemize}

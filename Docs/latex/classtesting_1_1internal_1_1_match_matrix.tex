@@ -1,0 +1,97 @@
+\hypertarget{classtesting_1_1internal_1_1_match_matrix}{}\section{testing\+:\+:internal\+:\+:Match\+Matrix Class Reference}
+\label{classtesting_1_1internal_1_1_match_matrix}\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+
+
+{\ttfamily \#include $<$gmock-\/matchers.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtesting_1_1internal_1_1_match_matrix_afa3313976a69b2a954b2f8b8840c37bb}{Match\+Matrix} (size\+\_\+t num\+\_\+elements, size\+\_\+t num\+\_\+matchers)
+\item 
+size\+\_\+t \hyperlink{classtesting_1_1internal_1_1_match_matrix_ab98f3aa7fd9a536329e495a5016f8d63}{Lhs\+Size} () const 
+\item 
+size\+\_\+t \hyperlink{classtesting_1_1internal_1_1_match_matrix_a5292e007b3d54e2d89e38fa2a9c4e9d9}{Rhs\+Size} () const 
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_match_matrix_a57dc17758dbb54baed8e7294df8f16fc}{Has\+Edge} (size\+\_\+t ilhs, size\+\_\+t irhs) const 
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_match_matrix_aac7e9c6e0e4b51e6b1334829a0781021}{Set\+Edge} (size\+\_\+t ilhs, size\+\_\+t irhs, bool b)
+\item 
+bool \hyperlink{classtesting_1_1internal_1_1_match_matrix_a3a35e2d6107c225537d7e776465a7893}{Next\+Graph} ()
+\item 
+void \hyperlink{classtesting_1_1internal_1_1_match_matrix_aff1f0ae748f4a5c96117c0f27b493ac6}{Randomize} ()
+\item 
+\hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \hyperlink{classtesting_1_1internal_1_1_match_matrix_a0bfd9e3494fe211c9147aea6867ae7c4}{Debug\+String} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Match\+Matrix@{Match\+Matrix}}
+\index{Match\+Matrix@{Match\+Matrix}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Match\+Matrix(size\+\_\+t num\+\_\+elements, size\+\_\+t num\+\_\+matchers)}{MatchMatrix(size_t num_elements, size_t num_matchers)}}]{\setlength{\rightskip}{0pt plus 5cm}testing\+::internal\+::\+Match\+Matrix\+::\+Match\+Matrix (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{num\+\_\+elements, }
+\item[{size\+\_\+t}]{num\+\_\+matchers}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_match_matrix_afa3313976a69b2a954b2f8b8840c37bb}{}\label{classtesting_1_1internal_1_1_match_matrix_afa3313976a69b2a954b2f8b8840c37bb}
+
+
+\subsection{Member Function Documentation}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Debug\+String@{Debug\+String}}
+\index{Debug\+String@{Debug\+String}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Debug\+String() const }{DebugString() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf string} testing\+::internal\+::\+Match\+Matrix\+::\+Debug\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classtesting_1_1internal_1_1_match_matrix_a0bfd9e3494fe211c9147aea6867ae7c4}{}\label{classtesting_1_1internal_1_1_match_matrix_a0bfd9e3494fe211c9147aea6867ae7c4}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Has\+Edge@{Has\+Edge}}
+\index{Has\+Edge@{Has\+Edge}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Has\+Edge(size\+\_\+t ilhs, size\+\_\+t irhs) const }{HasEdge(size_t ilhs, size_t irhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Match\+Matrix\+::\+Has\+Edge (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{ilhs, }
+\item[{size\+\_\+t}]{irhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_match_matrix_a57dc17758dbb54baed8e7294df8f16fc}{}\label{classtesting_1_1internal_1_1_match_matrix_a57dc17758dbb54baed8e7294df8f16fc}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Lhs\+Size@{Lhs\+Size}}
+\index{Lhs\+Size@{Lhs\+Size}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Lhs\+Size() const }{LhsSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t testing\+::internal\+::\+Match\+Matrix\+::\+Lhs\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_match_matrix_ab98f3aa7fd9a536329e495a5016f8d63}{}\label{classtesting_1_1internal_1_1_match_matrix_ab98f3aa7fd9a536329e495a5016f8d63}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Next\+Graph@{Next\+Graph}}
+\index{Next\+Graph@{Next\+Graph}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Next\+Graph()}{NextGraph()}}]{\setlength{\rightskip}{0pt plus 5cm}bool testing\+::internal\+::\+Match\+Matrix\+::\+Next\+Graph (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classtesting_1_1internal_1_1_match_matrix_a3a35e2d6107c225537d7e776465a7893}{}\label{classtesting_1_1internal_1_1_match_matrix_a3a35e2d6107c225537d7e776465a7893}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Randomize@{Randomize}}
+\index{Randomize@{Randomize}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Randomize()}{Randomize()}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Match\+Matrix\+::\+Randomize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classtesting_1_1internal_1_1_match_matrix_aff1f0ae748f4a5c96117c0f27b493ac6}{}\label{classtesting_1_1internal_1_1_match_matrix_aff1f0ae748f4a5c96117c0f27b493ac6}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Rhs\+Size@{Rhs\+Size}}
+\index{Rhs\+Size@{Rhs\+Size}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Rhs\+Size() const }{RhsSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t testing\+::internal\+::\+Match\+Matrix\+::\+Rhs\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_match_matrix_a5292e007b3d54e2d89e38fa2a9c4e9d9}{}\label{classtesting_1_1internal_1_1_match_matrix_a5292e007b3d54e2d89e38fa2a9c4e9d9}
+\index{testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}!Set\+Edge@{Set\+Edge}}
+\index{Set\+Edge@{Set\+Edge}!testing\+::internal\+::\+Match\+Matrix@{testing\+::internal\+::\+Match\+Matrix}}
+\subsubsection[{\texorpdfstring{Set\+Edge(size\+\_\+t ilhs, size\+\_\+t irhs, bool b)}{SetEdge(size_t ilhs, size_t irhs, bool b)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal\+::\+Match\+Matrix\+::\+Set\+Edge (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{ilhs, }
+\item[{size\+\_\+t}]{irhs, }
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_match_matrix_aac7e9c6e0e4b51e6b1334829a0781021}{}\label{classtesting_1_1internal_1_1_match_matrix_aac7e9c6e0e4b51e6b1334829a0781021}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/include/gmock/\hyperlink{gmock-matchers_8h}{gmock-\/matchers.\+h}\item 
+/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/vendor/googletest/googlemock/src/\hyperlink{gmock-matchers_8cc}{gmock-\/matchers.\+cc}\end{DoxyCompactItemize}

@@ -1,0 +1,208 @@
+\hypertarget{_read_camera_model_8m}{}\section{/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/data/\+Oxford\+\_\+dataset/\+Read\+Camera\+Model.m File Reference}
+\label{_read_camera_model_8m}\index{/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/data/\+Oxford\+\_\+dataset/\+Read\+Camera\+Model.\+m@{/home/bhargavi/\+Documents/\+S\+D\+R/\+Copy\+\_\+\+Exam\+\_\+808\+X/data/\+Oxford\+\_\+dataset/\+Read\+Camera\+Model.\+m}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+id \hyperlink{_read_camera_model_8m_a8051cf56d1f9a06b12af321e4cffa814}{L\+U\+T\+:\+Authors\+:http\+:} (c Oxford,\mbox{[}Authors\mbox{]} wm @robots.\+ox.\+ac.\+uk visit,\mbox{[}\hyperlink{_07copy_08_2_undistort_image_8m_a79b63d05e38416e2784368c2d7e7b0d8}{http}\mbox{]} end models\+\_\+dir)
+\item 
+if \hyperlink{_read_camera_model_8m_aaf9d4ca92303c810deed4abf14a6c5ae}{strcmp} (\hyperlink{_07copy_08_2_read_camera_model_8m_ad6a80693cab5d3362ec8a576848102de}{camera}, \textquotesingle{}stereo\textquotesingle{}) \hyperlink{_07copy_08_2_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{sensor}
+\item 
+if \hyperlink{_read_camera_model_8m_acab4baf563899768e8b87b9ab0e6f9bd}{strcmp} (\hyperlink{_07copy_08_2_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{sensor}, \textquotesingle{}left\textquotesingle{}) model
+\item 
+elseif \hyperlink{_read_camera_model_8m_acd803ce3ce06c798862e65b270b0abca}{strcmp} (\hyperlink{_07copy_08_2_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{sensor}, \textquotesingle{}right\textquotesingle{}) model
+\item 
+narrow\+\_\+right also applies to this \hyperlink{_07copy_08_2_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{sensor} elseif \hyperlink{_read_camera_model_8m_ac3739896e02c32052f39aa3479e268e0}{strcmp} (\hyperlink{_07copy_08_2_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{sensor}, \textquotesingle{}centre\textquotesingle{}) model
+\item 
+else \hyperlink{_read_camera_model_8m_ac546fdc9911f4a876dbfaffbc7426f8b}{error} (\textquotesingle{}Unknown \hyperlink{_07copy_08_2_read_camera_model_8m_ad6a80693cab5d3362ec8a576848102de}{camera} model for given directory\textquotesingle{})
+\item 
+end if \hyperlink{_read_camera_model_8m_a77d0ad7004975de22ac91ca0a57e2326}{$\sim$exist} (\hyperlink{_07copy_08_2_read_camera_model_8m_a0e70188612924c3d4fe1a585bb13a9b1}{intrinsics\+\_\+path}, \textquotesingle{}\hyperlink{_07copy_08_2_read_camera_model_8m_a151631b2fd2bb776ef06c9f440a7ed74}{file}\textquotesingle{}) \hyperlink{_07copy_08_2_read_camera_model_8m_ac546fdc9911f4a876dbfaffbc7426f8b}{error}(\mbox{[}\textquotesingle{}Camera \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics} not found at \textquotesingle{}\hyperlink{_07copy_08_2_read_camera_model_8m_a0e70188612924c3d4fe1a585bb13a9b1}{intrinsics\+\_\+path}\mbox{]})
+\item 
+id \hyperlink{_read_camera_model_8m_a6376d4a3541d8fbe275e6fb24b3b6061}{file\+:} (2\+:5, 1\+:4 \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics})
+\item 
+if nargout if \hyperlink{_read_camera_model_8m_acc7ee79367a530b348a962747b30623d}{$\sim$exist} (\hyperlink{_07copy_08_2_read_camera_model_8m_abc40eb249f3b5a62b042cd025910ba12}{lut\+\_\+path}, \textquotesingle{}\hyperlink{_07copy_08_2_read_camera_model_8m_a151631b2fd2bb776ef06c9f440a7ed74}{file}\textquotesingle{})
+\item 
+\hyperlink{_read_camera_model_8m_a8d925fc9b2f46eba68bd31391001a1d2}{fclose} (\hyperlink{_07copy_08_2_read_camera_model_8m_a9603740ecdeb1a6f08426d09ff219ef7}{lut\+\_\+file})
+\item 
+\hyperlink{_07copy_08_2_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{L\+UT} consists of \hyperlink{_read_camera_model_8m_a551a3d351eadcc0b9b1a2f24f0fb5ea0}{a} (u, v) pair for each pixel \hyperlink{_07copy_08_2_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{L\+UT}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_read_camera_model_8m_a4fd2feeb3a90849ef03dbf87e8b79074}{function} \mbox{[}fx, \hyperlink{_07copy_08_2_read_camera_model_8m_a72a3754eef1c8dc380ae202a4c850230}{fy}, \hyperlink{_07copy_08_2_read_camera_model_8m_ac6018b746835ced81445d633fcbd75be}{cx}, \hyperlink{_07copy_08_2_read_camera_model_8m_a84aa7492d91fb680c50ef076eeac03c8}{cy}, G\+\_\+camera\+\_\+image, \hyperlink{_07copy_08_2_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{L\+UT}\mbox{]}
+\item 
+this is simply \hyperlink{_07copy_08_2_read_camera_model_8m_a551a3d351eadcc0b9b1a2f24f0fb5ea0}{a} rotation For stereo \hyperlink{_read_camera_model_8m_ac70a5ab012c73cbd810ff569af272c58}{camera}
+\item 
+\hyperlink{_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{sensor} = sensor\{end\}
+\item 
+end \hyperlink{_read_camera_model_8m_a0e70188612924c3d4fe1a585bb13a9b1}{intrinsics\+\_\+path} = \mbox{[}models\+\_\+dir \hyperlink{_07copy_08_2_read_camera_model_8m_ad6a80693cab5d3362ec8a576848102de}{camera} \textquotesingle{}\+\_\+\textquotesingle{} model \textquotesingle{}.txt\textquotesingle{}\mbox{]}
+\item 
+\hyperlink{_read_camera_model_8m_abc40eb249f3b5a62b042cd025910ba12}{lut\+\_\+path} = \mbox{[}models\+\_\+dir \hyperlink{_07copy_08_2_read_camera_model_8m_ad6a80693cab5d3362ec8a576848102de}{camera} \textquotesingle{}\+\_\+\textquotesingle{} model \textquotesingle{}\+\_\+distortion\+\_\+lut.\+bin\textquotesingle{}\mbox{]}
+\item 
+end \hyperlink{_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics} = dlmread(\hyperlink{_07copy_08_2_read_camera_model_8m_a0e70188612924c3d4fe1a585bb13a9b1}{intrinsics\+\_\+path})
+\item 
+First line of \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics} \hyperlink{_read_camera_model_8m_a151631b2fd2bb776ef06c9f440a7ed74}{file}
+\item 
+First line of \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics} \hyperlink{_read_camera_model_8m_a72a3754eef1c8dc380ae202a4c850230}{fy} = \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics}(1, 2)
+\item 
+\hyperlink{_read_camera_model_8m_ac6018b746835ced81445d633fcbd75be}{cx} = \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics}(1, 3)
+\item 
+\hyperlink{_read_camera_model_8m_a84aa7492d91fb680c50ef076eeac03c8}{cy} = \hyperlink{_07copy_08_2_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{intrinsics}(1, 4)
+\item 
+end \hyperlink{_read_camera_model_8m_a9603740ecdeb1a6f08426d09ff219ef7}{lut\+\_\+file} = fopen(\hyperlink{_07copy_08_2_read_camera_model_8m_abc40eb249f3b5a62b042cd025910ba12}{lut\+\_\+path})
+\item 
+\hyperlink{_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{L\+UT} = fread(\hyperlink{_07copy_08_2_read_camera_model_8m_a9603740ecdeb1a6f08426d09ff219ef7}{lut\+\_\+file}, \textquotesingle{}double\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!a@{a}}
+\index{a@{a}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{a(u, v) pair for each pixel L\+UT}{a(u, v) pair for each pixel LUT}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf L\+UT} consists of a (
+\begin{DoxyParamCaption}
+\item[{u}]{, }
+\item[{v}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_a551a3d351eadcc0b9b1a2f24f0fb5ea0}{}\label{_read_camera_model_8m_a551a3d351eadcc0b9b1a2f24f0fb5ea0}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!error@{error}}
+\index{error@{error}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{error(\textquotesingle{}\+Unknown camera model for given directory\textquotesingle{})}{error('Unknown camera model for given directory')}}]{\setlength{\rightskip}{0pt plus 5cm}else error (
+\begin{DoxyParamCaption}
+\item[{\textquotesingle{}Unknown {\bf camera} model for given directory\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_ac546fdc9911f4a876dbfaffbc7426f8b}{}\label{_read_camera_model_8m_ac546fdc9911f4a876dbfaffbc7426f8b}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!fclose@{fclose}}
+\index{fclose@{fclose}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{fclose(lut\+\_\+file)}{fclose(lut_file)}}]{\setlength{\rightskip}{0pt plus 5cm}fclose (
+\begin{DoxyParamCaption}
+\item[{{\bf lut\+\_\+file}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_a8d925fc9b2f46eba68bd31391001a1d2}{}\label{_read_camera_model_8m_a8d925fc9b2f46eba68bd31391001a1d2}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!file\+:@{file\+:}}
+\index{file\+:@{file\+:}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{file\+:(2\+:5, 1\+:4 intrinsics)}{file:(2:5, 1:4 intrinsics)}}]{\setlength{\rightskip}{0pt plus 5cm}id file\+: (
+\begin{DoxyParamCaption}
+\item[{2\+:5}]{, }
+\item[{1\+:4}]{intrinsics}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{_read_camera_model_8m_a6376d4a3541d8fbe275e6fb24b3b6061}{}\label{_read_camera_model_8m_a6376d4a3541d8fbe275e6fb24b3b6061}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!L\+U\+T\+:\+Authors\+:http\+:@{L\+U\+T\+:\+Authors\+:http\+:}}
+\index{L\+U\+T\+:\+Authors\+:http\+:@{L\+U\+T\+:\+Authors\+:http\+:}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{L\+U\+T\+:\+Authors\+:http\+:(c Oxford,[Authors] wm "@robots.\+ox.\+ac.\+uk visit,[http] end models\+\_\+dir)}{LUT:Authors:http:(c Oxford,[Authors] wm @robots.ox.ac.uk visit,[http] end models_dir)}}]{\setlength{\rightskip}{0pt plus 5cm}id L\+U\+T\+:\+Authors\+:http\+: (
+\begin{DoxyParamCaption}
+\item[{c}]{Oxford, }
+\item[{\mbox{[}\+Authors\mbox{]} wm @robots.\+ox.\+ac.\+uk}]{visit, }
+\item[{\mbox{[}http\mbox{]} end}]{models\+\_\+dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{_read_camera_model_8m_a8051cf56d1f9a06b12af321e4cffa814}{}\label{_read_camera_model_8m_a8051cf56d1f9a06b12af321e4cffa814}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{strcmp(camera, \textquotesingle{}stereo\textquotesingle{}) sensor}{strcmp(camera, 'stereo') sensor}}]{\setlength{\rightskip}{0pt plus 5cm}if strcmp (
+\begin{DoxyParamCaption}
+\item[{{\bf camera}}]{, }
+\item[{\textquotesingle{}stereo\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_aaf9d4ca92303c810deed4abf14a6c5ae}{}\label{_read_camera_model_8m_aaf9d4ca92303c810deed4abf14a6c5ae}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{strcmp(sensor, \textquotesingle{}left\textquotesingle{}) model}{strcmp(sensor, 'left') model}}]{\setlength{\rightskip}{0pt plus 5cm}if strcmp (
+\begin{DoxyParamCaption}
+\item[{{\bf sensor}}]{, }
+\item[{\textquotesingle{}left\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_acab4baf563899768e8b87b9ab0e6f9bd}{}\label{_read_camera_model_8m_acab4baf563899768e8b87b9ab0e6f9bd}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{strcmp(sensor, \textquotesingle{}right\textquotesingle{}) model}{strcmp(sensor, 'right') model}}]{\setlength{\rightskip}{0pt plus 5cm}elseif strcmp (
+\begin{DoxyParamCaption}
+\item[{{\bf sensor}}]{, }
+\item[{\textquotesingle{}right\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_acd803ce3ce06c798862e65b270b0abca}{}\label{_read_camera_model_8m_acd803ce3ce06c798862e65b270b0abca}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{strcmp(sensor, \textquotesingle{}centre\textquotesingle{}) model}{strcmp(sensor, 'centre') model}}]{\setlength{\rightskip}{0pt plus 5cm}narrow\+\_\+right also applies to this {\bf sensor} elseif strcmp (
+\begin{DoxyParamCaption}
+\item[{{\bf sensor}}]{, }
+\item[{\textquotesingle{}centre\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_ac3739896e02c32052f39aa3479e268e0}{}\label{_read_camera_model_8m_ac3739896e02c32052f39aa3479e268e0}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!````~exist@{$\sim$exist}}
+\index{````~exist@{$\sim$exist}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{$\sim$exist(intrinsics\+\_\+path, \textquotesingle{}file\textquotesingle{}) error([\textquotesingle{}\+Camera intrinsics not found at \textquotesingle{}intrinsics\+\_\+path])}{~exist(intrinsics_path, 'file') error(['Camera intrinsics not found at 'intrinsics_path])}}]{\setlength{\rightskip}{0pt plus 5cm}end if $\sim$exist (
+\begin{DoxyParamCaption}
+\item[{{\bf intrinsics\+\_\+path}}]{, }
+\item[{\textquotesingle{}{\bf file}\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_a77d0ad7004975de22ac91ca0a57e2326}{}\label{_read_camera_model_8m_a77d0ad7004975de22ac91ca0a57e2326}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!````~exist@{$\sim$exist}}
+\index{````~exist@{$\sim$exist}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{$\sim$exist(lut\+\_\+path, \textquotesingle{}file\textquotesingle{})}{~exist(lut_path, 'file')}}]{\setlength{\rightskip}{0pt plus 5cm}if nargout if $\sim$exist (
+\begin{DoxyParamCaption}
+\item[{{\bf lut\+\_\+path}}]{, }
+\item[{\textquotesingle{}{\bf file}\textquotesingle{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_read_camera_model_8m_acc7ee79367a530b348a962747b30623d}{}\label{_read_camera_model_8m_acc7ee79367a530b348a962747b30623d}
+
+
+\subsection{Variable Documentation}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!camera@{camera}}
+\index{camera@{camera}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{camera}{camera}}]{\setlength{\rightskip}{0pt plus 5cm}end camera}\hypertarget{_read_camera_model_8m_ac70a5ab012c73cbd810ff569af272c58}{}\label{_read_camera_model_8m_ac70a5ab012c73cbd810ff569af272c58}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= regexp(image\_dir, \textcolor{stringliteral}{'(stereo|mono\_left|mono\_right|mono\_rear)'}, ...
+      \textcolor{stringliteral}{'match'})
+\end{DoxyCode}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!cx@{cx}}
+\index{cx@{cx}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{cx}{cx}}]{\setlength{\rightskip}{0pt plus 5cm}cx = {\bf intrinsics}(1, 3)}\hypertarget{_read_camera_model_8m_ac6018b746835ced81445d633fcbd75be}{}\label{_read_camera_model_8m_ac6018b746835ced81445d633fcbd75be}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!cy@{cy}}
+\index{cy@{cy}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{cy}{cy}}]{\setlength{\rightskip}{0pt plus 5cm}cy = {\bf intrinsics}(1, 4)}\hypertarget{_read_camera_model_8m_a84aa7492d91fb680c50ef076eeac03c8}{}\label{_read_camera_model_8m_a84aa7492d91fb680c50ef076eeac03c8}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!file@{file}}
+\index{file@{file}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{file}{file}}]{\setlength{\rightskip}{0pt plus 5cm}First line of {\bf intrinsics} file}\hypertarget{_read_camera_model_8m_a151631b2fd2bb776ef06c9f440a7ed74}{}\label{_read_camera_model_8m_a151631b2fd2bb776ef06c9f440a7ed74}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!function@{function}}
+\index{function@{function}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{function}{function}}]{\setlength{\rightskip}{0pt plus 5cm}function\mbox{[}fx, {\bf fy}, {\bf cx}, {\bf cy}, G\+\_\+camera\+\_\+image, {\bf L\+UT}\mbox{]}}\hypertarget{_read_camera_model_8m_a4fd2feeb3a90849ef03dbf87e8b79074}{}\label{_read_camera_model_8m_a4fd2feeb3a90849ef03dbf87e8b79074}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= ReadCameraModel(image\_dir, models\_dir)
+  
+% ReadCameraModel - load \hyperlink{_read_camera_model_8m_ac70a5ab012c73cbd810ff569af272c58}{camera} intrisics and undistortion \hyperlink{_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{LUT} from disk
+%
+% [fx, \hyperlink{_read_camera_model_8m_a72a3754eef1c8dc380ae202a4c850230}{fy}, \hyperlink{_read_camera_model_8m_ac6018b746835ced81445d633fcbd75be}{cx}, \hyperlink{_read_camera_model_8m_a84aa7492d91fb680c50ef076eeac03c8}{cy}, G\_camera\_image, \hyperlink{_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{LUT}] = ReadCameraModel(image\_dir, models\_dir)
+%
+% INPUTS:
+%   image\_dir: directory containing images for which camera model is required
+%   models\_dir: directory containing camera models
+%
+% OUTPUTS:
+%   fx: horizontal focal length in pixels
+%   fy: vertical focal length in pixels
+%   cx: horizontal principal point in pixels
+%   cy: vertical principal point in pixels
+%   G\_camera\_image: transform that maps from image coordinates to the base
+%     frame of the camera. For monocular cameras
+\end{DoxyCode}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!fy@{fy}}
+\index{fy@{fy}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{fy}{fy}}]{\setlength{\rightskip}{0pt plus 5cm}First line of {\bf intrinsics} fy = {\bf intrinsics}(1, 2)}\hypertarget{_read_camera_model_8m_a72a3754eef1c8dc380ae202a4c850230}{}\label{_read_camera_model_8m_a72a3754eef1c8dc380ae202a4c850230}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!intrinsics@{intrinsics}}
+\index{intrinsics@{intrinsics}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{intrinsics}{intrinsics}}]{\setlength{\rightskip}{0pt plus 5cm}end intrinsics = dlmread({\bf intrinsics\+\_\+path})}\hypertarget{_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}{}\label{_read_camera_model_8m_a3e4c170110fd352c464941b9e15e4c69}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!intrinsics\+\_\+path@{intrinsics\+\_\+path}}
+\index{intrinsics\+\_\+path@{intrinsics\+\_\+path}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{intrinsics\+\_\+path}{intrinsics_path}}]{\setlength{\rightskip}{0pt plus 5cm}else intrinsics\+\_\+path = \mbox{[}models\+\_\+dir {\bf camera} \textquotesingle{}\+\_\+\textquotesingle{} model \textquotesingle{}.txt\textquotesingle{}\mbox{]}}\hypertarget{_read_camera_model_8m_a0e70188612924c3d4fe1a585bb13a9b1}{}\label{_read_camera_model_8m_a0e70188612924c3d4fe1a585bb13a9b1}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!L\+UT@{L\+UT}}
+\index{L\+UT@{L\+UT}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{L\+UT}{LUT}}]{\setlength{\rightskip}{0pt plus 5cm}L\+UT = fread({\bf lut\+\_\+file}, \textquotesingle{}double\textquotesingle{})}\hypertarget{_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}{}\label{_read_camera_model_8m_aab889ecdfcf0981a8c12d716568a0e59}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!lut\+\_\+file@{lut\+\_\+file}}
+\index{lut\+\_\+file@{lut\+\_\+file}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{lut\+\_\+file}{lut_file}}]{\setlength{\rightskip}{0pt plus 5cm}end lut\+\_\+file = fopen({\bf lut\+\_\+path})}\hypertarget{_read_camera_model_8m_a9603740ecdeb1a6f08426d09ff219ef7}{}\label{_read_camera_model_8m_a9603740ecdeb1a6f08426d09ff219ef7}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!lut\+\_\+path@{lut\+\_\+path}}
+\index{lut\+\_\+path@{lut\+\_\+path}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{lut\+\_\+path}{lut_path}}]{\setlength{\rightskip}{0pt plus 5cm}lut\+\_\+path = \mbox{[}models\+\_\+dir {\bf camera} \textquotesingle{}\+\_\+\textquotesingle{} model \textquotesingle{}\+\_\+distortion\+\_\+lut.\+bin\textquotesingle{}\mbox{]}}\hypertarget{_read_camera_model_8m_abc40eb249f3b5a62b042cd025910ba12}{}\label{_read_camera_model_8m_abc40eb249f3b5a62b042cd025910ba12}
+\index{Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}!sensor@{sensor}}
+\index{sensor@{sensor}!Read\+Camera\+Model.\+m@{Read\+Camera\+Model.\+m}}
+\subsubsection[{\texorpdfstring{sensor}{sensor}}]{\setlength{\rightskip}{0pt plus 5cm}sensor = sensor\{end\}}\hypertarget{_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}{}\label{_read_camera_model_8m_ad2c79e7569cbb6bbd9a5632a509151f0}
