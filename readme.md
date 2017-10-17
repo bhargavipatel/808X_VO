@@ -1,4 +1,4 @@
-## Visual Odometry
+# Visual Odometry For Monocular Camera.
 [![Build Status](https://travis-ci.org/bhargavipatel/808X_VO.svg?branch=master)](https://travis-ci.org/bhargavipatel/808X_VO)
 [![Coverage Status](https://coveralls.io/repos/github/bhargavipatel/808X_VO/badge.svg?branch=master)](https://coveralls.io/github/bhargavipatel/808X_VO?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/bhargavipatel/808X_VO/blob/master/LICENSE)
@@ -25,7 +25,7 @@ Monocular or stereo, the objective of visual odometry is to estimate the pose of
 
 For stereo, the general idea is that if you know your camera parameters, and you know that the relationship between your camera is fixed, then a point pp that is viewed from both cameras projects onto each image plane an epipolar line segment. Using the epipolar plane defined by these line segments and the camera geometry, the distance to the point can be estimated, which can be used to estimate the pose of the robot.
 
-For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time tt; the robot is actuated, and another image is taken at time t+1t+1 (e.g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don't know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.
+For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time t; the robot is actuated, and another image is taken at time t+1 (e.g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don't know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.
 
 The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; SIFT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used; RANSAC is one such algorithm. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.I am using SURF Features which yield better performance than SIFT.
 
@@ -51,12 +51,13 @@ Issues Raised and Solved log can be found [here](https://github.com/bhargavipate
 - [x] Implement the Visual Odometry for Monocular Camera. 
 - [x] Apply google test to verify the implementation.
 - [x] Visualize and Plotting of Trajectory.
+- [x] Detailed Documentation
 ## Final Deliverables:
 - [x] Implement the Visual Odometry for Monocular Camera.
 - [x] The Unit Testing using google test
-- [x] Visualize and Plotting of Trajectory.
+- [x] Visualization and Plotting of Trajectory.
 - [x] Github README with TravisCI and Coverage of Coveralls
-- [x] Doxygen Documentation
+- [x] Detailed Documentation including Doxygen. 
 
 ## FUTURE WORK
 -  Can try Real-time visual odometry from stereo data. 
@@ -119,7 +120,7 @@ cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLI
 Open Eclipse, go to File -> Import -> General -> Existing Projects into Workspace -> 
 Select "boilerplate-eclipse" directory created previously as root directory -> Finish
 
-# Edit
+## Edit
 
 Source files may be edited under the "[Source Directory]" label in the Project Explorer.
 
@@ -200,4 +201,8 @@ In your git home directory. Doxygen files will be generated to /docs folder
 ```
 doxygen Doxygen
 ```
+For command Line. [Details](https://www.stack.nl/~dimitri/doxygen/manual/doxywizard_usage.html).
+```
+sudo ap-get install doxygen-gui
+``` 
  
