@@ -135,7 +135,7 @@ vo::vo() {
         cv::Point2d pp(cameraMat.at<double>(0, 2), cameraMat.at<double>(1, 2));
         cv::Mat E, R, t, mask;
 
-        std::cout << "Test\n";
+        std::cout << "\n";
         E = findEssentialMat(scene, obj, focal, pp,
            cv::RANSAC, 0.999, 1.0, mask);
         recoverPose(E, scene, obj, R, t, focal, pp, mask);

@@ -41,15 +41,17 @@ The SIP process metholodogy was used for the development .The product log, time 
    - During this stage, all the compiler warnings were addressed and all the program blocks were commented using Doxygen syntax. This ensures the overall quality of the software product.
 
 UML class/activity diagrams can be found [here](https://github.com/bhargavipatel/808X_VO/tree/master/UML).
+Issues Raised and Solved log can be found [here] (https://github.com/bhargavipatel/808X_VO/issues)
 
-## Plotting Position
+## Plotting Trajectory and Output
 ![alt text](OutputFigures/vo1.png "Trajectory Plot")
+![alt text](OutputFigures/translationpara.png "Translation Parameters")
 
 ## TODO
 - [x] Implement the Visual Odometry for Monocular Camera. 
 - [x] Apply google test to verify the implementation.
 - [x] Visualize and Plotting of Trajectory.
-## STATUS/Final Deliverables:
+## Final Deliverables:
 - [x] Implement the Visual Odometry for Monocular Camera.
 - [x] The Unit Testing using google test
 - [x] Visualize and Plotting of Trajectory.
@@ -57,9 +59,9 @@ UML class/activity diagrams can be found [here](https://github.com/bhargavipatel
 - [x] Doxygen Documentation
 
 ## FUTURE WORK
-- [x] Can try Real-time visual odometry from stereo data. 
-- [x] Can Extend this project on ROS for SLAM. 
-- [x] Implement more classes. 
+-  Can try Real-time visual odometry from stereo data. 
+-  Can Extend this project on ROS for SLAM. 
+-  Implement more classes. 
 
 ## Standard install via command-line
 ```
