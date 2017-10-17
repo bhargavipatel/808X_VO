@@ -53,6 +53,7 @@ vo::vo() {
     // Reading start image and demosaicing it
     cv::String img1 = imgList[1];
     cv::Mat tmp = imread(img1, cv::IMREAD_GRAYSCALE);
+    
     int r = tmp.rows;
     int c = tmp.cols;
 

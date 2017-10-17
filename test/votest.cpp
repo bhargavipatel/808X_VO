@@ -19,6 +19,7 @@
 class VisualTest : public ::testing::Test {
  protected:
     vo voObj;  // Create an object to be used in the tests
+    std::string val1 = "../data/Oxford_dataset/model/";
 };
 
 /**
@@ -49,3 +50,13 @@ TEST_F(VisualTest, FileCheck) {
   EXPECT_EQ(voObj.checkfile_fun(), 1);
 }
 
+/**
+ * @brief       Check test
+ *
+ * @param[in]  VisualTest vo object
+ * @param[in]  ResultCheck Name of the test
+ */
+TEST_F(VisualTest, checkFolder) {
+  std::string val2 = voObj.mdlFolder;
+  EXPECT_EQ(val1, val2);
+}

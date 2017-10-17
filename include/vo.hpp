@@ -43,6 +43,9 @@ class vo {
      */
     // getdata getdataobj_;
     getdata getdataobj_;
+    // cv::Mat tmp;
+    std::string mdlFolder = "../data/Oxford_dataset/model/";
+
     // std
     vo();
 
