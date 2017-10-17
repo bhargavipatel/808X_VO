@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ENPM808XVO: Introduction: Why Google C++ Testing Framework?</title>
+<title>VO808X: Introduction: Why Google C++ Testing Framework?</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ENPM808XVO
+   <div id="projectname">VO808X
    </div>
   </td>
  </tr>
@@ -125,8 +125,8 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 <p>Since Google C++ Testing Framework is based on the popular xUnit architecture, you'll feel right at home if you've used JUnit or PyUnit before. If not, it will take you about 10 minutes to learn the basics and get started. So let's go!</p>
 <p><em>Note:</em> We sometimes refer to Google C++ Testing Framework informally as <em>Google Test</em>.</p>
 <h1>Setting up a New Test Project</h1>
-<p>To write a test program using Google Test, you need to compile Google Test into a library and link your test with it. We provide build files for some popular build systems (<code>msvc/</code> for Visual Studio, <code>xcode/</code> for Mac Xcode, <code>make/</code> for GNU make, <code>codegear/</code> for Borland C++ Builder, and the autotools script in the Google Test root directory). If your build system is not on this list, you can take a look at <code>make/Makefile</code> to learn how Google Test should be compiled (basically you want to compile <code><a class="el" href="gtest-all_8cc.html">src/gtest-all.cc</a></code> with <code>GTEST_ROOT</code> and <code>GTEST_ROOT/include</code> in the header search path, where <code>GTEST_ROOT</code> is the Google Test root directory).</p>
-<p>Once you are able to compile the Google Test library, you should create a project or build target for your test program. Make sure you have <code>GTEST_ROOT/include</code> in the header search path so that the compiler can find <code>&lt;<a class="el" href="gtest_8h.html">gtest/gtest.h</a>&gt;</code> when compiling your test. Set up your test project to link with the Google Test library (for example, in Visual Studio, this is done by adding a dependency on <code>gtest.vcproj</code>).</p>
+<p>To write a test program using Google Test, you need to compile Google Test into a library and link your test with it. We provide build files for some popular build systems (<code>msvc/</code> for Visual Studio, <code>xcode/</code> for Mac Xcode, <code>make/</code> for GNU make, <code>codegear/</code> for Borland C++ Builder, and the autotools script in the Google Test root directory). If your build system is not on this list, you can take a look at <code>make/Makefile</code> to learn how Google Test should be compiled (basically you want to compile <code>src/gtest-all.cc</code> with <code>GTEST_ROOT</code> and <code>GTEST_ROOT/include</code> in the header search path, where <code>GTEST_ROOT</code> is the Google Test root directory).</p>
+<p>Once you are able to compile the Google Test library, you should create a project or build target for your test program. Make sure you have <code>GTEST_ROOT/include</code> in the header search path so that the compiler can find <code>&lt;gtest/gtest.h&gt;</code> when compiling your test. Set up your test project to link with the Google Test library (for example, in Visual Studio, this is done by adding a dependency on <code>gtest.vcproj</code>).</p>
 <p>If you still have questions, take a look at how Google Test's own tests are built and use them as examples.</p>
 <h1>Basic Concepts</h1>
 <p>When using Google Test, you start by writing <em>assertions</em>, which are statements that check whether a condition is true. An assertion's result can be <em>success</em>, <em>nonfatal failure</em>, or <em>fatal failure</em>. If a fatal failure occurs, it aborts the current function; otherwise the program continues normally.</p>

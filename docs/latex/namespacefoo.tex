@@ -24,9 +24,9 @@ void \hyperlink{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{Print\+To} (cons
 \item 
 \+::std\+::ostream \& \hyperlink{namespacefoo_a65f8809f6af7f69f5cc842493caf4491}{operator$<$$<$} (\+::std\+::ostream \&os, const \hyperlink{structfoo_1_1_pointer_printable}{Pointer\+Printable} $\ast$)
 \item 
-{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacefoo_a27945da9cb5c9d3d51b69e6429c2f46d}{Print\+To} (const \hyperlink{classfoo_1_1_printable_via_print_to_template}{Printable\+Via\+Print\+To\+Template}$<$ T $>$ \&x,\+::std\+::ostream $\ast$os)
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacefoo_a27945da9cb5c9d3d51b69e6429c2f46d}{Print\+To} (const \hyperlink{classfoo_1_1_printable_via_print_to_template}{Printable\+Via\+Print\+To\+Template}$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \&x,\+::std\+::ostream $\ast$os)
 \item 
-{\footnotesize template$<$typename T $>$ }\\inline\+::std\+::ostream \& \hyperlink{namespacefoo_abe04f604d114085b0b9af25600ef00da}{operator$<$$<$} (\+::std\+::ostream \&os, const \hyperlink{classfoo_1_1_streamable_template_in_foo}{Streamable\+Template\+In\+Foo}$<$ T $>$ \&x)
+{\footnotesize template$<$typename T $>$ }\\inline\+::std\+::ostream \& \hyperlink{namespacefoo_abe04f604d114085b0b9af25600ef00da}{operator$<$$<$} (\+::std\+::ostream \&os, const \hyperlink{classfoo_1_1_streamable_template_in_foo}{Streamable\+Template\+In\+Foo}$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \&x)
 \item 
 \hyperlink{namespacefoo_a0d50eecc97df56ae625078848ba9c98a}{T\+E\+S\+T\+\_\+F} (\hyperlink{classfoo_1_1_mixed_up_test_case_test}{Mixed\+Up\+Test\+Case\+Test}, First\+Test\+From\+Namespace\+Foo)
 \item 
@@ -45,14 +45,22 @@ void \hyperlink{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{Print\+To} (cons
 \item[{const {\bf Pointer\+Printable} $\ast$}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_a65f8809f6af7f69f5cc842493caf4491}{}\label{namespacefoo_a65f8809f6af7f69f5cc842493caf4491}
+
+
+Definition at line 152 of file gtest-\/printers\+\_\+test.\+cc.
+
 \index{foo@{foo}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!foo@{foo}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(\+::std\+::ostream \&os, const Streamable\+Template\+In\+Foo$<$ T $>$ \&x)}{operator<<(::std::ostream &os, const StreamableTemplateInFoo< T > &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ inline \+::std\+::ostream\& foo\+::operator$<$$<$ (
 \begin{DoxyParamCaption}
 \item[{\+::std\+::ostream \&}]{os, }
-\item[{const {\bf Streamable\+Template\+In\+Foo}$<$ T $>$ \&}]{x}
+\item[{const {\bf Streamable\+Template\+In\+Foo}$<$ {\bf T} $>$ \&}]{x}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_abe04f604d114085b0b9af25600ef00da}{}\label{namespacefoo_abe04f604d114085b0b9af25600ef00da}
+
+
+Definition at line 185 of file gtest-\/printers\+\_\+test.\+cc.
+
 \index{foo@{foo}!Print\+To@{Print\+To}}
 \index{Print\+To@{Print\+To}!foo@{foo}}
 \subsubsection[{\texorpdfstring{Print\+To(const Printable\+Via\+Print\+To \&x,\+::std\+::ostream $\ast$os)}{PrintTo(const PrintableViaPrintTo &x,::std::ostream *os)}}]{\setlength{\rightskip}{0pt plus 5cm}void foo\+::\+Print\+To (
@@ -61,14 +69,22 @@ void \hyperlink{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{Print\+To} (cons
 \item[{\+::std\+::ostream $\ast$}]{os}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{}\label{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}
+
+
+Definition at line 144 of file gtest-\/printers\+\_\+test.\+cc.
+
 \index{foo@{foo}!Print\+To@{Print\+To}}
 \index{Print\+To@{Print\+To}!foo@{foo}}
 \subsubsection[{\texorpdfstring{Print\+To(const Printable\+Via\+Print\+To\+Template$<$ T $>$ \&x,\+::std\+::ostream $\ast$os)}{PrintTo(const PrintableViaPrintToTemplate< T > &x,::std::ostream *os)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void foo\+::\+Print\+To (
 \begin{DoxyParamCaption}
-\item[{const {\bf Printable\+Via\+Print\+To\+Template}$<$ T $>$ \&}]{x, }
+\item[{const {\bf Printable\+Via\+Print\+To\+Template}$<$ {\bf T} $>$ \&}]{x, }
 \item[{\+::std\+::ostream $\ast$}]{os}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_a27945da9cb5c9d3d51b69e6429c2f46d}{}\label{namespacefoo_a27945da9cb5c9d3d51b69e6429c2f46d}
+
+
+Definition at line 169 of file gtest-\/printers\+\_\+test.\+cc.
+
 \index{foo@{foo}!T\+E\+S\+T\+\_\+F@{T\+E\+S\+T\+\_\+F}}
 \index{T\+E\+S\+T\+\_\+F@{T\+E\+S\+T\+\_\+F}!foo@{foo}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+F(\+Mixed\+Up\+Test\+Case\+Test, First\+Test\+From\+Namespace\+Foo)}{TEST_F(MixedUpTestCaseTest, FirstTestFromNamespaceFoo)}}]{\setlength{\rightskip}{0pt plus 5cm}foo\+::\+T\+E\+S\+T\+\_\+F (
@@ -77,6 +93,10 @@ void \hyperlink{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{Print\+To} (cons
 \item[{First\+Test\+From\+Namespace\+Foo}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_a0d50eecc97df56ae625078848ba9c98a}{}\label{namespacefoo_a0d50eecc97df56ae625078848ba9c98a}
+
+
+Definition at line 538 of file gtest\+\_\+output\+\_\+test\+\_\+.\+cc.
+
 \index{foo@{foo}!T\+E\+S\+T\+\_\+F@{T\+E\+S\+T\+\_\+F}}
 \index{T\+E\+S\+T\+\_\+F@{T\+E\+S\+T\+\_\+F}!foo@{foo}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+F(\+Mixed\+Up\+Test\+Case\+Test, Second\+Test\+From\+Namespace\+Foo)}{TEST_F(MixedUpTestCaseTest, SecondTestFromNamespaceFoo)}}]{\setlength{\rightskip}{0pt plus 5cm}foo\+::\+T\+E\+S\+T\+\_\+F (
@@ -85,6 +105,10 @@ void \hyperlink{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{Print\+To} (cons
 \item[{Second\+Test\+From\+Namespace\+Foo}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_a7911fd62b6ae405016caed779b2f95dc}{}\label{namespacefoo_a7911fd62b6ae405016caed779b2f95dc}
+
+
+Definition at line 539 of file gtest\+\_\+output\+\_\+test\+\_\+.\+cc.
+
 \index{foo@{foo}!T\+E\+S\+T\+\_\+F@{T\+E\+S\+T\+\_\+F}}
 \index{T\+E\+S\+T\+\_\+F@{T\+E\+S\+T\+\_\+F}!foo@{foo}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+F(\+Mixed\+Up\+Test\+Case\+With\+Same\+Test\+Name\+Test, The\+Second\+Test\+With\+This\+Name\+Should\+Fail)}{TEST_F(MixedUpTestCaseWithSameTestNameTest, TheSecondTestWithThisNameShouldFail)}}]{\setlength{\rightskip}{0pt plus 5cm}foo\+::\+T\+E\+S\+T\+\_\+F (
@@ -93,3 +117,7 @@ void \hyperlink{namespacefoo_a6808585dc0cb2884adeb4f39e3cb95cf}{Print\+To} (cons
 \item[{The\+Second\+Test\+With\+This\+Name\+Should\+Fail}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacefoo_a2bc2a2547ff38da0ecf68676e75583cd}{}\label{namespacefoo_a2bc2a2547ff38da0ecf68676e75583cd}
+
+
+Definition at line 544 of file gtest\+\_\+output\+\_\+test\+\_\+.\+cc.
+

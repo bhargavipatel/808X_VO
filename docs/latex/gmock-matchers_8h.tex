@@ -14,21 +14,9 @@
 {\ttfamily \#include \char`\"{}gtest/gtest.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}gmock/internal/custom/gmock-\/matchers.\+h\char`\"{}}\\*
 Include dependency graph for gmock-\/matchers.h\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gmock-matchers_8h__incl}
-\end{center}
-\end{figure}
+% FIG 0
 This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gmock-matchers_8h__dep__incl}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -252,21 +240,21 @@ typedef \+::std\+::vector$<$ Element\+Matcher\+Pair $>$ \hyperlink{namespacetest
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\Matcher$<$ T $>$ \hyperlink{namespacetesting_a37fd8029ac00e60952440a3d9cca8166}{testing\+::\+Make\+Matcher} (const Matcher\+Interface$<$ T $>$ $\ast$impl)
+{\footnotesize template$<$typename T $>$ }\\Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a37fd8029ac00e60952440a3d9cca8166}{testing\+::\+Make\+Matcher} (const Matcher\+Interface$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ $\ast$impl)
 \item 
 {\footnotesize template$<$class Impl $>$ }\\Polymorphic\+Matcher$<$ Impl $>$ \hyperlink{namespacetesting_a667ca94f190ec2e17ee2fbfdb7d3da04}{testing\+::\+Make\+Polymorphic\+Matcher} (const Impl \&impl)
 \item 
-{\footnotesize template$<$typename T , typename M $>$ }\\Matcher$<$ T $>$ \hyperlink{namespacetesting_a8234d15eee99b135a7fdf2141a2ebe1f}{testing\+::\+Matcher\+Cast} (const M \&matcher)
+{\footnotesize template$<$typename T , typename M $>$ }\\Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a8234d15eee99b135a7fdf2141a2ebe1f}{testing\+::\+Matcher\+Cast} (const M \&matcher)
 \item 
-{\footnotesize template$<$typename T , typename M $>$ }\\Matcher$<$ T $>$ \hyperlink{namespacetesting_ac016ac22aa065a19b9ef95f0ccffc17b}{testing\+::\+Safe\+Matcher\+Cast} (const M \&polymorphic\+\_\+matcher)
+{\footnotesize template$<$typename T , typename M $>$ }\\Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_ac016ac22aa065a19b9ef95f0ccffc17b}{testing\+::\+Safe\+Matcher\+Cast} (const M \&polymorphic\+\_\+matcher)
 \item 
-{\footnotesize template$<$typename T $>$ }\\Matcher$<$ T $>$ \hyperlink{namespacetesting_a5e9134d655d2fc9323902348083282e7}{testing\+::A} ()
+{\footnotesize template$<$typename T $>$ }\\Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a5e9134d655d2fc9323902348083282e7}{testing\+::A} ()
 \item 
 void \hyperlink{namespacetesting_1_1internal_a77c9e2b66d2b2414db4763971180d53c}{testing\+::internal\+::\+Print\+If\+Not\+Empty} (const internal\+::string \&explanation,\+::std\+::ostream $\ast$os)
 \item 
 bool \hyperlink{namespacetesting_1_1internal_a19a5d50382569ce6ee94e2b68ddc6fc7}{testing\+::internal\+::\+Is\+Readable\+Type\+Name} (const string \&type\+\_\+name)
 \item 
-{\footnotesize template$<$typename Value , typename T $>$ }\\bool \hyperlink{namespacetesting_1_1internal_a0821df2611d54c79bac990719ad8a2dd}{testing\+::internal\+::\+Match\+Print\+And\+Explain} (Value \&value, const Matcher$<$ T $>$ \&matcher, Match\+Result\+Listener $\ast$listener)
+{\footnotesize template$<$typename Value , typename T $>$ }\\bool \hyperlink{namespacetesting_1_1internal_a0821df2611d54c79bac990719ad8a2dd}{testing\+::internal\+::\+Match\+Print\+And\+Explain} (Value \&value, const Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \&matcher, Match\+Result\+Listener $\ast$listener)
 \item 
 {\footnotesize template$<$typename Matcher\+Tuple , typename Value\+Tuple $>$ }\\bool \hyperlink{namespacetesting_1_1internal_a10095d1e1c99369200072b39d657ebc4}{testing\+::internal\+::\+Tuple\+Matches} (const Matcher\+Tuple \&matcher\+\_\+tuple, const Value\+Tuple \&value\+\_\+tuple)
 \item 
@@ -292,23 +280,23 @@ bool \hyperlink{namespacetesting_1_1internal_ad5b31f61a3cc5b4226d3560f5b48f4dd}{
 \item 
 {\footnotesize template$<$typename Iter $>$ }\\internal\+::\+Elements\+Are\+Array\+Matcher$<$ typename\+::std\+::iterator\+\_\+traits$<$ Iter $>$\+::value\+\_\+type $>$ \hyperlink{namespacetesting_ae2eee06e7ddbf5f5372fd24372e9703f}{testing\+::\+Elements\+Are\+Array} (Iter first, Iter last)
 \item 
-{\footnotesize template$<$typename T $>$ }\\internal\+::\+Elements\+Are\+Array\+Matcher$<$ T $>$ \hyperlink{namespacetesting_abf5c2219b4e6a7542368b5f68eadd007}{testing\+::\+Elements\+Are\+Array} (const T $\ast$pointer, size\+\_\+t \hyperlink{gmock__stress__test_8cc_afd9db40e3361ae09188795e8cbe19752}{count})
+{\footnotesize template$<$typename T $>$ }\\internal\+::\+Elements\+Are\+Array\+Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_abf5c2219b4e6a7542368b5f68eadd007}{testing\+::\+Elements\+Are\+Array} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$pointer, size\+\_\+t \hyperlink{gmock__stress__test_8cc_afd9db40e3361ae09188795e8cbe19752}{count})
 \item 
-{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\internal\+::\+Elements\+Are\+Array\+Matcher$<$ T $>$ \hyperlink{namespacetesting_ac5895c9867d6b976351446a043dcdd66}{testing\+::\+Elements\+Are\+Array} (const T(\&array)\mbox{[}N\mbox{]})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\internal\+::\+Elements\+Are\+Array\+Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_ac5895c9867d6b976351446a043dcdd66}{testing\+::\+Elements\+Are\+Array} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T}(\&array)\mbox{[}N\mbox{]})
 \item 
 {\footnotesize template$<$typename Container $>$ }\\internal\+::\+Elements\+Are\+Array\+Matcher$<$ typename Container\+::value\+\_\+type $>$ \hyperlink{namespacetesting_ad257747adbe056feaa92f449063d681f}{testing\+::\+Elements\+Are\+Array} (const Container \&container)
 \item 
 {\footnotesize template$<$typename Iter $>$ }\\internal\+::\+Unordered\+Elements\+Are\+Array\+Matcher$<$ typename\+::std\+::iterator\+\_\+traits$<$ Iter $>$\+::value\+\_\+type $>$ \hyperlink{namespacetesting_ab4896081406209171a1596b7028e1cf7}{testing\+::\+Unordered\+Elements\+Are\+Array} (Iter first, Iter last)
 \item 
-{\footnotesize template$<$typename T $>$ }\\internal\+::\+Unordered\+Elements\+Are\+Array\+Matcher$<$ T $>$ \hyperlink{namespacetesting_a99b9509a7cd405be28bf45231577384b}{testing\+::\+Unordered\+Elements\+Are\+Array} (const T $\ast$pointer, size\+\_\+t \hyperlink{gmock__stress__test_8cc_afd9db40e3361ae09188795e8cbe19752}{count})
+{\footnotesize template$<$typename T $>$ }\\internal\+::\+Unordered\+Elements\+Are\+Array\+Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a99b9509a7cd405be28bf45231577384b}{testing\+::\+Unordered\+Elements\+Are\+Array} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$pointer, size\+\_\+t \hyperlink{gmock__stress__test_8cc_afd9db40e3361ae09188795e8cbe19752}{count})
 \item 
-{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\internal\+::\+Unordered\+Elements\+Are\+Array\+Matcher$<$ T $>$ \hyperlink{namespacetesting_a23c7729cfc61967f3271018076c4b724}{testing\+::\+Unordered\+Elements\+Are\+Array} (const T(\&array)\mbox{[}N\mbox{]})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\internal\+::\+Unordered\+Elements\+Are\+Array\+Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a23c7729cfc61967f3271018076c4b724}{testing\+::\+Unordered\+Elements\+Are\+Array} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T}(\&array)\mbox{[}N\mbox{]})
 \item 
 {\footnotesize template$<$typename Container $>$ }\\internal\+::\+Unordered\+Elements\+Are\+Array\+Matcher$<$ typename Container\+::value\+\_\+type $>$ \hyperlink{namespacetesting_a72b0ee2217293106fcf4971dc4a59f4c}{testing\+::\+Unordered\+Elements\+Are\+Array} (const Container \&container)
 \item 
-{\footnotesize template$<$typename T $>$ }\\Matcher$<$ T $>$ \hyperlink{namespacetesting_a48792471ff9cdf5b4f95a4242df7bfbb}{testing\+::\+An} ()
+{\footnotesize template$<$typename T $>$ }\\Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a48792471ff9cdf5b4f95a4242df7bfbb}{testing\+::\+An} ()
 \item 
-{\footnotesize template$<$typename T $>$ }\\internal\+::\+Eq\+Matcher$<$ T $>$ \hyperlink{namespacetesting_a0cb8ba7eae844c871eccb29e7c81635f}{testing\+::\+Eq} (T x)
+{\footnotesize template$<$typename T $>$ }\\internal\+::\+Eq\+Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_a0cb8ba7eae844c871eccb29e7c81635f}{testing\+::\+Eq} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} x)
 \item 
 {\footnotesize template$<$typename Lhs , typename Rhs $>$ }\\Matcher$<$ Lhs $>$ \hyperlink{namespacetesting_a57c9aba17aaa27d818e80a1eec81070f}{testing\+::\+Typed\+Eq} (const Rhs \&rhs)
 \item 
@@ -326,7 +314,7 @@ Polymorphic\+Matcher$<$ internal\+::\+Is\+Null\+Matcher $>$ \hyperlink{namespace
 \item 
 Polymorphic\+Matcher$<$ internal\+::\+Not\+Null\+Matcher $>$ \hyperlink{namespacetesting_a39d1f92b53b8b2a0b6db6a22ac146416}{testing\+::\+Not\+Null} ()
 \item 
-{\footnotesize template$<$typename T $>$ }\\internal\+::\+Ref\+Matcher$<$ T \& $>$ \hyperlink{namespacetesting_a0a4a364121ea3fa656a112f1c2e6b7a4}{testing\+::\+Ref} (T \&x)
+{\footnotesize template$<$typename T $>$ }\\internal\+::\+Ref\+Matcher$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \& $>$ \hyperlink{namespacetesting_a0a4a364121ea3fa656a112f1c2e6b7a4}{testing\+::\+Ref} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&x)
 \item 
 internal\+::\+Floating\+Eq\+Matcher$<$ double $>$ \hyperlink{namespacetesting_a1f49f9d97f03bfa4db26888f03486a9f}{testing\+::\+Double\+Eq} (double rhs)
 \item 
@@ -376,7 +364,7 @@ Polymorphic\+Matcher$<$ internal\+::\+Matches\+Regex\+Matcher $>$ \hyperlink{nam
 \item 
 Polymorphic\+Matcher$<$ internal\+::\+Matches\+Regex\+Matcher $>$ \hyperlink{namespacetesting_ad8efafa15630a8274f41f5e22f8f0e49}{testing\+::\+Contains\+Regex} (const internal\+::string \&regex)
 \item 
-internal\+::\+Eq2\+Matcher \hyperlink{namespacetesting_aa7771a34f092fd6f1dca2c82fb2a36a1}{testing\+::\+Eq} ()
+\hyperlink{classes__f_8js_a54ad80d974e0a8da0c9866407894a38d}{internal\+::\+Eq2\+Matcher} \hyperlink{namespacetesting_aa7771a34f092fd6f1dca2c82fb2a36a1}{testing\+::\+Eq} ()
 \item 
 internal\+::\+Ge2\+Matcher \hyperlink{namespacetesting_a8cc0a6519e30bedf52c6e53c71e18265}{testing\+::\+Ge} ()
 \item 
@@ -388,7 +376,7 @@ internal\+::\+Lt2\+Matcher \hyperlink{namespacetesting_a3b4d6d29d715c1bf219163f5
 \item 
 internal\+::\+Ne2\+Matcher \hyperlink{namespacetesting_a0cde8994764617eebc751e682c28d4ae}{testing\+::\+Ne} ()
 \item 
-{\footnotesize template$<$typename Inner\+Matcher $>$ }\\internal\+::\+Not\+Matcher$<$ Inner\+Matcher $>$ \hyperlink{namespacetesting_a3d7d0dda7e51b13fe2f5aa28e23ed6b6}{testing\+::\+Not} (Inner\+Matcher m)
+{\footnotesize template$<$typename Inner\+Matcher $>$ }\\internal\+::\+Not\+Matcher$<$ Inner\+Matcher $>$ \hyperlink{namespacetesting_a3d7d0dda7e51b13fe2f5aa28e23ed6b6}{testing\+::\+Not} (Inner\+Matcher \hyperlink{variables__e_8js_aab4247b6acebcba996939b177f483c14}{m})
 \item 
 {\footnotesize template$<$typename Predicate $>$ }\\Polymorphic\+Matcher$<$ internal\+::\+Truly\+Matcher$<$ Predicate $>$ $>$ \hyperlink{namespacetesting_a5faf05cfaae6074439960048e478b1c8}{testing\+::\+Truly} (Predicate pred)
 \item 
@@ -416,9 +404,9 @@ internal\+::\+Ne2\+Matcher \hyperlink{namespacetesting_a0cde8994764617eebc751e68
 \item 
 {\footnotesize template$<$typename M $>$ }\\internal\+::\+Matcher\+As\+Predicate$<$ M $>$ \hyperlink{namespacetesting_ad53b509ae9cd51040d67f668f99702ae}{testing\+::\+Matches} (M matcher)
 \item 
-{\footnotesize template$<$typename T , typename M $>$ }\\bool \hyperlink{namespacetesting_ae44c50a3a7f0a46f05c8a0b0592b4a62}{testing\+::\+Value} (const T \&value, M matcher)
+{\footnotesize template$<$typename T , typename M $>$ }\\bool \hyperlink{namespacetesting_ae44c50a3a7f0a46f05c8a0b0592b4a62}{testing\+::\+Value} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&value, M matcher)
 \item 
-{\footnotesize template$<$typename T , typename M $>$ }\\bool \hyperlink{namespacetesting_a6d5fbd5104dafc63bf705dafbcb5ce18}{testing\+::\+Explain\+Match\+Result} (M matcher, const T \&value, Match\+Result\+Listener $\ast$listener)
+{\footnotesize template$<$typename T , typename M $>$ }\\bool \hyperlink{namespacetesting_a6d5fbd5104dafc63bf705dafbcb5ce18}{testing\+::\+Explain\+Match\+Result} (M matcher, const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&value, Match\+Result\+Listener $\ast$listener)
 \item 
 {\footnotesize template$<$typename Inner\+Matcher $>$ }\\Inner\+Matcher \hyperlink{namespacetesting_a2522e94b71f88fbfbbcf6942cd0c6ee0}{testing\+::\+All\+Args} (const Inner\+Matcher \&matcher)
 \end{DoxyCompactItemize}
@@ -444,6 +432,10 @@ const internal\+::\+Anything\+Matcher \hyperlink{namespacetesting_a4ba77a3f5b671
     ::\hyperlink{namespacetesting_1_1internal_a3fd0f30ec03d577bba3e1aa13241e17d}{testing::internal::MakePredicateFormatterFromMatcher}
       (matcher), value)
 \end{DoxyCode}
+
+
+Definition at line 4388 of file gmock-\/matchers.\+h.
+
 \index{gmock-\/matchers.\+h@{gmock-\/matchers.\+h}!E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT@{E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT}}
 \index{E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT@{E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT}!gmock-\/matchers.\+h@{gmock-\/matchers.\+h}}
 \subsubsection[{\texorpdfstring{E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT}{EXPECT_THAT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+AT(
@@ -458,3 +450,7 @@ const internal\+::\+Anything\+Matcher \hyperlink{namespacetesting_a4ba77a3f5b671
     ::\hyperlink{namespacetesting_1_1internal_a3fd0f30ec03d577bba3e1aa13241e17d}{testing::internal::MakePredicateFormatterFromMatcher}
       (matcher), value)
 \end{DoxyCode}
+
+
+Definition at line 4390 of file gmock-\/matchers.\+h.
+

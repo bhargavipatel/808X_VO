@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ENPM808XVO: Visual Odometry</title>
+<title>VO808X: Visual Odometry For Monocular Camera.</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ENPM808XVO
+   <div id="projectname">VO808X
    </div>
   </td>
  </tr>
@@ -99,12 +99,12 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Visual Odometry </div>  </div>
+<div class="title">Visual Odometry For Monocular Camera. </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a href="https://travis-ci.org/bhargavipatel/808X_VO"></a> <a href="https://coveralls.io/github/bhargavipatel/808X_VO?branch=master"></a> </p><h2><a href="https://github.com/bhargavipatel/808X_VO/blob/master/LICENSE"></a> </h2>
 <h2>Project Details</h2>
-<p>Visual Odometry is a crucial concept in Robotics Perception for estimating the trajectory of the Robot (camera to be precise). The concepts involved in Visual Odometry are quite the same for SLAM which needless to say is an integral part of Perception.</p>
+<p>Visual Odometry is a crucial concept in Robotics Perception for estimating the trajectory of the Robot (camera to be precise). The concepts involved in Visual Odometry are quite the same for SLAM which needless to say is an integral part of Perception.It is widely used in autonomous driving system and was even used in Mars Rover for trajectory estimation. As I am using input from just one camera , it’s called Monocular Visual Odometry. Unlike stereo odometry , where we can estimate exact trajectory , in monocular odometry we can estimate the trajectory. Monocular system is beneficial while working with small scale robots and drones.</p>
 <p>Steps:</p><ul>
 <li>Input image is in Bayer format from which color image is recovered</li>
 <li>Extraction of camera parameters</li>
@@ -115,10 +115,10 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 <li>Ploting the position of camera center (for each frame) based on the rotation and translation parameters between successive frames.</li>
 </ul>
 <h2>Visual Odometry in Detail</h2>
-<p>Monocular or stereo, the objective of visual odometry is to estimate the pose of the robot based on some measurements from an image(s). It's hard to pin down a single core principle&ndash;Bayesian Probability Theory is likely to core principle, but epipolar geometry certainly important.</p>
+<p>Monocular or stereo, the objective of visual odometry is to estimate the pose of the robot based on some measurements from an image(s).</p>
 <p>For stereo, the general idea is that if you know your camera parameters, and you know that the relationship between your camera is fixed, then a point pp that is viewed from both cameras projects onto each image plane an epipolar line segment. Using the epipolar plane defined by these line segments and the camera geometry, the distance to the point can be estimated, which can be used to estimate the pose of the robot.</p>
-<p>For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time tt; the robot is actuated, and another image is taken at time t+1t+1 (e.g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don't know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.</p>
-<p>The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; SIFT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used; RANSAC is one such algorithm. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.I am using SURF Features which yield better performance than SIFT.</p>
+<p>For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time t; the robot is actuated, and another image is taken at time t+1 (e.g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don't know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.</p>
+<p>The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; SIFT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.I am using SURF Features which yield better performance than SIFT.</p>
 <h2>SIP Process</h2>
 <p>The SIP process metholodogy was used for the development .The product log, time log, and defect log are written in the following Document : <a href="https://docs.google.com/spreadsheets/d/1RSP75a3Ezs6S3T3I84Ec1m85p-fogS6JML_CMYmCvE4/edit?usp=sharing">SIPProcess</a></p>
 <ol type="1">
@@ -143,19 +143,25 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
  <div class="image">
 <img src="OutputFigures/translationpara.png"  alt="alt text" title="Translation Parameters"/>
 </div>
+<h2>Implementation Changes</h2>
+<ul>
+<li>Instead of SHIFT , Using SURF Features.</li>
+<li>Instead of <a href="http://www.cvlibs.net/datasets/kitti/eval_odometry.php">Kitti</a> dataset using Oxford Robotcar Dataset.</li>
+</ul>
 <h2>TODO</h2>
 <ul>
 <li>[x] Implement the Visual Odometry for Monocular Camera.</li>
 <li>[x] Apply google test to verify the implementation.</li>
-<li>[x] Visualize and Plotting of Trajectory. <h2>Final Deliverables:</h2>
+<li>[x] Visualize and Plotting of Trajectory.</li>
+<li>[x] Detailed Documentation <h2>Final Deliverables:</h2>
 </li>
 </ul>
 <ul>
 <li>[x] Implement the Visual Odometry for Monocular Camera.</li>
 <li>[x] The Unit Testing using google test</li>
-<li>[x] Visualize and Plotting of Trajectory.</li>
+<li>[x] Visualization and Plotting of Trajectory.</li>
 <li>[x] Github README with TravisCI and Coverage of Coveralls</li>
-<li>[x] Doxygen Documentation</li>
+<li>[x] Detailed Documentation including Doxygen.</li>
 </ul>
 <h2>FUTURE WORK</h2>
 <ul>
@@ -163,13 +169,18 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 <li>Can Extend this project on ROS for SLAM.</li>
 <li>Implement more classes.</li>
 </ul>
-<p>## Standard install via command-line </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recursive https://github.com/bhargavipatel/808X_VO.git</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd &lt;path to repository&gt;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;mkdir build</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;cd build</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;cmake ..</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;make</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;Run tests: ./test/cpp-test</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;Run program: ./app/shell-app</div></div><!-- fragment --><p>## Building for code coverage (for assignments beginning in Week 4) </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt-get install lcov</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;make</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;make code_coverage</div></div><!-- fragment --><p> This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.</p>
+<h2>Dependencies</h2>
+<ul>
+<li>OpenCV</li>
+<li>OpenCV Documentation and Installation can be found <a href="https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html">here</a></li>
+</ul>
+<p>## Standard install via command-line </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recursive https://github.com/bhargavipatel/808X_VO.git</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd &lt;path to repository&gt;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;mkdir build</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;cd build</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;cmake ..</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;make</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;Run tests: ./test/cpp-test</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;Run program: ./app/shell-app</div></div><!-- fragment --><p>## Building for code coverage </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt-get install lcov</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;make</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;make code_coverage</div></div><!-- fragment --><p> This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.</p>
 <h2>Working with Eclipse IDE</h2>
 <h2>Installation</h2>
 <p>In your Eclipse workspace directory (or create a new one), checkout the repo (and submodules) </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;mkdir -p ~/workspace</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd ~/workspace</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;git clone --recursive https://github.com/bhargavipatel/808X_VO.git</div></div><!-- fragment --><p>In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of cpp-boilerplate</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/workspace</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;mkdir -p boilerplate-eclipse</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cd boilerplate-eclipse</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;cmake -G &quot;Eclipse CDT4 - Unix Makefiles&quot; -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../cpp-boilerplate/</div></div><!-- fragment --><h2>Import</h2>
 <p>Open Eclipse, go to File -&gt; Import -&gt; General -&gt; Existing Projects into Workspace -&gt; Select "boilerplate-eclipse" directory created previously as root directory -&gt; Finish</p>
-<h1>Edit</h1>
+<h2>Edit</h2>
 <p>Source files may be edited under the "[Source Directory]" label in the Project Explorer.</p>
 <h2>Build</h2>
 <p>To build the project, in Eclipse, unfold boilerplate-eclipse project in Project Explorer, unfold Build Targets, double click on "all" to build all projects.</p>
@@ -208,7 +219,7 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 </ul>
 <h2>Running Unit Tests</h2>
 <p>In your build directory </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./test/cpp-test</div></div><!-- fragment --><h2>Generating doxygen Documentation</h2>
-<p>In your git home directory. Doxygen files will be generated to /docs folder </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;doxygen Doxygen</div></div><!-- fragment --> </div></div><!-- contents -->
+<p>In your git home directory. Doxygen files will be generated to /docs folder </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;doxygen Doxygen</div></div><!-- fragment --><p> For command Line. <a href="https://www.stack.nl/~dimitri/doxygen/manual/doxywizard_usage.html">Details</a>. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo ap-get install doxygen-gui</div></div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -2,7 +2,7 @@
 
 \subsection*{Project Details}
 
-Visual Odometry is a crucial concept in Robotics Perception for estimating the trajectory of the Robot (camera to be precise). The concepts involved in Visual Odometry are quite the same for S\+L\+AM which needless to say is an integral part of Perception.
+Visual Odometry is a crucial concept in Robotics Perception for estimating the trajectory of the Robot (camera to be precise). The concepts involved in Visual Odometry are quite the same for S\+L\+AM which needless to say is an integral part of Perception.\+It is widely used in autonomous driving system and was even used in Mars Rover for trajectory estimation. As I am using input from just one camera , it’s called Monocular Visual Odometry. Unlike stereo odometry , where we can estimate exact trajectory , in monocular odometry we can estimate the trajectory. Monocular system is beneficial while working with small scale robots and drones.
 
 Steps\+:
 \begin{DoxyItemize}
@@ -17,13 +17,13 @@ Steps\+:
 
 \subsection*{Visual Odometry in Detail}
 
-Monocular or stereo, the objective of visual odometry is to estimate the pose of the robot based on some measurements from an image(s). It\textquotesingle{}s hard to pin down a single core principle--Bayesian Probability Theory is likely to core principle, but epipolar geometry certainly important.
+Monocular or stereo, the objective of visual odometry is to estimate the pose of the robot based on some measurements from an image(s).
 
 For stereo, the general idea is that if you know your camera parameters, and you know that the relationship between your camera is fixed, then a point pp that is viewed from both cameras projects onto each image plane an epipolar line segment. Using the epipolar plane defined by these line segments and the camera geometry, the distance to the point can be estimated, which can be used to estimate the pose of the robot.
 
-For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time tt; the robot is actuated, and another image is taken at time t+1t+1 (e.\+g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don\textquotesingle{}t know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.
+For monocular vision, the task is trickier because there is only one camera. To get an image pair, an image is captured at time t; the robot is actuated, and another image is taken at time t+1 (e.\+g. a video stream). This pair of images can be used in the same way as any other stereo image, but because we don\textquotesingle{}t know for certain the relationship between the cameras (due to deviations in motion from what the robot did and what it was instructed to do), in order to estimate the pose of the robot, the motion model has to be taken into account. In the end, monocular visual odometry is more difficult because there are more unknowns that have to be accounted for probabilistically.
 
-The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; S\+I\+FT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used; R\+A\+N\+S\+AC is one such algorithm. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.\+I am using S\+U\+RF Features which yield better performance than S\+I\+FT.
+The main objective is image matching. While there are numerous approaches to this problem, some approaches find feature point in the scene and match those between images to match the images themselves. A number of algorithms can be used to find feature points; S\+I\+FT is a good standard although other methods have been shown to outperform it. With features described, an algorithm that matches the points should be used. Leveraging known relationships (such as accurate motion models or fixed cameras/projectors) can improve image matching.\+I am using S\+U\+RF Features which yield better performance than S\+I\+FT.
 
 \subsection*{S\+IP Process}
 
@@ -51,22 +51,31 @@ U\+ML class/activity diagrams can be found \href{https://github.com/bhargavipate
 
  
 
+\subsection*{Implementation Changes}
+
+
+\begin{DoxyItemize}
+\item Instead of S\+H\+I\+FT , Using S\+U\+RF Features.
+\item Instead of \href{http://www.cvlibs.net/datasets/kitti/eval_odometry.php}{\tt Kitti} dataset using Oxford Robotcar Dataset.
+\end{DoxyItemize}
+
 \subsection*{T\+O\+DO}
 
 
 \begin{DoxyItemize}
 \item \mbox{[}x\mbox{]} Implement the Visual Odometry for Monocular Camera.
 \item \mbox{[}x\mbox{]} Apply google test to verify the implementation.
-\item \mbox{[}x\mbox{]} Visualize and Plotting of Trajectory. \subsection*{Final Deliverables\+:}
+\item \mbox{[}x\mbox{]} Visualize and Plotting of Trajectory.
+\item \mbox{[}x\mbox{]} Detailed Documentation \subsection*{Final Deliverables\+:}
 \end{DoxyItemize}
 
 
 \begin{DoxyItemize}
 \item \mbox{[}x\mbox{]} Implement the Visual Odometry for Monocular Camera.
 \item \mbox{[}x\mbox{]} The Unit Testing using google test
-\item \mbox{[}x\mbox{]} Visualize and Plotting of Trajectory.
+\item \mbox{[}x\mbox{]} Visualization and Plotting of Trajectory.
 \item \mbox{[}x\mbox{]} Github R\+E\+A\+D\+ME with Travis\+CI and Coverage of Coveralls
-\item \mbox{[}x\mbox{]} Doxygen Documentation
+\item \mbox{[}x\mbox{]} Detailed Documentation including Doxygen.
 \end{DoxyItemize}
 
 \subsection*{F\+U\+T\+U\+RE W\+O\+RK}
@@ -76,6 +85,14 @@ U\+ML class/activity diagrams can be found \href{https://github.com/bhargavipate
 \item Can try Real-\/time visual odometry from stereo data.
 \item Can Extend this project on R\+OS for S\+L\+AM.
 \item Implement more classes.
+\end{DoxyItemize}
+
+\subsection*{Dependencies}
+
+
+\begin{DoxyItemize}
+\item Open\+CV
+\item Open\+CV Documentation and Installation can be found \href{https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html}{\tt here}
 \end{DoxyItemize}
 
 \#\# Standard install via command-\/line 
@@ -91,7 +108,7 @@ U\+ML class/activity diagrams can be found \href{https://github.com/bhargavipate
 \end{DoxyCode}
 
 
-\#\# Building for code coverage (for assignments beginning in Week 4) 
+\#\# Building for code coverage 
 \begin{DoxyCode}
 1 sudo apt-get install lcov
 2 cmake -D COVERAGE=ON -D CMAKE\_BUILD\_TYPE=Debug ../
@@ -128,7 +145,7 @@ In your work directory, use cmake to create an Eclipse project for an \mbox{[}ou
 
 Open Eclipse, go to File -\/$>$ Import -\/$>$ General -\/$>$ Existing Projects into Workspace -\/$>$ Select \char`\"{}boilerplate-\/eclipse\char`\"{} directory created previously as root directory -\/$>$ Finish
 
-\section*{Edit}
+\subsection*{Edit}
 
 Source files may be edited under the \char`\"{}\mbox{[}\+Source Directory\mbox{]}\char`\"{} label in the Project Explorer.
 
@@ -193,5 +210,9 @@ In your build directory
 In your git home directory. Doxygen files will be generated to /docs folder 
 \begin{DoxyCode}
 1 doxygen Doxygen
+\end{DoxyCode}
+ For command Line. \href{https://www.stack.nl/~dimitri/doxygen/manual/doxywizard_usage.html}{\tt Details}. 
+\begin{DoxyCode}
+1 sudo ap-get install doxygen-gui
 \end{DoxyCode}
  

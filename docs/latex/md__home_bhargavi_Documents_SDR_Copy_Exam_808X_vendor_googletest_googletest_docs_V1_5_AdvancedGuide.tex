@@ -573,7 +573,7 @@ On Windows, Google Test uses its own simple regular expression implementation. I
 {\ttfamily \$} &matches the end of a string (not that of each line) \\\cline{1-2}
 {\ttfamily xy} &matches {\ttfamily x} followed by {\ttfamily y} \\\cline{1-2}
 \end{longtabu}
-To help you determine which capability is available on your system, Google Test defines macro {\ttfamily G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE=1} when it uses P\+O\+S\+IX extended regular expressions, or {\ttfamily G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+RE=1} when it uses the simple version. If you want your death tests to work in both cases, you can either {\ttfamily \#if} on these macros or use the more limited syntax only.
+To help you determine which capability is available on your system, Google Test defines macro {\ttfamily G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE=1} when it uses P\+O\+S\+IX extended regular expressions, or {\ttfamily G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+RE=1} when it uses the simple version. If you want your death tests to work in both cases, you can either {\ttfamily \hyperlink{jquery_8js_a42cbfadee2b4749e8f699ea8d745a0e4}{if}} on these macros or use the more limited syntax only.
 
 \subsection*{How It Works}
 
@@ -1204,7 +1204,7 @@ Then, use {\ttfamily \hyperlink{gtest__list__tests__unittest___8cc_a83ec84c5fac9
 \end{DoxyCode}
 
 
-You can see {\ttfamily \hyperlink{sample6__unittest_8cc}{samples/sample6\+\_\+unittest.\+cc}} for a complete example.
+You can see {\ttfamily samples/sample6\+\_\+unittest.\+cc} for a complete example.
 
 {\itshape Availability\+:} Linux, Windows (requires M\+S\+VC 8.\+0 or above), Mac; since version 1.\+1.\+0.
 
@@ -1277,7 +1277,7 @@ In the special case where the type list contains only one type, you can write th
 \end{DoxyCode}
 
 
-You can see {\ttfamily \hyperlink{sample6__unittest_8cc}{samples/sample6\+\_\+unittest.\+cc}} for a complete example.
+You can see {\ttfamily samples/sample6\+\_\+unittest.\+cc} for a complete example.
 
 {\itshape Availability\+:} Linux, Windows (requires M\+S\+VC 8.\+0 or above), Mac; since version 1.\+1.\+0.
 
@@ -1378,7 +1378,7 @@ If you are building a testing utility on top of Google Test, you\textquotesingle
 
 The challenge is to verify that your testing utility reports failures correctly. In frameworks that report a failure by throwing an exception, you could catch the exception and assert on it. But Google Test doesn\textquotesingle{}t use exceptions, so how do we test that a piece of code generates an expected failure?
 
-{\ttfamily $<$\hyperlink{gtest-spi_8h}{gtest/gtest-\/spi.\+h}$>$} contains some constructs to do this. After {\ttfamily \#include}ing this header, you can use
+{\ttfamily $<$gtest/gtest-\/spi.\+h$>$} contains some constructs to do this. After {\ttfamily \#include}ing this header, you can use
 
 $\vert$ {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+F\+A\+T\+A\+L\+\_\+\+F\+A\+I\+L\+U\+RE(}\+\_\+statement, substring\+\_\+{\ttfamily );} $\vert$ $\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$
 
@@ -1401,7 +1401,7 @@ For technical reasons, there are some caveats\+:
 \item {\itshape statement} in {\ttfamily \hyperlink{gtest-spi_8h_a819a3fd7f8b8cf24b6f1b3a26708973d}{E\+X\+P\+E\+C\+T\+\_\+\+F\+A\+T\+A\+L\+\_\+\+F\+A\+I\+L\+U\+R\+E()}} cannot return a value.
 \end{DoxyEnumerate}
 
-{\itshape Note\+:} Google Test is designed with threads in mind. Once the synchronization primitives in {\ttfamily $<$\hyperlink{gtest-port_8h}{gtest/internal/gtest-\/port.\+h}$>$} have been implemented, Google Test will become thread-\/safe, meaning that you can then use assertions in multiple threads concurrently. Before
+{\itshape Note\+:} Google Test is designed with threads in mind. Once the synchronization primitives in {\ttfamily $<$gtest/internal/gtest-\/port.\+h$>$} have been implemented, Google Test will become thread-\/safe, meaning that you can then use assertions in multiple threads concurrently. Before
 
 that, however, Google Test only supports single-\/threaded usage. Once thread-\/safe, {\ttfamily \hyperlink{gtest-spi_8h_a819a3fd7f8b8cf24b6f1b3a26708973d}{E\+X\+P\+E\+C\+T\+\_\+\+F\+A\+T\+A\+L\+\_\+\+F\+A\+I\+L\+U\+R\+E()}} and {\ttfamily \hyperlink{gtest-spi_8h_a8376fd6821bd88fd806697355e79e138}{E\+X\+P\+E\+C\+T\+\_\+\+N\+O\+N\+F\+A\+T\+A\+L\+\_\+\+F\+A\+I\+L\+U\+R\+E()}} will capture failures in the current thread only. If {\itshape statement} creates new threads, failures in these threads will be ignored. If you want to capture failures from all threads instead, you should use the following macros\+:
 
@@ -1619,7 +1619,7 @@ For example\+:
 
 \subsubsection*{Temporarily Disabling Tests}
 
-If you have a broken test that you cannot fix right away, you can add the {\ttfamily D\+I\+S\+A\+B\+L\+E\+D\+\_\+} prefix to its name. This will exclude it from execution. This is better than commenting out the code or using {\ttfamily \#if 0}, as disabled tests are still compiled (and thus won\textquotesingle{}t rot).
+If you have a broken test that you cannot fix right away, you can add the {\ttfamily D\+I\+S\+A\+B\+L\+E\+D\+\_\+} prefix to its name. This will exclude it from execution. This is better than commenting out the code or using {\ttfamily \hyperlink{jquery_8js_a42cbfadee2b4749e8f699ea8d745a0e4}{if} 0}, as disabled tests are still compiled (and thus won\textquotesingle{}t rot).
 
 If you need to disable all tests in a test case, you can either add {\ttfamily D\+I\+S\+A\+B\+L\+E\+D\+\_\+} to the front of the name of each test, or alternatively add it to the front of the test case name.
 
@@ -1884,7 +1884,7 @@ Google Test\textquotesingle{}s implementation consists of $\sim$30 files (exclud
 \end{DoxyCode}
 
 
-and you should see an {\ttfamily O\+U\+T\+P\+U\+T\+\_\+\+D\+IR} directory being created with files {\ttfamily \hyperlink{gtest_8h}{gtest/gtest.\+h}} and {\ttfamily gtest/gtest-\/all.\+cc} in it. These files contain everything you need to use Google Test. Just copy them to anywhere you want and you are ready to write tests. You can use the \href{../scripts/test/Makefile}{\tt scrpts/test/\+Makefile} file as an example on how to compile your tests against them.
+and you should see an {\ttfamily O\+U\+T\+P\+U\+T\+\_\+\+D\+IR} directory being created with files {\ttfamily gtest/gtest.\+h} and {\ttfamily gtest/gtest-\/all.\+cc} in it. These files contain everything you need to use Google Test. Just copy them to anywhere you want and you are ready to write tests. You can use the \href{../scripts/test/Makefile}{\tt scrpts/test/\+Makefile} file as an example on how to compile your tests against them.
 
 \section*{Where to Go from Here}
 

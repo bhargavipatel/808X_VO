@@ -52,7 +52,7 @@ Issues Raised and Solved log can be found [here](https://github.com/bhargavipate
 ![alt text](OutputFigures/translationpara.png "Translation Parameters")
 
 ## Implementation Changes 
-- Instead of SHIF , Using SURF Features.
+- Instead of SHIFT , Using SURF Features.
 - Instead of [Kitti](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) dataset using Oxford Robotcar Dataset.
 
 ## TODO
@@ -75,7 +75,7 @@ Issues Raised and Solved log can be found [here](https://github.com/bhargavipate
 
 ## Dependencies
 -  OpenCV
--   OpenCV Documentation and Installation can be founnd [here](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)
+-   OpenCV Documentation and Installation can be found [here](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)
 
 ## Standard install via command-line
 ```
@@ -97,11 +97,6 @@ make
 make code_coverage
 ```
 This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
-
-## Running cppcheck
-```
-
-```
 
 ## Working with Eclipse IDE ##
 

@@ -21,21 +21,9 @@
 {\ttfamily \#include $<$typeinfo$>$}\\*
 {\ttfamily \#include \char`\"{}gtest/internal/gtest-\/tuple.\+h\char`\"{}}\\*
 Include dependency graph for gtest-\/port.h\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gtest-port_8h__incl}
-\end{center}
-\end{figure}
+% FIG 0
 This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gtest-port_8h__dep__incl}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -173,7 +161,7 @@ class \hyperlink{classtesting_1_1internal_1_1_type_with_size_3_018_01_4}{testing
 \item 
 \#define \hyperlink{gtest-port_8h_ae1f37dc71d5daa6fb49ca1b6047d4a8c}{G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+}(expr,  msg)
 \item 
-\#define \hyperlink{gtest-port_8h_ab71a3e9a908b7b6acc0e8bddc0ecb3fe}{G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+}(array)~(sizeof(array) / sizeof(array\mbox{[}0\mbox{]}))
+\#define \hyperlink{gtest-port_8h_ab71a3e9a908b7b6acc0e8bddc0ecb3fe}{G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+}(array)~(\hyperlink{classes__2_8js_a47ca7968904a6cccd03bb34c994adc04}{sizeof}(array) / \hyperlink{classes__2_8js_a47ca7968904a6cccd03bb34c994adc04}{sizeof}(array\mbox{[}0\mbox{]}))
 \item 
 \#define \hyperlink{gtest-port_8h_a8ef4cb4c465db8c15464aecc6d9510ef}{G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+}(severity)
 \item 
@@ -264,7 +252,7 @@ void \hyperlink{namespacetesting_1_1internal_a06b1b20029fbd1dbeb59752f914fab84}{
 \item 
 void \hyperlink{namespacetesting_1_1internal_a2135f223bf6b527729aeaa651115183b}{testing\+::internal\+::\+Flush\+Info\+Log} ()
 \item 
-{\footnotesize template$<$typename T $>$ }\\const T \& \hyperlink{namespacetesting_1_1internal_a0f6d06bf8c3093b9c22bb08723db201e}{testing\+::internal\+::move} (const T \&t)
+{\footnotesize template$<$typename T $>$ }\\const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \& \hyperlink{namespacetesting_1_1internal_a0f6d06bf8c3093b9c22bb08723db201e}{testing\+::internal\+::move} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&t)
 \item 
 {\footnotesize template$<$typename To $>$ }\\To \hyperlink{namespacetesting_1_1internal_a982df3f369643b175f79cda4048bc3b9}{testing\+::internal\+::\+Implicit\+Cast\+\_\+} (To x)
 \item 
@@ -369,25 +357,49 @@ const Biggest\+Int \hyperlink{namespacetesting_1_1internal_ad901880198832bc166d2
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+M\+B\+I\+G\+U\+O\+U\+S\+\_\+\+E\+L\+S\+E\+\_\+\+B\+L\+O\+C\+K\+E\+R\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+M\+B\+I\+G\+U\+O\+U\+S\+\_\+\+E\+L\+S\+E\+\_\+\+B\+L\+O\+C\+K\+E\+R\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+M\+B\+I\+G\+U\+O\+U\+S\+\_\+\+E\+L\+S\+E\+\_\+\+B\+L\+O\+C\+K\+E\+R\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+M\+B\+I\+G\+U\+O\+U\+S\+\_\+\+E\+L\+S\+E\+\_\+\+B\+L\+O\+C\+K\+E\+R\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+M\+B\+I\+G\+U\+O\+U\+S\+\_\+\+E\+L\+S\+E\+\_\+\+B\+L\+O\+C\+K\+E\+R\+\_\+}{GTEST_AMBIGUOUS_ELSE_BLOCKER_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+A\+M\+B\+I\+G\+U\+O\+U\+S\+\_\+\+E\+L\+S\+E\+\_\+\+B\+L\+O\+C\+K\+E\+R\+\_\+~switch (0) case 0\+: default\+:}\hypertarget{gtest-port_8h_a00b3684a621ce1422b55a0e7e8a6aecb}{}\label{gtest-port_8h_a00b3684a621ce1422b55a0e7e8a6aecb}
+
+
+Definition at line 848 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+}{GTEST_API_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+}\hypertarget{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{}\label{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}
+
+
+Definition at line 940 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+}{GTEST_ARRAY_SIZE_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+Z\+E\+\_\+(
 \begin{DoxyParamCaption}
 \item[{}]{array}
 \end{DoxyParamCaption}
-)~(sizeof(array) / sizeof(array\mbox{[}0\mbox{]}))}\hypertarget{gtest-port_8h_ab71a3e9a908b7b6acc0e8bddc0ecb3fe}{}\label{gtest-port_8h_ab71a3e9a908b7b6acc0e8bddc0ecb3fe}
+)~({\bf sizeof}(array) / {\bf sizeof}(array\mbox{[}0\mbox{]}))}\hypertarget{gtest-port_8h_ab71a3e9a908b7b6acc0e8bddc0ecb3fe}{}\label{gtest-port_8h_ab71a3e9a908b7b6acc0e8bddc0ecb3fe}
+
+
+Definition at line 1098 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+}{GTEST_ATTRIBUTE_NO_SANITIZE_ADDRESS_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+}\hypertarget{gtest-port_8h_af18b465f4ba6e36eea7a8d2d79521873}{}\label{gtest-port_8h_af18b465f4ba6e36eea7a8d2d79521873}
+
+
+Definition at line 979 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+}{GTEST_ATTRIBUTE_NO_SANITIZE_MEMORY_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+}\hypertarget{gtest-port_8h_a2a83dd79037e53814a509cc3f5702650}{}\label{gtest-port_8h_a2a83dd79037e53814a509cc3f5702650}
+
+
+Definition at line 967 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+}{GTEST_ATTRIBUTE_NO_SANITIZE_THREAD_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+N\+O\+\_\+\+S\+A\+N\+I\+T\+I\+Z\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+}\hypertarget{gtest-port_8h_abf30a6b1b3a12ecb2cc1bc1a6f5f9646}{}\label{gtest-port_8h_abf30a6b1b3a12ecb2cc1bc1a6f5f9646}
+
+
+Definition at line 991 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+}{GTEST_ATTRIBUTE_UNUSED_}}]{\setlength{\rightskip}{0pt plus 5cm}static bool dummy2 G\+T\+E\+S\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+}\hypertarget{gtest-port_8h_a01f3b31960fc7c4c7ee4b398a914f89a}{}\label{gtest-port_8h_a01f3b31960fc7c4c7ee4b398a914f89a}
@@ -396,9 +408,17 @@ const Biggest\+Int \hyperlink{namespacetesting_1_1internal_ad901880198832bc166d2
 =
     StaticAssertTypeEq<const int, const int>()
 \end{DoxyCode}
+
+
+Definition at line 870 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+C\+A\+N\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+N\+U\+LL@{G\+T\+E\+S\+T\+\_\+\+C\+A\+N\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+N\+U\+LL}}
 \index{G\+T\+E\+S\+T\+\_\+\+C\+A\+N\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+N\+U\+LL@{G\+T\+E\+S\+T\+\_\+\+C\+A\+N\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+N\+U\+LL}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+C\+A\+N\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+N\+U\+LL}{GTEST_CAN_COMPARE_NULL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+C\+A\+N\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+N\+U\+LL~1}\hypertarget{gtest-port_8h_ab8b3af84a03ff5a6d833c109f44c9db4}{}\label{gtest-port_8h_ab8b3af84a03ff5a6d833c109f44c9db4}
+
+
+Definition at line 2197 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+@{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+@{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+}{GTEST_CHECK_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+(
@@ -408,12 +428,16 @@ const Biggest\+Int \hyperlink{namespacetesting_1_1internal_ad901880198832bc166d2
 )}\hypertarget{gtest-port_8h_ab54343f0a36dc4cb0ce8a478dd7847b8}{}\label{gtest-port_8h_ab54343f0a36dc4cb0ce8a478dd7847b8}
 {\bfseries Value\+:}
 \begin{DoxyCode}
-GTEST\_AMBIGUOUS\_ELSE\_BLOCKER\_ \(\backslash\)
-    if (::\hyperlink{namespacetesting_1_1internal_a527b9bcc13669b9a16400c8514266254}{testing::internal::IsTrue}(condition)) \(\backslash\)
+\hyperlink{jquery_8js_a9db6d45a025ad692282fe23e69eeba43}{GTEST\_AMBIGUOUS\_ELSE\_BLOCKER\_ \(\backslash\)}
+\hyperlink{jquery_8js_a9db6d45a025ad692282fe23e69eeba43}{    if} (::\hyperlink{namespacetesting_1_1internal_a527b9bcc13669b9a16400c8514266254}{testing::internal::IsTrue}(condition)) \(\backslash\)
       ; \hyperlink{gtest-port_8h_a8ef4cb4c465db8c15464aecc6d9510ef}{\(\backslash\)}
 \hyperlink{gtest-port_8h_a8ef4cb4c465db8c15464aecc6d9510ef}{    else \(\backslash\)}
 \hyperlink{gtest-port_8h_a8ef4cb4c465db8c15464aecc6d9510ef}{      GTEST\_LOG\_}(FATAL) << \textcolor{stringliteral}{"Condition "} #condition \textcolor{stringliteral}{" failed. "}
 \end{DoxyCode}
+
+
+Definition at line 1301 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+O\+S\+I\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S\+\_\+@{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+O\+S\+I\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+O\+S\+I\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S\+\_\+@{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+O\+S\+I\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+O\+S\+I\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S\+\_\+}{GTEST_CHECK_POSIX_SUCCESS_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+O\+S\+I\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S\+\_\+(
@@ -427,6 +451,10 @@ GTEST\_AMBIGUOUS\_ELSE\_BLOCKER\_ \(\backslash\)
 \hyperlink{gtest-port_8h_a8ef4cb4c465db8c15464aecc6d9510ef}{    GTEST\_LOG\_}(FATAL) << #posix\_call << \textcolor{stringliteral}{"failed with error "} \(\backslash\)
                       << gtest\_error
 \end{DoxyCode}
+
+
+Definition at line 1314 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+@{G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+@{G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+}{GTEST_COMPILE_ASSERT_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+C\+O\+M\+P\+I\+L\+E\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+(
@@ -440,6 +468,10 @@ GTEST\_AMBIGUOUS\_ELSE\_BLOCKER\_ \(\backslash\)
 typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backslash\)
       msg[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{bool}\textcolor{keyword}{>}(expr) ? 1 : -1] \hyperlink{gtest-port_8h_a01f3b31960fc7c4c7ee4b398a914f89a}{GTEST\_ATTRIBUTE\_UNUSED\_}
 \end{DoxyCode}
+
+
+Definition at line 1038 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+}{GTEST_DECLARE_bool_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+bool\+\_\+(
@@ -447,6 +479,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{name}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} extern bool {\bf G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}(name)}\hypertarget{gtest-port_8h_a14eb0e9c6e0df765d1fbfd2db6966d14}{}\label{gtest-port_8h_a14eb0e9c6e0df765d1fbfd2db6966d14}
+
+
+Definition at line 2521 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+}{GTEST_DECLARE_int32_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+int32\+\_\+(
@@ -454,6 +490,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{name}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} extern \+::{\bf testing\+::internal\+::\+Int32} {\bf G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}(name)}\hypertarget{gtest-port_8h_aab2ee98cb616054b1d3a7dc71efe81fc}{}\label{gtest-port_8h_aab2ee98cb616054b1d3a7dc71efe81fc}
+
+
+Definition at line 2522 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+}{GTEST_DECLARE_STATIC_MUTEX_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+(
@@ -461,6 +501,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{mutex}
 \end{DoxyParamCaption}
 )~extern \+::{\bf testing\+::internal\+::\+Mutex} mutex}\hypertarget{gtest-port_8h_af0970cdea09f16dbb1dbfccdaa693eeb}{}\label{gtest-port_8h_af0970cdea09f16dbb1dbfccdaa693eeb}
+
+
+Definition at line 2150 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+}{GTEST_DECLARE_string_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+string\+\_\+(
@@ -468,6 +512,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{name}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} extern \+::std\+::string {\bf G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}(name)}\hypertarget{gtest-port_8h_a9f74eee05f7ee5534139a622fe7da7dd}{}\label{gtest-port_8h_a9f74eee05f7ee5534139a622fe7da7dd}
+
+
+Definition at line 2524 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+}{GTEST_DEFINE_bool_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+bool\+\_\+(
@@ -477,6 +525,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{doc}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} bool {\bf G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)}\hypertarget{gtest-port_8h_a48e05814779e5a2f432b06a12618a760}{}\label{gtest-port_8h_a48e05814779e5a2f432b06a12618a760}
+
+
+Definition at line 2528 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+}{GTEST_DEFINE_int32_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+int32\+\_\+(
@@ -486,6 +538,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{doc}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::{\bf testing\+::internal\+::\+Int32} {\bf G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)}\hypertarget{gtest-port_8h_a88ee2f19589ffff86ca742fd33611358}{}\label{gtest-port_8h_a88ee2f19589ffff86ca742fd33611358}
+
+
+Definition at line 2530 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+}{GTEST_DEFINE_STATIC_MUTEX_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+M\+U\+T\+E\+X\+\_\+(
@@ -493,6 +549,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{mutex}
 \end{DoxyParamCaption}
 )~\+::{\bf testing\+::internal\+::\+Mutex} mutex}\hypertarget{gtest-port_8h_a85d5cd679fdbe87383e7dfd1c6651eaa}{}\label{gtest-port_8h_a85d5cd679fdbe87383e7dfd1c6651eaa}
+
+
+Definition at line 2153 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+}{GTEST_DEFINE_string_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+string\+\_\+(
@@ -502,9 +562,17 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{doc}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} \+::std\+::string {\bf G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}(name) = (default\+\_\+val)}\hypertarget{gtest-port_8h_a885e18fe217a6e85553d408b99252c12}{}\label{gtest-port_8h_a885e18fe217a6e85553d408b99252c12}
+
+
+Definition at line 2532 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+E\+V\+\_\+\+E\+M\+A\+I\+L\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+V\+\_\+\+E\+M\+A\+I\+L\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+E\+V\+\_\+\+E\+M\+A\+I\+L\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+E\+V\+\_\+\+E\+M\+A\+I\+L\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+E\+V\+\_\+\+E\+M\+A\+I\+L\+\_\+}{GTEST_DEV_EMAIL_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+E\+V\+\_\+\+E\+M\+A\+I\+L\+\_\+~\char`\"{}googletestframework@@googlegroups.\+com\char`\"{}}\hypertarget{gtest-port_8h_a21086d276b1a64d6763ee8a94b12c1b8}{}\label{gtest-port_8h_a21086d276b1a64d6763ee8a94b12c1b8}
+
+
+Definition at line 285 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+}{GTEST_DISABLE_MSC_WARNINGS_POP_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+(
@@ -512,6 +580,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest-port_8h_ab4c44546d6d9aced68993b87b608fc06}{}\label{gtest-port_8h_ab4c44546d6d9aced68993b87b608fc06}
+
+
+Definition at line 318 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+}{GTEST_DISABLE_MSC_WARNINGS_PUSH_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+(
@@ -519,6 +591,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{warnings}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest-port_8h_a86994cc68e844d8b82089c70408dfc61}{}\label{gtest-port_8h_a86994cc68e844d8b82089c70408dfc61}
+
+
+Definition at line 317 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}{GTEST_DISALLOW_ASSIGN_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+(
@@ -526,6 +602,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{type}
 \end{DoxyParamCaption}
 )~void operator=(type const \&)}\hypertarget{gtest-port_8h_ac593b50ce24257d5b6aa84845c344c9e}{}\label{gtest-port_8h_ac593b50ce24257d5b6aa84845c344c9e}
+
+
+Definition at line 875 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+}{GTEST_DISALLOW_COPY_AND_ASSIGN_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+N\+D\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+(
@@ -538,6 +618,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \hyperlink{namespaceupload_a4fc56f0dd6613be15c3c4dc3af3619ce}{type}(\hyperlink{namespaceupload_a4fc56f0dd6613be15c3c4dc3af3619ce}{type} \textcolor{keyword}{const} &);\hyperlink{gtest-port_8h_ac593b50ce24257d5b6aa84845c344c9e}{\(\backslash\)}
 \hyperlink{gtest-port_8h_ac593b50ce24257d5b6aa84845c344c9e}{  GTEST\_DISALLOW\_ASSIGN\_}(\hyperlink{namespaceupload_a4fc56f0dd6613be15c3c4dc3af3619ce}{type})
 \end{DoxyCode}
+
+
+Definition at line 880 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+}{GTEST_EXCLUSIVE_LOCK_REQUIRED_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+E\+X\+C\+L\+U\+S\+I\+V\+E\+\_\+\+L\+O\+C\+K\+\_\+\+R\+E\+Q\+U\+I\+R\+E\+D\+\_\+(
@@ -545,6 +629,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{locks}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}{}\label{gtest-port_8h_a149f693bd59fa1bc937af54c0cdcb32f}
+
+
+Definition at line 2539 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+F\+L\+AG@{G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}}
 \index{G\+T\+E\+S\+T\+\_\+\+F\+L\+AG@{G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+F\+L\+AG}{GTEST_FLAG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+F\+L\+AG(
@@ -552,45 +640,101 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{name}
 \end{DoxyParamCaption}
 )~F\+L\+A\+G\+S\+\_\+gtest\+\_\+\#\#name}\hypertarget{gtest-port_8h_a828f4e34a1c4b510da50ec1563e3562a}{}\label{gtest-port_8h_a828f4e34a1c4b510da50ec1563e3562a}
+
+
+Definition at line 2510 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+}{GTEST_FLAG_PREFIX_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+~\char`\"{}gtest\+\_\+\char`\"{}}\hypertarget{gtest-port_8h_a088e84784c589ba9b1fc48602ad8eabf}{}\label{gtest-port_8h_a088e84784c589ba9b1fc48602ad8eabf}
+
+
+Definition at line 286 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+D\+A\+S\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+D\+A\+S\+H\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+D\+A\+S\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+D\+A\+S\+H\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+D\+A\+S\+H\+\_\+}{GTEST_FLAG_PREFIX_DASH_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+D\+A\+S\+H\+\_\+~\char`\"{}gtest-\/\char`\"{}}\hypertarget{gtest-port_8h_a4251ff898f9f94ec6b8b9402c3436759}{}\label{gtest-port_8h_a4251ff898f9f94ec6b8b9402c3436759}
+
+
+Definition at line 287 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+U\+P\+P\+E\+R\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+U\+P\+P\+E\+R\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+U\+P\+P\+E\+R\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+U\+P\+P\+E\+R\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+U\+P\+P\+E\+R\+\_\+}{GTEST_FLAG_PREFIX_UPPER_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+U\+P\+P\+E\+R\+\_\+~\char`\"{}G\+T\+E\+S\+T\+\_\+\char`\"{}}\hypertarget{gtest-port_8h_a4018b7f288f974d022df397e2730633a}{}\label{gtest-port_8h_a4018b7f288f974d022df397e2730633a}
+
+
+Definition at line 288 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+S\+A\+V\+E\+R\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+S\+A\+V\+E\+R\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+S\+A\+V\+E\+R\+\_\+@{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+S\+A\+V\+E\+R\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+S\+A\+V\+E\+R\+\_\+}{GTEST_FLAG_SAVER_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+F\+L\+A\+G\+\_\+\+S\+A\+V\+E\+R\+\_\+~\+::{\bf testing\+::internal\+::\+G\+Test\+Flag\+Saver}}\hypertarget{gtest-port_8h_a3749ef4fba6b3c3993609b336031644d}{}\label{gtest-port_8h_a3749ef4fba6b3c3993609b336031644d}
+
+
+Definition at line 2518 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+A\+L\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+A\+L\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+A\+L\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+A\+L\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+A\+L\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+}{GTEST_HAS_ALT_PATH_SEP_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+A\+L\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+~0}\hypertarget{gtest-port_8h_acf0ee1851e6d342237bb64806ee1fd27}{}\label{gtest-port_8h_acf0ee1851e6d342237bb64806ee1fd27}
+
+
+Definition at line 2246 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+L\+O\+NE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+L\+O\+NE}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+L\+O\+NE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+L\+O\+NE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+L\+O\+NE}{GTEST_HAS_CLONE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+L\+O\+NE~0}\hypertarget{gtest-port_8h_a40c075a7f969a694e59532356be59fd5}{}\label{gtest-port_8h_a40c075a7f969a694e59532356be59fd5}
+
+
+Definition at line 773 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+O\+M\+B\+I\+NE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+O\+M\+B\+I\+NE}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+O\+M\+B\+I\+NE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+O\+M\+B\+I\+NE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+O\+M\+B\+I\+NE}{GTEST_HAS_COMBINE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+O\+M\+B\+I\+NE~1}\hypertarget{gtest-port_8h_a91a068d3bf6855b6f399f01836ae1482}{}\label{gtest-port_8h_a91a068d3bf6855b6f399f01836ae1482}
+
+
+Definition at line 823 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+}{GTEST_HAS_CXXABI_H_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+C\+X\+X\+A\+B\+I\+\_\+\+H\+\_\+~0}\hypertarget{gtest-port_8h_ae6239a8ccf4c230008d1db1ea8bd738e}{}\label{gtest-port_8h_ae6239a8ccf4c230008d1db1ea8bd738e}
+
+
+Definition at line 954 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+NS@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+NS}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+NS@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+NS}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+NS}{GTEST_HAS_EXCEPTIONS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+NS~0}\hypertarget{gtest-port_8h_aedcf220690e6589d0fc2bd3db768ea66}{}\label{gtest-port_8h_aedcf220690e6589d0fc2bd3db768ea66}
+
+
+Definition at line 497 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG}{GTEST_HAS_GLOBAL_STRING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG~0}\hypertarget{gtest-port_8h_a6ab57c4a17233dd4ed30c2926bb99cc5}{}\label{gtest-port_8h_a6ab57c4a17233dd4ed30c2926bb99cc5}
+
+
+Definition at line 514 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+W\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+W\+S\+T\+R\+I\+NG}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+W\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+W\+S\+T\+R\+I\+NG}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+W\+S\+T\+R\+I\+NG}{GTEST_HAS_GLOBAL_WSTRING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+W\+S\+T\+R\+I\+NG~({\bf G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG} \&\& {\bf G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+S\+T\+R\+I\+NG})}\hypertarget{gtest-port_8h_afca9ecaf5846561187a15b75013aa85b}{}\label{gtest-port_8h_afca9ecaf5846561187a15b75013aa85b}
+
+
+Definition at line 535 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T\+E\+ST@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T\+E\+ST}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T\+E\+ST@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T\+E\+ST}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T\+E\+ST}{GTEST_HAS_PARAM_TEST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T\+E\+ST~1}\hypertarget{gtest-port_8h_a743ee591e0b9a044e3d7513ad5ab5ef9}{}\label{gtest-port_8h_a743ee591e0b9a044e3d7513ad5ab5ef9}
+
+
+Definition at line 806 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE}{GTEST_HAS_POSIX_RE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE~(!G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+W\+I\+N\+D\+O\+WS)}\hypertarget{gtest-port_8h_af5c4295ea1d76f07f65934f659792431}{}\label{gtest-port_8h_af5c4295ea1d76f07f65934f659792431}
+
+
+Definition at line 428 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+T\+H\+R\+E\+AD@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+T\+H\+R\+E\+AD}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+T\+H\+R\+E\+AD@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+T\+H\+R\+E\+AD}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+T\+H\+R\+E\+AD}{GTEST_HAS_PTHREAD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+P\+T\+H\+R\+E\+AD}\hypertarget{gtest-port_8h_a3341397e1952de0b9cd88762d4d3ae4b}{}\label{gtest-port_8h_a3341397e1952de0b9cd88762d4d3ae4b}
@@ -599,27 +743,59 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 (GTEST\_OS\_LINUX || GTEST\_OS\_MAC || GTEST\_OS\_HPUX \(\backslash\)
     || GTEST\_OS\_QNX || GTEST\_OS\_FREEBSD || GTEST\_OS\_NACL)
 \end{DoxyCode}
+
+
+Definition at line 609 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+R\+T\+TI@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+R\+T\+TI}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+R\+T\+TI@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+R\+T\+TI}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+R\+T\+TI}{GTEST_HAS_RTTI}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+R\+T\+TI~1}\hypertarget{gtest-port_8h_a9ba781217167f905bff2f1c410a97930}{}\label{gtest-port_8h_a9ba781217167f905bff2f1c410a97930}
+
+
+Definition at line 590 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+EH@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+EH}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+EH@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+EH}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+EH}{GTEST_HAS_SEH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+EH~0}\hypertarget{gtest-port_8h_a8f6a84e8be3c94cd1f6f46a136df2c62}{}\label{gtest-port_8h_a8f6a84e8be3c94cd1f6f46a136df2c62}
+
+
+Definition at line 919 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+S\+T\+R\+I\+NG}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+S\+T\+R\+I\+NG}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+S\+T\+R\+I\+NG}{GTEST_HAS_STD_STRING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+S\+T\+R\+I\+NG~1}\hypertarget{gtest-port_8h_adba1121430c11cee8ba0c74e8cf6aa40}{}\label{gtest-port_8h_adba1121430c11cee8ba0c74e8cf6aa40}
+
+
+Definition at line 504 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG}{GTEST_HAS_STD_WSTRING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+D\+\_\+\+W\+S\+T\+R\+I\+NG~(!(G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+L\+I\+N\+U\+X\+\_\+\+A\+N\+D\+R\+O\+ID $\vert$$\vert$ G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+C\+Y\+G\+W\+IN $\vert$$\vert$ G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+S\+O\+L\+A\+R\+IS))}\hypertarget{gtest-port_8h_a6e087748d8bbd2ca57c487b6ad268670}{}\label{gtest-port_8h_a6e087748d8bbd2ca57c487b6ad268670}
+
+
+Definition at line 527 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+R\+E\+D\+I\+R\+E\+C\+T\+I\+ON@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+R\+E\+D\+I\+R\+E\+C\+T\+I\+ON}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+R\+E\+D\+I\+R\+E\+C\+T\+I\+ON@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+R\+E\+D\+I\+R\+E\+C\+T\+I\+ON}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+R\+E\+D\+I\+R\+E\+C\+T\+I\+ON}{GTEST_HAS_STREAM_REDIRECTION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+R\+E\+D\+I\+R\+E\+C\+T\+I\+ON~1}\hypertarget{gtest-port_8h_add695166eb7b691f93777525d5881062}{}\label{gtest-port_8h_add695166eb7b691f93777525d5881062}
+
+
+Definition at line 787 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE}}
 \index{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE@{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE}{GTEST_HAS_TR1_TUPLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+H\+A\+S\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE~1}\hypertarget{gtest-port_8h_a6de49dd4cbae1db15dc6edca3b179d1b}{}\label{gtest-port_8h_a6de49dd4cbae1db15dc6edca3b179d1b}
+
+
+Definition at line 640 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+I\+N\+I\+T\+\_\+\+G\+O\+O\+G\+L\+E\+\_\+\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+N\+I\+T\+\_\+\+G\+O\+O\+G\+L\+E\+\_\+\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+I\+N\+I\+T\+\_\+\+G\+O\+O\+G\+L\+E\+\_\+\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+N\+I\+T\+\_\+\+G\+O\+O\+G\+L\+E\+\_\+\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+I\+N\+I\+T\+\_\+\+G\+O\+O\+G\+L\+E\+\_\+\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+}{GTEST_INIT_GOOGLE_TEST_NAME_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+I\+N\+I\+T\+\_\+\+G\+O\+O\+G\+L\+E\+\_\+\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+~\char`\"{}testing\+::\+Init\+Google\+Test\char`\"{}}\hypertarget{gtest-port_8h_aa5e27ad4f88278501ef71bd9ddbb44c6}{}\label{gtest-port_8h_aa5e27ad4f88278501ef71bd9ddbb44c6}
+
+
+Definition at line 294 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+O\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+O\+P\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+O\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+O\+P\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+O\+P\+\_\+}{GTEST_INTENTIONAL_CONST_COND_POP_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+O\+P\+\_\+(
@@ -627,6 +803,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 {}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+O\+P\+\_\+}()}\hypertarget{gtest-port_8h_ad115e2c466f7e8a32f1cf23ef2e5f220}{}\label{gtest-port_8h_ad115e2c466f7e8a32f1cf23ef2e5f220}
+
+
+Definition at line 905 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+U\+S\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+U\+S\+H\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+U\+S\+H\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+U\+S\+H\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+U\+S\+H\+\_\+}{GTEST_INTENTIONAL_CONST_COND_PUSH_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+I\+N\+T\+E\+N\+T\+I\+O\+N\+A\+L\+\_\+\+C\+O\+N\+S\+T\+\_\+\+C\+O\+N\+D\+\_\+\+P\+U\+S\+H\+\_\+(
@@ -634,6 +814,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 {}
 \end{DoxyParamCaption}
 )~{\bf G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+S\+C\+\_\+\+W\+A\+R\+N\+I\+N\+G\+S\+\_\+\+P\+U\+S\+H\+\_\+}(4127)}\hypertarget{gtest-port_8h_a69b0cadb05bf2a1ef96151243c6b6241}{}\label{gtest-port_8h_a69b0cadb05bf2a1ef96151243c6b6241}
+
+
+Definition at line 903 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE@{G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE}}
 \index{G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE@{G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE}{GTEST_IS_THREADSAFE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE}\hypertarget{gtest-port_8h_a727149862f53b2fb21f6d33cd9323886}{}\label{gtest-port_8h_a727149862f53b2fb21f6d33cd9323886}
@@ -643,9 +827,17 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
      || (GTEST\_OS\_WINDOWS && !GTEST\_OS\_WINDOWS\_PHONE && !GTEST\_OS\_WINDOWS\_RT) \(\backslash\)
      || \hyperlink{gtest-port_8h_a3341397e1952de0b9cd88762d4d3ae4b}{GTEST\_HAS\_PTHREAD})
 \end{DoxyCode}
+
+
+Definition at line 922 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+L\+A\+N\+G\+\_\+\+C\+X\+X11@{G\+T\+E\+S\+T\+\_\+\+L\+A\+N\+G\+\_\+\+C\+X\+X11}}
 \index{G\+T\+E\+S\+T\+\_\+\+L\+A\+N\+G\+\_\+\+C\+X\+X11@{G\+T\+E\+S\+T\+\_\+\+L\+A\+N\+G\+\_\+\+C\+X\+X11}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+L\+A\+N\+G\+\_\+\+C\+X\+X11}{GTEST_LANG_CXX11}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+L\+A\+N\+G\+\_\+\+C\+X\+X11~0}\hypertarget{gtest-port_8h_a6e310924e9ce4a9f8fda1b189cc680c4}{}\label{gtest-port_8h_a6e310924e9ce4a9f8fda1b189cc680c4}
+
+
+Definition at line 330 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+@{G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+}{GTEST_LOCK_EXCLUDED_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+L\+O\+C\+K\+\_\+\+E\+X\+C\+L\+U\+D\+E\+D\+\_\+(
@@ -653,6 +845,10 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \item[{}]{locks}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest-port_8h_a69abff5a4efdd07bd5faebe3dd318d06}{}\label{gtest-port_8h_a69abff5a4efdd07bd5faebe3dd318d06}
+
+
+Definition at line 2540 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+@{G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+@{G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+}{GTEST_LOG_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+L\+O\+G\+\_\+(
@@ -665,36 +861,84 @@ typedef ::testing::internal::CompileAssert<(static\_cast<bool>(expr))> \(\backsl
 \hyperlink{classtesting_1_1internal_1_1_g_test_log}{::testing::internal::GTestLog}(::testing::internal::GTEST\_##severity, \(\backslash\)
                                   \_\_FILE\_\_, \_\_LINE\_\_).\hyperlink{classtesting_1_1internal_1_1_g_test_log_aebb92e67d98eca69f0347d5121dab27a}{GetStream}()
 \end{DoxyCode}
+
+
+Definition at line 1277 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+M\+U\+S\+T\+\_\+\+U\+S\+E\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+@{G\+T\+E\+S\+T\+\_\+\+M\+U\+S\+T\+\_\+\+U\+S\+E\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+M\+U\+S\+T\+\_\+\+U\+S\+E\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+@{G\+T\+E\+S\+T\+\_\+\+M\+U\+S\+T\+\_\+\+U\+S\+E\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+M\+U\+S\+T\+\_\+\+U\+S\+E\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+}{GTEST_MUST_USE_RESULT_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+M\+U\+S\+T\+\_\+\+U\+S\+E\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+}\hypertarget{gtest-port_8h_a8e5aab8276b2645f64f41c9e3021b935}{}\label{gtest-port_8h_a8e5aab8276b2645f64f41c9e3021b935}
+
+
+Definition at line 892 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+}{GTEST_NAME_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+N\+A\+M\+E\+\_\+~\char`\"{}Google Test\char`\"{}}\hypertarget{gtest-port_8h_a13d98c217176bd8722c395b9225fc19d}{}\label{gtest-port_8h_a13d98c217176bd8722c395b9225fc19d}
+
+
+Definition at line 289 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+N\+O\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+N\+O\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+N\+O\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+N\+O\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+N\+O\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+}{GTEST_NO_INLINE_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+N\+O\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+}\hypertarget{gtest-port_8h_a9945cbd967fbccb15f8de711f58955c7}{}\label{gtest-port_8h_a9945cbd967fbccb15f8de711f58955c7}
+
+
+Definition at line 947 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+@{G\+T\+E\+S\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+}{GTEST_PATH_SEP_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+P\+A\+T\+H\+\_\+\+S\+E\+P\+\_\+~\char`\"{}/\char`\"{}}\hypertarget{gtest-port_8h_afbb636e91bdd50267dbef11a50490b29}{}\label{gtest-port_8h_afbb636e91bdd50267dbef11a50490b29}
+
+
+Definition at line 2245 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+P\+R\+O\+J\+E\+C\+T\+\_\+\+U\+R\+L\+\_\+@{G\+T\+E\+S\+T\+\_\+\+P\+R\+O\+J\+E\+C\+T\+\_\+\+U\+R\+L\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+P\+R\+O\+J\+E\+C\+T\+\_\+\+U\+R\+L\+\_\+@{G\+T\+E\+S\+T\+\_\+\+P\+R\+O\+J\+E\+C\+T\+\_\+\+U\+R\+L\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+P\+R\+O\+J\+E\+C\+T\+\_\+\+U\+R\+L\+\_\+}{GTEST_PROJECT_URL_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+P\+R\+O\+J\+E\+C\+T\+\_\+\+U\+R\+L\+\_\+~\char`\"{}https\+://github.\+com/google/googletest/\char`\"{}}\hypertarget{gtest-port_8h_a5aa3c938fc1d049f1d9c5332f6a0b1d4}{}\label{gtest-port_8h_a5aa3c938fc1d049f1d9c5332f6a0b1d4}
+
+
+Definition at line 290 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+S\+N\+P\+R\+I\+N\+T\+F\+\_\+@{G\+T\+E\+S\+T\+\_\+\+S\+N\+P\+R\+I\+N\+T\+F\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+S\+N\+P\+R\+I\+N\+T\+F\+\_\+@{G\+T\+E\+S\+T\+\_\+\+S\+N\+P\+R\+I\+N\+T\+F\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+S\+N\+P\+R\+I\+N\+T\+F\+\_\+}{GTEST_SNPRINTF_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+S\+N\+P\+R\+I\+N\+T\+F\+\_\+~snprintf}\hypertarget{gtest-port_8h_aed1cc8143222d7a845a1269448ec203e}{}\label{gtest-port_8h_aed1cc8143222d7a845a1269448ec203e}
+
+
+Definition at line 2435 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+T\+U\+P\+L\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+T\+U\+P\+L\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+T\+U\+P\+L\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+\_\+@{G\+T\+E\+S\+T\+\_\+\+T\+U\+P\+L\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+T\+U\+P\+L\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+\_\+}{GTEST_TUPLE_NAMESPACE_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+T\+U\+P\+L\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+\_\+~\+::std\+::tr1}\hypertarget{gtest-port_8h_a2023f59bfbd8fb7148262a63bdbf0b01}{}\label{gtest-port_8h_a2023f59bfbd8fb7148262a63bdbf0b01}
+
+
+Definition at line 691 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+}{GTEST_USE_OWN_FLAGFILE_FLAG_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+F\+L\+A\+G\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+\_\+~1}\hypertarget{gtest-port_8h_aa2315948dda8dba4fc516575657f193c}{}\label{gtest-port_8h_aa2315948dda8dba4fc516575657f193c}
+
+
+Definition at line 2514 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE}}
 \index{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE}{GTEST_USE_OWN_TR1_TUPLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+O\+W\+N\+\_\+\+T\+R1\+\_\+\+T\+U\+P\+LE~1}\hypertarget{gtest-port_8h_afa144e5f5d039db0df873e7ad48c1fda}{}\label{gtest-port_8h_afa144e5f5d039db0df873e7ad48c1fda}
+
+
+Definition at line 674 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE}}
 \index{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE}{GTEST_USES_POSIX_RE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+S\+\_\+\+P\+O\+S\+I\+X\+\_\+\+RE~1}\hypertarget{gtest-port_8h_acecef794eeb09598cd47da764271cb18}{}\label{gtest-port_8h_acecef794eeb09598cd47da764271cb18}
+
+
+Definition at line 443 of file gtest-\/port.\+h.
+
 \index{gtest-\/port.\+h@{gtest-\/port.\+h}!G\+T\+E\+S\+T\+\_\+\+W\+I\+D\+E\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+U\+S\+E\+S\+\_\+\+U\+T\+F16\+\_\+@{G\+T\+E\+S\+T\+\_\+\+W\+I\+D\+E\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+U\+S\+E\+S\+\_\+\+U\+T\+F16\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+W\+I\+D\+E\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+U\+S\+E\+S\+\_\+\+U\+T\+F16\+\_\+@{G\+T\+E\+S\+T\+\_\+\+W\+I\+D\+E\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+U\+S\+E\+S\+\_\+\+U\+T\+F16\+\_\+}!gtest-\/port.\+h@{gtest-\/port.\+h}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+W\+I\+D\+E\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+U\+S\+E\+S\+\_\+\+U\+T\+F16\+\_\+}{GTEST_WIDE_STRING_USES_UTF16_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+W\+I\+D\+E\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+U\+S\+E\+S\+\_\+\+U\+T\+F16\+\_\+~(G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+W\+I\+N\+D\+O\+WS $\vert$$\vert$ G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+C\+Y\+G\+W\+IN $\vert$$\vert$ G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+S\+Y\+M\+B\+I\+AN $\vert$$\vert$ G\+T\+E\+S\+T\+\_\+\+O\+S\+\_\+\+A\+IX)}\hypertarget{gtest-port_8h_a0e3904ca8d62334ab5f29c057dceb6a1}{}\label{gtest-port_8h_a0e3904ca8d62334ab5f29c057dceb6a1}
+
+
+Definition at line 827 of file gtest-\/port.\+h.
+

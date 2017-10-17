@@ -22,7 +22,7 @@ enum \hyperlink{namespacetesting_1_1internal2_aeb8161b0b3ee503347b0662d7028fd57}
 \item 
 \hyperlink{gtest-port_8h_aa73be6f0ba4a7456180a94904ce17790}{G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} void \hyperlink{namespacetesting_1_1internal2_a04a384ee5de3a9f4f00a6052ea79b495}{Print\+Bytes\+In\+Object\+To} (const unsigned char $\ast$obj\+\_\+bytes, size\+\_\+t \hyperlink{gmock__stress__test_8cc_afd9db40e3361ae09188795e8cbe19752}{count},\+::std\+::ostream $\ast$os)
 \item 
-{\footnotesize template$<$typename Char , typename Char\+Traits , typename T $>$ }\\\+::std\+::basic\+\_\+ostream$<$ Char, Char\+Traits $>$ \& \hyperlink{namespacetesting_1_1internal2_a07dbe129beb8952074f04b599dfce39b}{operator$<$$<$} (\+::std\+::basic\+\_\+ostream$<$ Char, Char\+Traits $>$ \&os, const T \&x)
+{\footnotesize template$<$typename Char , typename Char\+Traits , typename T $>$ }\\\+::std\+::basic\+\_\+ostream$<$ Char, Char\+Traits $>$ \& \hyperlink{namespacetesting_1_1internal2_a07dbe129beb8952074f04b599dfce39b}{operator$<$$<$} (\+::std\+::basic\+\_\+ostream$<$ Char, Char\+Traits $>$ \&os, const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&x)
 \item 
 void \hyperlink{namespacetesting_1_1internal2_abfb9aa80365f93b952e9a4bea09947a8}{Print\+Bytes\+In\+Object\+To} (const unsigned char $\ast$obj\+\_\+bytes, size\+\_\+t \hyperlink{gmock__stress__test_8cc_afd9db40e3361ae09188795e8cbe19752}{count}, ostream $\ast$os)
 \end{DoxyCompactItemize}
@@ -50,15 +50,23 @@ k\+Other\+Type\hypertarget{namespacetesting_1_1internal2_aeb8161b0b3ee503347b066
 \end{Desc}
 
 
+Definition at line 124 of file gtest-\/printers.\+h.
+
+
+
 \subsection{Function Documentation}
 \index{testing\+::internal2@{testing\+::internal2}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!testing\+::internal2@{testing\+::internal2}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(\+::std\+::basic\+\_\+ostream$<$ Char, Char\+Traits $>$ \&os, const T \&x)}{operator<<(::std::basic_ostream< Char, CharTraits > &os, const T &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char , typename Char\+Traits , typename T $>$ \+::std\+::basic\+\_\+ostream$<$Char, Char\+Traits$>$\& testing\+::internal2\+::operator$<$$<$ (
 \begin{DoxyParamCaption}
 \item[{\+::std\+::basic\+\_\+ostream$<$ Char, Char\+Traits $>$ \&}]{os, }
-\item[{const T \&}]{x}
+\item[{const {\bf T} \&}]{x}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacetesting_1_1internal2_a07dbe129beb8952074f04b599dfce39b}{}\label{namespacetesting_1_1internal2_a07dbe129beb8952074f04b599dfce39b}
+
+
+Definition at line 203 of file gtest-\/printers.\+h.
+
 \index{testing\+::internal2@{testing\+::internal2}!Print\+Bytes\+In\+Object\+To@{Print\+Bytes\+In\+Object\+To}}
 \index{Print\+Bytes\+In\+Object\+To@{Print\+Bytes\+In\+Object\+To}!testing\+::internal2@{testing\+::internal2}}
 \subsubsection[{\texorpdfstring{Print\+Bytes\+In\+Object\+To(const unsigned char $\ast$obj\+\_\+bytes, size\+\_\+t count, ostream $\ast$os)}{PrintBytesInObjectTo(const unsigned char *obj_bytes, size_t count, ostream *os)}}]{\setlength{\rightskip}{0pt plus 5cm}void testing\+::internal2\+::\+Print\+Bytes\+In\+Object\+To (
@@ -68,6 +76,10 @@ k\+Other\+Type\hypertarget{namespacetesting_1_1internal2_aeb8161b0b3ee503347b066
 \item[{ostream $\ast$}]{os}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacetesting_1_1internal2_abfb9aa80365f93b952e9a4bea09947a8}{}\label{namespacetesting_1_1internal2_abfb9aa80365f93b952e9a4bea09947a8}
+
+
+Definition at line 114 of file gtest-\/printers.\+cc.
+
 \index{testing\+::internal2@{testing\+::internal2}!Print\+Bytes\+In\+Object\+To@{Print\+Bytes\+In\+Object\+To}}
 \index{Print\+Bytes\+In\+Object\+To@{Print\+Bytes\+In\+Object\+To}!testing\+::internal2@{testing\+::internal2}}
 \subsubsection[{\texorpdfstring{Print\+Bytes\+In\+Object\+To(const unsigned char $\ast$obj\+\_\+bytes, size\+\_\+t count,\+::std\+::ostream $\ast$os)}{PrintBytesInObjectTo(const unsigned char *obj_bytes, size_t count,::std::ostream *os)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+T\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+} void testing\+::internal2\+::\+Print\+Bytes\+In\+Object\+To (
@@ -83,3 +95,7 @@ k\+Other\+Type\hypertarget{namespacetesting_1_1internal2_aeb8161b0b3ee503347b066
 \index{testing\+::internal2@{testing\+::internal2}!k\+Protobuf\+One\+Liner\+Max\+Length@{k\+Protobuf\+One\+Liner\+Max\+Length}}
 \index{k\+Protobuf\+One\+Liner\+Max\+Length@{k\+Protobuf\+One\+Liner\+Max\+Length}!testing\+::internal2@{testing\+::internal2}}
 \subsubsection[{\texorpdfstring{k\+Protobuf\+One\+Liner\+Max\+Length}{kProtobufOneLinerMaxLength}}]{\setlength{\rightskip}{0pt plus 5cm}const size\+\_\+t testing\+::internal2\+::k\+Protobuf\+One\+Liner\+Max\+Length = 50}\hypertarget{namespacetesting_1_1internal2_a140c8efd51e63a3def98445bff107518}{}\label{namespacetesting_1_1internal2_a140c8efd51e63a3def98445bff107518}
+
+
+Definition at line 148 of file gtest-\/printers.\+h.
+

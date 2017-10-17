@@ -11,21 +11,9 @@
 {\ttfamily \#include \char`\"{}gtest/gtest-\/spi.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}src/gtest-\/internal-\/inl.\+h\char`\"{}}\\*
 Include dependency graph for gtest\+\_\+unittest.\+cc\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gtest__unittest_8cc__incl}
-\end{center}
-\end{figure}
+% FIG 0
 This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=238pt]{gtest__unittest_8cc__dep__incl}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -462,6 +450,10 @@ std\+::ostream \& \hyperlink{gtest__unittest_8cc_a839d8a189a0c52bb7899a5b4b4b07e
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!G\+T\+E\+S\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+@{G\+T\+E\+S\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+}{GTEST_IMPLEMENTATION_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+~1}\hypertarget{gtest__unittest_8cc_a83bd232fd1077579fada92c31bb7469f}{}\label{gtest__unittest_8cc_a83bd232fd1077579fada92c31bb7469f}
+
+
+Definition at line 75 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+R\+S\+I\+N\+G\+\_\+\+F\+L\+A\+G\+S\+\_\+@{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+R\+S\+I\+N\+G\+\_\+\+F\+L\+A\+G\+S\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+R\+S\+I\+N\+G\+\_\+\+F\+L\+A\+G\+S\+\_\+@{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+R\+S\+I\+N\+G\+\_\+\+F\+L\+A\+G\+S\+\_\+}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+R\+S\+I\+N\+G\+\_\+\+F\+L\+A\+G\+S\+\_\+}{GTEST_TEST_PARSING_FLAGS_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+R\+S\+I\+N\+G\+\_\+\+F\+L\+A\+G\+S\+\_\+(
@@ -478,9 +470,17 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
                    \textcolor{keyword}{sizeof}(argv2)/\textcolor{keyword}{sizeof}(*argv2) - 1, argv2, \(\backslash\)
                    expected, should\_print\_help)
 \end{DoxyCode}
+
+
+Definition at line 5705 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+C\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+\_\+@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+C\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+\_\+}}
 \index{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+C\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+\_\+@{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+C\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+\_\+}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+C\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+\_\+}{GTEST_USE_UNPROTECTED_COMMA_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+T\+E\+S\+T\+\_\+\+U\+S\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+C\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+\_\+~global\+\_\+var++, global\+\_\+var++}\hypertarget{gtest__unittest_8cc_ad42d1faf4b99498972bc2e03f236521a}{}\label{gtest__unittest_8cc_ad42d1faf4b99498972bc2e03f236521a}
+
+
+Definition at line 1238 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!V\+E\+R\+I\+F\+Y\+\_\+\+C\+O\+D\+E\+\_\+\+L\+O\+C\+A\+T\+I\+ON@{V\+E\+R\+I\+F\+Y\+\_\+\+C\+O\+D\+E\+\_\+\+L\+O\+C\+A\+T\+I\+ON}}
 \index{V\+E\+R\+I\+F\+Y\+\_\+\+C\+O\+D\+E\+\_\+\+L\+O\+C\+A\+T\+I\+ON@{V\+E\+R\+I\+F\+Y\+\_\+\+C\+O\+D\+E\+\_\+\+L\+O\+C\+A\+T\+I\+ON}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{V\+E\+R\+I\+F\+Y\+\_\+\+C\+O\+D\+E\+\_\+\+L\+O\+C\+A\+T\+I\+ON}{VERIFY_CODE_LOCATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+E\+R\+I\+F\+Y\+\_\+\+C\+O\+D\+E\+\_\+\+L\+O\+C\+A\+T\+I\+ON}\hypertarget{gtest__unittest_8cc_a7720eac5c0fc782a0447f4479923c7bd}{}\label{gtest__unittest_8cc_a7720eac5c0fc782a0447f4479923c7bd}
@@ -495,17 +495,33 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \end{DoxyCode}
 
 
+Definition at line 5337 of file gtest\+\_\+unittest.\+cc.
+
+
+
 \subsection{Typedef Documentation}
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Int\+Alias@{Int\+Alias}}
 \index{Int\+Alias@{Int\+Alias}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Int\+Alias}{IntAlias}}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf Int\+Alias}}\hypertarget{gtest__unittest_8cc_a89319972d5a831dd6877a3e502ec57ff}{}\label{gtest__unittest_8cc_a89319972d5a831dd6877a3e502ec57ff}
 
 
+Definition at line 6884 of file gtest\+\_\+unittest.\+cc.
+
+
+
 \subsection{Enumeration Type Documentation}
 \subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{gtest__unittest_8cc_abc6126af1d45847bc59afa0aa3216b04}{}\label{gtest__unittest_8cc_abc6126af1d45847bc59afa0aa3216b04}
+
+
+Definition at line 3899 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Named\+Enum@{Named\+Enum}}
 \index{Named\+Enum@{Named\+Enum}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Named\+Enum}{NamedEnum}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Named\+Enum}}\hypertarget{gtest__unittest_8cc_ae0610bad70a3b53c94ee9db54f6f732b}{}\label{gtest__unittest_8cc_ae0610bad70a3b53c94ee9db54f6f732b}
+
+
+Definition at line 3880 of file gtest\+\_\+unittest.\+cc.
+
 
 
 \subsection{Function Documentation}
@@ -517,6 +533,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a54247aeadc0617105812dca8609638de}{}\label{gtest__unittest_8cc_a54247aeadc0617105812dca8609638de}
+
+
+Definition at line 7305 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(\+::std\+::ostream \&os, const Testing\+Vector \&vector)}{operator<<(::std::ostream &os, const TestingVector &vector)}}]{\setlength{\rightskip}{0pt plus 5cm}\+::std\+::ostream\& operator$<$$<$ (
@@ -525,6 +545,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{const {\bf Testing\+Vector} \&}]{vector}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a5f23eac320bc1c1dcd3cec464e31b5c6}{}\label{gtest__unittest_8cc_a5f23eac320bc1c1dcd3cec464e31b5c6}
+
+
+Definition at line 305 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(std\+::ostream \&os, const Base \&val)}{operator<<(std::ostream &os, const Base &val)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
@@ -533,6 +557,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{const {\bf Base} \&}]{val}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ab80209c07a91db303a9d415dc9bd4e81}{}\label{gtest__unittest_8cc_ab80209c07a91db303a9d415dc9bd4e81}
+
+
+Definition at line 5162 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(std\+::ostream \&os, const Base $\ast$pointer)}{operator<<(std::ostream &os, const Base *pointer)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
@@ -541,6 +569,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{const {\bf Base} $\ast$}]{pointer}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ac4fc0177334a6fd32b81376c9a2a2dc6}{}\label{gtest__unittest_8cc_ac4fc0177334a6fd32b81376c9a2a2dc6}
+
+
+Definition at line 5166 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(std\+::ostream \&os, const namespace2\+::\+My\+Type\+In\+Name\+Space2 \&val)}{operator<<(std::ostream &os, const namespace2::MyTypeInNameSpace2 &val)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
@@ -549,6 +581,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{const {\bf namespace2\+::\+My\+Type\+In\+Name\+Space2} \&}]{val}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ab3cbb7adaeba5049e2c1907523f0c3e8}{}\label{gtest__unittest_8cc_ab3cbb7adaeba5049e2c1907523f0c3e8}
+
+
+Definition at line 5237 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(std\+::ostream \&os, const namespace2\+::\+My\+Type\+In\+Name\+Space2 $\ast$pointer)}{operator<<(std::ostream &os, const namespace2::MyTypeInNameSpace2 *pointer)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
@@ -557,6 +593,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{const {\bf namespace2\+::\+My\+Type\+In\+Name\+Space2} $\ast$}]{pointer}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a839d8a189a0c52bb7899a5b4b4b07ed1}{}\label{gtest__unittest_8cc_a839d8a189a0c52bb7899a5b4b4b07ed1}
+
+
+Definition at line 5241 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Command\+Line\+Flags\+Test, Can\+Be\+Accessed\+In\+Code\+Once\+G\+Test\+H\+Is\+Included)}{TEST(CommandLineFlagsTest, CanBeAccessedInCodeOnceGTestHIsIncluded)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -565,6 +605,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Can\+Be\+Accessed\+In\+Code\+Once\+G\+Test\+H\+Is\+Included}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ab57f179772c1ce74fd8c22fe0590dffe}{}\label{gtest__unittest_8cc_ab57f179772c1ce74fd8c22fe0590dffe}
+
+
+Definition at line 40 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Assertion\+Result\+Test, Copy\+Constructor\+Works\+When\+Not\+Optimied)}{TEST(AssertionResultTest, CopyConstructorWorksWhenNotOptimied)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -573,6 +617,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Copy\+Constructor\+Works\+When\+Not\+Optimied}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1f4d6acbaf3df6080caf7e24f05a0be5}{}\label{gtest__unittest_8cc_a1f4d6acbaf3df6080caf7e24f05a0be5}
+
+
+Definition at line 5067 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Assertion\+Result\+Test, Construction\+Works)}{TEST(AssertionResultTest, ConstructionWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -581,6 +629,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Construction\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aedf09cfebfd5a8d3a06625df12bbb876}{}\label{gtest__unittest_8cc_aedf09cfebfd5a8d3a06625df12bbb876}
+
+
+Definition at line 5083 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Assertion\+Result\+Test, Negation\+Works)}{TEST(AssertionResultTest, NegationWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -589,6 +641,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Negation\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a96d7227faf7783c24e9532b1eb3c2a42}{}\label{gtest__unittest_8cc_a96d7227faf7783c24e9532b1eb3c2a42}
+
+
+Definition at line 5106 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Assertion\+Result\+Test, Streaming\+Works)}{TEST(AssertionResultTest, StreamingWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -597,6 +653,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Streaming\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_acdfdc68a5959b52a59f9dd0cccc3f390}{}\label{gtest__unittest_8cc_acdfdc68a5959b52a59f9dd0cccc3f390}
+
+
+Definition at line 5116 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Assertion\+Result\+Test, Can\+Stream\+Ostream\+Manipulators)}{TEST(AssertionResultTest, CanStreamOstreamManipulators)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -605,6 +665,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Can\+Stream\+Ostream\+Manipulators}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a9f44af0752c3f08c932e2750905c6d79}{}\label{gtest__unittest_8cc_a9f44af0752c3f08c932e2750905c6d79}
+
+
+Definition at line 5122 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Assertion\+Result\+Test, Constructible\+From\+Implicitly\+Convertible)}{TEST(AssertionResultTest, ConstructibleFromImplicitlyConvertible)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -613,6 +677,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Constructible\+From\+Implicitly\+Convertible}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a4e5c52db04c25d8718f584bf5f74c62a}{}\label{gtest__unittest_8cc_a4e5c52db04c25d8718f584bf5f74c62a}
+
+
+Definition at line 5148 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Message\+Test, Can\+Stream\+User\+Type\+In\+Global\+Name\+Space)}{TEST(MessageTest, CanStreamUserTypeInGlobalNameSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -621,6 +689,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Can\+Stream\+User\+Type\+In\+Global\+Name\+Space}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a3cfb4c4e94683c4677706c53ab52fb8e}{}\label{gtest__unittest_8cc_a3cfb4c4e94683c4677706c53ab52fb8e}
+
+
+Definition at line 5171 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Message\+Test, Can\+Stream\+User\+Type\+In\+Unnamed\+Name\+Space)}{TEST(MessageTest, CanStreamUserTypeInUnnamedNameSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -629,6 +701,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Can\+Stream\+User\+Type\+In\+Unnamed\+Name\+Space}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ab9dfac778014c6214ff30da9c74cbffe}{}\label{gtest__unittest_8cc_ab9dfac778014c6214ff30da9c74cbffe}
+
+
+Definition at line 5196 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Message\+Test, Can\+Stream\+User\+Type\+In\+User\+Name\+Space)}{TEST(MessageTest, CanStreamUserTypeInUserNameSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -637,6 +713,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Can\+Stream\+User\+Type\+In\+User\+Name\+Space}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ac87850465b99bd7121b521b2da5966f4}{}\label{gtest__unittest_8cc_ac87850465b99bd7121b521b2da5966f4}
+
+
+Definition at line 5221 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Message\+Test, Can\+Stream\+User\+Type\+In\+User\+Name\+Space\+With\+Stream\+Operator\+In\+Global)}{TEST(MessageTest, CanStreamUserTypeInUserNameSpaceWithStreamOperatorInGlobal)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -645,6 +725,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Can\+Stream\+User\+Type\+In\+User\+Name\+Space\+With\+Stream\+Operator\+In\+Global}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ad2b886ecfee880b5012c8d41b448f110}{}\label{gtest__unittest_8cc_ad2b886ecfee880b5012c8d41b448f110}
+
+
+Definition at line 5246 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Message\+Test, Null\+Pointers)}{TEST(MessageTest, NullPointers)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -653,6 +737,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Null\+Pointers}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a94b1c12b49eabc12e7418733576df02a}{}\label{gtest__unittest_8cc_a94b1c12b49eabc12e7418733576df02a}
+
+
+Definition at line 5255 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Message\+Test, Wide\+Strings)}{TEST(MessageTest, WideStrings)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -661,6 +749,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Wide\+Strings}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a9c9e67e24350d636fa355b36ed230706}{}\label{gtest__unittest_8cc_a9c9e67e24350d636fa355b36ed230706}
+
+
+Definition at line 5270 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Unconditional)}{TEST(StreamingAssertionsTest, Unconditional)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -669,6 +761,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Unconditional}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1118ea85887fba8f2dd371d1add98cd5}{}\label{gtest__unittest_8cc_a1118ea85887fba8f2dd371d1add98cd5}
+
+
+Definition at line 6609 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Truth)}{TEST(StreamingAssertionsTest, Truth)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -677,6 +773,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Truth}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a5081f1d21cba3545511f97cc2be73da8}{}\label{gtest__unittest_8cc_a5081f1d21cba3545511f97cc2be73da8}
+
+
+Definition at line 6622 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Truth2)}{TEST(StreamingAssertionsTest, Truth2)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -685,6 +785,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Truth2}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aa957aa71ef10bd134fe2d6f702e264df}{}\label{gtest__unittest_8cc_aa957aa71ef10bd134fe2d6f702e264df}
+
+
+Definition at line 6631 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Integer\+Equals)}{TEST(StreamingAssertionsTest, IntegerEquals)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -693,6 +797,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Integer\+Equals}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_af9ba09b04506bd0e6b81221396535889}{}\label{gtest__unittest_8cc_af9ba09b04506bd0e6b81221396535889}
+
+
+Definition at line 6645 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Integer\+Less\+Than)}{TEST(StreamingAssertionsTest, IntegerLessThan)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -701,6 +809,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Integer\+Less\+Than}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a8cfc5b3fcdf4593236319966b11dcc52}{}\label{gtest__unittest_8cc_a8cfc5b3fcdf4593236319966b11dcc52}
+
+
+Definition at line 6654 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Strings\+Equal)}{TEST(StreamingAssertionsTest, StringsEqual)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -709,6 +821,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Strings\+Equal}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a474efe55930f8fc5fa7baa2360d5cda0}{}\label{gtest__unittest_8cc_a474efe55930f8fc5fa7baa2360d5cda0}
+
+
+Definition at line 6663 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Strings\+Not\+Equal)}{TEST(StreamingAssertionsTest, StringsNotEqual)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -717,6 +833,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Strings\+Not\+Equal}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a7393a1560b4cf4ab39cf3eb20ca10345}{}\label{gtest__unittest_8cc_a7393a1560b4cf4ab39cf3eb20ca10345}
+
+
+Definition at line 6672 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Strings\+Equal\+Ignoring\+Case)}{TEST(StreamingAssertionsTest, StringsEqualIgnoringCase)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -725,6 +845,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Strings\+Equal\+Ignoring\+Case}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a82bafab19e101ad95823eb58e6676df0}{}\label{gtest__unittest_8cc_a82bafab19e101ad95823eb58e6676df0}
+
+
+Definition at line 6681 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, String\+Not\+Equal\+Ignoring\+Case)}{TEST(StreamingAssertionsTest, StringNotEqualIgnoringCase)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -733,6 +857,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{String\+Not\+Equal\+Ignoring\+Case}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a83a5ce843f2acfe262c164ed6ce989b7}{}\label{gtest__unittest_8cc_a83a5ce843f2acfe262c164ed6ce989b7}
+
+
+Definition at line 6690 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Streaming\+Assertions\+Test, Floating\+Point\+Equals)}{TEST(StreamingAssertionsTest, FloatingPointEquals)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -741,6 +869,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Floating\+Point\+Equals}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a575e502c03840cac57d6dc6697e39240}{}\label{gtest__unittest_8cc_a575e502c03840cac57d6dc6697e39240}
+
+
+Definition at line 6699 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Colored\+Output\+Test, Uses\+Colors\+When\+G\+Test\+Color\+Flag\+Is\+Yes)}{TEST(ColoredOutputTest, UsesColorsWhenGTestColorFlagIsYes)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -749,6 +881,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Uses\+Colors\+When\+G\+Test\+Color\+Flag\+Is\+Yes}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aaf1acc03f393989f85aafd13c880fa44}{}\label{gtest__unittest_8cc_aaf1acc03f393989f85aafd13c880fa44}
+
+
+Definition at line 6741 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Colored\+Output\+Test, Uses\+Colors\+When\+G\+Test\+Color\+Flag\+Is\+Alias\+Of\+Yes)}{TEST(ColoredOutputTest, UsesColorsWhenGTestColorFlagIsAliasOfYes)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -757,6 +893,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Uses\+Colors\+When\+G\+Test\+Color\+Flag\+Is\+Alias\+Of\+Yes}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aa9a0db525d07d5e2afea545471d1f654}{}\label{gtest__unittest_8cc_aa9a0db525d07d5e2afea545471d1f654}
+
+
+Definition at line 6753 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Colored\+Output\+Test, Uses\+No\+Color\+When\+G\+Test\+Color\+Flag\+Is\+No)}{TEST(ColoredOutputTest, UsesNoColorWhenGTestColorFlagIsNo)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -765,6 +905,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Uses\+No\+Color\+When\+G\+Test\+Color\+Flag\+Is\+No}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aac5bec0b24eebf52985abcd6234335fe}{}\label{gtest__unittest_8cc_aac5bec0b24eebf52985abcd6234335fe}
+
+
+Definition at line 6766 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Colored\+Output\+Test, Uses\+No\+Color\+When\+G\+Test\+Color\+Flag\+Is\+Invalid)}{TEST(ColoredOutputTest, UsesNoColorWhenGTestColorFlagIsInvalid)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -773,6 +917,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Uses\+No\+Color\+When\+G\+Test\+Color\+Flag\+Is\+Invalid}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a7f15883b04b4975f604be288955952fb}{}\label{gtest__unittest_8cc_a7f15883b04b4975f604be288955952fb}
+
+
+Definition at line 6778 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Colored\+Output\+Test, Uses\+Colors\+When\+Stdout\+Is\+Tty)}{TEST(ColoredOutputTest, UsesColorsWhenStdoutIsTty)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -781,6 +929,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Uses\+Colors\+When\+Stdout\+Is\+Tty}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a2a995937bc9d0b16d65e5bcaa5fc781e}{}\label{gtest__unittest_8cc_a2a995937bc9d0b16d65e5bcaa5fc781e}
+
+
+Definition at line 6791 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Colored\+Output\+Test, Uses\+Colors\+When\+Term\+Supports\+Colors)}{TEST(ColoredOutputTest, UsesColorsWhenTermSupportsColors)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -789,6 +941,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Uses\+Colors\+When\+Term\+Supports\+Colors}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a6dd6677e63340771dc55ad96a0697f11}{}\label{gtest__unittest_8cc_a6dd6677e63340771dc55ad96a0697f11}
+
+
+Definition at line 6799 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Static\+Assert\+Type\+Eq\+Test, Works\+In\+Class)}{TEST(StaticAssertTypeEqTest, WorksInClass)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -797,6 +953,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+In\+Class}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a267c6521e900e2d6096653f1b0df7f32}{}\label{gtest__unittest_8cc_a267c6521e900e2d6096653f1b0df7f32}
+
+
+Definition at line 6878 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Static\+Assert\+Type\+Eq\+Test, Compiles\+For\+Equal\+Types)}{TEST(StaticAssertTypeEqTest, CompilesForEqualTypes)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -805,6 +965,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Compiles\+For\+Equal\+Types}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a896a075b2d244e3961f0fb3c13614f2b}{}\label{gtest__unittest_8cc_a896a075b2d244e3961f0fb3c13614f2b}
+
+
+Definition at line 6886 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Get\+Current\+Os\+Stack\+Trace\+Except\+Top\+Test, Returns\+The\+Stack\+Trace)}{TEST(GetCurrentOsStackTraceExceptTopTest, ReturnsTheStackTrace)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -813,6 +977,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+The\+Stack\+Trace}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a386c193fa342a6cb3a88ffe4751a264b}{}\label{gtest__unittest_8cc_a386c193fa342a6cb3a88ffe4751a264b}
+
+
+Definition at line 6891 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Nonfatal\+Failure\+Test, Returns\+False\+When\+There\+Is\+No\+Failure)}{TEST(HasNonfatalFailureTest, ReturnsFalseWhenThereIsNoFailure)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -821,6 +989,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+False\+When\+There\+Is\+No\+Failure}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a9f9166027da63504b2306b8f5e5a88b1}{}\label{gtest__unittest_8cc_a9f9166027da63504b2306b8f5e5a88b1}
+
+
+Definition at line 6899 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Nonfatal\+Failure\+Test, Returns\+False\+When\+There\+Is\+Only\+Fatal\+Failure)}{TEST(HasNonfatalFailureTest, ReturnsFalseWhenThereIsOnlyFatalFailure)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -829,6 +1001,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+False\+When\+There\+Is\+Only\+Fatal\+Failure}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ad25e0382fb27cfff590e2c104c504dff}{}\label{gtest__unittest_8cc_ad25e0382fb27cfff590e2c104c504dff}
+
+
+Definition at line 6905 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Nonfatal\+Failure\+Test, Returns\+True\+When\+There\+Is\+Nonfatal\+Failure)}{TEST(HasNonfatalFailureTest, ReturnsTrueWhenThereIsNonfatalFailure)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -837,6 +1013,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+True\+When\+There\+Is\+Nonfatal\+Failure}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1d7caf8788fecd939c4a4e23c23e52ff}{}\label{gtest__unittest_8cc_a1d7caf8788fecd939c4a4e23c23e52ff}
+
+
+Definition at line 6912 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Nonfatal\+Failure\+Test, Returns\+True\+When\+There\+Are\+Fatal\+And\+Nonfatal\+Failures)}{TEST(HasNonfatalFailureTest, ReturnsTrueWhenThereAreFatalAndNonfatalFailures)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -845,6 +1025,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+True\+When\+There\+Are\+Fatal\+And\+Nonfatal\+Failures}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a7df9189826b8aab71331bb7fec0b57cb}{}\label{gtest__unittest_8cc_a7df9189826b8aab71331bb7fec0b57cb}
+
+
+Definition at line 6919 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Nonfatal\+Failure\+Test, Works\+Outside\+Of\+Test\+Body)}{TEST(HasNonfatalFailureTest, WorksOutsideOfTestBody)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -853,6 +1037,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+Outside\+Of\+Test\+Body}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a97a31bbf9d4d1f7f36021db7efed056a}{}\label{gtest__unittest_8cc_a97a31bbf9d4d1f7f36021db7efed056a}
+
+
+Definition at line 6932 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Nonfatal\+Failure\+Test, Works\+Outside\+Of\+Test\+Body2)}{TEST(HasNonfatalFailureTest, WorksOutsideOfTestBody2)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -861,6 +1049,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+Outside\+Of\+Test\+Body2}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1d352f5ce3c51840695c59733f8f642a}{}\label{gtest__unittest_8cc_a1d352f5ce3c51840695c59733f8f642a}
+
+
+Definition at line 6936 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Failure\+Test, Returns\+False\+When\+There\+Is\+No\+Failure)}{TEST(HasFailureTest, ReturnsFalseWhenThereIsNoFailure)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -869,6 +1061,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+False\+When\+There\+Is\+No\+Failure}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a3963284acb609756dee763d91b93aaad}{}\label{gtest__unittest_8cc_a3963284acb609756dee763d91b93aaad}
+
+
+Definition at line 6943 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Failure\+Test, Returns\+True\+When\+There\+Is\+Fatal\+Failure)}{TEST(HasFailureTest, ReturnsTrueWhenThereIsFatalFailure)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -877,6 +1073,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+True\+When\+There\+Is\+Fatal\+Failure}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a3226e1e613be7a832888a4a8f57fb02e}{}\label{gtest__unittest_8cc_a3226e1e613be7a832888a4a8f57fb02e}
+
+
+Definition at line 6947 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Failure\+Test, Returns\+True\+When\+There\+Is\+Nonfatal\+Failure)}{TEST(HasFailureTest, ReturnsTrueWhenThereIsNonfatalFailure)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -885,6 +1085,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+True\+When\+There\+Is\+Nonfatal\+Failure}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_af4d5faf224cfe1acb3d49612a4659b3b}{}\label{gtest__unittest_8cc_af4d5faf224cfe1acb3d49612a4659b3b}
+
+
+Definition at line 6954 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Failure\+Test, Returns\+True\+When\+There\+Are\+Fatal\+And\+Nonfatal\+Failures)}{TEST(HasFailureTest, ReturnsTrueWhenThereAreFatalAndNonfatalFailures)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -893,6 +1097,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Returns\+True\+When\+There\+Are\+Fatal\+And\+Nonfatal\+Failures}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a80bc4f563ed06ee6b84f1370744fd3e6}{}\label{gtest__unittest_8cc_a80bc4f563ed06ee6b84f1370744fd3e6}
+
+
+Definition at line 6961 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Failure\+Test, Works\+Outside\+Of\+Test\+Body)}{TEST(HasFailureTest, WorksOutsideOfTestBody)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -901,6 +1109,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+Outside\+Of\+Test\+Body}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a4ff927d7677fcdff6fd6af7e27c6aab3}{}\label{gtest__unittest_8cc_a4ff927d7677fcdff6fd6af7e27c6aab3}
+
+
+Definition at line 6972 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Has\+Failure\+Test, Works\+Outside\+Of\+Test\+Body2)}{TEST(HasFailureTest, WorksOutsideOfTestBody2)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -909,6 +1121,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+Outside\+Of\+Test\+Body2}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_acb72846e1f7181d831d760128a763e08}{}\label{gtest__unittest_8cc_acb72846e1f7181d831d760128a763e08}
+
+
+Definition at line 6976 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Test\+Event\+Listeners\+Test, Construction\+Works)}{TEST(TestEventListenersTest, ConstructionWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -917,6 +1133,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Construction\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a7b39d7fb43a28e8098af85e3ee51eece}{}\label{gtest__unittest_8cc_a7b39d7fb43a28e8098af85e3ee51eece}
+
+
+Definition at line 7007 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Test\+Event\+Listeners\+Test, Destruction\+Works)}{TEST(TestEventListenersTest, DestructionWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -925,6 +1145,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Destruction\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1d1592cafc34c09de7a810a7c4855162}{}\label{gtest__unittest_8cc_a1d1592cafc34c09de7a810a7c4855162}
+
+
+Definition at line 7017 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Test\+Event\+Listeners\+Test, Append)}{TEST(TestEventListenersTest, Append)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -933,6 +1157,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Append}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a4b3f65b804787ed25c4136df142e1f77}{}\label{gtest__unittest_8cc_a4b3f65b804787ed25c4136df142e1f77}
+
+
+Definition at line 7043 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Test, Append\+Keeps\+Order)}{TEST(EventListenerTest, AppendKeepsOrder)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -941,6 +1169,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Append\+Keeps\+Order}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a2a1ece611968f69f9feb86f639089511}{}\label{gtest__unittest_8cc_a2a1ece611968f69f9feb86f639089511}
+
+
+Definition at line 7097 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Test\+Event\+Listeners\+Test, Release)}{TEST(TestEventListenersTest, Release)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -949,6 +1181,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Release}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aefe7d8b3422fb27b9c7281c0434881be}{}\label{gtest__unittest_8cc_aefe7d8b3422fb27b9c7281c0434881be}
+
+
+Definition at line 7138 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Test, Suppress\+Event\+Forwarding)}{TEST(EventListenerTest, SuppressEventForwarding)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -957,6 +1193,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Suppress\+Event\+Forwarding}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_abdd2f070281db35988b7f6c22f2623e7}{}\label{gtest__unittest_8cc_abdd2f070281db35988b7f6c22f2623e7}
+
+
+Definition at line 7159 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Death\+Test, Events\+Not\+Forwarded\+In\+Death\+Test\+Subprecesses)}{TEST(EventListenerDeathTest, EventsNotForwardedInDeathTestSubprecesses)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -965,6 +1205,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Events\+Not\+Forwarded\+In\+Death\+Test\+Subprecesses}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a3e3bfce9c199215053e43d9d1a248af8}{}\label{gtest__unittest_8cc_a3e3bfce9c199215053e43d9d1a248af8}
+
+
+Definition at line 7175 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Test, default\+\_\+result\+\_\+printer)}{TEST(EventListenerTest, default_result_printer)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -973,6 +1217,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{default\+\_\+result\+\_\+printer}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a6fa482480599861df0c182c4d4229133}{}\label{gtest__unittest_8cc_a6fa482480599861df0c182c4d4229133}
+
+
+Definition at line 7185 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Test, Removing\+Default\+Result\+Printer\+Works)}{TEST(EventListenerTest, RemovingDefaultResultPrinterWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -981,6 +1229,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Removing\+Default\+Result\+Printer\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a32187fe0e1d4620d0ed5a7c6cc7254b8}{}\label{gtest__unittest_8cc_a32187fe0e1d4620d0ed5a7c6cc7254b8}
+
+
+Definition at line 7216 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Test, default\+\_\+xml\+\_\+generator)}{TEST(EventListenerTest, default_xml_generator)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -989,6 +1241,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{default\+\_\+xml\+\_\+generator}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aff2c25cbedbe72d8bb0162bc1bd0fece}{}\label{gtest__unittest_8cc_aff2c25cbedbe72d8bb0162bc1bd0fece}
+
+
+Definition at line 7244 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Event\+Listener\+Test, Removing\+Default\+Xml\+Generator\+Works)}{TEST(EventListenerTest, RemovingDefaultXmlGeneratorWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -997,6 +1253,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Removing\+Default\+Xml\+Generator\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a77647d09c995f09d06e2f02b13277c44}{}\label{gtest__unittest_8cc_a77647d09c995f09d06e2f02b13277c44}
+
+
+Definition at line 7275 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Is\+A\+Protocol\+Message\+Test, Value\+Is\+Compile\+Time\+Constant)}{TEST(IsAProtocolMessageTest, ValueIsCompileTimeConstant)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1005,6 +1265,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Value\+Is\+Compile\+Time\+Constant}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a92eccf2c14f70b39d88564370690b303}{}\label{gtest__unittest_8cc_a92eccf2c14f70b39d88564370690b303}
+
+
+Definition at line 7356 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Is\+A\+Protocol\+Message\+Test, Value\+Is\+True\+When\+Type\+Is\+A\+Protocol\+Message)}{TEST(IsAProtocolMessageTest, ValueIsTrueWhenTypeIsAProtocolMessage)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1013,6 +1277,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Value\+Is\+True\+When\+Type\+Is\+A\+Protocol\+Message}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ac9103349aa0cc06b769d69f0e8106997}{}\label{gtest__unittest_8cc_ac9103349aa0cc06b769d69f0e8106997}
+
+
+Definition at line 7364 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Is\+A\+Protocol\+Message\+Test, Value\+Is\+False\+When\+Type\+Is\+Not\+A\+Protocol\+Message)}{TEST(IsAProtocolMessageTest, ValueIsFalseWhenTypeIsNotAProtocolMessage)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1021,6 +1289,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Value\+Is\+False\+When\+Type\+Is\+Not\+A\+Protocol\+Message}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a5f72b1b55ea8c769dc1c6c182f4d9be2}{}\label{gtest__unittest_8cc_a5f72b1b55ea8c769dc1c6c182f4d9be2}
+
+
+Definition at line 7371 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Compile\+Assert\+Types\+Equal, Compiles\+When\+Types\+Are\+Equal)}{TEST(CompileAssertTypesEqual, CompilesWhenTypesAreEqual)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1029,6 +1301,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Compiles\+When\+Types\+Are\+Equal}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aae9a7c282222598d5d254cf470c9a45b}{}\label{gtest__unittest_8cc_aae9a7c282222598d5d254cf470c9a45b}
+
+
+Definition at line 7378 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Reference\+Test, Does\+Not\+Affect\+Non\+Reference\+Type)}{TEST(RemoveReferenceTest, DoesNotAffectNonReferenceType)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1037,6 +1313,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Does\+Not\+Affect\+Non\+Reference\+Type}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a3a7ab4954eeaf0889269b56ca3df558e}{}\label{gtest__unittest_8cc_a3a7ab4954eeaf0889269b56ca3df558e}
+
+
+Definition at line 7384 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Reference\+Test, Removes\+Reference)}{TEST(RemoveReferenceTest, RemovesReference)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1045,6 +1325,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Removes\+Reference}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ae15336b18be29c1317624a2ffdb74530}{}\label{gtest__unittest_8cc_ae15336b18be29c1317624a2ffdb74530}
+
+
+Definition at line 7390 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Reference\+Test, Macro\+Version)}{TEST(RemoveReferenceTest, MacroVersion)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1053,6 +1337,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Macro\+Version}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a742fff74857242801058ef6d192b1910}{}\label{gtest__unittest_8cc_a742fff74857242801058ef6d192b1910}
+
+
+Definition at line 7402 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Const\+Test, Does\+Not\+Affect\+Non\+Const\+Type)}{TEST(RemoveConstTest, DoesNotAffectNonConstType)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1061,6 +1349,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Does\+Not\+Affect\+Non\+Const\+Type}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a553d6725457e4b4e9d89d60f0cc58470}{}\label{gtest__unittest_8cc_a553d6725457e4b4e9d89d60f0cc58470}
+
+
+Definition at line 7409 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Const\+Test, Removes\+Const)}{TEST(RemoveConstTest, RemovesConst)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1069,6 +1361,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Removes\+Const}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aa9be3d92628cb49887909ae2c75a231b}{}\label{gtest__unittest_8cc_aa9be3d92628cb49887909ae2c75a231b}
+
+
+Definition at line 7415 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Const\+Test, Macro\+Version)}{TEST(RemoveConstTest, MacroVersion)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1077,6 +1373,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Macro\+Version}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a9fd89b0957e416c98f52e2c44196bb29}{}\label{gtest__unittest_8cc_a9fd89b0957e416c98f52e2c44196bb29}
+
+
+Definition at line 7428 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Remove\+Reference\+To\+Const\+Test, Works)}{TEST(RemoveReferenceToConstTest, Works)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1085,6 +1385,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_af57c5701311c2e9074540ee680e3f34e}{}\label{gtest__unittest_8cc_af57c5701311c2e9074540ee680e3f34e}
+
+
+Definition at line 7441 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Add\+Reference\+Test, Does\+Not\+Affect\+Reference\+Type)}{TEST(AddReferenceTest, DoesNotAffectReferenceType)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1093,6 +1397,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Does\+Not\+Affect\+Reference\+Type}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ac910b493f212cc393ec0a34310fd6072}{}\label{gtest__unittest_8cc_ac910b493f212cc393ec0a34310fd6072}
+
+
+Definition at line 7450 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Add\+Reference\+Test, Adds\+Reference)}{TEST(AddReferenceTest, AddsReference)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1101,6 +1409,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Adds\+Reference}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a79f243d73454356cbce420cb627f2a51}{}\label{gtest__unittest_8cc_a79f243d73454356cbce420cb627f2a51}
+
+
+Definition at line 7456 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Add\+Reference\+Test, Macro\+Version)}{TEST(AddReferenceTest, MacroVersion)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1109,6 +1421,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Macro\+Version}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a62b3c6edec9e43200fe9cce9a520f90e}{}\label{gtest__unittest_8cc_a62b3c6edec9e43200fe9cce9a520f90e}
+
+
+Definition at line 7468 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+G\+Test\+Reference\+To\+Const\+Test, Works)}{TEST(GTestReferenceToConstTest, Works)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1117,6 +1433,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a69fa334ed4d6f74b62d2404b65ae7852}{}\label{gtest__unittest_8cc_a69fa334ed4d6f74b62d2404b65ae7852}
+
+
+Definition at line 7480 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Implicitly\+Convertible\+Test, Value\+Is\+Compile\+Time\+Constant)}{TEST(ImplicitlyConvertibleTest, ValueIsCompileTimeConstant)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1125,6 +1445,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Value\+Is\+Compile\+Time\+Constant}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1e038e35137c6cb94a3fc876aa6d9c57}{}\label{gtest__unittest_8cc_a1e038e35137c6cb94a3fc876aa6d9c57}
+
+
+Definition at line 7488 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Implicitly\+Convertible\+Test, Value\+Is\+True\+When\+Convertible)}{TEST(ImplicitlyConvertibleTest, ValueIsTrueWhenConvertible)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1133,6 +1457,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Value\+Is\+True\+When\+Convertible}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_aa483d18c01dd363d5505a2e24c0b0b7c}{}\label{gtest__unittest_8cc_aa483d18c01dd363d5505a2e24c0b0b7c}
+
+
+Definition at line 7496 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Implicitly\+Convertible\+Test, Value\+Is\+False\+When\+Not\+Convertible)}{TEST(ImplicitlyConvertibleTest, ValueIsFalseWhenNotConvertible)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1141,6 +1469,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Value\+Is\+False\+When\+Not\+Convertible}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ad3e668a77fee960f37fd5234a0e990f4}{}\label{gtest__unittest_8cc_ad3e668a77fee960f37fd5234a0e990f4}
+
+
+Definition at line 7509 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Is\+Container\+Test\+Test, Works\+For\+Non\+Container)}{TEST(IsContainerTestTest, WorksForNonContainer)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1149,6 +1481,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Non\+Container}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a819ddb03c072631f5606a9ddf4be5ef9}{}\label{gtest__unittest_8cc_a819ddb03c072631f5606a9ddf4be5ef9}
+
+
+Definition at line 7521 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Is\+Container\+Test\+Test, Works\+For\+Container)}{TEST(IsContainerTestTest, WorksForContainer)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1157,6 +1493,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Container}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a28c741995150722b00c039ead2b8ab04}{}\label{gtest__unittest_8cc_a28c741995150722b00c039ead2b8ab04}
+
+
+Definition at line 7527 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Array\+Eq\+Test, Works\+For\+Degenerated\+Arrays)}{TEST(ArrayEqTest, WorksForDegeneratedArrays)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1165,6 +1505,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Degenerated\+Arrays}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ae9e7a844847a2df933aa4c2f85f7ceed}{}\label{gtest__unittest_8cc_ae9e7a844847a2df933aa4c2f85f7ceed}
+
+
+Definition at line 7536 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Array\+Eq\+Test, Works\+For\+One\+Dimensional\+Arrays)}{TEST(ArrayEqTest, WorksForOneDimensionalArrays)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1173,6 +1517,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+One\+Dimensional\+Arrays}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a4ea595c1e4b3620fb8cf7366dd533c95}{}\label{gtest__unittest_8cc_a4ea595c1e4b3620fb8cf7366dd533c95}
+
+
+Definition at line 7541 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Array\+Eq\+Test, Works\+For\+Two\+Dimensional\+Arrays)}{TEST(ArrayEqTest, WorksForTwoDimensionalArrays)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1181,6 +1529,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Two\+Dimensional\+Arrays}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ab18237f1a37018db8b5a78ae84b209ec}{}\label{gtest__unittest_8cc_ab18237f1a37018db8b5a78ae84b209ec}
+
+
+Definition at line 7553 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Array\+Aware\+Find\+Test, Works\+For\+One\+Dimensional\+Array)}{TEST(ArrayAwareFindTest, WorksForOneDimensionalArray)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1189,6 +1541,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+One\+Dimensional\+Array}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a563807f4b8c6d7fbf2945f279e38468e}{}\label{gtest__unittest_8cc_a563807f4b8c6d7fbf2945f279e38468e}
+
+
+Definition at line 7567 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Array\+Aware\+Find\+Test, Works\+For\+Two\+Dimensional\+Array)}{TEST(ArrayAwareFindTest, WorksForTwoDimensionalArray)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1197,6 +1553,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Two\+Dimensional\+Array}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1ca0fb8b6355671bbe5a62300585db5a}{}\label{gtest__unittest_8cc_a1ca0fb8b6355671bbe5a62300585db5a}
+
+
+Definition at line 7573 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Copy\+Array\+Test, Works\+For\+Degenerated\+Arrays)}{TEST(CopyArrayTest, WorksForDegeneratedArrays)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1205,6 +1565,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Degenerated\+Arrays}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_ad6d3761861147173657e547cb118877f}{}\label{gtest__unittest_8cc_ad6d3761861147173657e547cb118877f}
+
+
+Definition at line 7584 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Copy\+Array\+Test, Works\+For\+One\+Dimensional\+Arrays)}{TEST(CopyArrayTest, WorksForOneDimensionalArrays)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1213,6 +1577,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+One\+Dimensional\+Arrays}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a0155f940cddc15a77da7df03325c6d1d}{}\label{gtest__unittest_8cc_a0155f940cddc15a77da7df03325c6d1d}
+
+
+Definition at line 7590 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Copy\+Array\+Test, Works\+For\+Two\+Dimensional\+Arrays)}{TEST(CopyArrayTest, WorksForTwoDimensionalArrays)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1221,6 +1589,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Two\+Dimensional\+Arrays}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1f1a5d3bb2ce15ff081f359e4494a739}{}\label{gtest__unittest_8cc_a1f1a5d3bb2ce15ff081f359e4494a739}
+
+
+Definition at line 7603 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Native\+Array\+Test, Constructor\+From\+Array\+Works)}{TEST(NativeArrayTest, ConstructorFromArrayWorks)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1229,6 +1601,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Constructor\+From\+Array\+Works}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_acba0839db5cf02cdbd658b9fb810066b}{}\label{gtest__unittest_8cc_acba0839db5cf02cdbd658b9fb810066b}
+
+
+Definition at line 7618 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Native\+Array\+Test, Creates\+And\+Deletes\+Copy\+Of\+Array\+When\+Asked\+To)}{TEST(NativeArrayTest, CreatesAndDeletesCopyOfArrayWhenAskedTo)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1237,6 +1613,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Creates\+And\+Deletes\+Copy\+Of\+Array\+When\+Asked\+To}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a227737052f993da5fe2f3294b7f8d184}{}\label{gtest__unittest_8cc_a227737052f993da5fe2f3294b7f8d184}
+
+
+Definition at line 7625 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Native\+Array\+Test, Type\+Members\+Are\+Correct)}{TEST(NativeArrayTest, TypeMembersAreCorrect)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1245,6 +1625,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Type\+Members\+Are\+Correct}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a1f2578d4ac6aeb87d0c7c9574f79ed0c}{}\label{gtest__unittest_8cc_a1f2578d4ac6aeb87d0c7c9574f79ed0c}
+
+
+Definition at line 7640 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Native\+Array\+Test, Methods\+Work)}{TEST(NativeArrayTest, MethodsWork)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1253,6 +1637,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Methods\+Work}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a5f14e3d45e8edc2d22d4e98e7c1422b9}{}\label{gtest__unittest_8cc_a5f14e3d45e8edc2d22d4e98e7c1422b9}
+
+
+Definition at line 7648 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Native\+Array\+Test, Works\+For\+Two\+Dimensional\+Array)}{TEST(NativeArrayTest, WorksForTwoDimensionalArray)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1261,6 +1649,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Works\+For\+Two\+Dimensional\+Array}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a148c11619d001fac39dae12428534b00}{}\label{gtest__unittest_8cc_a148c11619d001fac39dae12428534b00}
+
+
+Definition at line 7674 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Skip\+Prefix\+Test, Skips\+When\+Prefix\+Matches)}{TEST(SkipPrefixTest, SkipsWhenPrefixMatches)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1269,6 +1661,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Skips\+When\+Prefix\+Matches}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a0c38bd27f49371439ed463c1bb44f444}{}\label{gtest__unittest_8cc_a0c38bd27f49371439ed463c1bb44f444}
+
+
+Definition at line 7683 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!T\+E\+ST@{T\+E\+ST}}
 \index{T\+E\+ST@{T\+E\+ST}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Skip\+Prefix\+Test, Does\+Not\+Skip\+When\+Prefix\+Does\+Not\+Match)}{TEST(SkipPrefixTest, DoesNotSkipWhenPrefixDoesNotMatch)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
@@ -1277,6 +1673,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 \item[{Does\+Not\+Skip\+When\+Prefix\+Does\+Not\+Match}]{}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_afeb79bbd7756bbeca262cb79315856a4}{}\label{gtest__unittest_8cc_afeb79bbd7756bbeca262cb79315856a4}
+
+
+Definition at line 7695 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Test\+G\+Test\+Add\+Reference@{Test\+G\+Test\+Add\+Reference}}
 \index{Test\+G\+Test\+Add\+Reference@{Test\+G\+Test\+Add\+Reference}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Test\+G\+Test\+Add\+Reference()}{TestGTestAddReference()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ void Test\+G\+Test\+Add\+Reference (
@@ -1284,6 +1684,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a9c06f3b08ad59c7dff62b7680a307ed1}{}\label{gtest__unittest_8cc_a9c06f3b08ad59c7dff62b7680a307ed1}
+
+
+Definition at line 7464 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Test\+G\+Test\+Reference\+To\+Const@{Test\+G\+Test\+Reference\+To\+Const}}
 \index{Test\+G\+Test\+Reference\+To\+Const@{Test\+G\+Test\+Reference\+To\+Const}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Test\+G\+Test\+Reference\+To\+Const()}{TestGTestReferenceToConst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ void Test\+G\+Test\+Reference\+To\+Const (
@@ -1291,6 +1695,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a033ae0af50f62e72a31bf1a28151bd65}{}\label{gtest__unittest_8cc_a033ae0af50f62e72a31bf1a28151bd65}
+
+
+Definition at line 7476 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Test\+G\+Test\+Remove\+Const@{Test\+G\+Test\+Remove\+Const}}
 \index{Test\+G\+Test\+Remove\+Const@{Test\+G\+Test\+Remove\+Const}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Test\+G\+Test\+Remove\+Const()}{TestGTestRemoveConst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ void Test\+G\+Test\+Remove\+Const (
@@ -1298,6 +1706,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_a925cffc2731cce684bfcd82858eac00b}{}\label{gtest__unittest_8cc_a925cffc2731cce684bfcd82858eac00b}
+
+
+Definition at line 7424 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Test\+G\+Test\+Remove\+Reference@{Test\+G\+Test\+Remove\+Reference}}
 \index{Test\+G\+Test\+Remove\+Reference@{Test\+G\+Test\+Remove\+Reference}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Test\+G\+Test\+Remove\+Reference()}{TestGTestRemoveReference()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ void Test\+G\+Test\+Remove\+Reference (
@@ -1305,6 +1717,10 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_adb1f904a1a5761796ac803fdf4f203a5}{}\label{gtest__unittest_8cc_adb1f904a1a5761796ac803fdf4f203a5}
+
+
+Definition at line 7398 of file gtest\+\_\+unittest.\+cc.
+
 \index{gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}!Test\+G\+Test\+Remove\+Reference\+And\+Const@{Test\+G\+Test\+Remove\+Reference\+And\+Const}}
 \index{Test\+G\+Test\+Remove\+Reference\+And\+Const@{Test\+G\+Test\+Remove\+Reference\+And\+Const}!gtest\+\_\+unittest.\+cc@{gtest\+\_\+unittest.\+cc}}
 \subsubsection[{\texorpdfstring{Test\+G\+Test\+Remove\+Reference\+And\+Const()}{TestGTestRemoveReferenceAndConst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ void Test\+G\+Test\+Remove\+Reference\+And\+Const (
@@ -1312,3 +1728,7 @@ TestParsingFlags(\textcolor{keyword}{sizeof}(argv1)/\textcolor{keyword}{sizeof}(
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{gtest__unittest_8cc_af4e9d28ffb149f2bce37f0883cece0ba}{}\label{gtest__unittest_8cc_af4e9d28ffb149f2bce37f0883cece0ba}
+
+
+Definition at line 7437 of file gtest\+\_\+unittest.\+cc.
+

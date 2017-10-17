@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ENPM808XVO: ForDummies</title>
+<title>VO808X: ForDummies</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ENPM808XVO
+   <div id="projectname">VO808X
    </div>
   </td>
  </tr>
@@ -145,7 +145,7 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 <li>a <em>testing</em> tool to cut your tests' outbound dependencies and probe the interaction between your module and its collaborators.</li>
 </ul>
 <h1>Getting Started</h1>
-<p>Using Google <a class="el" href="class_mock.html">Mock</a> is easy! Inside your C++ source file, just <code>#include</code> <code>&lt;<a class="el" href="gtest_8h.html">gtest/gtest.h</a>&gt;</code> and <code>&lt;<a class="el" href="gmock_8h.html">gmock/gmock.h</a>&gt;</code>, and you are ready to go.</p>
+<p>Using Google <a class="el" href="class_mock.html">Mock</a> is easy! Inside your C++ source file, just <code>#include</code> <code>&lt;gtest/gtest.h&gt;</code> and <code>&lt;gmock/gmock.h&gt;</code>, and you are ready to go.</p>
 <h1>A Case for <a class="el" href="class_mock.html">Mock</a> Turtles</h1>
 <p>Let's look at an example. Suppose you are developing a graphics program that relies on a LOGO-like API for drawing. How would you test that it does the right thing? Well, you can run it and compare the screen with a golden screen snapshot, but let's admit it: tests like this are expensive to run and fragile (What if you just upgraded to a shiny new graphics card that has better anti-aliasing? Suddenly you have to update all your golden images.). It would be too painful if all your tests are like this. Fortunately, you learned about Dependency Injection and know the right thing to do: instead of having your application talk to the drawing API directly, wrap the API in an interface (say, <code>Turtle</code>) and code to that interface:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;class Turtle {</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  ...</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  virtual ~Turtle() {}</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  virtual void PenUp() = 0;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  virtual void PenDown() = 0;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  virtual void Forward(int distance) = 0;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  virtual void Turn(int degrees) = 0;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  virtual void GoTo(int x, int y) = 0;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  virtual int GetX() const = 0;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  virtual int GetY() const = 0;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div></div><!-- fragment --><p>(Note that the destructor of <code>Turtle</code> <b>must</b> be virtual, as is the case for <b>all</b> classes you intend to inherit from - otherwise the destructor of the derived class will not be called when you delete an object through a base pointer, and you'll get corrupted program states like memory leaks.)</p>

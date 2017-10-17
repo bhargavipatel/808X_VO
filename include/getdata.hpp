@@ -6,7 +6,7 @@
  *  @brief ENPM808X, MidSem Exam
  *
  *  @section DESCRIPTION
- *   *
+ *  This program is trying to fetch data from the database
  */
 #ifndef INCLUDE_GETDATA_HPP_
 #define INCLUDE_GETDATA_HPP_

@@ -2025,7 +2025,7 @@ And that\textquotesingle{}s that.
 
 \subsection*{Using Google \hyperlink{class_mock}{Mock} and Threads}
 
-{\bfseries I\+M\+P\+O\+R\+T\+A\+NT N\+O\+TE\+:} What we describe in this recipe is {\bfseries N\+OT} true yet, as Google \hyperlink{class_mock}{Mock} is not currently thread-\/safe. However, all we need to make it thread-\/safe is to implement some synchronization operations in {\ttfamily $<$\hyperlink{gtest-port_8h}{gtest/internal/gtest-\/port.\+h}$>$} -\/ and then the information below will become true.
+{\bfseries I\+M\+P\+O\+R\+T\+A\+NT N\+O\+TE\+:} What we describe in this recipe is {\bfseries N\+OT} true yet, as Google \hyperlink{class_mock}{Mock} is not currently thread-\/safe. However, all we need to make it thread-\/safe is to implement some synchronization operations in {\ttfamily $<$gtest/internal/gtest-\/port.\+h$>$} -\/ and then the information below will become true.
 
 In a {\bfseries unit} test, it\textquotesingle{}s best if you could isolate and test a piece of code in a single-\/threaded context. That avoids race conditions and dead locks, and makes debugging your test much easier.
 
@@ -2128,7 +2128,7 @@ Google \hyperlink{class_mock}{Mock}\textquotesingle{}s implementation consists o
 \end{DoxyCode}
 
 
-and you should see an {\ttfamily O\+U\+T\+P\+U\+T\+\_\+\+D\+IR} directory being created with files {\ttfamily \hyperlink{gtest_8h}{gtest/gtest.\+h}}, {\ttfamily \hyperlink{gmock_8h}{gmock/gmock.\+h}}, and {\ttfamily gmock-\/gtest-\/all.\+cc} in it. These three files contain everything you need to use Google \hyperlink{class_mock}{Mock} (and Google Test). Just copy them to anywhere you want and you are ready to write tests and use mocks. You can use the \href{http://code.google.com/p/googlemock/source/browse/trunk/scripts/test/Makefile}{\tt scrpts/test/\+Makefile} file as an example on how to compile your tests against them.
+and you should see an {\ttfamily O\+U\+T\+P\+U\+T\+\_\+\+D\+IR} directory being created with files {\ttfamily gtest/gtest.\+h}, {\ttfamily gmock/gmock.\+h}, and {\ttfamily gmock-\/gtest-\/all.\+cc} in it. These three files contain everything you need to use Google \hyperlink{class_mock}{Mock} (and Google Test). Just copy them to anywhere you want and you are ready to write tests and use mocks. You can use the \href{http://code.google.com/p/googlemock/source/browse/trunk/scripts/test/Makefile}{\tt scrpts/test/\+Makefile} file as an example on how to compile your tests against them.
 
 \section*{Extending Google \hyperlink{class_mock}{Mock}}
 
@@ -2402,7 +2402,7 @@ Then, {\ttfamily \hyperlink{gmock-matchers_8h_ac31e206123aa702e1152bb2735b31409}
 
 \subsection*{Writing New Polymorphic Matchers}
 
-You\textquotesingle{}ve learned how to write your own matchers in the previous recipe. Just one problem\+: a matcher created using {\ttfamily \hyperlink{namespacetesting_a37fd8029ac00e60952440a3d9cca8166}{Make\+Matcher()}} only works for one particular type of arguments. If you want a {\itshape polymorphic} matcher that works with arguments of several types (for instance, {\ttfamily Eq(x)} can be used to match a {\ttfamily value} as long as {\ttfamily value} == {\ttfamily x} compiles -- {\ttfamily value} and {\ttfamily x} don\textquotesingle{}t have to share the same type), you can learn the trick from {\ttfamily $<$\hyperlink{gmock-matchers_8h}{gmock/gmock-\/matchers.\+h}$>$} but it\textquotesingle{}s a bit involved.
+You\textquotesingle{}ve learned how to write your own matchers in the previous recipe. Just one problem\+: a matcher created using {\ttfamily \hyperlink{namespacetesting_a37fd8029ac00e60952440a3d9cca8166}{Make\+Matcher()}} only works for one particular type of arguments. If you want a {\itshape polymorphic} matcher that works with arguments of several types (for instance, {\ttfamily Eq(x)} can be used to match a {\ttfamily value} as long as {\ttfamily value} == {\ttfamily x} compiles -- {\ttfamily value} and {\ttfamily x} don\textquotesingle{}t have to share the same type), you can learn the trick from {\ttfamily $<$gmock/gmock-\/matchers.\+h$>$} but it\textquotesingle{}s a bit involved.
 
 Fortunately, most of the time you can define a polymorphic matcher easily with the help of {\ttfamily \hyperlink{namespacetesting_a667ca94f190ec2e17ee2fbfdb7d3da04}{Make\+Polymorphic\+Matcher()}}. Here\textquotesingle{}s how you can define {\ttfamily \hyperlink{namespacetesting_a39d1f92b53b8b2a0b6db6a22ac146416}{Not\+Null()}} as an example\+:
 

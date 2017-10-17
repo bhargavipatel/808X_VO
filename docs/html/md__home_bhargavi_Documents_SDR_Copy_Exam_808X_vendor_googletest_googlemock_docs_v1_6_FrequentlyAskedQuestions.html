@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ENPM808XVO: FrequentlyAskedQuestions</title>
+<title>VO808X: FrequentlyAskedQuestions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ENPM808XVO
+   <div id="projectname">VO808X
    </div>
   </td>
  </tr>
@@ -182,7 +182,7 @@ $(document).ready(function(){initNavTree('md__home_bhargavi_Documents_SDR_Copy_E
 <p>So, when you see the message and believe that there shouldn't be any uninteresting calls, you should investigate what's going on. To make your life easier, Google <a class="el" href="class_mock.html">Mock</a> prints the function name and arguments when an uninteresting call is encountered.</p>
 <h2>I want to define a custom action. Should I use <a class="el" href="namespacetesting.html#a12aebaf8363d49a383047529f798b694">Invoke()</a> or implement the action interface?</h2>
 <p>Either way is fine - you want to choose the one that's more convenient for your circumstance.</p>
-<p>Usually, if your action is for a particular function type, defining it using <code><a class="el" href="namespacetesting.html#a12aebaf8363d49a383047529f798b694">Invoke()</a></code> should be easier; if your action can be used in functions of different types (e.g. if you are defining <code>Return(value)</code>), <code><a class="el" href="namespacetesting.html#a36bd06c5ea972c6df0bd9f40a7a94c65">MakePolymorphicAction()</a></code> is easiest. Sometimes you want precise control on what types of functions the action can be used in, and implementing <code>ActionInterface</code> is the way to go here. See the implementation of <code><a class="el" href="namespacetesting.html#af6d1c13e9376c77671e37545cd84359c">Return()</a></code> in <code><a class="el" href="gmock-actions_8h.html">include/gmock/gmock-actions.h</a></code> for an example.</p>
+<p>Usually, if your action is for a particular function type, defining it using <code><a class="el" href="namespacetesting.html#a12aebaf8363d49a383047529f798b694">Invoke()</a></code> should be easier; if your action can be used in functions of different types (e.g. if you are defining <code>Return(value)</code>), <code><a class="el" href="namespacetesting.html#a36bd06c5ea972c6df0bd9f40a7a94c65">MakePolymorphicAction()</a></code> is easiest. Sometimes you want precise control on what types of functions the action can be used in, and implementing <code>ActionInterface</code> is the way to go here. See the implementation of <code><a class="el" href="namespacetesting.html#af6d1c13e9376c77671e37545cd84359c">Return()</a></code> in <code>include/gmock/gmock-actions.h</code> for an example.</p>
 <h2>I'm using the set-argument-pointee action, and the compiler complains about "conflicting return type specified". What does it mean?</h2>
 <p>You got this error as Google <a class="el" href="class_mock.html">Mock</a> has no idea what value it should return when the mock method is called. <code><a class="el" href="namespacetesting.html#a5740a5033b88c37666fcd09a269d123f">SetArgPointee()</a></code> says what the side effect is, but doesn't say what the return value should be. You need <code><a class="el" href="namespacetesting.html#a5f533932753d2af95000e96c4a3042e3">DoAll()</a></code> to chain a <code><a class="el" href="namespacetesting.html#a5740a5033b88c37666fcd09a269d123f">SetArgPointee()</a></code> with a <code><a class="el" href="namespacetesting.html#af6d1c13e9376c77671e37545cd84359c">Return()</a></code>.</p>
 <p>See this <a href="http://code.google.com/p/googlemock/wiki/V1_6_CookBook#Mocking_Side_Effects">recipe</a> for more details and an example.</p>

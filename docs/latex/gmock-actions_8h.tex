@@ -6,21 +6,9 @@
 {\ttfamily \#include \char`\"{}gmock/internal/gmock-\/internal-\/utils.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}gmock/internal/gmock-\/port.\+h\char`\"{}}\\*
 Include dependency graph for gmock-\/actions.h\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gmock-actions_8h__incl}
-\end{center}
-\end{figure}
+% FIG 0
 This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{gmock-actions_8h__dep__incl}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -134,33 +122,33 @@ typedef internal\+::\+Ignored\+Value \hyperlink{namespacetesting_a603e329ec0263e
 \item 
 {\footnotesize template$<$typename Impl $>$ }\\Polymorphic\+Action$<$ Impl $>$ \hyperlink{namespacetesting_a36bd06c5ea972c6df0bd9f40a7a94c65}{testing\+::\+Make\+Polymorphic\+Action} (const Impl \&impl)
 \item 
-{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacetesting_1_1internal_a880d891d434f918b29a382f90e47cecb}{testing\+::internal\+::\+Print\+To} (const Reference\+Wrapper$<$ T $>$ \&ref,\+::std\+::ostream $\ast$os)
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacetesting_1_1internal_a880d891d434f918b29a382f90e47cecb}{testing\+::internal\+::\+Print\+To} (const Reference\+Wrapper$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \&ref,\+::std\+::ostream $\ast$os)
 \item 
-{\footnotesize template$<$typename R $>$ }\\internal\+::\+Return\+Action$<$ R $>$ \hyperlink{namespacetesting_af6d1c13e9376c77671e37545cd84359c}{testing\+::\+Return} (R value)
+{\footnotesize template$<$typename R $>$ }\\internal\+::\+Return\+Action$<$ \hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} $>$ \hyperlink{namespacetesting_af6d1c13e9376c77671e37545cd84359c}{testing\+::\+Return} (\hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} value)
 \item 
 Polymorphic\+Action$<$ internal\+::\+Return\+Null\+Action $>$ \hyperlink{namespacetesting_aa0331596e269114da101f810d3a1b88b}{testing\+::\+Return\+Null} ()
 \item 
 Polymorphic\+Action$<$ internal\+::\+Return\+Void\+Action $>$ \hyperlink{namespacetesting_a8da8e53d2e7bc4e3c531f7435ad04823}{testing\+::\+Return} ()
 \item 
-{\footnotesize template$<$typename R $>$ }\\internal\+::\+Return\+Ref\+Action$<$ R $>$ \hyperlink{namespacetesting_a18eda8fe9c89ee856c199a2e04ca1641}{testing\+::\+Return\+Ref} (R \&x)
+{\footnotesize template$<$typename R $>$ }\\internal\+::\+Return\+Ref\+Action$<$ \hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} $>$ \hyperlink{namespacetesting_a18eda8fe9c89ee856c199a2e04ca1641}{testing\+::\+Return\+Ref} (\hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} \&x)
 \item 
-{\footnotesize template$<$typename R $>$ }\\internal\+::\+Return\+Ref\+Of\+Copy\+Action$<$ R $>$ \hyperlink{namespacetesting_ac1b75444c89371dc25ebcfcc48336201}{testing\+::\+Return\+Ref\+Of\+Copy} (const R \&x)
+{\footnotesize template$<$typename R $>$ }\\internal\+::\+Return\+Ref\+Of\+Copy\+Action$<$ \hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} $>$ \hyperlink{namespacetesting_ac1b75444c89371dc25ebcfcc48336201}{testing\+::\+Return\+Ref\+Of\+Copy} (const \hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} \&x)
 \item 
-{\footnotesize template$<$typename R $>$ }\\internal\+::\+By\+Move\+Wrapper$<$ R $>$ \hyperlink{namespacetesting_acaa432211a3aec62e3d0f24b47bd2dae}{testing\+::\+By\+Move} (R x)
+{\footnotesize template$<$typename R $>$ }\\internal\+::\+By\+Move\+Wrapper$<$ \hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} $>$ \hyperlink{namespacetesting_acaa432211a3aec62e3d0f24b47bd2dae}{testing\+::\+By\+Move} (\hyperlink{typedefs__9_8js_afb423b73ee7b6c04d2d54fc06e405404}{R} x)
 \item 
 internal\+::\+Do\+Default\+Action \hyperlink{namespacetesting_ae041df61ff61ccb9753ba15b4309e1a6}{testing\+::\+Do\+Default} ()
 \item 
-{\footnotesize template$<$size\+\_\+t N, typename T $>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, T, internal\+::\+Is\+A\+Protocol\+Message$<$ T $>$\+::value $>$ $>$ \hyperlink{namespacetesting_a5740a5033b88c37666fcd09a269d123f}{testing\+::\+Set\+Arg\+Pointee} (const T \&x)
+{\footnotesize template$<$size\+\_\+t N, typename T $>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T}, internal\+::\+Is\+A\+Protocol\+Message$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$\+::value $>$ $>$ \hyperlink{namespacetesting_a5740a5033b88c37666fcd09a269d123f}{testing\+::\+Set\+Arg\+Pointee} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&x)
 \item 
-{\footnotesize template$<$size\+\_\+t N$>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, const char $\ast$, false $>$ $>$ \hyperlink{namespacetesting_a4a190fd2d02fb7cd79c5b3df3f80b647}{testing\+::\+Set\+Arg\+Pointee} (const char $\ast$p)
+{\footnotesize template$<$size\+\_\+t N$>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, const char $\ast$, false $>$ $>$ \hyperlink{namespacetesting_a4a190fd2d02fb7cd79c5b3df3f80b647}{testing\+::\+Set\+Arg\+Pointee} (const char $\ast$\hyperlink{jquery_8js_a2335e57f79b6acfb6de59c235dc8a83e}{p})
 \item 
-{\footnotesize template$<$size\+\_\+t N$>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, const wchar\+\_\+t $\ast$, false $>$ $>$ \hyperlink{namespacetesting_ac128085b4a8d64563fd5ccef324ea177}{testing\+::\+Set\+Arg\+Pointee} (const wchar\+\_\+t $\ast$p)
+{\footnotesize template$<$size\+\_\+t N$>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, const wchar\+\_\+t $\ast$, false $>$ $>$ \hyperlink{namespacetesting_ac128085b4a8d64563fd5ccef324ea177}{testing\+::\+Set\+Arg\+Pointee} (const wchar\+\_\+t $\ast$\hyperlink{jquery_8js_a2335e57f79b6acfb6de59c235dc8a83e}{p})
 \item 
-{\footnotesize template$<$size\+\_\+t N, typename T $>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, T, internal\+::\+Is\+A\+Protocol\+Message$<$ T $>$\+::value $>$ $>$ \hyperlink{namespacetesting_a03b315d27c91a8e719f2b6c09964130b}{testing\+::\+Set\+Argument\+Pointee} (const T \&x)
+{\footnotesize template$<$size\+\_\+t N, typename T $>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Argument\+Pointee\+Action$<$ N, \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T}, internal\+::\+Is\+A\+Protocol\+Message$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$\+::value $>$ $>$ \hyperlink{namespacetesting_a03b315d27c91a8e719f2b6c09964130b}{testing\+::\+Set\+Argument\+Pointee} (const \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&x)
 \item 
 {\footnotesize template$<$typename T1 , typename T2 $>$ }\\Polymorphic\+Action$<$ internal\+::\+Assign\+Action$<$ T1, T2 $>$ $>$ \hyperlink{namespacetesting_abfc4121b8708e8b22a096ff8be88a9d0}{testing\+::\+Assign} (T1 $\ast$ptr, T2 val)
 \item 
-{\footnotesize template$<$typename T $>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Errno\+And\+Return\+Action$<$ T $>$ $>$ \hyperlink{namespacetesting_a31095e421f167fade2e6d4d60df1f4da}{testing\+::\+Set\+Errno\+And\+Return} (int errval, T result)
+{\footnotesize template$<$typename T $>$ }\\Polymorphic\+Action$<$ internal\+::\+Set\+Errno\+And\+Return\+Action$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ $>$ \hyperlink{namespacetesting_a31095e421f167fade2e6d4d60df1f4da}{testing\+::\+Set\+Errno\+And\+Return} (int errval, \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} result)
 \item 
 {\footnotesize template$<$typename Function\+Impl $>$ }\\Polymorphic\+Action$<$ internal\+::\+Invoke\+Without\+Args\+Action$<$ Function\+Impl $>$ $>$ \hyperlink{namespacetesting_a88cc1999296bc630f6a49cdf66bb21f9}{testing\+::\+Invoke\+Without\+Args} (Function\+Impl function\+\_\+impl)
 \item 
@@ -168,7 +156,7 @@ internal\+::\+Do\+Default\+Action \hyperlink{namespacetesting_ae041df61ff61ccb97
 \item 
 {\footnotesize template$<$typename A $>$ }\\internal\+::\+Ignore\+Result\+Action$<$ A $>$ \hyperlink{namespacetesting_a50ae42540a31047c7fddd32df8d835f5}{testing\+::\+Ignore\+Result} (const A \&an\+\_\+action)
 \item 
-{\footnotesize template$<$typename T $>$ }\\internal\+::\+Reference\+Wrapper$<$ T $>$ \hyperlink{namespacetesting_aaee6d42dcd69de6e7a1459c5c71222c3}{testing\+::\+By\+Ref} (T \&l\+\_\+value)
+{\footnotesize template$<$typename T $>$ }\\internal\+::\+Reference\+Wrapper$<$ \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $>$ \hyperlink{namespacetesting_aaee6d42dcd69de6e7a1459c5c71222c3}{testing\+::\+By\+Ref} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \&l\+\_\+value)
 \end{DoxyCompactItemize}
 
 
@@ -190,3 +178,7 @@ internal\+::\+Do\+Default\+Action \hyperlink{namespacetesting_ae041df61ff61ccb97
     static \hyperlink{namespaceupload_a4fc56f0dd6613be15c3c4dc3af3619ce}{type} Get() \{ \textcolor{keywordflow}{return} value; \} \(\backslash\)
   \}
 \end{DoxyCode}
+
+
+Definition at line 143 of file gmock-\/actions.\+h.
+

@@ -1,0 +1,4 @@
+var structtesting__1__1gmock____more____actions____test__1__1__sum__of6__functor_8js =
+[
+    [ "structtesting_1_1gmock__more__actions__test_1_1_sum_of6_functor", "structtesting__1__1gmock____more____actions____test__1__1__sum__of6__functor_8js.html#aa6da248697ed5e439a76bd64cb973352", null ]
+];

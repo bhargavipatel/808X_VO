@@ -34,7 +34,9 @@ TEST_F(VisualTest, SanityCheck) {
  * @brief      Result test
  *
  * @param[in]  VisualTest vo object
- * @param[in]  ResultCheck Name of the test
+ * @param[in]  ResultCheck is the main test to check if 
+ * the visual odometry is providing proper output and 
+ * all the functions are working in order.
  */
 TEST_F(VisualTest, ResultCheck) {
   EXPECT_EQ(voObj.checkRes(), 1);
@@ -54,7 +56,8 @@ TEST_F(VisualTest, FileCheck) {
  * @brief       Check test
  *
  * @param[in]  VisualTest vo object
- * @param[in]  Checking the 
+ * @param[in]  This Test is checking if the folder
+ * is loading properly and file are being read.
  */
 TEST_F(VisualTest, checkFolder) {
   std::string val2 = voObj.mdlFolder;

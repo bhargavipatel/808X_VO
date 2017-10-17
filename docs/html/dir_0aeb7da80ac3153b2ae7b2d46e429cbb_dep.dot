@@ -1,0 +1,14 @@
+digraph "/home/bhargavi/Documents/SDR/Copy_Exam_808X/vendor/googletest/googletest/include/gtest/internal" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_91cdf8f989b5de203b4a54f23d29ec84 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="gtest" fontname="Helvetica", fontsize="10", URL="dir_91cdf8f989b5de203b4a54f23d29ec84.html"]
+  subgraph clusterdir_0aeb7da80ac3153b2ae7b2d46e429cbb {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_0aeb7da80ac3153b2ae7b2d46e429cbb.html"];
+    dir_0aeb7da80ac3153b2ae7b2d46e429cbb [shape=plaintext label="internal"];
+    dir_029c50e244fa25db6460b3ce5c8e0bfc [shape=box label="custom" color="black" fillcolor="white" style="filled" URL="dir_029c50e244fa25db6460b3ce5c8e0bfc.html"];
+  }
+  }
+  dir_0aeb7da80ac3153b2ae7b2d46e429cbb->dir_029c50e244fa25db6460b3ce5c8e0bfc [headlabel="1", labeldistance=1.5 headhref="dir_000027_000028.html"];
+}

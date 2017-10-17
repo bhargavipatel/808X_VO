@@ -1,0 +1,4 @@
+var classtesting__1__1gmock____more____actions____test__1__1__deletion__tester_8js =
+[
+    [ "classtesting_1_1gmock__more__actions__test_1_1_deletion_tester", "classtesting__1__1gmock____more____actions____test__1__1__deletion__tester_8js.html#ad015684fe00d86101ed3ac3be5631e96", null ]
+];

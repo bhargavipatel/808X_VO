@@ -25,7 +25,7 @@ Collaboration diagram for cpplint.\+\_\+\+Include\+State\+:
 \item 
 def \hyperlink{classcpplint_1_1___include_state_a4d3ae4ee2a38efc25cce07e3e8484ba4}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \item 
-def \hyperlink{classcpplint_1_1___include_state_a9bddbf581fc7a4c3c0258eaa42b94c3a}{Find\+Header} (self, header)
+def \hyperlink{classcpplint_1_1___include_state_a9bddbf581fc7a4c3c0258eaa42b94c3a}{Find\+Header} (self, \hyperlink{resize_8js_af920c2a7d4f4b5a962fe8e11257f871d}{header})
 \item 
 def \hyperlink{classcpplint_1_1___include_state_a31551f83fcc626e7babb1581a486b6fa}{Reset\+Section} (self, directive)
 \item 
@@ -56,6 +56,10 @@ in the type constants defined above. Calls in an illegal order will
 raise an _IncludeError with an appropriate error message.\end{DoxyVerb}
  
 
+Definition at line 797 of file cpplint.\+py.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
 \index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
@@ -64,6 +68,10 @@ raise an _IncludeError with an appropriate error message.\end{DoxyVerb}
 \item[{}]{self}
 \end{DoxyParamCaption}
 )}\hypertarget{classcpplint_1_1___include_state_a4d3ae4ee2a38efc25cce07e3e8484ba4}{}\label{classcpplint_1_1___include_state_a4d3ae4ee2a38efc25cce07e3e8484ba4}
+
+
+Definition at line 832 of file cpplint.\+py.
+
 
 
 \subsection{Member Function Documentation}
@@ -87,7 +95,11 @@ Args:
 Returns:
   Canonicalized path.
 \end{DoxyVerb}
- \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Check\+Next\+Include\+Order@{Check\+Next\+Include\+Order}}
+ 
+
+Definition at line 874 of file cpplint.\+py.
+
+\index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Check\+Next\+Include\+Order@{Check\+Next\+Include\+Order}}
 \index{Check\+Next\+Include\+Order@{Check\+Next\+Include\+Order}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
 \subsubsection[{\texorpdfstring{Check\+Next\+Include\+Order(self, header\+\_\+type)}{CheckNextIncludeOrder(self, header_type)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Include\+State.\+Check\+Next\+Include\+Order (
 \begin{DoxyParamCaption}
@@ -106,7 +118,11 @@ Args:
 Returns:
   The empty string if the header is in the right order, or an
   error message describing what's wrong.\end{DoxyVerb}
- \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Find\+Header@{Find\+Header}}
+ 
+
+Definition at line 910 of file cpplint.\+py.
+
+\index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Find\+Header@{Find\+Header}}
 \index{Find\+Header@{Find\+Header}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
 \subsubsection[{\texorpdfstring{Find\+Header(self, header)}{FindHeader(self, header)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Include\+State.\+Find\+Header (
 \begin{DoxyParamCaption}
@@ -122,7 +138,11 @@ Returns:
   Line number of previous occurrence, or -1 if the header has not
   been seen before.
 \end{DoxyVerb}
- \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Is\+In\+Alphabetical\+Order@{Is\+In\+Alphabetical\+Order}}
+ 
+
+Definition at line 838 of file cpplint.\+py.
+
+\index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Is\+In\+Alphabetical\+Order@{Is\+In\+Alphabetical\+Order}}
 \index{Is\+In\+Alphabetical\+Order@{Is\+In\+Alphabetical\+Order}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
 \subsubsection[{\texorpdfstring{Is\+In\+Alphabetical\+Order(self, clean\+\_\+lines, linenum, header\+\_\+path)}{IsInAlphabeticalOrder(self, clean_lines, linenum, header_path)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Include\+State.\+Is\+In\+Alphabetical\+Order (
 \begin{DoxyParamCaption}
@@ -142,7 +162,11 @@ Args:
 Returns:
   Returns true if the header is in alphabetical order.
 \end{DoxyVerb}
- \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Reset\+Section@{Reset\+Section}}
+ 
+
+Definition at line 889 of file cpplint.\+py.
+
+\index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Reset\+Section@{Reset\+Section}}
 \index{Reset\+Section@{Reset\+Section}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
 \subsubsection[{\texorpdfstring{Reset\+Section(self, directive)}{ResetSection(self, directive)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Include\+State.\+Reset\+Section (
 \begin{DoxyParamCaption}
@@ -155,7 +179,11 @@ Returns:
 Args:
   directive: preprocessor directive (e.g. "if", "else").
 \end{DoxyVerb}
- \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Set\+Last\+Header@{Set\+Last\+Header}}
+ 
+
+Definition at line 853 of file cpplint.\+py.
+
+\index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!Set\+Last\+Header@{Set\+Last\+Header}}
 \index{Set\+Last\+Header@{Set\+Last\+Header}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
 \subsubsection[{\texorpdfstring{Set\+Last\+Header(self, header\+\_\+path)}{SetLastHeader(self, header_path)}}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint.\+\_\+\+Include\+State.\+Set\+Last\+Header (
 \begin{DoxyParamCaption}
@@ -165,10 +193,18 @@ Args:
 )}\hypertarget{classcpplint_1_1___include_state_a9bc1ada2060a49628c1fffa973b57df1}{}\label{classcpplint_1_1___include_state_a9bc1ada2060a49628c1fffa973b57df1}
 
 
+Definition at line 871 of file cpplint.\+py.
+
+
+
 \subsection{Member Data Documentation}
 \index{cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}!include\+\_\+list@{include\+\_\+list}}
 \index{include\+\_\+list@{include\+\_\+list}!cpplint\+::\+\_\+\+Include\+State@{cpplint\+::\+\_\+\+Include\+State}}
 \subsubsection[{\texorpdfstring{include\+\_\+list}{include_list}}]{\setlength{\rightskip}{0pt plus 5cm}cpplint.\+\_\+\+Include\+State.\+include\+\_\+list}\hypertarget{classcpplint_1_1___include_state_a82d8b92a431437ee181e950517c71cbb}{}\label{classcpplint_1_1___include_state_a82d8b92a431437ee181e950517c71cbb}
+
+
+Definition at line 833 of file cpplint.\+py.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

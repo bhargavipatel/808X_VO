@@ -28,23 +28,43 @@ Collaboration diagram for vo\+:
 \begin{DoxyCompactList}\small\item\em Destroys the object. \end{DoxyCompactList}\item 
 int \hyperlink{classvo_a33defbce61461f3af27ea2d16d908266}{read\+Lut\+To\+Mat} (cv\+::\+Mat \&I, cv\+::\+String path, int mat\+Width, int mat\+Height)
 \begin{DoxyCompactList}\small\item\em Sets. \end{DoxyCompactList}\item 
-void \hyperlink{classvo_ade4e64203a99ab3760f15c2af3449ba4}{compute\+Good\+Matches} (std\+::vector$<$ cv\+::\+D\+Match $>$ \&good\+\_\+matches, cv\+::\+Mat \&descriptors\+\_\+1, cv\+::\+Mat \&descriptors\+\_\+2)
+void \hyperlink{classvo_ade4e64203a99ab3760f15c2af3449ba4}{compute\+Good\+Matches} (std\+::vector$<$ cv\+::\+D\+Match $>$ \&good\+\_\+matches, cv\+::\+Mat \&\hyperlink{classvo_a927e2c8dd06a377ee2a129b560b2304a}{descriptors\+\_\+1}, cv\+::\+Mat \&\hyperlink{classvo_ac5f6dcad86a52c20957698e3fd8d43c1}{descriptors\+\_\+2})
 \begin{DoxyCompactList}\small\item\em for good matches \end{DoxyCompactList}\item 
 bool \hyperlink{classvo_a870e05250f7bea1f438bee3f68e3e7a4}{check\+Res} ()
 \begin{DoxyCompactList}\small\item\em Get Results. \end{DoxyCompactList}\item 
 bool \hyperlink{classvo_a326b991afda611a12fccfbdb54c5273e}{checkfile\+\_\+fun} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em For checking if the files are loaded properly. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classgetdata}{getdata} \hyperlink{classvo_ac42f9a37e2a255371ae0641561b80de5}{getdataobj\+\_\+}
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 std\+::string \hyperlink{classvo_a6cec8c62c2984586bece5102f2d55d02}{mdl\+Folder} = \char`\"{}../data/Oxford\+\_\+dataset/model/\char`\"{}
+\item 
+cv\+::\+Mat \hyperlink{classvo_aac8fbbf6490232cb02775fad298674cd}{cur}
+\item 
+cv\+::\+Mat \hyperlink{classvo_ac8de029d16a1894dc7b6bc1b20ff52d9}{nxt}
+\item 
+cv\+::\+Mat \hyperlink{classvo_a9b0c73504e1fdcf536678755757023db}{R\+\_\+f}
+\item 
+cv\+::\+Mat \hyperlink{classvo_a59a051419df095f766905047916cf7a0}{t\+\_\+f}
+\item 
+std\+::vector$<$ cv\+::\+Key\+Point $>$ \hyperlink{classvo_aa56b968f07f89745eef44ea60c0a1fde}{keypoints\+\_\+1}
+\item 
+std\+::vector$<$ cv\+::\+Key\+Point $>$ \hyperlink{classvo_ac3d7d1e40686a1def952e5b2bdde8086}{keypoints\+\_\+2}
+\item 
+cv\+::\+Mat \hyperlink{classvo_a927e2c8dd06a377ee2a129b560b2304a}{descriptors\+\_\+1}
+\item 
+cv\+::\+Mat \hyperlink{classvo_ac5f6dcad86a52c20957698e3fd8d43c1}{descriptors\+\_\+2}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Class for vo module. 
+
+Definition at line 35 of file vo.\+hpp.
+
+
 
 \subsection{Constructor \& Destructor Documentation}
 \index{vo@{vo}!vo@{vo}}
@@ -57,6 +77,10 @@ Class for vo module.
 
 
 Constructs the object. 
+
+
+
+Definition at line 25 of file vo.\+cpp.
 
 \index{vo@{vo}!````~vo@{$\sim$vo}}
 \index{````~vo@{$\sim$vo}!vo@{vo}}
@@ -71,6 +95,10 @@ Destroys the object.
 
 
 
+Definition at line 187 of file vo.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
 \index{vo@{vo}!checkfile\+\_\+fun@{checkfile\+\_\+fun}}
 \index{checkfile\+\_\+fun@{checkfile\+\_\+fun}!vo@{vo}}
@@ -79,6 +107,19 @@ Destroys the object.
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classvo_a326b991afda611a12fccfbdb54c5273e}{}\label{classvo_a326b991afda611a12fccfbdb54c5273e}
+
+
+For checking if the files are loaded properly. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 291 of file vo.\+cpp.
+
 \index{vo@{vo}!check\+Res@{check\+Res}}
 \index{check\+Res@{check\+Res}!vo@{vo}}
 \subsubsection[{\texorpdfstring{check\+Res()}{checkRes()}}]{\setlength{\rightskip}{0pt plus 5cm}bool vo\+::check\+Res (
@@ -90,9 +131,20 @@ Destroys the object.
 
 Get Results. 
 
+Checking if the vo is working properly.
+
 \begin{DoxyReturn}{Returns}
-The 
+The
 \end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 282 of file vo.\+cpp.
+
 \index{vo@{vo}!compute\+Good\+Matches@{compute\+Good\+Matches}}
 \index{compute\+Good\+Matches@{compute\+Good\+Matches}!vo@{vo}}
 \subsubsection[{\texorpdfstring{compute\+Good\+Matches(std\+::vector$<$ cv\+::\+D\+Match $>$ \&good\+\_\+matches, cv\+::\+Mat \&descriptors\+\_\+1, cv\+::\+Mat \&descriptors\+\_\+2)}{computeGoodMatches(std::vector< cv::DMatch > &good_matches, cv::Mat &descriptors_1, cv::Mat &descriptors_2)}}]{\setlength{\rightskip}{0pt plus 5cm}void vo\+::compute\+Good\+Matches (
@@ -110,9 +162,13 @@ Compare features and do thresholding.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em input} & \\
+\mbox{\tt in}  & {\em input} & std\+::vector$<$ cv\+::\+D\+Match $>$\& good\+\_\+matches, cv\+::\+Mat\& descriptors\+\_\+1, cv\+::\+Mat\& descriptors\+\_\+2 \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 255 of file vo.\+cpp.
+
 \index{vo@{vo}!read\+Lut\+To\+Mat@{read\+Lut\+To\+Mat}}
 \index{read\+Lut\+To\+Mat@{read\+Lut\+To\+Mat}!vo@{vo}}
 \subsubsection[{\texorpdfstring{read\+Lut\+To\+Mat(cv\+::\+Mat \&\+I, cv\+::\+String path, int mat\+Width, int mat\+Height)}{readLutToMat(cv::Mat &I, cv::String path, int matWidth, int matHeight)}}]{\setlength{\rightskip}{0pt plus 5cm}int vo\+::read\+Lut\+To\+Mat (
@@ -141,12 +197,37 @@ The read\+Lut\+To\+Mat
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em input} & convert image from L\+UT to Mat\\
 \hline
-\mbox{\tt in}  & {\em input} & \\
+\mbox{\tt in}  & {\em input} & cv\+::\+Mat\&I, cv\+::\+String path, int mat\+Width, int mat\+Height \\
 \hline
 \end{DoxyParams}
 
 
+Definition at line 223 of file vo.\+cpp.
+
+
+
 \subsection{Member Data Documentation}
+\index{vo@{vo}!cur@{cur}}
+\index{cur@{cur}!vo@{vo}}
+\subsubsection[{\texorpdfstring{cur}{cur}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat vo\+::cur}\hypertarget{classvo_aac8fbbf6490232cb02775fad298674cd}{}\label{classvo_aac8fbbf6490232cb02775fad298674cd}
+
+
+Definition at line 48 of file vo.\+hpp.
+
+\index{vo@{vo}!descriptors\+\_\+1@{descriptors\+\_\+1}}
+\index{descriptors\+\_\+1@{descriptors\+\_\+1}!vo@{vo}}
+\subsubsection[{\texorpdfstring{descriptors\+\_\+1}{descriptors_1}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat vo\+::descriptors\+\_\+1}\hypertarget{classvo_a927e2c8dd06a377ee2a129b560b2304a}{}\label{classvo_a927e2c8dd06a377ee2a129b560b2304a}
+
+
+Definition at line 51 of file vo.\+hpp.
+
+\index{vo@{vo}!descriptors\+\_\+2@{descriptors\+\_\+2}}
+\index{descriptors\+\_\+2@{descriptors\+\_\+2}!vo@{vo}}
+\subsubsection[{\texorpdfstring{descriptors\+\_\+2}{descriptors_2}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat vo\+::descriptors\+\_\+2}\hypertarget{classvo_ac5f6dcad86a52c20957698e3fd8d43c1}{}\label{classvo_ac5f6dcad86a52c20957698e3fd8d43c1}
+
+
+Definition at line 51 of file vo.\+hpp.
+
 \index{vo@{vo}!getdataobj\+\_\+@{getdataobj\+\_\+}}
 \index{getdataobj\+\_\+@{getdataobj\+\_\+}!vo@{vo}}
 \subsubsection[{\texorpdfstring{getdataobj\+\_\+}{getdataobj_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf getdata} vo\+::getdataobj\+\_\+}\hypertarget{classvo_ac42f9a37e2a255371ae0641561b80de5}{}\label{classvo_ac42f9a37e2a255371ae0641561b80de5}
@@ -154,9 +235,52 @@ The read\+Lut\+To\+Mat
 
 Constructor. 
 
+
+
+Definition at line 45 of file vo.\+hpp.
+
+\index{vo@{vo}!keypoints\+\_\+1@{keypoints\+\_\+1}}
+\index{keypoints\+\_\+1@{keypoints\+\_\+1}!vo@{vo}}
+\subsubsection[{\texorpdfstring{keypoints\+\_\+1}{keypoints_1}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$cv\+::\+Key\+Point$>$ vo\+::keypoints\+\_\+1}\hypertarget{classvo_aa56b968f07f89745eef44ea60c0a1fde}{}\label{classvo_aa56b968f07f89745eef44ea60c0a1fde}
+
+
+Definition at line 50 of file vo.\+hpp.
+
+\index{vo@{vo}!keypoints\+\_\+2@{keypoints\+\_\+2}}
+\index{keypoints\+\_\+2@{keypoints\+\_\+2}!vo@{vo}}
+\subsubsection[{\texorpdfstring{keypoints\+\_\+2}{keypoints_2}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$cv\+::\+Key\+Point$>$ vo\+::keypoints\+\_\+2}\hypertarget{classvo_ac3d7d1e40686a1def952e5b2bdde8086}{}\label{classvo_ac3d7d1e40686a1def952e5b2bdde8086}
+
+
+Definition at line 50 of file vo.\+hpp.
+
 \index{vo@{vo}!mdl\+Folder@{mdl\+Folder}}
 \index{mdl\+Folder@{mdl\+Folder}!vo@{vo}}
 \subsubsection[{\texorpdfstring{mdl\+Folder}{mdlFolder}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string vo\+::mdl\+Folder = \char`\"{}../data/Oxford\+\_\+dataset/model/\char`\"{}}\hypertarget{classvo_a6cec8c62c2984586bece5102f2d55d02}{}\label{classvo_a6cec8c62c2984586bece5102f2d55d02}
+
+
+Definition at line 47 of file vo.\+hpp.
+
+\index{vo@{vo}!nxt@{nxt}}
+\index{nxt@{nxt}!vo@{vo}}
+\subsubsection[{\texorpdfstring{nxt}{nxt}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat vo\+::nxt}\hypertarget{classvo_ac8de029d16a1894dc7b6bc1b20ff52d9}{}\label{classvo_ac8de029d16a1894dc7b6bc1b20ff52d9}
+
+
+Definition at line 48 of file vo.\+hpp.
+
+\index{vo@{vo}!R\+\_\+f@{R\+\_\+f}}
+\index{R\+\_\+f@{R\+\_\+f}!vo@{vo}}
+\subsubsection[{\texorpdfstring{R\+\_\+f}{R_f}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat vo\+::\+R\+\_\+f}\hypertarget{classvo_a9b0c73504e1fdcf536678755757023db}{}\label{classvo_a9b0c73504e1fdcf536678755757023db}
+
+
+Definition at line 49 of file vo.\+hpp.
+
+\index{vo@{vo}!t\+\_\+f@{t\+\_\+f}}
+\index{t\+\_\+f@{t\+\_\+f}!vo@{vo}}
+\subsubsection[{\texorpdfstring{t\+\_\+f}{t_f}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat vo\+::t\+\_\+f}\hypertarget{classvo_a59a051419df095f766905047916cf7a0}{}\label{classvo_a59a051419df095f766905047916cf7a0}
+
+
+Definition at line 49 of file vo.\+hpp.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

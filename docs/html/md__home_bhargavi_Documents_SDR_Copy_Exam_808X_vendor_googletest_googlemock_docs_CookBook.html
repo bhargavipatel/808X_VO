@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ENPM808XVO: CookBook</title>
+<title>VO808X: CookBook</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ENPM808XVO
+   <div id="projectname">VO808X
    </div>
   </td>
  </tr>
@@ -546,7 +546,7 @@ from Mock Methods"). However, Google <a class="el" href="class_mock.html">Mock</
 <p>To make it even easier, you can add the following lines to your <code>~/.emacs</code> file:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;(global-set-key &quot;\M-m&quot;   &#39;compile)  ; m is for make</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;(global-set-key [M-down] &#39;next-error)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;(global-set-key [M-up]   &#39;(lambda () (interactive) (next-error -1)))</div></div><!-- fragment --><p>Then you can type <code>M-m</code> to start a build, or <code>M-up</code>/<code>M-down</code> to move back and forth between errors.</p>
 <h2>Fusing Google <a class="el" href="class_mock.html">Mock</a> Source Files</h2>
-<p>Google <a class="el" href="class_mock.html">Mock</a>'s implementation consists of dozens of files (excluding its own tests). Sometimes you may want them to be packaged up in fewer files instead, such that you can easily copy them to a new machine and start hacking there. For this we provide an experimental Python script <code><a class="el" href="fuse__gmock__files_8py.html">fuse_gmock_files.py</a></code> in the <code>scripts/</code> directory (starting with release 1.2.0). Assuming you have Python 2.4 or above installed on your machine, just go to that directory and run </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python fuse_gmock_files.py OUTPUT_DIR</div></div><!-- fragment --><p>and you should see an <code>OUTPUT_DIR</code> directory being created with files <code><a class="el" href="gtest_8h.html">gtest/gtest.h</a></code>, <code><a class="el" href="gmock_8h.html">gmock/gmock.h</a></code>, and <code>gmock-gtest-all.cc</code> in it. These three files contain everything you need to use Google <a class="el" href="class_mock.html">Mock</a> (and Google Test). Just copy them to anywhere you want and you are ready to write tests and use mocks. You can use the <a href="../scripts/test/Makefile">scrpts/test/Makefile</a> file as an example on how to compile your tests against them.</p>
+<p>Google <a class="el" href="class_mock.html">Mock</a>'s implementation consists of dozens of files (excluding its own tests). Sometimes you may want them to be packaged up in fewer files instead, such that you can easily copy them to a new machine and start hacking there. For this we provide an experimental Python script <code><a class="el" href="fuse__gmock__files_8py.html">fuse_gmock_files.py</a></code> in the <code>scripts/</code> directory (starting with release 1.2.0). Assuming you have Python 2.4 or above installed on your machine, just go to that directory and run </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python fuse_gmock_files.py OUTPUT_DIR</div></div><!-- fragment --><p>and you should see an <code>OUTPUT_DIR</code> directory being created with files <code>gtest/gtest.h</code>, <code>gmock/gmock.h</code>, and <code>gmock-gtest-all.cc</code> in it. These three files contain everything you need to use Google <a class="el" href="class_mock.html">Mock</a> (and Google Test). Just copy them to anywhere you want and you are ready to write tests and use mocks. You can use the <a href="../scripts/test/Makefile">scrpts/test/Makefile</a> file as an example on how to compile your tests against them.</p>
 <h1>Extending Google <a class="el" href="class_mock.html">Mock</a></h1>
 <h2>Writing New Matchers Quickly</h2>
 <p>The <code>MATCHER*</code> family of macros can be used to define custom matchers easily. The syntax:</p>

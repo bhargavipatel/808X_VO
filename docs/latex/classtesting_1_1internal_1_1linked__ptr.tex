@@ -7,12 +7,12 @@
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef T \hyperlink{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d916514c4e4385a0063}{element\+\_\+type}
+typedef \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \hyperlink{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d916514c4e4385a0063}{element\+\_\+type}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classtesting_1_1internal_1_1linked__ptr_ae805418b9f03f14ff49649e710475dba}{linked\+\_\+ptr} (T $\ast$ptr=N\+U\+LL)
+\hyperlink{classtesting_1_1internal_1_1linked__ptr_ae805418b9f03f14ff49649e710475dba}{linked\+\_\+ptr} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$ptr=N\+U\+LL)
 \item 
 \hyperlink{classtesting_1_1internal_1_1linked__ptr_af99460fd09ca0f83e061ea480ef1a45e}{$\sim$linked\+\_\+ptr} ()
 \item 
@@ -24,17 +24,17 @@ typedef T \hyperlink{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d9165
 \item 
 \hyperlink{classtesting_1_1internal_1_1linked__ptr}{linked\+\_\+ptr} \& \hyperlink{classtesting_1_1internal_1_1linked__ptr_a1f40b5e66e6cf7b661ea116c806f952e}{operator=} (\hyperlink{classtesting_1_1internal_1_1linked__ptr}{linked\+\_\+ptr} const \&ptr)
 \item 
-void \hyperlink{classtesting_1_1internal_1_1linked__ptr_a95ba3b7b66ed0193c779976c6e126ab6}{reset} (T $\ast$ptr=N\+U\+LL)
+void \hyperlink{classtesting_1_1internal_1_1linked__ptr_a95ba3b7b66ed0193c779976c6e126ab6}{reset} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$ptr=N\+U\+LL)
 \item 
-T $\ast$ \hyperlink{classtesting_1_1internal_1_1linked__ptr_a6ea8584d9bcad13c3266834f5ce5e771}{get} () const 
+\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$ \hyperlink{classtesting_1_1internal_1_1linked__ptr_a6ea8584d9bcad13c3266834f5ce5e771}{get} () const 
 \item 
-T $\ast$ \hyperlink{classtesting_1_1internal_1_1linked__ptr_aa878c3e874242fb3cd2aa14ec603aa25}{operator-\/$>$} () const 
+\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$ \hyperlink{classtesting_1_1internal_1_1linked__ptr_aa878c3e874242fb3cd2aa14ec603aa25}{operator-\/$>$} () const 
 \item 
-T \& \hyperlink{classtesting_1_1internal_1_1linked__ptr_aec393cbd60f96defde36ef8a69d94254}{operator$\ast$} () const 
+\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \& \hyperlink{classtesting_1_1internal_1_1linked__ptr_aec393cbd60f96defde36ef8a69d94254}{operator$\ast$} () const 
 \item 
-bool \hyperlink{classtesting_1_1internal_1_1linked__ptr_abe2154fd3ad3574dfe6f2320bc1debc4}{operator==} (T $\ast$p) const 
+bool \hyperlink{classtesting_1_1internal_1_1linked__ptr_abe2154fd3ad3574dfe6f2320bc1debc4}{operator==} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$\hyperlink{jquery_8js_a2335e57f79b6acfb6de59c235dc8a83e}{p}) const 
 \item 
-bool \hyperlink{classtesting_1_1internal_1_1linked__ptr_a3685f9661bbe410cfa58fea2f14396b7}{operator!=} (T $\ast$p) const 
+bool \hyperlink{classtesting_1_1internal_1_1linked__ptr_a3685f9661bbe410cfa58fea2f14396b7}{operator!=} (\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$\hyperlink{jquery_8js_a2335e57f79b6acfb6de59c235dc8a83e}{p}) const 
 \item 
 {\footnotesize template$<$typename U $>$ }\\bool \hyperlink{classtesting_1_1internal_1_1linked__ptr_a3b46c9ecfd928673a524dcb3c70fd2ad}{operator==} (\hyperlink{classtesting_1_1internal_1_1linked__ptr}{linked\+\_\+ptr}$<$ U $>$ const \&ptr) const 
 \item 
@@ -47,120 +47,194 @@ bool \hyperlink{classtesting_1_1internal_1_1linked__ptr_a3685f9661bbe410cfa58fea
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class testing\+::internal\+::linked\+\_\+ptr$<$ T $>$}
+
+
+
+Definition at line 146 of file gtest-\/linked\+\_\+ptr.\+h.
+
+
+
 \subsection{Member Typedef Documentation}
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!element\+\_\+type@{element\+\_\+type}}
 \index{element\+\_\+type@{element\+\_\+type}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{element\+\_\+type}{element_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef T {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::{\bf element\+\_\+type}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d916514c4e4385a0063}{}\label{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d916514c4e4385a0063}
+\subsubsection[{\texorpdfstring{element\+\_\+type}{element_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef {\bf T} {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::{\bf element\+\_\+type}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d916514c4e4385a0063}{}\label{classtesting_1_1internal_1_1linked__ptr_a295c7d1ee4100d916514c4e4385a0063}
+
+
+Definition at line 148 of file gtest-\/linked\+\_\+ptr.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!linked\+\_\+ptr@{linked\+\_\+ptr}}
 \index{linked\+\_\+ptr@{linked\+\_\+ptr}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{linked\+\_\+ptr(\+T $\ast$ptr=\+N\+U\+L\+L)}{linked_ptr(T *ptr=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::{\bf linked\+\_\+ptr} (
+\subsubsection[{\texorpdfstring{linked\+\_\+ptr(\+T $\ast$ptr=\+N\+U\+L\+L)}{linked_ptr(T *ptr=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::{\bf linked\+\_\+ptr} (
 \begin{DoxyParamCaption}
-\item[{T $\ast$}]{ptr = {\ttfamily NULL}}
+\item[{{\bf T} $\ast$}]{ptr = {\ttfamily NULL}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_ae805418b9f03f14ff49649e710475dba}{}\label{classtesting_1_1internal_1_1linked__ptr_ae805418b9f03f14ff49649e710475dba}
+
+
+Definition at line 152 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!````~linked\+\_\+ptr@{$\sim$linked\+\_\+ptr}}
 \index{````~linked\+\_\+ptr@{$\sim$linked\+\_\+ptr}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{$\sim$linked\+\_\+ptr()}{~linked_ptr()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::$\sim${\bf linked\+\_\+ptr} (
+\subsubsection[{\texorpdfstring{$\sim$linked\+\_\+ptr()}{~linked_ptr()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::$\sim${\bf linked\+\_\+ptr} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_af99460fd09ca0f83e061ea480ef1a45e}{}\label{classtesting_1_1internal_1_1linked__ptr_af99460fd09ca0f83e061ea480ef1a45e}
+
+
+Definition at line 153 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!linked\+\_\+ptr@{linked\+\_\+ptr}}
 \index{linked\+\_\+ptr@{linked\+\_\+ptr}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{linked\+\_\+ptr(linked\+\_\+ptr$<$ U $>$ const \&ptr)}{linked_ptr(linked_ptr< U > const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::{\bf linked\+\_\+ptr} (
+\subsubsection[{\texorpdfstring{linked\+\_\+ptr(linked\+\_\+ptr$<$ U $>$ const \&ptr)}{linked_ptr(linked_ptr< U > const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::{\bf linked\+\_\+ptr} (
 \begin{DoxyParamCaption}
 \item[{{\bf linked\+\_\+ptr}$<$ U $>$ const \&}]{ptr}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a7597ed91006edd0467c99bd1aaab07f5}{}\label{classtesting_1_1internal_1_1linked__ptr_a7597ed91006edd0467c99bd1aaab07f5}
+
+
+Definition at line 156 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!linked\+\_\+ptr@{linked\+\_\+ptr}}
 \index{linked\+\_\+ptr@{linked\+\_\+ptr}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{linked\+\_\+ptr(linked\+\_\+ptr const \&ptr)}{linked_ptr(linked_ptr const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::{\bf linked\+\_\+ptr} (
+\subsubsection[{\texorpdfstring{linked\+\_\+ptr(linked\+\_\+ptr const \&ptr)}{linked_ptr(linked_ptr const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::{\bf linked\+\_\+ptr} (
 \begin{DoxyParamCaption}
-\item[{{\bf linked\+\_\+ptr}$<$ T $>$ const \&}]{ptr}
+\item[{{\bf linked\+\_\+ptr}$<$ {\bf T} $>$ const \&}]{ptr}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_abc076b5678cc7f64306d5ecfefc93aff}{}\label{classtesting_1_1internal_1_1linked__ptr_abc076b5678cc7f64306d5ecfefc93aff}
+
+
+Definition at line 157 of file gtest-\/linked\+\_\+ptr.\+h.
+
 
 
 \subsection{Member Function Documentation}
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!get@{get}}
 \index{get@{get}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{get() const }{get() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T$\ast$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::get (
+\subsubsection[{\texorpdfstring{get() const }{get() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf T}$\ast$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::get (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a6ea8584d9bcad13c3266834f5ce5e771}{}\label{classtesting_1_1internal_1_1linked__ptr_a6ea8584d9bcad13c3266834f5ce5e771}
+
+
+Definition at line 182 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator"!=(\+T $\ast$p) const }{operator!=(T *p) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator!= (
+\subsubsection[{\texorpdfstring{operator"!=(\+T $\ast$p) const }{operator!=(T *p) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator!= (
 \begin{DoxyParamCaption}
-\item[{T $\ast$}]{p}
+\item[{{\bf T} $\ast$}]{p}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a3685f9661bbe410cfa58fea2f14396b7}{}\label{classtesting_1_1internal_1_1linked__ptr_a3685f9661bbe410cfa58fea2f14396b7}
+
+
+Definition at line 187 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator"!=(linked\+\_\+ptr$<$ U $>$ const \&ptr) const }{operator!=(linked_ptr< U > const &ptr) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator!= (
+\subsubsection[{\texorpdfstring{operator"!=(linked\+\_\+ptr$<$ U $>$ const \&ptr) const }{operator!=(linked_ptr< U > const &ptr) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator!= (
 \begin{DoxyParamCaption}
 \item[{{\bf linked\+\_\+ptr}$<$ U $>$ const \&}]{ptr}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a6449584b90a09a313300599fb3a23633}{}\label{classtesting_1_1internal_1_1linked__ptr_a6449584b90a09a313300599fb3a23633}
+
+
+Definition at line 193 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T\& {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator$\ast$ (
+\subsubsection[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf T}\& {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator$\ast$ (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_aec393cbd60f96defde36ef8a69d94254}{}\label{classtesting_1_1internal_1_1linked__ptr_aec393cbd60f96defde36ef8a69d94254}
+
+
+Definition at line 184 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator-\/$>$@{operator-\/$>$}}
 \index{operator-\/$>$@{operator-\/$>$}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator-\/$>$() const }{operator->() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T$\ast$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator-\/$>$ (
+\subsubsection[{\texorpdfstring{operator-\/$>$() const }{operator->() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf T}$\ast$ {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator-\/$>$ (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_aa878c3e874242fb3cd2aa14ec603aa25}{}\label{classtesting_1_1internal_1_1linked__ptr_aa878c3e874242fb3cd2aa14ec603aa25}
+
+
+Definition at line 183 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator=@{operator=}}
 \index{operator=@{operator=}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator=(linked\+\_\+ptr$<$ U $>$ const \&ptr)}{operator=(linked_ptr< U > const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ {\bf linked\+\_\+ptr}\& {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator= (
+\subsubsection[{\texorpdfstring{operator=(linked\+\_\+ptr$<$ U $>$ const \&ptr)}{operator=(linked_ptr< U > const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ {\bf linked\+\_\+ptr}\& {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator= (
 \begin{DoxyParamCaption}
 \item[{{\bf linked\+\_\+ptr}$<$ U $>$ const \&}]{ptr}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a82608d98869b750d9ab729f1450a9a45}{}\label{classtesting_1_1internal_1_1linked__ptr_a82608d98869b750d9ab729f1450a9a45}
+
+
+Definition at line 163 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator=@{operator=}}
 \index{operator=@{operator=}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator=(linked\+\_\+ptr const \&ptr)}{operator=(linked_ptr const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf linked\+\_\+ptr}\& {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator= (
+\subsubsection[{\texorpdfstring{operator=(linked\+\_\+ptr const \&ptr)}{operator=(linked_ptr const &ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf linked\+\_\+ptr}\& {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator= (
 \begin{DoxyParamCaption}
-\item[{{\bf linked\+\_\+ptr}$<$ T $>$ const \&}]{ptr}
+\item[{{\bf linked\+\_\+ptr}$<$ {\bf T} $>$ const \&}]{ptr}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a1f40b5e66e6cf7b661ea116c806f952e}{}\label{classtesting_1_1internal_1_1linked__ptr_a1f40b5e66e6cf7b661ea116c806f952e}
+
+
+Definition at line 169 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator==@{operator==}}
 \index{operator==@{operator==}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator==(\+T $\ast$p) const }{operator==(T *p) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator== (
+\subsubsection[{\texorpdfstring{operator==(\+T $\ast$p) const }{operator==(T *p) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator== (
 \begin{DoxyParamCaption}
-\item[{T $\ast$}]{p}
+\item[{{\bf T} $\ast$}]{p}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_abe2154fd3ad3574dfe6f2320bc1debc4}{}\label{classtesting_1_1internal_1_1linked__ptr_abe2154fd3ad3574dfe6f2320bc1debc4}
+
+
+Definition at line 186 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!operator==@{operator==}}
 \index{operator==@{operator==}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{operator==(linked\+\_\+ptr$<$ U $>$ const \&ptr) const }{operator==(linked_ptr< U > const &ptr) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::operator== (
+\subsubsection[{\texorpdfstring{operator==(linked\+\_\+ptr$<$ U $>$ const \&ptr) const }{operator==(linked_ptr< U > const &ptr) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ bool {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::operator== (
 \begin{DoxyParamCaption}
 \item[{{\bf linked\+\_\+ptr}$<$ U $>$ const \&}]{ptr}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a3b46c9ecfd928673a524dcb3c70fd2ad}{}\label{classtesting_1_1internal_1_1linked__ptr_a3b46c9ecfd928673a524dcb3c70fd2ad}
+
+
+Definition at line 189 of file gtest-\/linked\+\_\+ptr.\+h.
+
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!reset@{reset}}
 \index{reset@{reset}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
-\subsubsection[{\texorpdfstring{reset(\+T $\ast$ptr=\+N\+U\+L\+L)}{reset(T *ptr=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ T $>$\+::reset (
+\subsubsection[{\texorpdfstring{reset(\+T $\ast$ptr=\+N\+U\+L\+L)}{reset(T *ptr=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf testing\+::internal\+::linked\+\_\+ptr}$<$ {\bf T} $>$\+::reset (
 \begin{DoxyParamCaption}
-\item[{T $\ast$}]{ptr = {\ttfamily NULL}}
+\item[{{\bf T} $\ast$}]{ptr = {\ttfamily NULL}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a95ba3b7b66ed0193c779976c6e126ab6}{}\label{classtesting_1_1internal_1_1linked__ptr_a95ba3b7b66ed0193c779976c6e126ab6}
+
+
+Definition at line 178 of file gtest-\/linked\+\_\+ptr.\+h.
+
 
 
 \subsection{Friends And Related Function Documentation}
 \index{testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}!linked\+\_\+ptr@{linked\+\_\+ptr}}
 \index{linked\+\_\+ptr@{linked\+\_\+ptr}!testing\+::internal\+::linked\+\_\+ptr@{testing\+::internal\+::linked\+\_\+ptr}}
 \subsubsection[{\texorpdfstring{linked\+\_\+ptr}{linked_ptr}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ friend class {\bf linked\+\_\+ptr}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classtesting_1_1internal_1_1linked__ptr_a7763f286ca03a7f7363a033d996c8c1c}{}\label{classtesting_1_1internal_1_1linked__ptr_a7763f286ca03a7f7363a033d996c8c1c}
+
+
+Definition at line 199 of file gtest-\/linked\+\_\+ptr.\+h.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

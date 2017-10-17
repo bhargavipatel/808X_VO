@@ -7,60 +7,66 @@
 
 
 Inheritance diagram for testing\+:\+:internal\+:\+:Action\+Result\+Holder$<$ T $>$\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=241pt]{classtesting_1_1internal_1_1_action_result_holder__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for testing\+:\+:internal\+:\+:Action\+Result\+Holder$<$ T $>$\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=241pt]{classtesting_1_1internal_1_1_action_result_holder__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-T \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a057df6cceeeab9ea06e679bcf6b78960}{Unwrap} ()
+\hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a057df6cceeeab9ea06e679bcf6b78960}{Unwrap} ()
 \item 
 virtual void \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a70989192d3ed669c059a7e29c4a7b9fc}{Print\+As\+Action\+Result} (\+::std\+::ostream $\ast$os) const 
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename F $>$ }\\static \hyperlink{classtesting_1_1internal_1_1_action_result_holder}{Action\+Result\+Holder} $\ast$ \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a9609dcb5fb16271f83d777b087075272}{Perform\+Default\+Action} (const \hyperlink{classtesting_1_1internal_1_1_function_mocker_base}{Function\+Mocker\+Base}$<$ F $>$ $\ast$func\+\_\+mocker, const typename \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::Argument\+Tuple \&args, const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \&call\+\_\+description)
+{\footnotesize template$<$typename F $>$ }\\static \hyperlink{classtesting_1_1internal_1_1_action_result_holder}{Action\+Result\+Holder} $\ast$ \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a9609dcb5fb16271f83d777b087075272}{Perform\+Default\+Action} (const \hyperlink{classtesting_1_1internal_1_1_function_mocker_base}{Function\+Mocker\+Base}$<$ F $>$ $\ast$func\+\_\+mocker, const typename \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{typedefs__d_8js_a396b2bdc7ef45f482a7e9254b15c3c01}{Argument\+Tuple} \&args, const \hyperlink{namespacetesting_1_1internal_a8e8ff5b11e64078831112677156cb111}{string} \&call\+\_\+description)
 \item 
-{\footnotesize template$<$typename F $>$ }\\static \hyperlink{classtesting_1_1internal_1_1_action_result_holder}{Action\+Result\+Holder} $\ast$ \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a9e10aff754b5caf69b14964f3c9c79ec}{Perform\+Action} (const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \&action, const typename \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::Argument\+Tuple \&args)
+{\footnotesize template$<$typename F $>$ }\\static \hyperlink{classtesting_1_1internal_1_1_action_result_holder}{Action\+Result\+Holder} $\ast$ \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a9e10aff754b5caf69b14964f3c9c79ec}{Perform\+Action} (const \hyperlink{classtesting_1_1_action}{Action}$<$ F $>$ \&action, const typename \hyperlink{structtesting_1_1internal_1_1_function}{Function}$<$ F $>$\+::\hyperlink{typedefs__d_8js_a396b2bdc7ef45f482a7e9254b15c3c01}{Argument\+Tuple} \&args)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class testing\+::internal\+::\+Action\+Result\+Holder$<$ T $>$}
+
+
+
+Definition at line 1372 of file gmock-\/spec-\/builders.\+h.
+
 
 
 \subsection{Member Function Documentation}
 \index{testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}!Perform\+Action@{Perform\+Action}}
 \index{Perform\+Action@{Perform\+Action}!testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}}
-\subsubsection[{\texorpdfstring{Perform\+Action(const Action$<$ F $>$ \&action, const typename Function$<$ F $>$\+::\+Argument\+Tuple \&args)}{PerformAction(const Action< F > &action, const typename Function< F >::ArgumentTuple &args)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template$<$typename F $>$ static {\bf Action\+Result\+Holder}$\ast$ {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ T $>$\+::Perform\+Action (
+\subsubsection[{\texorpdfstring{Perform\+Action(const Action$<$ F $>$ \&action, const typename Function$<$ F $>$\+::\+Argument\+Tuple \&args)}{PerformAction(const Action< F > &action, const typename Function< F >::ArgumentTuple &args)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template$<$typename F $>$ static {\bf Action\+Result\+Holder}$\ast$ {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ {\bf T} $>$\+::Perform\+Action (
 \begin{DoxyParamCaption}
 \item[{const {\bf Action}$<$ F $>$ \&}]{action, }
-\item[{const typename {\bf Function}$<$ F $>$\+::Argument\+Tuple \&}]{args}
+\item[{const typename {\bf Function}$<$ F $>$\+::{\bf Argument\+Tuple} \&}]{args}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classtesting_1_1internal_1_1_action_result_holder_a9e10aff754b5caf69b14964f3c9c79ec}{}\label{classtesting_1_1internal_1_1_action_result_holder_a9e10aff754b5caf69b14964f3c9c79ec}
+
+
+Definition at line 1401 of file gmock-\/spec-\/builders.\+h.
+
 \index{testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}!Perform\+Default\+Action@{Perform\+Default\+Action}}
 \index{Perform\+Default\+Action@{Perform\+Default\+Action}!testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}}
-\subsubsection[{\texorpdfstring{Perform\+Default\+Action(const Function\+Mocker\+Base$<$ F $>$ $\ast$func\+\_\+mocker, const typename Function$<$ F $>$\+::\+Argument\+Tuple \&args, const string \&call\+\_\+description)}{PerformDefaultAction(const FunctionMockerBase< F > *func_mocker, const typename Function< F >::ArgumentTuple &args, const string &call_description)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template$<$typename F $>$ static {\bf Action\+Result\+Holder}$\ast$ {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ T $>$\+::Perform\+Default\+Action (
+\subsubsection[{\texorpdfstring{Perform\+Default\+Action(const Function\+Mocker\+Base$<$ F $>$ $\ast$func\+\_\+mocker, const typename Function$<$ F $>$\+::\+Argument\+Tuple \&args, const string \&call\+\_\+description)}{PerformDefaultAction(const FunctionMockerBase< F > *func_mocker, const typename Function< F >::ArgumentTuple &args, const string &call_description)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template$<$typename F $>$ static {\bf Action\+Result\+Holder}$\ast$ {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ {\bf T} $>$\+::Perform\+Default\+Action (
 \begin{DoxyParamCaption}
 \item[{const {\bf Function\+Mocker\+Base}$<$ F $>$ $\ast$}]{func\+\_\+mocker, }
-\item[{const typename {\bf Function}$<$ F $>$\+::Argument\+Tuple \&}]{args, }
+\item[{const typename {\bf Function}$<$ F $>$\+::{\bf Argument\+Tuple} \&}]{args, }
 \item[{const {\bf string} \&}]{call\+\_\+description}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classtesting_1_1internal_1_1_action_result_holder_a9609dcb5fb16271f83d777b087075272}{}\label{classtesting_1_1internal_1_1_action_result_holder_a9609dcb5fb16271f83d777b087075272}
+
+
+Definition at line 1389 of file gmock-\/spec-\/builders.\+h.
+
 \index{testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}!Print\+As\+Action\+Result@{Print\+As\+Action\+Result}}
 \index{Print\+As\+Action\+Result@{Print\+As\+Action\+Result}!testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}}
-\subsubsection[{\texorpdfstring{Print\+As\+Action\+Result(\+::std\+::ostream $\ast$os) const }{PrintAsActionResult(::std::ostream *os) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual void {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ T $>$\+::Print\+As\+Action\+Result (
+\subsubsection[{\texorpdfstring{Print\+As\+Action\+Result(\+::std\+::ostream $\ast$os) const }{PrintAsActionResult(::std::ostream *os) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual void {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ {\bf T} $>$\+::Print\+As\+Action\+Result (
 \begin{DoxyParamCaption}
 \item[{\+::std\+::ostream $\ast$}]{os}
 \end{DoxyParamCaption}
@@ -69,13 +75,21 @@ virtual void \hyperlink{classtesting_1_1internal_1_1_action_result_holder_a70989
 
 Implements \hyperlink{classtesting_1_1internal_1_1_untyped_action_result_holder_base_a4b4a558fcb1d3b02c0fec34f186d3b90}{testing\+::internal\+::\+Untyped\+Action\+Result\+Holder\+Base}.
 
+
+
+Definition at line 1380 of file gmock-\/spec-\/builders.\+h.
+
 \index{testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}!Unwrap@{Unwrap}}
 \index{Unwrap@{Unwrap}!testing\+::internal\+::\+Action\+Result\+Holder@{testing\+::internal\+::\+Action\+Result\+Holder}}
-\subsubsection[{\texorpdfstring{Unwrap()}{Unwrap()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ T $>$\+::Unwrap (
+\subsubsection[{\texorpdfstring{Unwrap()}{Unwrap()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf T} {\bf testing\+::internal\+::\+Action\+Result\+Holder}$<$ {\bf T} $>$\+::Unwrap (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classtesting_1_1internal_1_1_action_result_holder_a057df6cceeeab9ea06e679bcf6b78960}{}\label{classtesting_1_1internal_1_1_action_result_holder_a057df6cceeeab9ea06e679bcf6b78960}
+
+
+Definition at line 1375 of file gmock-\/spec-\/builders.\+h.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

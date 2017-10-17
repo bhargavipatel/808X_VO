@@ -9,8 +9,18 @@
 \item 
 {\footnotesize template$<$typename T1 , typename T2 $>$ }\\static \hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \hyperlink{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a12c7194b2a210b61f06c912eef484ca6}{Compare} (const char $\ast$lhs\+\_\+expression, const char $\ast$rhs\+\_\+expression, const T1 \&lhs, const T2 \&rhs, typename \hyperlink{structtesting_1_1internal_1_1_enable_if}{Enable\+If}$<$!\hyperlink{structtesting_1_1internal_1_1is__pointer}{is\+\_\+pointer}$<$ T2 $>$\+::value $>$\+::type $\ast$=0)
 \item 
-{\footnotesize template$<$typename T $>$ }\\static \hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \hyperlink{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a6f292601a68c8f0d49e6d48bd309b900}{Compare} (const char $\ast$lhs\+\_\+expression, const char $\ast$rhs\+\_\+expression, Secret $\ast$, T $\ast$rhs)
+{\footnotesize template$<$typename T $>$ }\\static \hyperlink{classtesting_1_1_assertion_result}{Assertion\+Result} \hyperlink{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a6f292601a68c8f0d49e6d48bd309b900}{Compare} (const char $\ast$lhs\+\_\+expression, const char $\ast$rhs\+\_\+expression, Secret $\ast$, \hyperlink{functions__7_8js_adf1f3edb9115acb0a1e04209b7a9937b}{T} $\ast$rhs)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$$>$\\*
+class testing\+::internal\+::\+Eq\+Helper$<$ true $>$}
+
+
+
+Definition at line 1441 of file gtest.\+h.
+
 
 
 \subsection{Member Function Documentation}
@@ -25,6 +35,10 @@
 \item[{typename {\bf Enable\+If}$<$!{\bf is\+\_\+pointer}$<$ T2 $>$\+::value $>$\+::type $\ast$}]{ = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a12c7194b2a210b61f06c912eef484ca6}{}\label{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a12c7194b2a210b61f06c912eef484ca6}
+
+
+Definition at line 1448 of file gtest.\+h.
+
 \index{testing\+::internal\+::\+Eq\+Helper$<$ true $>$@{testing\+::internal\+::\+Eq\+Helper$<$ true $>$}!Compare@{Compare}}
 \index{Compare@{Compare}!testing\+::internal\+::\+Eq\+Helper$<$ true $>$@{testing\+::internal\+::\+Eq\+Helper$<$ true $>$}}
 \subsubsection[{\texorpdfstring{Compare(const char $\ast$lhs\+\_\+expression, const char $\ast$rhs\+\_\+expression, Secret $\ast$, T $\ast$rhs)}{Compare(const char *lhs_expression, const char *rhs_expression, Secret *, T *rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ static {\bf Assertion\+Result} {\bf testing\+::internal\+::\+Eq\+Helper}$<$ true $>$\+::Compare (
@@ -32,9 +46,13 @@
 \item[{const char $\ast$}]{lhs\+\_\+expression, }
 \item[{const char $\ast$}]{rhs\+\_\+expression, }
 \item[{Secret $\ast$}]{, }
-\item[{T $\ast$}]{rhs}
+\item[{{\bf T} $\ast$}]{rhs}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a6f292601a68c8f0d49e6d48bd309b900}{}\label{classtesting_1_1internal_1_1_eq_helper_3_01true_01_4_a6f292601a68c8f0d49e6d48bd309b900}
+
+
+Definition at line 1465 of file gtest.\+h.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

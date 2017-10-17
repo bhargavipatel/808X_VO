@@ -4,9 +4,9 @@
  *  @copyright MIT License
  *  
  *  @brief ENPM808X, Midsem Exam
- *  @section DESCRIPTION
- *  
- *  
+ *  @section DESCRIPTION 
+ *  This program checks and integrate the main visual odometry
+ *  module vo.
  *
  */
 #ifndef INCLUDE_ALLMOD_HPP_

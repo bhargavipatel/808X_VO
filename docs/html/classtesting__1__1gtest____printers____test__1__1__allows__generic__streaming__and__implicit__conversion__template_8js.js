@@ -1,0 +1,4 @@
+var classtesting__1__1gtest____printers____test__1__1__allows__generic__streaming__and__implicit__conversion__template_8js =
+[
+    [ "classtesting_1_1gtest__printers__test_1_1_allows_generic_streaming_and_implicit_conversion_template", "classtesting__1__1gtest____printers____test__1__1__allows__generic__streaming__and__implicit__conversion__template_8js.html#a5b062b8e777b3d9b6955e67a2a8fba80", null ]
+];

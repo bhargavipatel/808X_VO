@@ -1,0 +1,4 @@
+var classgtest____throw____on____failure____test__1__1__throw__on__failure__test_8js =
+[
+    [ "classgtest__throw__on__failure__test_1_1_throw_on_failure_test", "classgtest____throw____on____failure____test__1__1__throw__on__failure__test_8js.html#abf4da64ddf12a7e5655bbc6113fd4956", null ]
+];

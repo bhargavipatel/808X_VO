@@ -5,8 +5,9 @@
  *  
  *  @brief ENPM808X, MidSem Exam
  *
- *  @section DESCRIPTION
- *   *
+ *  @section This is the main visual odometry
+ *  class vo's header file.
+ *
  */
 #ifndef INCLUDE_VO_HPP_
 #define INCLUDE_VO_HPP_
@@ -51,6 +52,9 @@ class vo {
     cv::Mat descriptors_1, descriptors_2;
 
     // std
+    /**
+     * @brief      Constructor of vo.
+     */
     vo();
 
     /**
@@ -73,19 +77,27 @@ class vo {
 
     /**
      * @brief      readLutToMat
+     *             This will read the lookuop table and convert
+     *             to mat file
      */
     int readLutToMat(cv::Mat&I, cv::String path, int matWidth, int matHeight);
     /**
      * @brief      for good matches
+     *             Computing matches applying a threshold
      */
     void computeGoodMatches(std::vector< cv::DMatch >& good_matches,
           cv::Mat& descriptors_1, cv::Mat& descriptors_2);
     /**
-     * @brief      Get Results.
+     * @brief      Get flag value to check working of vo
      *
      * @return     The 
      */
     bool checkRes();
+    /**
+     * @brief if file is being loaded properly    
+     * 
+     * 
+     */
     bool checkfile_fun();
 };
 #endif  //  INCLUDE_VO_HPP_

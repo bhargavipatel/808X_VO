@@ -97,7 +97,7 @@ This seemed like a good idea, but it has a got-\/cha\+: every user needs to comp
 
 Why? Because C++ has this thing called the One-\/\+Definition Rule\+: if two C++ source files contain different definitions of the same class/function/variable, and you link them together, you violate the rule. The linker may or may not catch the error (in many cases it\textquotesingle{}s not required by the C++ standard to catch the violation). If it doesn\textquotesingle{}t, you get strange run-\/time behaviors that are unexpected and hard to debug.
 
-If you compile Google Test and your test code using different compiler flags, they may see different definitions of the same class/function/variable (e.\+g. due to the use of {\ttfamily \#if} in Google Test). Therefore, for your sanity, we recommend to avoid installing pre-\/compiled Google Test libraries. Instead, each project should compile Google Test itself such that it can be sure that the same flags are used for both Google Test and the tests.
+If you compile Google Test and your test code using different compiler flags, they may see different definitions of the same class/function/variable (e.\+g. due to the use of {\ttfamily \hyperlink{jquery_8js_a42cbfadee2b4749e8f699ea8d745a0e4}{if}} in Google Test). Therefore, for your sanity, we recommend to avoid installing pre-\/compiled Google Test libraries. Instead, each project should compile Google Test itself such that it can be sure that the same flags are used for both Google Test and the tests.
 
 \subsection*{How do I generate 64-\/bit binaries on Windows (using Visual Studio 2008)?}
 
